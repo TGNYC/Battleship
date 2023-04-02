@@ -2,8 +2,8 @@
 
 #include "GameWindow.h"
 
-bool Battleship::OnInit() {
-  GameWindow *gameWindow = new GameWindow("Battleship", wxDefaultPosition, wxDefaultSize);
+auto Battleship::OnInit() -> bool {
+  auto *gameWindow = new GameWindow("Battleship", wxDefaultPosition, wxDefaultSize);
   gameWindow->Show(true);
 
   return true;

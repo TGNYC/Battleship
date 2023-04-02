@@ -5,7 +5,7 @@
 
 class Battleship : public wxApp {
 public:
-  virtual bool OnInit();
+  auto OnInit() -> bool override;
 };
 
 #endif // BATTLESHIP_H
