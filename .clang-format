@@ -1,0 +1,28 @@
+---
+BasedOnStyle: LLVM
+AlignConsecutiveAssignments:
+  Enabled: true
+  AlignCompound: true
+AlignConsecutiveBitFields:
+  Enabled: true
+  AlignCompound: true
+  PadOperators: true
+AlignConsecutiveDeclarations:
+  Enabled: true
+  AlignCompound: true
+  PadOperators: true
+AlignConsecutiveMacros:
+  Enabled: true
+  AlignCompound: true
+  PadOperators: true
+AlignOperands: AlignAfterOperator
+AllowShortBlocksOnASingleLine: Empty
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: Empty
+AlwaysBreakTemplateDeclarations: Yes
+BreakStringLiterals: false
+ColumnLimit: 120
+Standard: c++20
+...
+
