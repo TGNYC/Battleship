@@ -4,6 +4,7 @@ project(Battleship VERSION 0.0.1 LANGUAGES CXX)
 
 add_library(project_options INTERFACE)
 target_compile_options(project_options INTERFACE -Wall -Wextra -Wpedantic)
+target_compile_features(project_options INTERFACE cxx_std_20)
 
 add_subdirectory(./src)
 
