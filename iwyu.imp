@@ -1,0 +1,4 @@
+[
+    { include: [ "<nlohmann/json_fwd.hpp>", "private", "<nlohmann/json.hpp>", "public" ] },
+    { include: [ "@<wx/.*>", "private", "<wx/wx.h>", "public" ] }
+]

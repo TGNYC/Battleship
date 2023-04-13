@@ -2,9 +2,12 @@
 #include "ClientRequest.h"
 #include "Coordinate.h"
 #include "JoinGame.h"
+#include "PlayAgain.h"
+#include "QuitGame.h"
+#include "SendEmote.h"
 #include "Ship.h"
 #include "StartGame.h"
-#include "serialization.h"
+#include "serialization.h" // IWYU pragma: keep
 #include "uuid.h"
 #include "gtest/gtest.h"
 #include <algorithm>

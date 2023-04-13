@@ -9,7 +9,11 @@ endif()
 option(ENABLE_IWYU "Enabeling include-what-you-use" OFF)
 if(ENABLE_IWYU)
 find_program(IWYU iwyu NAMES include-what-you-use REQUIRED)
-set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE ${IWYU})
+set(IWYU_WITH_OPTIONS
+  ${IWYU}
+  -Xiwyu
+  --mapping_file=${CMAKE_CURRENT_SOURCE_DIR}/iwyu.imp)
+set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE ${IWYU_WITH_OPTIONS})
 endif()
 
 project(Battleship VERSION 0.0.1 LANGUAGES CXX)
