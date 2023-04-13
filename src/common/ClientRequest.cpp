@@ -3,11 +3,12 @@
 #include "uuid.h"
 
 auto ClientRequest::getRequestType() const -> RequestType {
-  return requestType;
+  return m_requestType;
 }
 
 auto ClientRequest::getPlayerId() const -> uuid {
-  return playerId;
+  return m_playerId;
 }
 
-ClientRequest::ClientRequest(uuid playerId, RequestType requestType) : playerId(playerId), requestType(requestType){};
+ClientRequest::ClientRequest(uuid playerId, RequestType requestType)
+    : m_playerId(playerId), m_requestType(requestType){};

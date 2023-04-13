@@ -18,7 +18,7 @@ public:
   auto operator<=>(const uuid &) const = default;
 
 private:
-  std::array<std::uint8_t, 16> octets = {};
+  std::array<std::uint8_t, 16> m_octets = {};
 };
 
 #endif // UUID_H

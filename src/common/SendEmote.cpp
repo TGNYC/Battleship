@@ -6,8 +6,8 @@
 #include <utility>
 
 SendEmote::SendEmote(uuid playerId, std::string emote)
-    : ClientRequest(playerId, RequestType::SendEmote), emote(std::move(emote)) {}
+    : ClientRequest(playerId, RequestType::SendEmote), m_emote(std::move(emote)) {}
 
 auto SendEmote::getEmote() const -> std::string {
-  return emote;
+  return m_emote;
 }

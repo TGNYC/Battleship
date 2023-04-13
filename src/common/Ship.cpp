@@ -1,17 +1,17 @@
 #include "Ship.h"
 
 Ship::Ship(int length, Coordinate position, Orientation orientation, uuid id)
-    : length(length), position(position), orientation(orientation), id(id) {}
+    : m_length(length), m_position(position), m_orientation(orientation), m_id(id) {}
 
 auto Ship::getLength() const -> int {
-  return length;
+  return m_length;
 }
 auto Ship::getPosition() const -> Coordinate {
-  return position;
+  return m_position;
 }
 auto Ship::getOrientation() const -> Orientation {
-  return orientation;
+  return m_orientation;
 }
 auto Ship::getId() const -> uuid {
-  return id;
+  return m_id;
 }

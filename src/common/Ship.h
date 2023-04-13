@@ -21,10 +21,10 @@ public:
   auto operator<=>(const Ship &) const = default;
 
 private:
-  int         length;
-  Coordinate  position;
-  Orientation orientation;
-  uuid        id;
+  int         m_length;
+  Coordinate  m_position;
+  Orientation m_orientation;
+  uuid        m_id;
 };
 
 #endif // SHIP_H

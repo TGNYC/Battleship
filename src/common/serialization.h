@@ -13,23 +13,21 @@
 #include <memory>
 #include <nlohmann/json.hpp>
 
-using json = nlohmann::json;
-
-inline void to_json(json &json, const Coordinate &position) {
+inline void to_json(nlohmann::json &json, const Coordinate &position) {
   json["x"] = position.x;
   json["y"] = position.y;
 }
 
-inline void from_json(const json &json, Coordinate &position) {
+inline void from_json(const nlohmann::json &json, Coordinate &position) {
   json.at("x").get_to(position.x);
   json.at("y").get_to(position.y);
 }
 
-inline void to_json(json &json, const uuid &uuid) {
+inline void to_json(nlohmann::json &json, const uuid &uuid) {
   json = uuid.ToString();
 }
 
-inline void from_json(const json &json, uuid &uuid_v) {
+inline void from_json(const nlohmann::json &json, uuid &uuid_v) {
   uuid_v = uuid(json.get<std::string>());
 }
 
