@@ -1,11 +1,7 @@
 #ifndef CLIENTREQUEST_H
 #define CLIENTREQUEST_H
 
-#include <memory>
-#include <nlohmann/json.hpp>
-#include <string>
-
-using json = nlohmann::json;
+#include "uuid.h"
 
 enum class RequestType {
   JoinGame,
@@ -18,14 +14,16 @@ enum class RequestType {
 
 class ClientRequest {
 public:
-  auto        getRequestType() -> RequestType;
-  static auto fromJson(const json &message) -> std::unique_ptr<ClientRequest>;
+  auto getRequestType() const -> RequestType;
+  auto getPlayerId() const -> uuid;
+
+  auto operator<=>(const ClientRequest &) const = default;
 
 protected:
-  ClientRequest(std::string playerId, RequestType requestType);
+  ClientRequest(uuid playerId, RequestType requestType);
 
 private:
-  std::string playerId;
+  uuid        playerId;
   RequestType requestType;
 };
 

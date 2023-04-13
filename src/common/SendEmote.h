@@ -2,13 +2,19 @@
 #define SENDEMOTE_H
 
 #include "ClientRequest.h"
-#include <nlohmann/json.hpp>
-
-using json = nlohmann::json;
+#include <string>
+class uuid;
 
 class SendEmote : public ClientRequest {
 public:
-  explicit SendEmote(const json &jsonMessage);
+  SendEmote(uuid playerId, std::string emote);
+
+  auto getEmote() const -> std::string;
+
+  auto operator<=>(const SendEmote &) const = default;
+
+private:
+  std::string emote;
 };
 
 #endif // SENDEMOTE_H

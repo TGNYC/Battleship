@@ -2,13 +2,19 @@
 #define CALLSHOT_H
 
 #include "ClientRequest.h"
-#include <nlohmann/json.hpp>
-
-using json = nlohmann::json;
+#include "Coordinate.h"
+class uuid;
 
 class CallShot : public ClientRequest {
 public:
-  explicit CallShot(const json &jsonMessage);
+  CallShot(uuid playerId, Coordinate position);
+
+  auto getPosition() const -> Coordinate;
+
+  auto operator<=>(const CallShot &) const = default;
+
+private:
+  Coordinate position;
 };
 
 #endif // CALLSHOT_H

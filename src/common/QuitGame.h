@@ -2,13 +2,13 @@
 #define QUITGAME_H
 
 #include "ClientRequest.h"
-#include <nlohmann/json.hpp>
-
-using json = nlohmann::json;
+class uuid;
 
 class QuitGame : public ClientRequest {
 public:
-  explicit QuitGame(const json &jsonMessage);
+  explicit QuitGame(uuid playerId);
+
+  auto operator<=>(const QuitGame &) const = default;
 };
 
 #endif // QUITGAME_H

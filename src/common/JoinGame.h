@@ -2,16 +2,17 @@
 #define JOINGAME_H
 
 #include "ClientRequest.h"
-
-#include <nlohmann/json.hpp>
 #include <string>
-
-using json = nlohmann::json;
+class uuid;
 
 class JoinGame : public ClientRequest {
 
 public:
-  explicit JoinGame(const json &jsonMessage);
+  JoinGame(uuid playerId, std::string playerName);
+
+  auto getPlayerName() const -> std::string;
+
+  auto operator<=>(const JoinGame &) const = default;
 
 private:
   std::string playerName;

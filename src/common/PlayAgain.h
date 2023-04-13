@@ -2,13 +2,13 @@
 #define PLAYAGAIN_H
 
 #include "ClientRequest.h"
-#include <nlohmann/json.hpp>
-
-using json = nlohmann::json;
+class uuid;
 
 class PlayAgain : public ClientRequest {
 public:
-  explicit PlayAgain(const json &jsonMessage);
+  explicit PlayAgain(uuid playerId);
+
+  auto operator<=>(const PlayAgain &) const = default;
 };
 
 #endif // PLAYAGAIN_H

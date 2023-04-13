@@ -1,9 +1,15 @@
 cmake_minimum_required(VERSION 3.20)
 
-option(ENABLE_CLANG_TIDY "Enabeling clang-tidy" ON)
+option(ENABLE_CLANG_TIDY "Enabeling clang-tidy" OFF)
 if(ENABLE_CLANG_TIDY)
 find_program(CLANG_TIDY clang-tidy REQUIRED)
 set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY})
+endif()
+
+option(ENABLE_IWYU "Enabeling include-what-you-use" OFF)
+if(ENABLE_IWYU)
+find_program(IWYU iwyu NAMES include-what-you-use REQUIRED)
+set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE ${IWYU})
 endif()
 
 project(Battleship VERSION 0.0.1 LANGUAGES CXX)
@@ -14,7 +20,7 @@ if(ENABLE_TESTING)
   add_subdirectory(./test)
 endif()
 
-option(ENABLE_DOCS "Enabeling Documentation" ON)
+option(ENABLE_DOCS "Enabeling Documentation" OFF)
 if(ENABLE_DOCS)
   find_package(Doxygen REQUIRED)
   doxygen_add_docs(Battleship_Docs ALL)

@@ -2,13 +2,20 @@
 #define STARTGAME_H
 
 #include "ClientRequest.h"
-#include <nlohmann/json.hpp>
-
-using json = nlohmann::json;
+#include "Ship.h"
+#include <vector>
+class uuid;
 
 class StartGame : public ClientRequest {
 public:
-  explicit StartGame(const json &jsonMessage);
+  StartGame(uuid playerId, std::vector<Ship> ships);
+
+  auto getShips() const -> std::vector<Ship>;
+
+  auto operator<=>(const StartGame &) const = default;
+
+private:
+  std::vector<Ship> ships;
 };
 
 #endif // STARTGAME_H
