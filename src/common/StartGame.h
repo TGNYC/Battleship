@@ -10,7 +10,7 @@ class StartGame : public ClientRequest {
 public:
   StartGame(uuid playerId, std::vector<Ship> ships);
 
-  auto getShips() const -> std::vector<Ship>;
+  [[nodiscard]] auto getShips() const -> std::vector<Ship>;
 
   auto operator<=>(const StartGame &) const = default;
 

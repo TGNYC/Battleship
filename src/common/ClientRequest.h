@@ -14,8 +14,8 @@ enum class RequestType {
 
 class ClientRequest {
 public:
-  auto getRequestType() const -> RequestType;
-  auto getPlayerId() const -> uuid;
+  [[nodiscard]] auto getRequestType() const -> RequestType;
+  [[nodiscard]] auto getPlayerId() const -> uuid;
 
   auto operator<=>(const ClientRequest &) const = default;
 

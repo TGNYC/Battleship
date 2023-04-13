@@ -10,7 +10,7 @@ class JoinGame : public ClientRequest {
 public:
   JoinGame(uuid playerId, std::string playerName);
 
-  auto getPlayerName() const -> std::string;
+  [[nodiscard]] auto getPlayerName() const -> std::string;
 
   auto operator<=>(const JoinGame &) const = default;
 

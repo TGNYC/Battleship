@@ -13,10 +13,10 @@ public:
 
   Ship(int length, Coordinate position, Orientation orientation, uuid id);
 
-  auto getLength() const -> int;
-  auto getPosition() const -> Coordinate;
-  auto getOrientation() const -> Orientation;
-  auto getId() const -> uuid;
+  [[nodiscard]] auto getLength() const -> int;
+  [[nodiscard]] auto getPosition() const -> Coordinate;
+  [[nodiscard]] auto getOrientation() const -> Orientation;
+  [[nodiscard]] auto getId() const -> uuid;
 
   auto operator<=>(const Ship &) const = default;
 

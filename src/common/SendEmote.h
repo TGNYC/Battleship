@@ -9,7 +9,7 @@ class SendEmote : public ClientRequest {
 public:
   SendEmote(uuid playerId, std::string emote);
 
-  auto getEmote() const -> std::string;
+  [[nodiscard]] auto getEmote() const -> std::string;
 
   auto operator<=>(const SendEmote &) const = default;
 

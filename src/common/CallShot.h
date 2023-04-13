@@ -9,7 +9,7 @@ class CallShot : public ClientRequest {
 public:
   CallShot(uuid playerId, Coordinate position);
 
-  auto getPosition() const -> Coordinate;
+  [[nodiscard]] auto getPosition() const -> Coordinate;
 
   auto operator<=>(const CallShot &) const = default;
 

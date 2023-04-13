@@ -79,7 +79,7 @@ TEST(serialization, PlayAgain) {
 
   const PlayAgain playAgainRequest(uuid::generateRandomUuid());
 
-  nlohmann::json message = playAgainRequest;
+  const nlohmann::json message = playAgainRequest;
 
   const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
 
@@ -87,11 +87,11 @@ TEST(serialization, PlayAgain) {
 }
 
 TEST(uuid, defautluuid) {
-  uuid uuid;
+  const uuid uuid;
   ASSERT_EQ(uuid.ToString(), "00000000-0000-0000-0000-000000000000");
 }
 
 TEST(uuid, parseuuid) {
-  uuid uuid("a3351d70-2422-45cc-b10e-fb893862094f");
+  const uuid uuid("a3351d70-2422-45cc-b10e-fb893862094f");
   ASSERT_EQ(uuid.ToString(), "a3351d70-2422-45cc-b10e-fb893862094f");
 }
