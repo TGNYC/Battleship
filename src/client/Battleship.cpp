@@ -5,7 +5,7 @@
 
 auto Battleship::OnInit() -> bool {
   
-  std::unique_ptr<GameWindow> gameWindow = std::make_unique<GameWindow>("Battleship", wxDefaultPosition, wxDefaultSize);
+  auto* gameWindow = new GameWindow("Battleship", wxDefaultPosition, wxDefaultSize);
   gameWindow->Show(true);
 
   return true;
