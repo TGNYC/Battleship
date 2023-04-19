@@ -7,6 +7,7 @@
 #include <sstream>
 #include <string>
 
+// NOLINTBEGIN(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers,hicpp-signed-bitwise)
 uuid::uuid(const std::string &uuidString) {
   std::stringstream stream(uuidString);
 
@@ -84,12 +85,13 @@ auto uuid::generateRandomUuid() -> uuid {
 auto uuid::ToString() const -> std::string {
   std::stringstream stream;
 
-  int index = 0;
-  for (auto octetIterator = m_octets.begin(); octetIterator != m_octets.end(); ++octetIterator, ++index) {
-    stream << std::hex << std::setfill('0') << std::setw(2) << +*octetIterator;
+  for (int index = 0; const auto octet : m_octets) {
+    stream << std::hex << std::setfill('0') << std::setw(2) << +octet;
     if (index == 3 || index == 5 || index == 7 || index == 9) {
       stream << '-';
     }
+    ++index;
   }
   return stream.str();
 }
+// NOLINTEND(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers,hicpp-signed-bitwise)

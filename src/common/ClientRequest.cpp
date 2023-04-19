@@ -11,4 +11,4 @@ auto ClientRequest::getPlayerId() const -> uuid {
 }
 
 ClientRequest::ClientRequest(uuid playerId, RequestType requestType)
-    : m_playerId(playerId), m_requestType(requestType){};
+    : m_playerId(playerId), m_requestType(requestType) {}

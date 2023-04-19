@@ -24,7 +24,8 @@ TEST(serialization, JoinGame) {
 
   const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
 
-  ASSERT_EQ(joinGameRequest, static_cast<const JoinGame &>(*clientRequest));
+  ASSERT_EQ(joinGameRequest,
+            static_cast<const JoinGame &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
 }
 
 TEST(serialization, StartGame) {
@@ -39,40 +40,44 @@ TEST(serialization, StartGame) {
 
   const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
 
-  ASSERT_EQ(startGameRequest, static_cast<const StartGame &>(*clientRequest));
+  ASSERT_EQ(startGameRequest,
+            static_cast<const StartGame &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
 }
 
 TEST(serialization, CallShot) {
 
   const CallShot callShotRequest(uuid::generateRandomUuid(), Coordinate{3, 6});
 
-  nlohmann::json message = callShotRequest;
+  const nlohmann::json message = callShotRequest;
 
   const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
 
-  ASSERT_EQ(callShotRequest, static_cast<const CallShot &>(*clientRequest));
+  ASSERT_EQ(callShotRequest,
+            static_cast<const CallShot &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
 }
 
 TEST(serialization, SendEmote) {
 
   const SendEmote sendEmoteRequest(uuid::generateRandomUuid(), "🚢");
 
-  nlohmann::json message = sendEmoteRequest;
+  const nlohmann::json message = sendEmoteRequest;
 
   const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
 
-  ASSERT_EQ(sendEmoteRequest, static_cast<const SendEmote &>(*clientRequest));
+  ASSERT_EQ(sendEmoteRequest,
+            static_cast<const SendEmote &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
 }
 
 TEST(serialization, QuitGame) {
 
   const QuitGame quitGameRequest(uuid::generateRandomUuid());
 
-  nlohmann::json message = quitGameRequest;
+  const nlohmann::json message = quitGameRequest;
 
   const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
 
-  ASSERT_EQ(quitGameRequest, static_cast<const QuitGame &>(*clientRequest));
+  ASSERT_EQ(quitGameRequest,
+            static_cast<const QuitGame &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
 }
 
 TEST(serialization, PlayAgain) {
@@ -83,7 +88,8 @@ TEST(serialization, PlayAgain) {
 
   const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
 
-  ASSERT_EQ(playAgainRequest, static_cast<const PlayAgain &>(*clientRequest));
+  ASSERT_EQ(playAgainRequest,
+            static_cast<const PlayAgain &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
 }
 
 TEST(uuid, defautluuid) {

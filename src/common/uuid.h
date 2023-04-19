@@ -18,7 +18,7 @@ public:
   auto operator<=>(const uuid &) const = default;
 
 private:
-  std::array<std::uint8_t, 16> m_octets = {};
+  std::array<std::uint8_t, 16> m_octets = {}; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 };
 
 #endif // UUID_H

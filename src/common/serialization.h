@@ -114,8 +114,8 @@ template <>
 struct adl_serializer<std::unique_ptr<ClientRequest>> {
   static auto from_json(const json &json) -> std::unique_ptr<ClientRequest> {
 
-    RequestType requestType = json.at("type").get<RequestType>();
-    uuid        playerId    = json.at("player_id").get<uuid>();
+    const RequestType requestType = json.at("type").get<RequestType>();
+    const uuid        playerId    = json.at("player_id").get<uuid>();
 
     switch (requestType) {
     case RequestType::JoinGame:
@@ -135,7 +135,7 @@ struct adl_serializer<std::unique_ptr<ClientRequest>> {
   }
 
   static void to_json(json &json, const std::unique_ptr<ClientRequest> &clientRequest) {
-    RequestType requestType = clientRequest->getRequestType();
+    const RequestType requestType = clientRequest->getRequestType();
 
     switch (requestType) {
     case RequestType::JoinGame:
