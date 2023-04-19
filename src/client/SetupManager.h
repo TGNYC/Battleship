@@ -1,0 +1,4 @@
+#ifndef SETUPMANAGER_H
+#define SETUPMANAGER_H
+
+#endif // SETUPMANAGER_H

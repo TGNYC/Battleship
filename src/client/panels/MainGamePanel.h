@@ -1,0 +1,4 @@
+#ifndef MAINGAMEPANEL_H
+#define MAINGAMEPANEL_H
+
+#endif // MAINGAMEPANEL_H

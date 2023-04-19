@@ -5,7 +5,9 @@
 
 class GameWindow : public wxFrame {
 public:
-  GameWindow(const wxString &title, const wxPoint &pos, const wxSize &size);
+    GameWindow(const wxString &title, const wxPoint &pos, const wxSize &size);
+    auto showPanel() -> bool;
+    auto setStatus() -> bool;
 };
 
 #endif // GAMEWINDOW_H

@@ -1,0 +1,6 @@
+#ifndef CONNECTIONPANEL_H
+#define CONNECTIONPANEL_H
+
+
+
+#endif // CONNECTIONPANEL_H
