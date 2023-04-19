@@ -6,6 +6,7 @@ add_executable(Battleship_Client
   GameWindow.h)
 
 target_link_libraries(Battleship_Client PRIVATE project_options)
+target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
 
 find_package(wxWidgets COMPONENTS core base net REQUIRED)
 include(${wxWidgets_USE_FILE})
