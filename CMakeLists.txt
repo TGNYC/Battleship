@@ -30,7 +30,7 @@ if(ENABLE_DOCS)
   doxygen_add_docs(Battleship_Docs ALL)
 endif()
 
-add_library(project_options INTERFACE)
+add_library(project_options INTERFACE src/server/main.cpp src/server/server_network_manager.cpp src/server/server_network_manager.h src/server/request_handler.cpp src/server/request_handler.h)
 target_compile_features(project_options INTERFACE cxx_std_20)
 set(WARNINGS
   -Wall
