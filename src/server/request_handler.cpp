@@ -7,6 +7,12 @@
 #define BATTLESHIP_REQUEST_HANDLER_CPP
 
 #include "request_handler.h"
+#include "game_instance.h"
+#include "player_manager.h"
+
+// TODO for common: create join_game_request (JoinGame, StartGame, QuitGame, PlayAgain)
+// TODO for common: create call_shot_request (CallShot)
+// TODO for common: create send_emote_request (SendEmote)
 
 // TODO: link other files in server
 //#include "player_manager.h"
@@ -28,15 +34,14 @@ request_response* request_handler::handle_request(const client_request* const re
   // Get common properties of requests
   RequestType type = req->get_type();
   std::string req_id = req->get_req_id();
-  std::string game_id = req->get_game_id();
+  std::string game_id = req->get_game_id(); // maybe unnecessary since only 1 game
   std::string player_id = req->get_player_id();
-
 
   // Switch behavior according to request type
   switch(type) {
 
   // ##################### JOIN GAME #####################  //
-  case RequestType::join_game: {
+  case RequestType::JoinGame: {
     std::string player_name = ((join_game_request *) req)->get_player_name();
 
     // Create new player or get existing one with that name
@@ -85,45 +90,47 @@ request_response* request_handler::handle_request(const client_request* const re
   }
 
 
-  // ##################### PLAY CARD ##################### //
-  case RequestType::play_card: {
+  // ##################### CALL SHOT ##################### //
+    // TODO: finish implementing the call shot request
+  case RequestType::call_shot: {
     if (game_instance_manager::try_get_player_and_game_instance(player_id, player, game_instance_ptr, err)) {
-      card *drawn_card;
-      std::string card_id = ((play_card_request *) req)->get_card_id();
-      if (game_instance_ptr->play_card(player, card_id, err)) {
-        return new request_response(game_instance_ptr->get_id(), req_id, true,
-                                    game_instance_ptr->get_game_state()->to_json(), err);
-      }
-    }
+//      card *drawn_card;
+//      std::string card_id = ((play_card_request *) req)->get_card_id();
+//      if (game_instance_ptr->play_card(player, card_id, err)) {
+//        return new request_response(game_instance_ptr->get_id(), req_id, true,
+//                                    game_instance_ptr->get_game_state()->to_json(), err);
+//      }
+//    }
     return new request_response("", req_id, false, nullptr, err);
   }
 
 
-  // ##################### DRAW CARD ##################### //
-  case RequestType:: draw_card: {
+  // ##################### SEND EMOTE ##################### //
+  // TODO: finish send_emote request handler
+  case RequestType::send_emote: {
     if (game_instance_manager::try_get_player_and_game_instance(player_id, player, game_instance_ptr, err)) {
-      card *drawn_card;
-      // int nof_cards = ((draw_card_request*)req)->get_nof_cards();
-      if (game_instance_ptr->draw_card(player, drawn_card, err)) {
-        return new request_response(game_instance_ptr->get_id(), req_id, true,
-                                    game_instance_ptr->get_game_state()->to_json(), err);
-      }
-    }
+//      card *drawn_card;
+//      // int nof_cards = ((draw_card_request*)req)->get_nof_cards();
+//      if (game_instance_ptr->draw_card(player, drawn_card, err)) {
+//        return new request_response(game_instance_ptr->get_id(), req_id, true,
+//                                    game_instance_ptr->get_game_state()->to_json(), err);
+//      }
+//    }
     return new request_response("", req_id, false, nullptr, err);
   }
 
 
-  // ##################### FOLD ##################### //
-  case RequestType::fold: {
-    if (game_instance_manager::try_get_player_and_game_instance(player_id, player, game_instance_ptr, err)) {
-      if (game_instance_ptr->fold(player, err)) {
-        return new request_response(game_instance_ptr->get_id(), req_id, true,
-                                    game_instance_ptr->get_game_state()->to_json(), err);
-      }
-    }
-    return new request_response("", req_id, false, nullptr, err);
+  // ##################### QUIT GAME ##################### //
+  // TODO: finish quit_game request handler
+  case RequestType::quit_game: {
+  if (game_instance_manager::try_get_player_and_game_instance(player_id, player, game_instance_ptr, err)) {
+//    if (game_instance_ptr->start_game(player, err)) {
+//        return new request_response(game_instance_ptr->get_id(), req_id, true,
+//                                    game_instance_ptr->get_game_state()->to_json(), err);
+//    }
   }
-
+  return new request_response("", req_id, false, nullptr, err);
+  }
 
   // ##################### UNKNOWN REQUEST ##################### //
   default:

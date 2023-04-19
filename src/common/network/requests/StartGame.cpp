@@ -1,8 +1,8 @@
 #include "StartGame.h"
 
+#include "../../game_state/Ship.h"
+#include "../../uuid.h"
 #include "ClientRequest.h"
-#include "Ship.h"
-#include "uuid.h"
 #include <utility>
 #include <vector>
 

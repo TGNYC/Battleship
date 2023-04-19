@@ -1,8 +1,8 @@
 #ifndef SHIP_H
 #define SHIP_H
 
+#include "../uuid.h"
 #include "Coordinate.h"
-#include "uuid.h"
 
 class Ship {
 public:

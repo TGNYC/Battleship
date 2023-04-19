@@ -1,8 +1,8 @@
 #ifndef STARTGAME_H
 #define STARTGAME_H
 
+#include "../../game_state/Ship.h"
 #include "ClientRequest.h"
-#include "Ship.h"
 #include <vector>
 class uuid;
 

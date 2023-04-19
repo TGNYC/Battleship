@@ -1,7 +1,7 @@
 #include "SendEmote.h"
 
+#include "../../uuid.h"
 #include "ClientRequest.h"
-#include "uuid.h"
 #include <string>
 #include <utility>
 

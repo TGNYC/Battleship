@@ -1,7 +1,7 @@
 #ifndef CLIENTREQUEST_H
 #define CLIENTREQUEST_H
 
-#include "uuid.h"
+#include "../../uuid.h"
 
 enum class RequestType {
   JoinGame,

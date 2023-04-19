@@ -30,7 +30,7 @@ if(ENABLE_DOCS)
   doxygen_add_docs(Battleship_Docs ALL)
 endif()
 
-add_library(project_options INTERFACE src/server/main.cpp src/server/server_network_manager.cpp src/server/server_network_manager.h src/server/request_handler.cpp src/server/request_handler.h)
+add_library(project_options INTERFACE src/server/main.cpp src/server/server_network_manager.cpp src/server/server_network_manager.h src/server/request_handler.cpp src/server/request_handler.h src/server/player_manager.cpp src/server/player_manager.h src/server/game_instance.cpp src/server/game_instance.h src/common/network/responses/server_response.cpp src/common/network/responses/server_response.h src/common/network/responses/request_response.cpp src/common/network/responses/request_response.h src/common/network/requests/join_game_request.cpp src/common/network/requests/join_game_request.h src/common/network/requests/state_game_request.cpp src/common/network/requests/state_game_request.h src/common/network/requests/call_shot_request.cpp src/common/network/requests/call_shot_request.h src/common/network/requests/send_emote_request.cpp src/common/network/requests/send_emote_request.h src/common/game_state/player/player.cpp src/common/game_state/player/player.h)
 target_compile_features(project_options INTERFACE cxx_std_20)
 set(WARNINGS
   -Wall

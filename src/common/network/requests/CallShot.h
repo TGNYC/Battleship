@@ -1,8 +1,8 @@
 #ifndef CALLSHOT_H
 #define CALLSHOT_H
 
+#include "../../game_state/Coordinate.h"
 #include "ClientRequest.h"
-#include "Coordinate.h"
 class uuid;
 
 class CallShot : public ClientRequest {

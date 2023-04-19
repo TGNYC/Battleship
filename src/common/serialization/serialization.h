@@ -1,15 +1,15 @@
 #ifndef SERIALIZION_h
 #define SERIALIZION_h
 
-#include "CallShot.h"
-#include "ClientRequest.h"
-#include "Coordinate.h"
-#include "JoinGame.h"
-#include "PlayAgain.h"
-#include "QuitGame.h"
-#include "SendEmote.h"
-#include "Ship.h"
-#include "StartGame.h"
+#include "../game_state/Coordinate.h"
+#include "../game_state/Ship.h"
+#include "../network/requests/CallShot.h"
+#include "../network/requests/ClientRequest.h"
+#include "../network/requests/JoinGame.h"
+#include "../network/requests/PlayAgain.h"
+#include "../network/requests/QuitGame.h"
+#include "../network/requests/SendEmote.h"
+#include "../network/requests/StartGame.h"
 #include <memory>
 #include <nlohmann/json.hpp>
 
