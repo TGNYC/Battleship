@@ -11,7 +11,11 @@ add_executable(Battleship_Client
   SetupManager.cpp
   SetupManager.h
   EmoteHandler.cpp
-  EmoteHandler.h)
+  EmoteHandler.h
+  uiElements/InputField.cpp
+  uiElements/InputField.h
+  panels/ConnectionPanel.h
+  panels/ConnectionPanel.cpp uiElements/ImagePanel.h uiElements/ImagePanel.cpp)
 
 target_link_libraries(Battleship_Client PRIVATE project_options)
 target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
