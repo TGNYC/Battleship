@@ -30,3 +30,4 @@ find_package(wxWidgets COMPONENTS core base net REQUIRED)
 include(${wxWidgets_USE_FILE})
 
 target_link_libraries(Battleship_Client PRIVATE ${wxWidgets_LIBRARIES})
+target_link_libraries(Battleship_Client PRIVATE sockpp)

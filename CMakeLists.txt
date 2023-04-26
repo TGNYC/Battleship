@@ -53,4 +53,13 @@ set(WARNINGS
 )
 target_compile_options(project_options INTERFACE ${WARNINGS})
 
+include(FetchContent)
+
+FetchContent_Declare(Sockpp
+  GIT_REPOSITORY https://github.com/fpagliughi/sockpp.git
+  GIT_TAG        v0.8.1
+)
+
+FetchContent_MakeAvailable(Sockpp)
+
 add_subdirectory(./src)
