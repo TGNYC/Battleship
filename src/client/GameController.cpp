@@ -1,29 +1,33 @@
 #include "GameController.h"
 
-auto GameController::init() -> bool {
-  return true;
+void GameController::init(GameWindow* gameWindow) {
+  GameController::_gameWindow = gameWindow;
+
+  GameController::_connectionPanel = new ConnectionPanel(gameWindow);
+  GameController::_mainGamePanel = new MainGamePanel(gameWindow);
+
+  GameController::_connectionPanel->Show(false);
+  GameController::_mainGamePanel->Show(false);
+
+  GameController::_gameWindow->showPanel(GameController::_connectionPanel);
+
+  // set status bar
 }
 
-auto GameController::connectToServer() -> bool {
-  return true;
+void GameController::connectToServer() {
 }
 
-auto GameController::startGame() -> bool {
-  return true;
+void GameController::startGame() {
 }
 
-auto GameController::callShot() -> bool {
-  return true;
+void GameController::callShot() {
 }
 
-auto GameController::sendEmote() -> bool {
-  return true;
+void GameController::sendEmote() {
 }
 
-auto GameController::showError() -> bool {
-  return true;
+void GameController::showError(const std::string& title, const std::string& message) {
 }
 
-auto GameController::showGameOverMessage() -> bool {
-  return true;
+void GameController::showGameOverMessage() {
 }

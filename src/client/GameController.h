@@ -1,36 +1,45 @@
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 
+#include <wx/wx.h>
+#include "GameWindow.h"
+#include "panels/ConnectionPanel.h"
+#include "panels/MainGamePanel.h"
+
 class GameController {
 public:
     /**
      * @brief Initializes all panels, displays the connection panel. 
     */
-    auto init() -> bool;
+    void init(GameWindow* gameWindow);
     /**
      * @brief Connects to server. 
     */
-    auto connectToServer() -> bool;
+    void connectToServer();
     /**
      * @brief Sends a start game request after setup phase. 
     */
-    auto startGame() -> bool;
+    void startGame();
     /**
         * @brief Sends a shot request to the server. 
     */
-    auto callShot() -> bool;
+    void callShot();
     /**
      * @brief Sends an emote to the server. 
     */
-    auto sendEmote() -> bool;
+    void sendEmote();
     /**
      * @brief Prints an error message box in case of an invalid move. 
     */
-    auto showError() -> bool;
+    void showError(const std::string& title, const std::string& message);
     /**
      * @brief Displays dialog box when game is finished. 
     */
-    auto showGameOverMessage() -> bool;
+    void showGameOverMessage();
+private:
+    GameWindow* _gameWindow;
+    ConnectionPanel* _connectionPanel;
+    MainGamePanel* _mainGamePanel;
 };
 
 #endif // GAMECONTROLLER_H
