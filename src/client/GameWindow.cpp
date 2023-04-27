@@ -43,6 +43,8 @@ void GameWindow::showPanel(wxPanel *panel) {
   this->_mainLayout->Layout();
 
   this->Fit();
+  // update window
+  this->Layout();
 }
 
 void GameWindow::setStatus(const std::string &message) {
