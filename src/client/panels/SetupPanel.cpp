@@ -2,7 +2,7 @@
 
 SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
   wxColor backgroundColor = wxColor(255, 255, 255);
-  this->setBackgroundColor(backgroundColor);
+  this->SetBackgroundColour(backgroundColor);
 
   wxBoxSizer *verticalLayout = new wxBoxSizer(wxVERTICAL);
 
