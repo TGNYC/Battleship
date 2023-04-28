@@ -17,4 +17,6 @@ PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDef
     }
   }
 
+  wxBitmap gridLines = wxBitmap(wxImage("../../../assets/grid_lines.png"));
+  wxStaticBitmap* gridImage = new wxStaticBitmap(parent, wxID_ANY, gridLines, wxPoint(0, 0), wxSize(400, 400));
 }
