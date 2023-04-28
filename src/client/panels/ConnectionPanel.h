@@ -9,6 +9,8 @@
 class ConnectionPanel : public wxPanel {
 public:
   ConnectionPanel(wxWindow *parent);
+  void onConnectButtonClicked(wxCommandEvent &event);
+
 
   wxString getServerAddress();
   wxString getServerPort();

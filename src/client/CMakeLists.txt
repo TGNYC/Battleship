@@ -21,7 +21,7 @@ add_executable(Battleship_Client
   panels/SetupPanel.cpp
   panels/SetupPanel.h
   panels/MainGamePanel.cpp
-  panels/MainGamePanel.h)
+  panels/MainGamePanel.h uiElements/PlacementGrid.cpp uiElements/PlacementGrid.h)
 
 target_link_libraries(Battleship_Client PRIVATE project_options)
 target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
