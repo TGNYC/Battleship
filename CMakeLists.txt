@@ -18,9 +18,32 @@ endif()
 
 project(Battleship VERSION 0.0.1 LANGUAGES CXX)
 
+add_library(Battleship_Common)
+target_link_libraries(Battleship_Common PRIVATE project_options)
+target_link_libraries(Battleship_Common PUBLIC nlohmann_json::nlohmann_json)
+
+add_executable(Battleship_Server)
+target_link_libraries(Battleship_Server PRIVATE project_options)
+target_link_libraries(Battleship_Server PRIVATE Battleship_Common)
+target_link_libraries(Battleship_Server PRIVATE sockpp)
+
+add_executable(Battleship_Client)
+target_link_libraries(Battleship_Client PRIVATE project_options)
+target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
+target_link_libraries(Battleship_Client PRIVATE sockpp)
+target_link_libraries(Battleship_Client PRIVATE wx::net wx::core wx::base)
+
 option(ENABLE_TESTING "Enabeling Testing" ON)
 if(ENABLE_TESTING)
   enable_testing()
+  add_executable(Battleship_Test)
+  target_link_libraries(Battleship_Test PRIVATE project_options)
+  target_link_libraries(Battleship_Test PRIVATE Battleship_Common)
+  target_link_libraries(Battleship_Test PRIVATE GTest::gtest GTest::gtest_main)
+
+  include(GoogleTest)
+  gtest_discover_tests(Battleship_Test)
+  
   add_subdirectory(./test)
 endif()
 
@@ -30,7 +53,7 @@ if(ENABLE_DOCS)
   doxygen_add_docs(Battleship_Docs ALL)
 endif()
 
-add_library(project_options INTERFACE src/server/main.cpp src/server/server_network_manager.cpp src/server/server_network_manager.h src/server/request_handler.cpp src/server/request_handler.h src/server/player_manager.cpp src/server/player_manager.h src/server/game_instance.cpp src/server/game_instance.h src/common/network/responses/server_response.cpp src/common/network/responses/server_response.h src/common/network/responses/request_response.cpp src/common/network/responses/request_response.h src/common/network/requests/join_game_request.cpp src/common/network/requests/join_game_request.h src/common/network/requests/state_game_request.cpp src/common/network/requests/state_game_request.h src/common/network/requests/call_shot_request.cpp src/common/network/requests/call_shot_request.h src/common/network/requests/send_emote_request.cpp src/common/network/requests/send_emote_request.h src/common/game_state/player/player.cpp src/common/game_state/player/player.h)
+add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_20)
 set(WARNINGS
   -Wall
@@ -55,11 +78,23 @@ target_compile_options(project_options INTERFACE ${WARNINGS})
 
 include(FetchContent)
 
-FetchContent_Declare(Sockpp
+FetchContent_Declare(sockpp
   GIT_REPOSITORY https://github.com/fpagliughi/sockpp.git
   GIT_TAG        v0.8.1
 )
+FetchContent_Declare(googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        v1.13.0
+)
+FetchContent_Declare(json
+  GIT_REPOSITORY https://github.com/nlohmann/json.git
+  GIT_TAG        v3.11.2
+)
+FetchContent_Declare(wxWidgets
+  GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
+  GIT_TAG        v3.2.2.1
+)
 
-FetchContent_MakeAvailable(Sockpp)
+FetchContent_MakeAvailable(sockpp googletest json wxWidgets)
 
 add_subdirectory(./src)

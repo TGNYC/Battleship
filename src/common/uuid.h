@@ -21,4 +21,11 @@ private:
   std::array<std::uint8_t, 16> m_octets = {}; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
 };
 
+template <>
+struct std::hash<uuid> {
+  std::size_t operator()(uuid const &id) const noexcept {
+    return std::hash<std::string>{}(id.ToString());
+  }
+};
+
 #endif // UUID_H

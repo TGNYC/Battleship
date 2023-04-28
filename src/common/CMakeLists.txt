@@ -1,5 +1,3 @@
-add_library(Battleship_Common)
-
 target_sources(Battleship_Common
     PRIVATE
         network/requests/ClientRequest.cpp
@@ -11,6 +9,7 @@ target_sources(Battleship_Common
         network/requests/PlayAgain.cpp
         uuid.cpp
         game_state/Ship.cpp
+        game_state/player.cpp
     PUBLIC
         network/requests/ClientRequest.h
         network/requests/JoinGame.h
@@ -22,12 +21,8 @@ target_sources(Battleship_Common
         uuid.h
         serialization/serialization.h
         game_state/Ship.h
-        game_state/Coordinate.h)
-
-target_link_libraries(Battleship_Common PRIVATE project_options)
+        game_state/player.h
+        game_state/Coordinate.h
+        game_state/game_state.h)
 
 target_include_directories(Battleship_Common PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-
-find_package(nlohmann_json REQUIRED)
-
-#target_link_libraries(Battleship_Common PUBLIC nlohmann_json::nlohmann_json)
