@@ -8,7 +8,7 @@ ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   wxBoxSizer *verticalLayout = new wxBoxSizer(wxVERTICAL);
 
   ImagePanel *logo =
-    new ImagePanel(this, "../../../assets/battleship_logo.png", wxBITMAP_TYPE_PNG, wxDefaultPosition, wxSize(300, 300), 0.0);
+    new ImagePanel(this, "../assets/battleship_logo.png", wxBITMAP_TYPE_PNG, wxDefaultPosition, wxSize(300, 300), 0.0);
   verticalLayout->Add(logo, 0, wxALIGN_CENTER | wxTOP, 10);
 
   const int labelWidth = 100;

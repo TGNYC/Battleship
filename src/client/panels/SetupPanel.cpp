@@ -13,7 +13,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
 
   auto text = "Instructions:\n1. Select a ship\n2. Press R to rotate\n3. Click on the grid to place the ship\n4. Repeat until all ships are placed\n5. Click ready to start the game";
   wxStaticText* instructionText = new wxStaticText(this, wxID_ANY, text, wxPoint(400, 0), wxSize(200, 200), wxALIGN_BOTTOM);
-  horizontalLayout->Add(instructionText, 0, wxALIGN_RIGHT, 10);
+  horizontalLayout->Add(instructionText, 0, wxDEFAULT, 10);
 
   this->_readyButton = new wxButton(this, wxID_ANY, "Ready", wxDefaultPosition, wxSize(100, 40));
 
