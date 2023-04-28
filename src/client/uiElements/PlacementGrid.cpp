@@ -9,14 +9,18 @@ PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDef
   wxColor backgroundColor = wxColor(255, 255, 0);
   this->SetBackgroundColour(backgroundColor);
 
-  wxStaticBitmap* grid[10][10];
+  constexpr int gridSize = 10;
+
+  //wxStaticBitmap* grid[10][10];
+  this->_grid = new wxStaticBitmap*[gridSize*gridSize];
+
   wxBitmap emptyTile = wxBitmap(wxImage("../assets/empty_tile.png"));
-  for (int i = 0; i < 10; i++) {
-    for (int j = 0; j < 10; j++) {
-      grid[i][j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(i*40, j*40), wxSize(40, 40));
+  for (int i = 0; i < gridSize; i++) {
+    for (int j = 0; j < gridSize; j++) {
+      _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(i*40, j*40), wxSize(40, 40));
     }
   }
 
-  wxBitmap gridLines = wxBitmap(wxImage("../assets/grid_lines.png"));
-  wxStaticBitmap* gridImage = new wxStaticBitmap(parent, wxID_ANY, gridLines, wxPoint(0, 0), wxSize(400, 400));
+  auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
+  auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(0, 0), wxSize(400, 400));
 }

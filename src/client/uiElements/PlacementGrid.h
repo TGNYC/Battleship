@@ -12,7 +12,7 @@ public:
   PlacementGrid(wxWindow *parent);
 
 private:
-
+  wxStaticBitmap **_grid;
 };
 
 #endif // BATTLESHIP_PLACEMENTGRID_H
