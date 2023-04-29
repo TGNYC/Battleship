@@ -17,10 +17,21 @@ PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDef
   wxBitmap emptyTile = wxBitmap(wxImage("../assets/empty_tile.png"));
   for (int i = 0; i < gridSize; i++) {
     for (int j = 0; j < gridSize; j++) {
-      _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(i*40, j*40), wxSize(40, 40));
+      _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(i*40, j*40), wxSize(40, 40), 0);
     }
   }
 
   auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
   auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(0, 0), wxSize(400, 400));
+
+  Bind(wxEVT_MOTION, &PlacementGrid::OnMouseMotion, this);
+}
+
+void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
+  wxPoint mousePosition = event.GetPosition();
+  int CellX = mousePosition.x / 40;
+  int CellY = mousePosition.y / 40;
+
+  this->_grid[CellX*10+CellY]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
+
 }

@@ -10,6 +10,7 @@
 class PlacementGrid : public wxPanel {
 public:
   PlacementGrid(wxWindow *parent);
+  void OnMouseMotion(wxMouseEvent &event);
 
 private:
   wxStaticBitmap **_grid;
