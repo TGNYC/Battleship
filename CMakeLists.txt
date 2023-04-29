@@ -81,18 +81,22 @@ include(FetchContent)
 FetchContent_Declare(sockpp
   GIT_REPOSITORY https://github.com/fpagliughi/sockpp.git
   GIT_TAG        v0.8.1
+  SYSTEM
 )
 FetchContent_Declare(googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
   GIT_TAG        v1.13.0
+  SYSTEM
 )
 FetchContent_Declare(json
   GIT_REPOSITORY https://github.com/nlohmann/json.git
   GIT_TAG        v3.11.2
+  SYSTEM
 )
 FetchContent_Declare(wxWidgets
   GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
   GIT_TAG        v3.2.2.1
+  SYSTEM
 )
 
 FetchContent_MakeAvailable(sockpp googletest json wxWidgets)

@@ -1,5 +1,5 @@
-#ifndef COORDINATE_H
-#define COORDINATE_H
+#ifndef BATTLESHIP_COORDINATE_H
+#define BATTLESHIP_COORDINATE_H
 
 #include <compare>
 
@@ -10,4 +10,4 @@ struct Coordinate {
   auto operator<=>(const Coordinate &) const = default;
 };
 
-#endif // COORDINATE_H
+#endif // BATTLESHIP_COORDINATE_H

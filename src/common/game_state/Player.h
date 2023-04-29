@@ -8,9 +8,9 @@
 #include "uuid.h"
 #include <string>
 
-class player {
+class Player {
 public:
-  player(uuid playerId, std::string player_name);
+  Player(uuid playerId, std::string player_name);
 
 private:
   std::string m_name;
