@@ -1,11 +1,11 @@
-#ifndef BATTLESHIP_GAMESTATE_H
-#define BATTLESHIP_GAMESTATE_H
+#ifndef BATTLESHIP_GAME_STATE_H
+#define BATTLESHIP_GAME_STATE_H
 
 #include "game_state/Player.h"
 #include "game_state/PlayerGrid.h"
 #include <vector>
 
-class GameState {
+class game_state {
 public:
   enum class State {
     Starting,
@@ -22,4 +22,4 @@ private:
   std::vector<PlayerGrid> m_playerGrid;
 };
 
-#endif // BATTLESHIP_GAMESTATE_H
+#endif // BATTLESHIP_GAME_STATE_H

@@ -10,8 +10,8 @@
 
 
 // include server address configurations TODO!!
-//#include "../common/network/default.conf"
-//#include "../common/network/responses/request_response.h"
+#include "../common/network/default.conf"
+#include "../common/network/responses/request_response.h"
 
 // Constructor of server_network_manager
 server_network_manager::server_network_manager() {

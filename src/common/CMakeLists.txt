@@ -11,7 +11,7 @@ target_sources(Battleship_Common
         game_state/Ship.cpp
         game_state/Player.cpp
         game_state/PlayerGrid.cpp
-        game_state/GameState.cpp
+        game_state/game_state.cpp
     PUBLIC
         network/requests/ClientRequest.h
         network/requests/JoinGame.h
@@ -26,6 +26,6 @@ target_sources(Battleship_Common
         game_state/Ship.h
         game_state/Player.h
         game_state/PlayerGrid.h
-        game_state/GameState.h)
+        game_state/game_state.h)
 
 target_include_directories(Battleship_Common PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

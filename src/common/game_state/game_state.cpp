@@ -1,8 +1,8 @@
-#include "GameState.h"
+#include "game_state.h"
 #include "Player.h"
 #include <utility>
 
-auto GameState::addPlayer(Player player) -> bool {
+auto game_state::addPlayer(Player player) -> bool {
   // TODO check if player is alrady added
   if (m_players.size() >= 2) {
     return false;
@@ -11,7 +11,7 @@ auto GameState::addPlayer(Player player) -> bool {
   return true;
 }
 
-auto GameState::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> bool {
+auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> bool {
   // TODO check for valid playerid
   // TODO check if not alrady placed
   m_playerGrid.emplace_back(playerId, std::move(shipPlacement));
