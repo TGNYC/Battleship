@@ -1,5 +1,6 @@
 #include "ConnectionPanel.h"
 #include "../uiElements/ImagePanel.h"
+#include "../GameController.h"
 
 ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   wxColor white = wxColor(255, 255, 255);
@@ -35,7 +36,7 @@ ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
 }
 
 void ConnectionPanel::onConnectButtonClicked(wxCommandEvent &event) {
-
+  GameController::enterSetupPhase();
 }
 
 wxString ConnectionPanel::getServerAddress() {
