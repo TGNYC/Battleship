@@ -11,6 +11,7 @@
 class Player {
 public:
   Player(uuid playerId, std::string player_name);
+  auto getId() const -> uuid;
 
 private:
   std::string m_name;

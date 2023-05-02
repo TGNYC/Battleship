@@ -4,6 +4,6 @@
 
 #include "request_response.h"
 
-#include "../../serialization/json_utils.h"
 #include "../../exceptions/BattleshipException.h"
 #include "../../game_state/game_state.h"
+#include "../../serialization/json_utils.h"
