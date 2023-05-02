@@ -1,8 +1,14 @@
 #include "SetupPanel.h"
+#include "../SetupManager.h"
+
+// declare static variables
+std::vector<Ship> SetupManager::_ships_placed;
+Ship* SetupManager::_selectedShip;
 
 SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);
+
   /*
   wxBoxSizer *horizontalLayout = new wxBoxSizer(wxHORIZONTAL);
 
@@ -69,6 +75,28 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
   verticalLayout->Add(this->_ship4, 0, wxALIGN_LEFT | wxBOTTOM, 10);
   verticalLayout->Add(this->_ship5, 0, wxALIGN_LEFT | wxBOTTOM, 10);
 
+  _ship1->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
+    SetupManager::_selectedShip = &SetupManager::_ships_placed[0];
+    std::cout << "ship 1 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
+  });
+  _ship2->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
+    SetupManager::_selectedShip = &SetupManager::_ships_placed[1];
+    std::cout << "ship 2 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
+  });
+  _ship3->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
+    SetupManager::_selectedShip = &SetupManager::_ships_placed[2];
+    std::cout << "ship 3 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
+  });
+  _ship4->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
+    SetupManager::_selectedShip = &SetupManager::_ships_placed[3];
+    std::cout << "ship 4 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
+  });
+  _ship5->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
+    SetupManager::_selectedShip = &SetupManager::_ships_placed[4];
+    std::cout << "ship 5 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
+  });
+
+
   // add the vertical sizer to the right side of the horizontal sizer
   horizontalLayout->Add(verticalLayout, 0, wxEXPAND | wxALL, 20);
 
@@ -76,9 +104,23 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
   mainVerticalLayout->Add(horizontalLayout, 1, wxEXPAND | wxALL, 0);
 
   // add the "Ready" button to the bottom of the main vertical sizer
-  this->_readyButton = new wxButton(this, wxID_ANY, "Ready", wxDefaultPosition, wxSize(100, 40));
+  this->_readyButton = new wxButton(this, wxID_ANY, "Rotate", wxDefaultPosition, wxSize(100, 40));
 
   mainVerticalLayout->Add(this->_readyButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
+
+  // ready button rotates ship
+  this->_readyButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &evt) {
+  //if (evt.GetUnicodeKey() == 'R') {
+    std::cout << "rotate ship " << SetupManager::_selectedShip->getId().ToString() << std::endl;
+    if (SetupManager::_selectedShip != nullptr) {
+      auto orientation = SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Horizontal ?
+                                                                                                        Ship::Orientation::Vertical : Ship::Orientation::Horizontal;
+      SetupManager::_selectedShip->setOrientation(orientation);
+      //this->_placementGrid->Refresh();
+    }
+  //}
+});
+
 
   this->SetSizerAndFit(mainVerticalLayout);
         //horizontalLayout->Layout();
