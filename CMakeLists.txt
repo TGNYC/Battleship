@@ -81,24 +81,37 @@ include(FetchContent)
 FetchContent_Declare(sockpp
   GIT_REPOSITORY https://github.com/fpagliughi/sockpp.git
   GIT_TAG        v0.8.1
-  SYSTEM
+  # SYSTEM
 )
 FetchContent_Declare(googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
   GIT_TAG        v1.13.0
-  SYSTEM
+  # SYSTEM
 )
 FetchContent_Declare(json
   GIT_REPOSITORY https://github.com/nlohmann/json.git
   GIT_TAG        v3.11.2
-  SYSTEM
+  # SYSTEM
 )
 FetchContent_Declare(wxWidgets
   GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
   GIT_TAG        v3.2.2.1
-  SYSTEM
+  # SYSTEM
 )
 
 FetchContent_MakeAvailable(sockpp googletest json wxWidgets)
+
+# Set the includes for the expern libarays as systme to disabel the warnings
+# https://stackoverflow.com/questions/56707123/how-to-suppress-clang-warnings-in-third-party-library-header-file-in-cmakelists
+set_target_properties(gtest PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:gtest,INTERFACE_INCLUDE_DIRECTORIES>)
+set_target_properties(gtest_main PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:gtest_main,INTERFACE_INCLUDE_DIRECTORIES>)
+
+set_target_properties(wxnet PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxnet,INTERFACE_INCLUDE_DIRECTORIES>)
+set_target_properties(wxcore PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxcore,INTERFACE_INCLUDE_DIRECTORIES>)
+set_target_properties(wxbase PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxbase,INTERFACE_INCLUDE_DIRECTORIES>)
+
+set_target_properties(nlohmann_json PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:nlohmann_json,INTERFACE_INCLUDE_DIRECTORIES>)
+
+set_target_properties(sockpp PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:sockpp,INTERFACE_INCLUDE_DIRECTORIES>)
 
 add_subdirectory(./src)
