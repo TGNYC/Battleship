@@ -1,5 +1,6 @@
 #include "SetupPanel.h"
 #include "../SetupManager.h"
+#include "../GameController.h"
 
 // declare static variables
 std::vector<Ship> SetupManager::_ships_placed;
@@ -104,13 +105,18 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
   mainVerticalLayout->Add(horizontalLayout, 1, wxEXPAND | wxALL, 0);
 
   // add the "Ready" button to the bottom of the main vertical sizer
-  this->_readyButton = new wxButton(this, wxID_ANY, "Rotate", wxDefaultPosition, wxSize(100, 40));
+  this->_rotateButton = new wxButton(this, wxID_ANY, "Rotate", wxDefaultPosition, wxSize(100, 40));
+  mainVerticalLayout->Add(this->_rotateButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
 
-  mainVerticalLayout->Add(this->_readyButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
+  wxButton *readyButton = new wxButton(this, wxID_ANY, "Ready", wxDefaultPosition, wxSize(100, 40));
+  mainVerticalLayout->Add(readyButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
+  readyButton->Bind(wxEVT_BUTTON, &SetupPanel::OnReadyButtonClicked, this);
+
 
   // ready button rotates ship
-  this->_readyButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &evt) {
+  this->_rotateButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &evt) {
   //if (evt.GetUnicodeKey() == 'R') {
+  if(SetupManager::_selectedShip == nullptr) return ;
     std::cout << "rotate ship " << SetupManager::_selectedShip->getId().ToString() << std::endl;
     if (SetupManager::_selectedShip != nullptr) {
       auto orientation = SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Horizontal ?
@@ -125,4 +131,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
   this->SetSizerAndFit(mainVerticalLayout);
         //horizontalLayout->Layout();
         //this->Layout();
+}
+void SetupPanel::OnReadyButtonClicked(wxCommandEvent &event) {
+    GameController::playerReady();
 }
