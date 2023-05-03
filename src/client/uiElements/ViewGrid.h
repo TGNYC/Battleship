@@ -2,6 +2,7 @@
 #define VIEWGRID_H
 
 #include <wx/wx.h>
+#include "../../common/game_state/Ship.h"
 
 class ViewGrid : public wxPanel{
 public:

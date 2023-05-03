@@ -24,8 +24,9 @@ void ViewGrid::placeShips(std::vector<Ship> ships) {
     for (auto ship : ships) {
         auto orientation = ship.getOrientation();
         int l = ship.getLength();
-        int x = ship.getX();
-        int y = ship.getY();
+        Coordinate c = ship.getPosition();
+        int x = c.x;
+        int y = c.y;
         if (orientation == Ship::Orientation::Horizontal) {
             for (int i = 0; i < l; i++) {
                 int idx = (x + i) * 10 + y;
