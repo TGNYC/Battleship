@@ -1,8 +1,13 @@
 #include "ViewGrid.h"
 
-ViewGrid::ViewGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400)) {
+// #include <iostream>
+
+ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400)) {
   wxColor backgroundColor = wxColor(255, 255, 0);
   this->SetBackgroundColour(backgroundColor);
+
+  size_t x = pos.x;
+  size_t y = pos.y;
 
   constexpr int gridSize = 10;
 
@@ -12,15 +17,15 @@ ViewGrid::ViewGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPositi
   wxBitmap emptyTile = wxBitmap(wxImage("../assets/empty_tile.png"));
   for (int i = 0; i < gridSize; i++) {
     for (int j = 0; j < gridSize; j++) {
-      _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(i*40, j*40), wxSize(40, 40), 0);
+      _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(x + i*40, y + j*40), wxSize(40, 40), 0);
     }
   }
 
   auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
-  auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(0, 0), wxSize(400, 400));
+  auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
 }
 
-void ViewGrid::placeShips(std::vector<Ship> ships) {
+void ViewGrid::showShips(std::vector<Ship> ships) {
     for (auto ship : ships) {
         auto orientation = ship.getOrientation();
         int l = ship.getLength();
@@ -40,5 +45,21 @@ void ViewGrid::placeShips(std::vector<Ship> ships) {
                 _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
             }
         }
+    }
+}
+
+void ViewGrid::showShots(int shots[10][10]) {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            // std::cout << shots[i][j] << " ";
+            if (shots[i][j] == 1) {
+                int idx = i * 10 + j;
+                _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/miss_tile.png")));
+            } else if (shots[i][j] == 2) {
+                int idx = i * 10 + j;
+                _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/hit_tile.png")));
+            }
+        }
+        // std::cout << std::endl;
     }
 }
