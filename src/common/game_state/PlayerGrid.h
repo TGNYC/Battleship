@@ -13,6 +13,8 @@ public:
 private:
   uuid              m_playerId;
   std::vector<Ship> m_shipsPlaced;
+  int               shotsReceived[10][10];
+  int               shotsFired[10][10];
 };
 
 #endif // BATTLESHIP_PLAYERGRID_H
