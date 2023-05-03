@@ -13,6 +13,7 @@ target_sources(Battleship_Client
     panels/SetupPanel.cpp
     panels/MainGamePanel.cpp
     uiElements/PlacementGrid.cpp
+    uiElements/ViewGrid.cpp
   PUBLIC
     Battleship.h
     GameController.h
@@ -25,4 +26,5 @@ target_sources(Battleship_Client
     panels/ConnectionPanel.h
     panels/SetupPanel.h
     panels/MainGamePanel.h
-    uiElements/PlacementGrid.h)
+    uiElements/PlacementGrid.h
+    uiElements/ViewGrid.h)
