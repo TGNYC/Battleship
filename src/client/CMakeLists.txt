@@ -7,13 +7,14 @@ target_sources(Battleship_Client
     ClientNetworkManager.cpp
     SetupManager.cpp
     EmoteHandler.cpp
-    uiElements/InputField.cpp
-    uiElements/ImagePanel.cpp
     panels/ConnectionPanel.cpp
     panels/SetupPanel.cpp
     panels/MainGamePanel.cpp
+    uiElements/InputField.cpp
+    uiElements/ImagePanel.cpp
     uiElements/PlacementGrid.cpp
     uiElements/ViewGrid.cpp
+    uiElements/ShipPanel.cpp
   PUBLIC
     Battleship.h
     GameController.h
@@ -21,10 +22,12 @@ target_sources(Battleship_Client
     ClientNetworkManager.h
     SetupManager.h
     EmoteHandler.h
-    uiElements/InputField.h
-    uiElements/ImagePanel.h
     panels/ConnectionPanel.h
     panels/SetupPanel.h
     panels/MainGamePanel.h
+    uiElements/InputField.h
+    uiElements/ImagePanel.h
     uiElements/PlacementGrid.h
-    uiElements/ViewGrid.h)
+    uiElements/ViewGrid.h
+    uiElements/ShipPanel.h
+)

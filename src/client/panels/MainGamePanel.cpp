@@ -37,31 +37,47 @@ void MainGamePanel::buildGameState(game_state* gameState, Player* me) {
   leftSide->Add(this->_ownViewGrid, 1, wxEXPAND | wxALL);
   rightSide->Add(this->_opponentViewGrid, 1, wxEXPAND | wxALL);
 
+  // get ships (not implemented yet)
+  std::vector<Ship> ownShips = {
+    Ship(5, Coordinate{0, 0}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()),
+    Ship(4, Coordinate{6, 0}, Ship::Orientation::Vertical, uuid::generateRandomUuid()),
+    Ship(3, Coordinate{0, 2}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()),
+    Ship(3, Coordinate{4, 2}, Ship::Orientation::Vertical, uuid::generateRandomUuid()),
+    Ship(2, Coordinate{8, 2}, Ship::Orientation::Vertical, uuid::generateRandomUuid()),
+  };
+  std::vector<Ship> oppShips = {
+    Ship(5, Coordinate{0, 1}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()),
+    Ship(4, Coordinate{6, 1}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()),
+    Ship(3, Coordinate{0, 3}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()),
+    Ship(3, Coordinate{4, 3}, Ship::Orientation::Vertical, uuid::generateRandomUuid()),
+    Ship(2, Coordinate{8, 3}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()),
+  };
+  
+  this->_ownViewGrid->showShips(ownShips);
+  // this->_opponentViewGrid->showShips(oppShips);
+
+  int ownshots[10][10] = {{0}};
+  ownshots[0][3] = 2;
+  ownshots[1][3] = 2;
+  ownshots[2][3] = 2;
+  ownshots[5][5] = 1;
+  int oppshots[10][10] = {{0}};
+  oppshots[0][0] = 2;
+  oppshots[1][1] = 1;
+  oppshots[9][1] = 1;
+  oppshots[5][8] = 1;
+  this->_opponentViewGrid->showShots(ownshots);
+  this->_ownViewGrid->showShots(oppshots);
+
+  ShipPanel* ownShipPanel = new ShipPanel(this, wxPoint(10, 430), ownShips);
+  ShipPanel* oppShipPanel = new ShipPanel(this, wxPoint(430, 430), oppShips);
+
+  leftSide->Add(ownShipPanel, 0, wxEXPAND | wxALL, 0);
+  rightSide->Add(oppShipPanel, 0, wxEXPAND | wxALL, 0);
+
   // add grids to main window
   mainWindow->Add(leftSide, 1, wxEXPAND | wxALL, 10);
   mainWindow->Add(rightSide, 1, wxEXPAND | wxALL, 10);
-
-  // place ships on own grid
-  if (me != nullptr) {
-    // get ships (not implemented yet)
-    std::vector<Ship> meShips = {Ship(4, Coordinate(), Ship::Orientation::Horizontal, uuid::generateRandomUuid())};
-    std::vector<Ship> opponentShips = {Ship(4, Coordinate(), Ship::Orientation::Horizontal, uuid::generateRandomUuid())};
-    // place ships on own grid
-    this->_ownViewGrid->showShips(meShips);
-    // this->_opponentViewGrid->placeShips(opponentShips);
-    int ownshots[10][10] = {{0}};
-    ownshots[0][0] = 2;
-    ownshots[3][0] = 2;
-    ownshots[1][1] = 1;
-    ownshots[9][9] = 1;
-    int oppshots[10][10] = {{0}};
-    oppshots[0][0] = 2;
-    oppshots[1][1] = 1;
-    oppshots[9][0] = 1;
-    oppshots[5][8] = 1;
-    this->_opponentViewGrid->showShots(ownshots);
-    this->_ownViewGrid->showShots(oppshots);
-  }
 
   this->SetSizerAndFit(mainWindow);
 }
