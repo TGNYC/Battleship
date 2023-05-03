@@ -1,8 +1,11 @@
 #include "ViewGrid.h"
 
-ViewGrid::ViewGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400)) {
+ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400)) {
   wxColor backgroundColor = wxColor(255, 255, 0);
   this->SetBackgroundColour(backgroundColor);
+
+  size_t x = pos.x;
+  size_t y = pos.y;
 
   constexpr int gridSize = 10;
 
@@ -12,12 +15,12 @@ ViewGrid::ViewGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPositi
   wxBitmap emptyTile = wxBitmap(wxImage("../assets/empty_tile.png"));
   for (int i = 0; i < gridSize; i++) {
     for (int j = 0; j < gridSize; j++) {
-      _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(i*40, j*40), wxSize(40, 40), 0);
+      _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(x + i*40, y + j*40), wxSize(40, 40), 0);
     }
   }
 
   auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
-  auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(0, 0), wxSize(400, 400));
+  auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
 }
 
 void ViewGrid::placeShips(std::vector<Ship> ships) {

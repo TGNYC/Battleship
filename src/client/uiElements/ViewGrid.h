@@ -6,7 +6,7 @@
 
 class ViewGrid : public wxPanel{
 public:
-  ViewGrid(wxWindow *parent);
+  ViewGrid(wxWindow *parent, wxPoint pos);
 
   wxStaticBitmap** getGrid() const {
     return _grid;
