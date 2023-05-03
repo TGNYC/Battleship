@@ -3,3 +3,9 @@
 //
 
 #include "GameEvent.h"
+const uuid &GameEvent::getPlayerId() const {
+  return playerId;
+}
+const Coordinate &GameEvent::getPosition() const {
+  return position;
+}

@@ -13,11 +13,19 @@
  */
 class GameEvent {
 private:
-  uuid playerId;  // id of the player who called the shot
+  uuid playerId;
+
+public:
+  const uuid       &getPlayerId() const;
+  const Coordinate &getPosition() const;
+
+private:
+  // id of the player who called the shot
   Coordinate position;
   bool ship_hit = false;
   bool ship_sunk = false;
   bool game_over = false;
+
 };
 
 #endif // BATTLESHIP_GAMEEVENT_H

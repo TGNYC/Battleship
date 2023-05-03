@@ -3,6 +3,7 @@
 
 #include "../uuid.h"
 #include "Coordinate.h"
+#include <vector>
 
 class Ship {
 public:
@@ -23,11 +24,21 @@ public:
 
   auto operator<=>(const Ship &) const = default;
 
+  /*!
+   * processes a shot for an individual ship. returns true if the ship was hit. will update m_sunk and m_hits
+   * @param shot coordinates of the shot called
+   * @return true if ship was hit, false otherwise
+   */
+  bool hit(Coordinate shot);
+  bool hasSunken();
+
 private:
   int         m_length;
   Coordinate  m_position;
   Orientation m_orientation;
   uuid        m_id;
+  bool              m_sunk;
+  std::vector<bool> m_hits; // vector of size m_length storing hits
 };
 
 #endif // SHIP_H
