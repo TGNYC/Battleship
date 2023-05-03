@@ -38,7 +38,7 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
   if(CellX == cellX_prev && CellY == cellY_prev) { // same as before
     return;
   }
-  if(CellX < 0 || CellX >= 10 || CellY < 0 || CellY >= 10) { // out of bounds
+  if(CellX < 0 || CellX >= 10 || CellY < 0 || CellY >= 10 || SetupManager::_selectedShip == nullptr) { // out of bounds or no ship selected
     return;
   }
 
