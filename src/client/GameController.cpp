@@ -70,3 +70,8 @@ void GameController::showError(const std::string& title, const std::string& mess
 }
 void GameController::showGameOverMessage() {
 }
+void GameController::playerReady() {
+  //GameController::_mainGamePanel = new MainGamePanel(GameController::_gameWindow);
+  //GameController::_setupPanel->Show(false);
+  GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
+}

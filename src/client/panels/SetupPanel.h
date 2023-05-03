@@ -8,6 +8,7 @@
 class SetupPanel : public wxPanel {
 public:
   SetupPanel(wxWindow *parent);
+  void OnReadyButtonClicked(wxCommandEvent &event);
 
   PlacementGrid* getPlacementGrid() const {
     return _placementGrid;
@@ -16,7 +17,7 @@ public:
 
 private:
   PlacementGrid *_placementGrid;
-  wxButton *_readyButton;
+  wxButton *_rotateButton;
   wxStaticBitmap *_ship1;
   wxStaticBitmap *_ship2;
   wxStaticBitmap *_ship3;

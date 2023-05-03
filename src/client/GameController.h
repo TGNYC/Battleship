@@ -47,6 +47,8 @@ public:
       return _setupPanel;
     }
 
+    static void playerReady();
+
 private:
     static GameWindow* _gameWindow;
     static ConnectionPanel* _connectionPanel;
