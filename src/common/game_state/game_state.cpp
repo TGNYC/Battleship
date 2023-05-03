@@ -13,7 +13,7 @@ auto game_state::addPlayer(Player player) -> bool {
 
 auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> bool {
   // TODO check for valid playerid
-  // TODO check if not alrady placed
+  // TODO check if not already placed
   m_playerGrid.emplace_back(playerId, std::move(shipPlacement));
   return true;
 }

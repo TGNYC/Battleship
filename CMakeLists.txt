@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
 
-option(ENABLE_CLANG_TIDY "Enabeling clang-tidy" OFF)
+option(ENABLE_CLANG_TIDY "Enableing clang-tidy" OFF)
 if(ENABLE_CLANG_TIDY)
 find_program(CLANG_TIDY clang-tidy REQUIRED)
 set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY})
 endif()
 
-option(ENABLE_IWYU "Enabeling include-what-you-use" OFF)
+option(ENABLE_IWYU "Enableing include-what-you-use" OFF)
 if(ENABLE_IWYU)
 find_program(IWYU iwyu NAMES include-what-you-use REQUIRED)
 set(IWYU_WITH_OPTIONS
@@ -33,7 +33,7 @@ target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Client PRIVATE sockpp)
 target_link_libraries(Battleship_Client PRIVATE wx::net wx::core wx::base)
 
-option(ENABLE_TESTING "Enabeling Testing" ON)
+option(ENABLE_TESTING "Enableing Testing" ON)
 if(ENABLE_TESTING)
   enable_testing()
   add_executable(Battleship_Test)
@@ -47,7 +47,7 @@ if(ENABLE_TESTING)
   add_subdirectory(./test)
 endif()
 
-option(ENABLE_DOCS "Enabeling Documentation" OFF)
+option(ENABLE_DOCS "Enableing Documentation" OFF)
 if(ENABLE_DOCS)
   find_package(Doxygen REQUIRED)
   doxygen_add_docs(Battleship_Docs ALL)
