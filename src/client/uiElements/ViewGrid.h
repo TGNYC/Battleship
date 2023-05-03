@@ -12,7 +12,8 @@ public:
     return _grid;
   }
 
-  void placeShips(std::vector<Ship> ships);
+  void showShips(std::vector<Ship> ships);
+  void showShots(int shots[10][10]);
 
 private:
   wxStaticBitmap **_grid;

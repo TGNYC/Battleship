@@ -1,5 +1,7 @@
 #include "ViewGrid.h"
 
+// #include <iostream>
+
 ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400)) {
   wxColor backgroundColor = wxColor(255, 255, 0);
   this->SetBackgroundColour(backgroundColor);
@@ -23,7 +25,7 @@ ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, po
   auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
 }
 
-void ViewGrid::placeShips(std::vector<Ship> ships) {
+void ViewGrid::showShips(std::vector<Ship> ships) {
     for (auto ship : ships) {
         auto orientation = ship.getOrientation();
         int l = ship.getLength();
@@ -43,5 +45,21 @@ void ViewGrid::placeShips(std::vector<Ship> ships) {
                 _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
             }
         }
+    }
+}
+
+void ViewGrid::showShots(int shots[10][10]) {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            // std::cout << shots[i][j] << " ";
+            if (shots[i][j] == 1) {
+                int idx = i * 10 + j;
+                _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/miss_tile.png")));
+            } else if (shots[i][j] == 2) {
+                int idx = i * 10 + j;
+                _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/hit_tile.png")));
+            }
+        }
+        // std::cout << std::endl;
     }
 }

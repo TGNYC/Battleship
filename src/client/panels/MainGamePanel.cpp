@@ -47,8 +47,20 @@ void MainGamePanel::buildGameState(game_state* gameState, Player* me) {
     std::vector<Ship> meShips = {Ship(4, Coordinate(), Ship::Orientation::Horizontal, uuid::generateRandomUuid())};
     std::vector<Ship> opponentShips = {Ship(4, Coordinate(), Ship::Orientation::Horizontal, uuid::generateRandomUuid())};
     // place ships on own grid
-    this->_ownViewGrid->placeShips(meShips);
+    this->_ownViewGrid->showShips(meShips);
     // this->_opponentViewGrid->placeShips(opponentShips);
+    int ownshots[10][10] = {{0}};
+    ownshots[0][0] = 2;
+    ownshots[3][0] = 2;
+    ownshots[1][1] = 1;
+    ownshots[9][9] = 1;
+    int oppshots[10][10] = {{0}};
+    oppshots[0][0] = 2;
+    oppshots[1][1] = 1;
+    oppshots[9][0] = 1;
+    oppshots[5][8] = 1;
+    this->_opponentViewGrid->showShots(ownshots);
+    this->_ownViewGrid->showShots(oppshots);
   }
 
   this->SetSizerAndFit(mainWindow);
