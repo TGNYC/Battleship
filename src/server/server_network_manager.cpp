@@ -13,6 +13,8 @@
 #include "network/responses/request_response.h"
 #include "serialization/serialization.h"
 #include <nlohmann/json.hpp>
+#include <string>
+#include <sstream>
 
 // Constructor of server_network_manager
 server_network_manager::server_network_manager() {
