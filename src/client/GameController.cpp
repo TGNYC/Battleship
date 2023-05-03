@@ -5,6 +5,7 @@ GameWindow *GameController::_gameWindow = nullptr;
 ConnectionPanel *GameController::_connectionPanel = nullptr;
 SetupPanel *GameController::_setupPanel = nullptr;
 MainGamePanel *GameController::_mainGamePanel = nullptr;
+SetupManager *GameController::_setupManager = nullptr;
 
 
 void GameController::init(GameWindow* gameWindow) {
@@ -49,6 +50,7 @@ void GameController::connectToServer() {
 
 void GameController::enterSetupPhase() {
   // show setup panel
+  GameController::_setupManager = new SetupManager();
   GameController::_gameWindow->showPanel(GameController::_setupPanel);
 }
 

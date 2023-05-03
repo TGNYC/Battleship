@@ -12,8 +12,14 @@ public:
   PlacementGrid(wxWindow *parent);
   void OnMouseMotion(wxMouseEvent &event);
 
+  wxStaticBitmap** getGrid() const {
+    return _grid;
+  }
+
 private:
   wxStaticBitmap **_grid;
+  int cellX_prev = -1;
+  int cellY_prev = -1;
 };
 
 #endif // BATTLESHIP_PLACEMENTGRID_H

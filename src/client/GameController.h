@@ -6,6 +6,7 @@
 #include "panels/ConnectionPanel.h"
 #include "panels/MainGamePanel.h"
 #include "panels/SetupPanel.h"
+#include "SetupManager.h"
 
 class GameController {
 public:
@@ -41,11 +42,18 @@ public:
      * @brief Displays dialog box when game is finished. 
     */
     static void showGameOverMessage();
+
+    static SetupPanel* getSetupPanel() {
+      return _setupPanel;
+    }
+
 private:
     static GameWindow* _gameWindow;
     static ConnectionPanel* _connectionPanel;
     static SetupPanel* _setupPanel;
     static MainGamePanel* _mainGamePanel;
+
+    static SetupManager *_setupManager;
 };
 
 #endif // GAMECONTROLLER_H

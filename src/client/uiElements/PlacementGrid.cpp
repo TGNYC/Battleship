@@ -4,6 +4,8 @@
 
 #include "PlacementGrid.h"
 #include <wx/wx.h>
+#include "../SetupManager.h"
+
 
 PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400)) {
   wxColor backgroundColor = wxColor(255, 255, 0);
@@ -31,7 +33,56 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
   wxPoint mousePosition = event.GetPosition();
   int CellX = mousePosition.x / 40;
   int CellY = mousePosition.y / 40;
+  //std::cout << "(" << CellX << ", " << CellY << ")\n";
 
-  this->_grid[CellX*10+CellY]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
+  if(CellX == cellX_prev && CellY == cellY_prev) { // same as before
+    return;
+  }
+  if(CellX < 0 || CellX >= 10 || CellY < 0 || CellY >= 10) { // out of bounds
+    return;
+  }
+
+  // grid is column major!
+
+  int l = SetupManager::_selectedShip->getLength();
+  auto orientation = SetupManager::_selectedShip->getOrientation();
+  //orientation = Ship::Orientation::Vertical;
+  // clear previous highlighted tiles
+  if(cellX_prev != -1 && cellY_prev != -1) {
+    if(orientation == Ship::Orientation::Horizontal) {
+      for(int i = 0; i < l; i++) {
+        int idx = (cellX_prev+i)*10+cellY_prev;
+        if(cellX_prev + i < 10 && cellY_prev < 10)
+          _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/empty_tile.png")));
+      }
+    }
+    else if(orientation == Ship::Orientation::Vertical) {
+      for(int i = 0; i < l; i++) {
+        int idx = cellX_prev*10+cellY_prev+i;
+        if(cellX_prev < 10 && cellY_prev + i < 10)
+          _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/empty_tile.png")));
+      }
+    }
+  }
+
+  // highlight new tiles
+  if (orientation == Ship::Orientation::Horizontal) {
+    for (int i = 0; i < l; i++) {
+      int idx = (CellX + i) * 10 + CellY;
+      if (CellX + i < 10 && CellY < 10)
+        _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
+    }
+  } else if (orientation == Ship::Orientation::Vertical) {
+    for (int i = 0; i < l; i++) {
+      int idx = CellX * 10 + CellY + i;
+      if (CellX < 10 && CellY + i < 10)
+        _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
+    }
+  }
+
+  cellX_prev = CellX;
+  cellY_prev = CellY;
+
+  //this->_grid[CellX*10+CellY]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
 
 }

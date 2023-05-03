@@ -15,3 +15,9 @@ auto Ship::getOrientation() const -> Orientation {
 auto Ship::getId() const -> uuid {
   return m_id;
 }
+auto Ship::setOrientation(Ship::Orientation orientation) -> void {
+  m_orientation = orientation;
+}
+auto Ship::setPosition(Coordinate position) -> void {
+  m_position = position;
+}
