@@ -11,6 +11,7 @@
 
 #include "game_state/Player.h"
 #include "game_state/game_state.h"
+#include "network/requests/CallShot.h"
 
 class game_instance {
 
@@ -40,6 +41,7 @@ public:
   bool try_add_player(Player *new_player, std::string &err);
   bool try_remove_player(Player *player, std::string &err);
   // TODO: add call_shot, play_again,
+  bool execute_shot(Player *player, CallShot);  // registers a shot and checks if it's a hit or miss and if it sunk a ship. notifies clients accordingly by emitting game events.
   //  bool play_card(Player* player, const std::string& card_id, std::string& err);
   //  bool draw_card(Player* player, card*& drawn_card, std::string& err);
   //  bool fold(player* Player, std::string& err);
