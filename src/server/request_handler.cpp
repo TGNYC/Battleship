@@ -22,6 +22,13 @@
 // #include "../common/network/requests/draw_card_request.h"
 // #include "../common/network/requests/play_card_request.h"
 
+#include "network/requests/JoinGame.h"
+#include "network/requests/StartGame.h"
+#include "network/requests/CallShot.h"
+#include "network/requests/SendEmote.h"
+#include "network/requests/PlayAgain.h"
+
+
 request_response *request_handler::handle_request(const ClientRequest *const req) {
   /*
     // Prepare variables that are used by every request type
