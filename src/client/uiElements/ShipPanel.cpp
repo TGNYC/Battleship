@@ -10,6 +10,14 @@ ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, std::vector<Ship> ships) : w
         "../assets/ship_5.png"
     };
 
+    std::string filenamesSunk[5] = {
+        "../assets/ship_1_sunk.png",
+        "../assets/ship_2_sunk.png",
+        "../assets/ship_3_sunk.png",
+        "../assets/ship_4_sunk.png",
+        "../assets/ship_5_sunk.png"
+    };
+
     size_t positions[5][2] = {
         {pos.x + 0*40, pos.y + 0*30},
         {pos.x + 6*40, pos.y + 0*30},
@@ -22,9 +30,12 @@ ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, std::vector<Ship> ships) : w
     this->SetBackgroundColour(backgroundColor);
 
     for (size_t i=0; i<5; ++i) {
-        // TODO: add check for whether ship is sunk
-        this->_shipBitmaps[i] = new wxStaticBitmap(parent, wxID_ANY, wxBitmap(wxImage(filenames[i])), wxPoint(positions[i][0], positions[i][1]), wxSize(ships[i].getLength()*40, 40));
         // std::cout << positions[i][0] << " " << positions[i][1] << " " << filenames[i] << " " << ships[i].getLength() << std::endl;
+        if (ships[i].hasSunken()) {
+            this->_shipBitmaps[i] = new wxStaticBitmap(parent, wxID_ANY, wxBitmap(wxImage(filenamesSunk[i])), wxPoint(positions[i][0], positions[i][1]), wxSize(ships[i].getLength()*40, 40));
+        } else {
+            this->_shipBitmaps[i] = new wxStaticBitmap(parent, wxID_ANY, wxBitmap(wxImage(filenames[i])), wxPoint(positions[i][0], positions[i][1]), wxSize(ships[i].getLength()*40, 40));
+        }
     }
 
     // for (size_t i=0; i<ships.size(); i++) {
