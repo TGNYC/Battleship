@@ -27,7 +27,7 @@ bool Ship::hit(Coordinate shot) {
   if (m_orientation == Orientation::Horizontal) {
     if (m_position.y == shot.y) { // same row
       if (m_position.x <= shot.x && m_position.x + m_length > shot.x) { // is hit
-        m_hits.at(m_position.x - shot.x) = true;
+        m_hits.at( shot.x - m_position.x) = true;
         if (hasSunken()) m_sunk = true;
         return true;
       }
@@ -35,7 +35,7 @@ bool Ship::hit(Coordinate shot) {
   } else if (m_orientation == Orientation::Vertical) {
     if (m_position.x == shot.x) { // same column
       if (m_position.y <= shot.y && m_position.y + m_length > shot.y) { // is hit
-        m_hits.at(m_position.y - shot.y) = true;
+        m_hits.at(shot.y - m_position.y) = true;
         if (hasSunken()) {
           m_sunk = true;
         }
