@@ -47,11 +47,14 @@ bool Ship::hit(Coordinate shot) {
 }
 
 bool Ship::hasSunken() {
+  if (m_sunk) return true;
   int sum = 0;
   for (const bool tile : m_hits) {
     sum += static_cast<int>(tile);
   }
   if (sum == m_length) {  // only true if all tiles of the ship were hit/true
     return true;
+  } else {
+    return false;
   }
 }
