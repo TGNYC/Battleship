@@ -47,6 +47,7 @@ public:
   /*!
    * Function to register a shot on the server side and process the results
    *
+   * All arguments from *hit on are to used to return info back to the caller (the gameInstance)
    * Warning: The double pointer for the ship is intentional. Don't change please!
    *
    * @param playerId ID of the player who called the shot
@@ -81,7 +82,7 @@ private:
   std::vector<Player>     m_players;
   std::vector<PlayerGrid> m_playerGrids;  ///< holds 1 grid on client and 2 grids on server
 
-  unsigned int            m_num_players = 2;
+  //unsigned int            m_num_players = 2;
   uuid                    currentPlayerId;  // specifies the id of the player whose turn it is
   unsigned int            turnNumber = 0; // specifies the current numbered turn
   bool                    isFinished = false; // specifies whether the game is finished or not

@@ -80,6 +80,9 @@ bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
 // all parameters after position are used to return info back to the caller
 bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk, uuid *nextPlayerId) {
 
+  // log turn number
+  Logger::log("Turn Number {}. Player {} is playing",Logger::Type::info);
+
   // make sure we are on a server
   assert(m_playerGrids.size() == 2 && "Number of grids is not 2. Illegal call on client side or incomplete state on server");
 
@@ -122,6 +125,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   // determine next player
   *nextPlayerId = *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
   currentPlayerId = *nextPlayerId;  // update current player
+  turnNumber++;
   return true;
 }
 
@@ -162,6 +166,8 @@ bool game_state::gameOver(uuid *winner) {
       }
       if (lost) {
         *winner = getOtherPlayer(grid.m_playerId); // this player lost, so the other player is the winner
+        isFinished = true;
+        m_state = State::Finished;
         return true;
       }
   }

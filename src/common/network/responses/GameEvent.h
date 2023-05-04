@@ -9,18 +9,17 @@
 #include "game_state/Coordinate.h"
 #include "game_state/Ship.h"
 
-/*
- * A Game Event is emitted by the server if and only if a new shot was called and accepted as legal
+/*!
+ * A Game Event is emitted by the server if and only if a new shot was registered
  */
 class GameEvent {
 public:
   uuid playerId; // id of the player who called the shot
-  Coordinate position;
-  bool hit = false;
-  bool sunk = false;
+  Coordinate position;  // location of the shot
+  bool hit = false; // true if shot was a hit
+  bool sunk = false;  // not necessary for grid update, but useful for GUI reaction
   Ship hitShip; // the ship that was hit (if there was a hit)
   uuid nextPlayerId; // id of the player who has to play next
-  // TODO include ship info if ship has been hit or sunk
 };
 
 #endif // BATTLESHIP_GAMEEVENT_H
