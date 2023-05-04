@@ -1,0 +1,5 @@
+<map id="ViewGrid::showShips" name="ViewGrid::showShips">
+<area shape="rect" id="node1" title=" " alt="" coords="551,13,709,39"/>
+<area shape="rect" id="node2" href="$class_main_game_panel.html#ae54966f1a077b623da6a105641eb0ffc" title=" " alt="" coords="296,5,503,47"/>
+<area shape="rect" id="node3" href="$class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3" title=" " alt="" coords="5,13,248,39"/>
+</map>

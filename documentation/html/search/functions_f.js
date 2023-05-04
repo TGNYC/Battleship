@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['sendemote_398',['SendEmote',['../class_send_emote.html#abbb8dd73ca193086df3072f38b0d3a27',1,'SendEmote']]],
+  ['sendemote_399',['sendEmote',['../class_game_controller.html#a66b520e492f2b2a0ee1a5b5ced913e18',1,'GameController']]],
+  ['server_5fnetwork_5fmanager_400',['server_network_manager',['../classserver__network__manager.html#a0637cee6f14df18d888846c0c8e11608',1,'server_network_manager']]],
+  ['setorientation_401',['setOrientation',['../class_ship.html#a1a754882cdbbb50c3d99154c21ca5265',1,'Ship']]],
+  ['setposition_402',['setPosition',['../class_ship.html#a254b8918caeb472a717080d90a8b9ddf',1,'Ship']]],
+  ['setstatus_403',['setStatus',['../class_game_window.html#a02bb94c0f4c54c8725c6acf1615736be',1,'GameWindow']]],
+  ['setupmanager_404',['SetupManager',['../class_setup_manager.html#af4f1553c6b916ee7b0efabb6bb683058',1,'SetupManager']]],
+  ['setuppanel_405',['SetupPanel',['../class_setup_panel.html#ac64823d178d62110548fb760ed1cc360',1,'SetupPanel']]],
+  ['ship_406',['Ship',['../class_ship.html#a09c0c2ed07ecb05cde48d4061f063e1a',1,'Ship']]],
+  ['shotislegal_407',['shotIsLegal',['../classgame__state.html#aebd13bfa31bce986484b7ed7733a7986',1,'game_state']]],
+  ['showerror_408',['showError',['../class_game_controller.html#adf043f9026a62f634a873c9f9d292034',1,'GameController']]],
+  ['showgameovermessage_409',['showGameOverMessage',['../class_game_controller.html#abb91c546ab8400c1e2e9f2a2ccc8298f',1,'GameController']]],
+  ['showpanel_410',['showPanel',['../class_game_window.html#a38ba4c455f0a985cde1421193ede3bea',1,'GameWindow']]],
+  ['showships_411',['showShips',['../class_view_grid.html#a9140a563b8f5ccab7c3622c3c002c684',1,'ViewGrid']]],
+  ['showshots_412',['showShots',['../class_view_grid.html#aab0479a263466ec0c3af348b87050f77',1,'ViewGrid']]],
+  ['start_5fgame_413',['start_game',['../classgame__instance.html#a0abe61cd20ee3990e9bf20137264b3c8',1,'game_instance']]],
+  ['startgame_414',['StartGame',['../class_start_game.html#a2bb666a66ba97997c3bf67c92568833e',1,'StartGame']]],
+  ['startgame_415',['startGame',['../class_game_controller.html#a8f30ab3ff471ac0a5c8b88dc7fea45f4',1,'GameController']]]
+];

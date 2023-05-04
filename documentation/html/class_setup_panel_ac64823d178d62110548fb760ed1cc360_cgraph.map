@@ -1,0 +1,10 @@
+<map id="SetupPanel::SetupPanel" name="SetupPanel::SetupPanel">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,180,133"/>
+<area shape="rect" id="node2" href="$class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="285,5,375,32"/>
+<area shape="rect" id="node3" href="$class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="269,56,391,83"/>
+<area shape="rect" id="node4" href="$class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="254,107,406,133"/>
+<area shape="rect" id="node5" href="$class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title=" " alt="" coords="228,158,432,199"/>
+<area shape="rect" id="node8" href="$class_ship.html#a1a754882cdbbb50c3d99154c21ca5265" title=" " alt="" coords="255,224,405,251"/>
+<area shape="rect" id="node6" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title=" " alt="" coords="480,165,695,192"/>
+<area shape="rect" id="node7" href="$class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="743,165,932,192"/>
+</map>

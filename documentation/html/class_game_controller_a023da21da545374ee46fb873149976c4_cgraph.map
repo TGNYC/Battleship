@@ -1,0 +1,8 @@
+<map id="GameController::connectToServer" name="GameController::connectToServer">
+<area shape="rect" id="node1" title="Connects to server." alt="" coords="5,89,204,131"/>
+<area shape="rect" id="node2" href="$class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064" title=" " alt="" coords="265,5,467,47"/>
+<area shape="rect" id="node4" href="$class_connection_panel.html#ab0dc7af0934d4184aa04d220e0bd9719" title=" " alt="" coords="253,71,479,98"/>
+<area shape="rect" id="node5" href="$class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408" title=" " alt="" coords="252,122,480,149"/>
+<area shape="rect" id="node6" href="$class_game_controller.html#adf043f9026a62f634a873c9f9d292034" title="Prints an error message box in case of an invalid move." alt="" coords="267,173,465,199"/>
+<area shape="rect" id="node3" href="$class_input_field.html#abf8772b4331e10f7d8f236556f24948d" title=" " alt="" coords="528,71,679,98"/>
+</map>

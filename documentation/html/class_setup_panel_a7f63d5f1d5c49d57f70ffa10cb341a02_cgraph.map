@@ -1,0 +1,5 @@
+<map id="SetupPanel::OnReadyButtonClicked" name="SetupPanel::OnReadyButtonClicked">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,209,47"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title=" " alt="" coords="257,13,472,39"/>
+<area shape="rect" id="node3" href="$class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="520,13,709,39"/>
+</map>

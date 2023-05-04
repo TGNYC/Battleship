@@ -1,0 +1,6 @@
+<map id="src/common/game_state" name="src/common/game_state">
+<area shape="rect" id="node1" href="dir_fe680d193281dea8f29c9bf94b4af9e2.html" title="network" alt="" coords="39,148,113,196"/>
+<area shape="rect" id="node2" href="dir_5ca9256e394d76a5c0874f18b1fb2558.html" title="game_state" alt="" coords="27,52,125,100"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000007_000008.html" title="1" alt="" coords="80,122,89,137"/>
+<area shape="rect" id="clust1" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html" title="common" alt="" coords="16,16,136,207"/>
+</map>

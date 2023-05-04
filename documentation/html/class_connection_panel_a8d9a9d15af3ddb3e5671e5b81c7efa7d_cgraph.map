@@ -1,0 +1,5 @@
+<map id="ConnectionPanel::onConnectButtonClicked" name="ConnectionPanel::onConnectButtonClicked">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,212,47"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf" title="enter setup phase" alt="" coords="260,5,464,47"/>
+<area shape="rect" id="node3" href="$class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="512,13,701,39"/>
+</map>

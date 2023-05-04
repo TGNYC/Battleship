@@ -1,0 +1,9 @@
+<map id="ClientRequest" name="ClientRequest">
+<area shape="rect" id="node1" title=" " alt="" coords="259,5,372,32"/>
+<area shape="rect" id="node2" href="$class_call_shot.html" title=" " alt="" coords="5,80,81,107"/>
+<area shape="rect" id="node3" href="$class_join_game.html" title=" " alt="" coords="106,80,191,107"/>
+<area shape="rect" id="node4" href="$class_play_again.html" title=" " alt="" coords="216,80,303,107"/>
+<area shape="rect" id="node5" href="$class_quit_game.html" title=" " alt="" coords="327,80,415,107"/>
+<area shape="rect" id="node6" href="$class_send_emote.html" title=" " alt="" coords="439,80,535,107"/>
+<area shape="rect" id="node7" href="$class_start_game.html" title=" " alt="" coords="560,80,652,107"/>
+</map>

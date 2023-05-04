@@ -1,0 +1,8 @@
+<map id="SetupManager::placeShip" name="SetupManager::placeShip">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,192,133"/>
+<area shape="rect" id="node2" href="$class_placement_grid.html#a02128e5ccc3d96e4183243e775f8e31a" title=" " alt="" coords="262,5,437,32"/>
+<area shape="rect" id="node3" href="$class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="288,56,411,83"/>
+<area shape="rect" id="node4" href="$class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="273,107,425,133"/>
+<area shape="rect" id="node5" href="$class_setup_panel.html#a72d58b5ea56a5260bc9e0ed6198136c3" title=" " alt="" coords="240,157,459,184"/>
+<area shape="rect" id="node6" href="$class_game_controller.html#a5ea6d7c2b11e338a3389dd3689fde9fb" title=" " alt="" coords="254,209,445,250"/>
+</map>

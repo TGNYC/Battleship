@@ -1,0 +1,12 @@
+<map id="src/common/network/responses" name="src/common/network/responses">
+<area shape="rect" id="node1" href="dir_bc67c975f4a8a2d322be7f47052112ea.html" title="responses" alt="" coords="133,52,221,100"/>
+<area shape="rect" id="node2" href="dir_4e6c883d8b666a44f8755f2472895d27.html" title="serialization" alt="" coords="5,52,108,100"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000010_000011.html" title="1" alt="" coords="122,77,131,92"/>
+<area shape="rect" id="node3" href="dir_5ca9256e394d76a5c0874f18b1fb2558.html" title="game_state" alt="" coords="7,148,106,196"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000010_000007.html" title="2" alt="" coords="93,135,102,150"/>
+<area shape="rect" id="node4" href="dir_b8154c7787844a82e404ad1105f9f634.html" title="exceptions" alt="" coords="130,148,223,196"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000010_000006.html" title="1" alt="" coords="180,122,190,137"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000011_000007.html" title="2" alt="" coords="60,122,70,137"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000007_000010.html" title="1" alt="" coords="131,98,140,113"/>
+<area shape="rect" id="clust1" href="dir_fe680d193281dea8f29c9bf94b4af9e2.html" title="network" alt="" coords="122,16,231,111"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="ConnectionPanel::ConnectionPanel" name="ConnectionPanel::ConnectionPanel">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,216,47"/>
+<area shape="rect" id="node2" href="$class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title=" " alt="" coords="264,5,471,47"/>
+<area shape="rect" id="node3" href="$class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf" title="enter setup phase" alt="" coords="519,5,723,47"/>
+<area shape="rect" id="node4" href="$class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="771,13,960,39"/>
+</map>

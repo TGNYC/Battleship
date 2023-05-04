@@ -1,0 +1,9 @@
+<map id="src/client/panels/SetupPanel.h" name="src/client/panels/SetupPanel.h">
+<area shape="rect" id="node1" title=" " alt="" coords="443,5,659,32"/>
+<area shape="rect" id="node2" href="$_battleship_8cpp.html" title=" " alt="" coords="5,162,184,189"/>
+<area shape="rect" id="node3" href="$_game_controller_8h.html" title=" " alt="" coords="451,80,650,107"/>
+<area shape="rect" id="node6" href="$_setup_panel_8cpp.html" title=" " alt="" coords="907,162,1138,189"/>
+<area shape="rect" id="node4" href="$_game_controller_8cpp.html" title=" " alt="" coords="209,162,423,189"/>
+<area shape="rect" id="node5" href="$_connection_panel_8cpp.html" title=" " alt="" coords="448,155,653,196"/>
+<area shape="rect" id="node7" href="$_setup_manager_8cpp.html" title=" " alt="" coords="677,162,883,189"/>
+</map>

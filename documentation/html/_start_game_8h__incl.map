@@ -1,0 +1,12 @@
+<map id="src/common/network/requests/StartGame.h" name="src/common/network/requests/StartGame.h">
+<area shape="rect" id="node1" title=" " alt="" coords="209,5,377,47"/>
+<area shape="rect" id="node2" href="$_ship_8h.html" title=" " alt="" coords="210,95,377,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="379,169,442,196"/>
+<area shape="rect" id="node10" href="$_client_request_8h.html" title=" " alt="" coords="60,95,185,121"/>
+<area shape="rect" id="node3" href="$uuid_8h.html" title=" " alt="" coords="85,169,160,196"/>
+<area shape="rect" id="node7" href="$_coordinate_8h.html" title=" " alt="" coords="243,169,349,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,244,61,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="85,244,152,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="176,244,235,271"/>
+<area shape="rect" id="node8" title=" " alt="" coords="259,244,338,271"/>
+</map>

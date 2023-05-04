@@ -1,0 +1,4 @@
+<map id="GameController::init" name="GameController::init">
+<area shape="rect" id="node1" title="Initializes all panels, displays the connection panel." alt="" coords="188,5,343,32"/>
+<area shape="rect" id="node2" href="$class_battleship.html#a07e673975dfed4f8252e1c3be538db44" title=" " alt="" coords="5,5,140,32"/>
+</map>
