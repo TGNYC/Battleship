@@ -15,8 +15,12 @@ public:
   void buildTurnIndicator();
 
 private:
+  game_state* _gameState;
+  Player* _me;
   ViewGrid* _ownViewGrid;
-  ViewGrid* _opponentViewGrid;
+  ViewGrid* _oppViewGrid;
+  ShipPanel* _ownShipPanel;
+  ShipPanel* _oppShipPanel;
 };
 
 #endif // MAINGAMEPANEL_H
