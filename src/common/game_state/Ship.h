@@ -25,12 +25,12 @@ public:
   auto operator<=>(const Ship &) const = default;
 
   /*!
-   * processes a shot for an individual ship. returns true if the ship was hit. will update m_sunk and m_hits
+   * Hit detection. Processes a shot for an individual ship. Will update m_sunk and m_hits
    * @param shot coordinates of the shot called
    * @return true if ship was hit, false otherwise
    */
   bool hit(Coordinate shot);
-  bool hasSunken();
+  bool hasSunken() const;
 
 private:
   int         m_length;

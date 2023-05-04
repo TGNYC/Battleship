@@ -28,7 +28,9 @@ bool Ship::hit(Coordinate shot) {
     if (m_position.y == shot.y) { // same row
       if (m_position.x <= shot.x && m_position.x + m_length > shot.x) { // is hit
         m_hits.at( shot.x - m_position.x) = true;
-        if (hasSunken()) m_sunk = true;
+        if (hasSunken()) {
+          m_sunk = true;
+        }
         return true;
       }
     }
@@ -46,15 +48,13 @@ bool Ship::hit(Coordinate shot) {
   return false;
 }
 
-bool Ship::hasSunken() {
-  if (m_sunk) return true;
+bool Ship::hasSunken() const {
+  if (m_sunk) {
+    return true;
+  }
   int sum = 0;
   for (const bool tile : m_hits) {
     sum += static_cast<int>(tile);
   }
-  if (sum == m_length) {  // only true if all tiles of the ship were hit/true
-    return true;
-  } else {
-    return false;
-  }
+  return sum == m_length;  // only true if all tiles of the ship were hit/true
 }
