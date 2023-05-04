@@ -5,6 +5,7 @@
 #include "../../common/game_state/game_state.h"
 #include "../../common/game_state/Player.h"
 #include "../uiElements/ViewGrid.h"
+#include "../uiElements/ShipPanel.h"
 
 class MainGamePanel : public wxPanel {
 public:
