@@ -47,7 +47,7 @@ public:
   /*!
    * Function to register a shot on the server side and process the results
    *
-   * All arguments from *hit on are to used to return info back to the caller (the gameInstance)
+   * All arguments from *hit on are to used to return info back to the caller (in this case to gameInstance)
    * Warning: The double pointer for the ship is intentional. Don't change please!
    *
    * @param playerId ID of the player who called the shot
