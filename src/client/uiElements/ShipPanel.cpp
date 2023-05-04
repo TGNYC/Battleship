@@ -30,7 +30,7 @@ ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, std::vector<Ship> ships) : w
     this->SetBackgroundColour(backgroundColor);
 
     for (size_t i=0; i<5; ++i) {
-        std::cout << positions[i][0] << " " << positions[i][1] << " " << filenames[i] << " " << ships[i].getLength() << std::endl;
+        // std::cout << positions[i][0] << " " << positions[i][1] << " " << filenames[i] << " " << ships[i].getLength() << std::endl;
         if (ships[i].hasSunken()) {
             this->_shipBitmaps[i] = new wxStaticBitmap(parent, wxID_ANY, wxBitmap(wxImage(filenamesSunk[i])), wxPoint(positions[i][0], positions[i][1]), wxSize(ships[i].getLength()*40, 40));
         } else {

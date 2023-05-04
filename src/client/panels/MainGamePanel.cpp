@@ -1,5 +1,4 @@
 #include "MainGamePanel.h"
-#include <iostream>
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   // remove later
@@ -56,13 +55,9 @@ void MainGamePanel::buildGameState(game_state* gameState, Player* me) {
     Ship(3, Coordinate{4, 3}, Ship::Orientation::Vertical, uuid::generateRandomUuid()),
     Ship(2, Coordinate{8, 3}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()),
   };
-  std::cout << "sinking ship 3" << std::endl;
   oppShips[2].hit(Coordinate{0, 3});
-  std::cout << "here" << std::endl;
   oppShips[2].hit(Coordinate{1, 3});
-  std::cout << "here" << std::endl;
   oppShips[2].hit(Coordinate{2, 3});
-  std::cout << "done" << std::endl;
   
   this->_ownViewGrid->showShips(ownShips);
   // this->_opponentViewGrid->showShips(oppShips);
