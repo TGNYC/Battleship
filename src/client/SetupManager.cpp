@@ -58,12 +58,14 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
   bool overlap = false;
   for (int i = 0; i < length; ++i) {
         if (orientation == Ship::Orientation::Horizontal)
-          overlap = overlap || _grid[idx] != 0;
+          overlap = overlap || _grid[(cellX + i) * 10 + cellY] != 0;
         else
-          overlap = overlap || _grid[idx] != 0;
+          overlap = overlap || _grid[(cellX) * 10 + cellY + i] != 0;
   }
-  if (overlap)
-        return false;
+  if (overlap) {
+    std::cout << "invalid placement. try again." << std::endl;
+    return false;
+  }
 
   // get idx of ship in _ships_placed
   for(int i = 0; i < _ships_placed.size(); ++i) {
@@ -95,4 +97,11 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
 }
 int *SetupManager::getGrid() {
   return _grid;
+}
+bool SetupManager::placedAllShips() {
+  bool placed = true;
+  for(int i = 0; i < _ships_placed.size(); ++i) {
+        placed = placed && _ships_placed[i].getPosition() != Coordinate{-1,-1};
+  }
+  return placed;
 }

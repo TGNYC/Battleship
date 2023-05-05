@@ -80,6 +80,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[0];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
       std::cout << "this ship is already placed" << std::endl;
+      _placementGrid->displayGrid();
       return;
     }
     std::cout << "ship 1 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
@@ -88,6 +89,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[1];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
       std::cout << "this ship is already placed" << std::endl;
+      _placementGrid->displayGrid();
       return;
     }
     std::cout << "ship 2 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
@@ -96,6 +98,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[2];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
       std::cout << "this ship is already placed" << std::endl;
+      _placementGrid->displayGrid();
       return;
     }
     std::cout << "ship 3 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
@@ -104,6 +107,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[3];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
       std::cout << "this ship is already placed" << std::endl;
+      _placementGrid->displayGrid();
       return;
     }
     std::cout << "ship 4 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
@@ -112,6 +116,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[4];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
       std::cout << "this ship is already placed" << std::endl;
+      _placementGrid->displayGrid();
       return;
     }
     std::cout << "ship 5 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
@@ -137,11 +142,12 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
   this->_rotateButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &evt) {
   //if (evt.GetUnicodeKey() == 'R') {
   if(SetupManager::_selectedShip == nullptr) return ;
-    std::cout << "rotate ship " << SetupManager::_selectedShip->getId().ToString() << std::endl;
-    if (SetupManager::_selectedShip != nullptr) {
+    if (SetupManager::_selectedShip != nullptr && SetupManager::_selectedShip->getPosition().x == -1 && SetupManager::_selectedShip->getPosition().y == -1) { // ship must not yet be placed
+      std::cout << "rotate ship " << SetupManager::_selectedShip->getId().ToString() << std::endl;
       auto orientation = SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Horizontal ?
                                                                                                         Ship::Orientation::Vertical : Ship::Orientation::Horizontal;
       SetupManager::_selectedShip->setOrientation(orientation);
+      this->_placementGrid->displayGrid();
       //this->_placementGrid->Refresh();
     }
   //}
@@ -153,5 +159,10 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
         //this->Layout();
 }
 void SetupPanel::OnReadyButtonClicked(wxCommandEvent &event) {
+  if(SetupManager::placedAllShips()) {
     GameController::playerReady();
+  }
+  else {
+    std::cout << "not all ships placed" << std::endl;
+  }
 }

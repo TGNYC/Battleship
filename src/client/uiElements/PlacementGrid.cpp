@@ -36,14 +36,27 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
   int CellY = mousePosition.y / 40;
   //std::cout << "(" << CellX << ", " << CellY << ")\n";
 
-  if(CellX == cellX_prev && CellY == cellY_prev) { // same as before
+  if (CellX == cellX_prev && CellY == cellY_prev) { // mouse still in same cell as before
     return;
   }
-  if(CellX < 0 || CellX >= 10 || CellY < 0 || CellY >= 10 || SetupManager::_selectedShip == nullptr) { // out of bounds or no ship selected
+  if (SetupManager::_selectedShip == nullptr) { // no ship selected
+    return;
+  }
+  if (SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Horizontal &&
+      CellX + SetupManager::_selectedShip->getLength() > 10) { // ship would be out of bounds
+    CellX = std::min(CellX, 10 - SetupManager::_selectedShip->getLength());
+  }
+  if (SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Vertical &&
+      CellY + SetupManager::_selectedShip->getLength() > 10) { // ship would be out of bounds
+    // return;
+    CellY = std::min(CellY, 10 - SetupManager::_selectedShip->getLength());
+  }
+  if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) { // already placed
     return;
   }
 
   // grid is column major!
+  displayGrid();
 
   int l = SetupManager::_selectedShip->getLength();
   auto orientation = SetupManager::_selectedShip->getOrientation();
@@ -84,7 +97,7 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
   cellX_prev = CellX;
   cellY_prev = CellY;
 
-  this->displayGrid();
+  //this->displayGrid();
 
   //this->_grid[CellX*10+CellY]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
 
@@ -114,6 +127,9 @@ void PlacementGrid::displayGrid() {
   for(int i = 0; i < 100; ++i) {
     if(grid[i] != 0) {
       _grid[i]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
+    }
+    else {
+      _grid[i]->SetBitmap(wxBitmap(wxImage("../assets/empty_tile.png")));
     }
   }
 }
