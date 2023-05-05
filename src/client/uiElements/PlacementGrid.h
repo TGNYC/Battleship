@@ -11,6 +11,8 @@ class PlacementGrid : public wxPanel {
 public:
   PlacementGrid(wxWindow *parent);
   void OnMouseMotion(wxMouseEvent &event);
+  void OnMouseClick(wxMouseEvent &event);
+  void displayGrid();
 
   wxStaticBitmap** getGrid() const {
     return _grid;

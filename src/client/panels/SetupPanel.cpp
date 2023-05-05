@@ -78,22 +78,42 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
 
   _ship1->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[0];
+    if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
+      std::cout << "this ship is already placed" << std::endl;
+      return;
+    }
     std::cout << "ship 1 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
   _ship2->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[1];
+    if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
+      std::cout << "this ship is already placed" << std::endl;
+      return;
+    }
     std::cout << "ship 2 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
   _ship3->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[2];
+    if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
+      std::cout << "this ship is already placed" << std::endl;
+      return;
+    }
     std::cout << "ship 3 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
   _ship4->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[3];
+    if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
+      std::cout << "this ship is already placed" << std::endl;
+      return;
+    }
     std::cout << "ship 4 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
   _ship5->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[4];
+    if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
+      std::cout << "this ship is already placed" << std::endl;
+      return;
+    }
     std::cout << "ship 5 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
 

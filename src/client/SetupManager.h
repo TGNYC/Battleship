@@ -12,9 +12,11 @@ public:
   static Ship* _selectedShip;
 
   static bool placeShip(wxPoint &position, Ship *ship);
+  static int* getGrid();
+  static bool placedAllShips();
 
 private:
-  static int _grid[10][10];
+  static int *_grid;
 };
 
 
