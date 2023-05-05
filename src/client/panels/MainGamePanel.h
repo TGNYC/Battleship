@@ -14,9 +14,12 @@ public:
   void buildEmoteList();
   void buildTurnIndicator();
 
+  void onMouseClick(wxMouseEvent &event);
+
 private:
   game_state* _gameState;
   Player* _me;
+  uuid _ownId;
   ViewGrid* _ownViewGrid;
   ViewGrid* _oppViewGrid;
   ShipPanel* _ownShipPanel;

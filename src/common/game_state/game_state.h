@@ -23,7 +23,7 @@ public:
   /*!
    * returns a const reference of the grid for e.g. display through UI
    */
-  const PlayerGrid& getPlayerGrid(uuid playerId) const;
+  PlayerGrid& getPlayerGrid(uuid playerId);
 
   /*!
    * returns a reference to the ship with the specified id

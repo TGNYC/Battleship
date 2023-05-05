@@ -13,8 +13,8 @@ public:
   PlayerGrid(uuid playerId, std::vector<Ship> shipsPlacement);
   uuid              m_playerId;
   std::vector<Ship> m_shipsPlaced;
-  int               shotsReceived[10][10];  // 0: tile not shot | 1: miss | 2: hit
-  int               shotsFired[10][10];     // 0: tile not shot | 1: miss | 2: hit
+  int               shotsReceived[10][10] = {0};  // 0: tile not shot | 1: miss | 2: hit
+  int               shotsFired[10][10] = {0};     // 0: tile not shot | 1: miss | 2: hit
 };
 
 #endif // BATTLESHIP_PLAYERGRID_H

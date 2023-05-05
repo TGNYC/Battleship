@@ -2,7 +2,9 @@
 
 // #include <iostream>
 
-ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400)) {
+ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos, PlayerGrid* playerGrid) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400)) {
+  _playerGrid = new PlayerGrid(*playerGrid);
+  auto ships = _playerGrid->m_shipsPlaced;
   wxColor backgroundColor = wxColor(255, 255, 0);
   this->SetBackgroundColour(backgroundColor);
 
@@ -25,7 +27,8 @@ ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, po
   auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
 }
 
-void ViewGrid::showShips(std::vector<Ship> ships) {
+void ViewGrid::showShips() {
+    auto ships = _playerGrid->m_shipsPlaced;
     for (auto ship : ships) {
         auto orientation = ship.getOrientation();
         int l = ship.getLength();
@@ -48,7 +51,8 @@ void ViewGrid::showShips(std::vector<Ship> ships) {
     }
 }
 
-void ViewGrid::showShots(int shots[10][10]) {
+void ViewGrid::showShots() {
+    auto shots = _playerGrid->shotsReceived;
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
             // std::cout << shots[i][j] << " ";

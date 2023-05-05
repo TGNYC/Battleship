@@ -43,8 +43,8 @@ auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> boo
 }
 
 
-const PlayerGrid &game_state::getPlayerGrid(uuid playerId) const {
-  for (const PlayerGrid& grid : m_playerGrids) {
+PlayerGrid &game_state::getPlayerGrid(uuid playerId) {
+  for (PlayerGrid& grid : m_playerGrids) {
     if (grid.m_playerId == playerId) return grid;
   }
   throw std::runtime_error("Could not find grid for this player ID");
