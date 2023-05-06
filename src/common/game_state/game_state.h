@@ -17,9 +17,9 @@
  * start()
  *
  * -- playing --
- * whenever a callShot request is received: check shotIsLegal(), then registerShot()
- * send a gameEvent to clients with the info provided by registerShot -> see function documentation for details
- * gameOver() to check if game is finished
+ * whenever a callShot request is received: check shotIsLegal(), then call registerShot()
+ * send a gameEvent to clients with the info provided by registerShot() -> see function documentation for details
+ * check gameOver() to see if game is finished
  * if yes, call getWinner() to receive winner id. then send corresponding event to clients
  *
  * USAGE CLIENT
@@ -33,7 +33,7 @@
  * -- playing --
  * when receiving a gameEvent: updateBoards(event)
  * use getPlayerGrid() to get grid data for UI update
- *
+ * use getCurrentPlayerId() to see if it is your turn
  * check shotIsLegal() before sending a callShot Request
  */
 

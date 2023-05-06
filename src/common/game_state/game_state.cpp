@@ -124,11 +124,13 @@ bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
 // all parameters after position are used to return info back to the caller
 bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk, uuid *nextPlayerId) {
 
-  // log turn number
-  Logger::log("Turn Number {}. Player {} is playing",Logger::Type::Info);
+  // log turn number and current player
+  const std::string msg = "Turn Number " + std::to_string(turnNumber) +
+                          ". Current Player " + currentPlayerId.ToString();
+  Logger::log(msg, Logger::Type::Info);
 
   // make sure we are on a server
-  assert(playerGrids.size() == 2 && "Number of grids is not 2. Illegal call on client side or incomplete state on server");
+  //assert(playerGrids.size() == 2 && "Number of grids is not 2. Illegal call on client side or incomplete state on server")
 
   // check if the correct player is playing
   if (playerId != currentPlayerId) {
