@@ -6,4 +6,5 @@
 #include <vector>
 
 PlayerGrid::PlayerGrid(uuid playerId, std::vector<Ship> shipsPlacement)
-    : m_playerId(playerId), m_shipsPlaced(std::move(shipsPlacement)) {}
+    : playerId(playerId),
+      shipsPlaced(std::move(shipsPlacement)) {}
