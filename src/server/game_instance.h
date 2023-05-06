@@ -40,17 +40,18 @@ public:
   bool start_game(Player *player, std::string &err);
   bool try_add_player(Player *new_player, std::string &err);
   bool try_remove_player(Player *player, std::string &err);
-  // TODO: add call_shot, play_again,
   /*!
    * Function to handle a CallShot request. Registers the shot in the gameState. Sends out corresponding gameEvents.
    * Checks if the game is over.
    * @param shotRequest
    * @return
    */
-  bool executeShot(CallShot shotRequest);
 
-  //  bool play_card(Player* player, const std::string& card_id, std::string& err);
+  bool executeShot(CallShot shotRequest);
+  // TODO: play_again
+
   //  bool draw_card(Player* player, card*& drawn_card, std::string& err);
+  //  bool play_card(Player* player, const std::string& card_id, std::string& err);
   //  bool fold(player* Player, std::string& err);
 };
 
