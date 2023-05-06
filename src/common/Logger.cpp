@@ -14,7 +14,7 @@ std::string Logger::getCurrentDateTime() {
   return oss.str();
 }
 
-void Logger::log(const char *message, Logger::Type type) {
+void Logger::log(const std::string& message, Logger::Type type) {
   std::ofstream file;
   try {
     file.open(logFile);

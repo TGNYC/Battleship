@@ -30,7 +30,7 @@ public:
    * @param message text to be logged
    * @param type optional log type (info, warning, error). currently unused
    */
-  static void log(const char* message, Type type = Type::Info);
+  static void log(const std::string& message, Type type = Type::Info);
 
 private:
   /*!
