@@ -19,10 +19,10 @@ class Logger {
 
 public:
 
-  enum Type {
-    info,
-    warning,
-    error
+  enum class Type {
+    Info,
+    Warning,
+    Error
   };
 
   /*!
@@ -30,7 +30,7 @@ public:
    * @param message text to be logged
    * @param type optional log type (info, warning, error). currently unused
    */
-  static void log(const char* message, Type type = Type::info);
+  static void log(const char* message, Type type = Type::Info);
 
 private:
   /*!
