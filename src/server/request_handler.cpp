@@ -9,10 +9,6 @@
 #include "game_instance.h"
 #include "player_manager.h"
 
-// TODO for common: create join_game_request (JoinGame, StartGame, QuitGame, PlayAgain)
-// TODO for common: create call_shot_request (CallShot)
-// TODO for common: create send_emote_request (SendEmote)
-
 // TODO: link other files in server
 // #include "player_manager.h"
 // #include "game_instance_manager.h"
@@ -22,14 +18,14 @@
 // #include "../common/network/requests/draw_card_request.h"
 // #include "../common/network/requests/play_card_request.h"
 
-#include "network/requests/JoinGame.h"
-#include "network/requests/StartGame.h"
 #include "network/requests/CallShot.h"
-#include "network/requests/SendEmote.h"
+#include "network/requests/JoinGame.h"
 #include "network/requests/PlayAgain.h"
+#include "network/requests/SendEmote.h"
+#include "network/requests/StartGame.h"
+#include "network/responses/ServerResponse.h"
 
-
-request_response *request_handler::handle_request(const ClientRequest *const req) {
+ServerResponse *request_handler::handle_request(const ClientRequest *const req) {
   /*
     // Prepare variables that are used by every request type
     Player        *player;

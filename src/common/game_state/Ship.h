@@ -19,8 +19,8 @@ public:
   [[nodiscard]] auto getOrientation() const -> Orientation;
   [[nodiscard]] auto getId() const -> uuid;
 
-  [[nodiscard]] auto setOrientation(Orientation orientation) -> void;
-  [[nodiscard]] auto setPosition(Coordinate position) -> void;
+  auto setOrientation(Orientation orientation) -> void;
+  auto setPosition(Coordinate position) -> void;
 
   auto operator<=>(const Ship &) const = default;
 
@@ -33,10 +33,10 @@ public:
   bool hasSunken() const;
 
 private:
-  int         m_length;
-  Coordinate  m_position;
-  Orientation m_orientation;
-  uuid        m_id;
+  int               m_length;
+  Coordinate        m_position;
+  Orientation       m_orientation;
+  uuid              m_id;
   bool              m_sunk;
   std::vector<bool> m_hits; // vector of size m_length storing hits
 };

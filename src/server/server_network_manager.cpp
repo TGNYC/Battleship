@@ -10,11 +10,11 @@
 
 // include server address configurations TODO!!
 #include "network/default.conf"
-#include "network/responses/request_response.h"
+#include "network/responses/ServerResponse.h"
 #include "serialization/serialization.h"
 #include <nlohmann/json.hpp>
-#include <string>
 #include <sstream>
+#include <string>
 
 // Constructor of server_network_manager
 server_network_manager::server_network_manager() {
@@ -152,7 +152,7 @@ void server_network_manager::handle_incoming_message(const std::string          
     std::cout << "Received valid request : " << msg << std::endl;
 #endif
     // execute client request
-    server_response *res = request_handler::handle_request(req.get());
+    ServerResponse *res = request_handler::handle_request(req.get());
 
     // transform response into a json
     nlohmann::json res_json; // = res;
@@ -189,9 +189,9 @@ ssize_t server_network_manager::send_message(const std::string &msg, const std::
   return _address_to_socket.at(address).write(ss_msg.str());
 }
 
-void server_network_manager::broadcast_message(server_response &msg, const std::vector<Player *> &players,
+void server_network_manager::broadcast_message(ServerResponse &msg, const std::vector<Player *> &players,
                                                const Player *exclude) {
-  nlohmann::json msg_json;                     // = msg;  TODO           // write to JSON format
+  nlohmann::json msg_json   = msg;             // write to JSON format
   std::string    msg_string = msg_json.dump(); // convert to string
 
 #ifdef PRINT_NETWORK_MESSAGES

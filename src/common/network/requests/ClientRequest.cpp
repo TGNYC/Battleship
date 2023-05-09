@@ -1,6 +1,6 @@
 #include "ClientRequest.h"
 
-#include "../../uuid.h"
+#include "uuid.h"
 
 auto ClientRequest::getRequestType() const -> RequestType {
   return m_requestType;
