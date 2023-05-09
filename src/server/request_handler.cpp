@@ -9,10 +9,6 @@
 #include "game_instance.h"
 #include "player_manager.h"
 
-// TODO for common: create join_game_request (JoinGame, StartGame, QuitGame, PlayAgain)
-// TODO for common: create call_shot_request (CallShot)
-// TODO for common: create send_emote_request (SendEmote)
-
 // TODO: link other files in server
 // #include "player_manager.h"
 // #include "game_instance_manager.h"

@@ -191,7 +191,7 @@ ssize_t server_network_manager::send_message(const std::string &msg, const std::
 
 void server_network_manager::broadcast_message(ServerResponse &msg, const std::vector<Player *> &players,
                                                const Player *exclude) {
-  nlohmann::json msg_json;                     // = msg;  TODO           // write to JSON format
+  nlohmann::json msg_json   = msg;             // write to JSON format
   std::string    msg_string = msg_json.dump(); // convert to string
 
 #ifdef PRINT_NETWORK_MESSAGES
