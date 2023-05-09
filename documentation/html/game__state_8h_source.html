@@ -100,8 +100,8 @@ $(function() {
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26">State</a>                   m_state = <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0">State::Starting</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::vector&lt;Player&gt;     m_players;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::vector&lt;PlayerGrid&gt; m_playerGrids;  <span class="comment">// length 1 (on client) or 2 (on server)</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::vector&lt;Player&gt;     players;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::vector&lt;PlayerGrid&gt; playerGrids;  <span class="comment">// length 1 (on client) or 2 (on server)</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>            m_num_players = 2;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classuuid.html">uuid</a>                    currentPlayerId;  <span class="comment">// specifies the id of the player whose turn it is</span></div>

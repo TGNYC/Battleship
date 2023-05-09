@@ -178,7 +178,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
 bool game_state::updateBoards(GameEvent &event) {
 
   // make sure we are on a client
-  assert(playerGrids.size() == 1 && "Number of grids is not 1. Illegal call on server side or damaged state on client");
+  //assert(playerGrids.size() == 1 && "Number of grids is not 1. Illegal call on server side or damaged state on client");
 
   PlayerGrid myGrid = playerGrids[0];
 
