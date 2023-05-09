@@ -223,7 +223,7 @@ uuid game_state::getWinner() {
       return winner;
   } else {
       Logger::log("Asked for winner but game not finished", Logger::Type::Warning);
-      return uuid("0");
+      return uuid();
   }
 }
 
