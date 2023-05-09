@@ -16,7 +16,7 @@
 
 // #include "../common/network/requests/client_request.h"
 #include "game_state/Player.h"
-#include "network/responses/server_response.h"
+#include "network/responses/ServerResponse.h"
 // #include "../common/game_state/game_state.h"
 
 class server_network_manager {
@@ -42,7 +42,7 @@ public:
   ~server_network_manager();
 
   // Used to broadcast a server_response (e.g. a full_state_response) to all 'players' except 'exclude'
-  static void broadcast_message(server_response &msg, const std::vector<Player *> &players, const Player *exclude);
+  static void broadcast_message(ServerResponse &msg, const std::vector<Player *> &players, const Player *exclude);
 
   static void on_player_left(uuid player_id);
 };
