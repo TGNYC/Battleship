@@ -6,7 +6,7 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   Player* me = new Player(uuid::generateRandomUuid(), "Tejas");
   Player* opponent = new Player(uuid::generateRandomUuid(), "Opponent");
   // create game state
-  game_state* gameState = new game_state();
+  game_state* gameState = new game_state(game_state::Type::ClientState);
   // add players to game state
   gameState->addPlayer(*me);
   gameState->addPlayer(*opponent);

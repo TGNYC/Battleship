@@ -9,7 +9,7 @@
 game_state::game_state(game_state::Type type) :
       state(State::Starting),
       type(type),
-      currentPlayerId("0"),
+      currentPlayerId(),
       turnNumber(0) {
 
   players = std::vector<Player>();
