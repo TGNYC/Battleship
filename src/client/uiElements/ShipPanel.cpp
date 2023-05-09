@@ -18,7 +18,7 @@ ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, std::vector<Ship> ships) : w
         "../assets/ship_5_sunk.png"
     };
 
-    size_t positions[5][2] = {
+    int positions[5][2] = {
         {pos.x + 0*40, pos.y + 0*30},
         {pos.x + 6*40, pos.y + 0*30},
         {pos.x + 0*40, pos.y + 2*30},
