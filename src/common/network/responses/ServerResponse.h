@@ -2,9 +2,25 @@
 // Created by Tejas Gupta on 4/19/23.
 //
 
-#ifndef BATTLESHIP_SERVER_RESPONSE_H
-#define BATTLESHIP_SERVER_RESPONSE_H
+#ifndef BATTLESHIP_SERVERRESPONSE_H
+#define BATTLESHIP_SERVERRESPONSE_H
 
-class ServerResponse {};
+#include <compare>
 
-#endif // BATTLESHIP_SERVER_RESPONSE_H
+enum class ResponseType {
+  GameEvent,
+  EmoteEvent,
+  ErrorResponse
+};
+
+class ServerResponse {
+public:
+  const ResponseType responseType;
+
+  auto operator<=>(const ServerResponse &) const = default;
+
+protected:
+  explicit ServerResponse(ResponseType responseType);
+};
+
+#endif // BATTLESHIP_SERVERRESPONSE_H

@@ -1,15 +1,17 @@
 #ifndef SERIALIZION_h
 #define SERIALIZION_h
 
-#include "../game_state/Coordinate.h"
-#include "../game_state/Ship.h"
-#include "../network/requests/CallShot.h"
-#include "../network/requests/ClientRequest.h"
-#include "../network/requests/JoinGame.h"
-#include "../network/requests/PlayAgain.h"
-#include "../network/requests/QuitGame.h"
-#include "../network/requests/SendEmote.h"
-#include "../network/requests/StartGame.h"
+#include "game_state/Coordinate.h"
+#include "game_state/Ship.h"
+#include "network/requests/CallShot.h"
+#include "network/requests/ClientRequest.h"
+#include "network/requests/JoinGame.h"
+#include "network/requests/PlayAgain.h"
+#include "network/requests/QuitGame.h"
+#include "network/requests/SendEmote.h"
+#include "network/requests/StartGame.h"
+#include "network/responses/GameEvent.h"
+#include "network/responses/ServerResponse.h"
 #include <memory>
 #include <nlohmann/json.hpp>
 
@@ -40,6 +42,10 @@ NLOHMANN_JSON_SERIALIZE_ENUM(RequestType, {{RequestType::JoinGame, "join_game"},
                                            {RequestType::SendEmote, "send_emote"},
                                            {RequestType::QuitGame, "quit_game"},
                                            {RequestType::PlayAgain, "play_again"}})
+
+NLOHMANN_JSON_SERIALIZE_ENUM(ResponseType, {{ResponseType::GameEvent, "game_event"},
+                                            {ResponseType::EmoteEvent, "emote_event"},
+                                            {ResponseType::ErrorResponse, "error_response"}})
 
 namespace nlohmann {
 template <>
@@ -159,6 +165,65 @@ struct adl_serializer<std::unique_ptr<ClientRequest>> {
     }
   }
 };
+
+template <>
+struct adl_serializer<ServerResponse> {
+  static void to_json(json &json, const ServerResponse &responses) {
+    json["type"] = responses.responseType;
+  }
+};
+
+template <>
+struct adl_serializer<GameEvent> {
+  static void to_json(json &json, const GameEvent &responses) {
+    json                   = static_cast<const ServerResponse &>(responses);
+    json["player_id"]      = responses.playerId;
+    json["position"]       = responses.position;
+    json["ship_hit"]       = responses.hit;
+    json["ship_sunk"]      = responses.sunk;
+    json["ship"]           = responses.hitShip;
+    json["next_player_id"] = responses.nextPlayerId;
+  }
+};
+
+template <>
+struct adl_serializer<std::unique_ptr<ServerResponse>> {
+  static auto from_json(const json &json) -> std::unique_ptr<ServerResponse> {
+
+    const ResponseType responseType = json.at("type").get<ResponseType>();
+
+    switch (responseType) {
+    case ResponseType::GameEvent:
+      return std::make_unique<GameEvent>(json.at("player_id").get<uuid>(), json.at("position").get<Coordinate>(),
+                                         json.at("ship_hit").get<bool>(), json.at("ship_sunk").get<bool>(),
+                                         json.at("ship").get<Ship>(), json.at("next_player_id").get<uuid>());
+    case ResponseType::EmoteEvent:
+      return nullptr;
+    case ResponseType::ErrorResponse:
+      return nullptr;
+    }
+    return nullptr;
+  }
+
+  static void to_json(json &json, const std::unique_ptr<ServerResponse> &serverResponse) {
+    const ResponseType responsesType = serverResponse->responseType;
+
+    switch (responsesType) {
+    case ResponseType::GameEvent:
+      json = static_cast<const GameEvent &>(*serverResponse);
+      break;
+    case ResponseType::EmoteEvent:
+      // TODO create class EmoteEvent
+      // json = static_cast<const EmoteEvent &>(*serverResponse);
+      break;
+    case ResponseType::ErrorResponse:
+      // TODO create class ErrorResponse
+      // json = static_cast<const ErrorResponse &>(*serverResponse);
+      break;
+    }
+  }
+};
+
 } // namespace nlohmann
 
 #endif // SERIALIZION_h

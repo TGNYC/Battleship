@@ -3,3 +3,5 @@
 //
 
 #include "ServerResponse.h"
+
+ServerResponse::ServerResponse(ResponseType responseType) : responseType(responseType) {}

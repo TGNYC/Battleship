@@ -3,4 +3,10 @@
 //
 
 #include "GameEvent.h"
+#include "game_state/Coordinate.h"
+#include "game_state/Ship.h"
+#include "uuid.h"
 
+GameEvent::GameEvent(uuid playerId, Coordinate position, bool hit, bool sunk, Ship hitShip, uuid nextPlayerId)
+    : ServerResponse(ResponseType::GameEvent), playerId(playerId), position(position), hit(hit), sunk(sunk),
+      hitShip(hitShip), nextPlayerId(nextPlayerId) {}
