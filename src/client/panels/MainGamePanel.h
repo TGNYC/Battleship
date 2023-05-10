@@ -7,6 +7,7 @@
 #include "../../common/game_state/Player.h"
 #include "../uiElements/ViewGrid.h"
 #include "../uiElements/ShipPanel.h"
+#include "../AudioPlayer.h"
 
 class MainGamePanel : public wxPanel {
 public:
