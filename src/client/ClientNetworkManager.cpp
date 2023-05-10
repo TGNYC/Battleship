@@ -6,6 +6,7 @@
 #include <nlohmann/json.hpp>
 #include <sockpp/exception.h>
 #include <sockpp/tcp_connector.h>
+#include <sstream>
 
 // initialize static members
 sockpp::tcp_connector *ClientNetworkManager::_connection = nullptr;

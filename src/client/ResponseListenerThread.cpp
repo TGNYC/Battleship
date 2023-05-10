@@ -2,6 +2,7 @@
 
 #include "ClientNetworkManager.h"
 #include "GameController.h"
+#include <sstream>
 
 ResponseListenerThread::ResponseListenerThread(sockpp::tcp_connector *connection) {
   this->_connection = connection;
