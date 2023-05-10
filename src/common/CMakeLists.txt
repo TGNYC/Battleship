@@ -11,6 +11,7 @@ target_sources(Battleship_Common
         network/responses/ErrorResponse.cpp
         network/responses/GameEvent.cpp
         uuid.cpp
+        Logger.cpp
         game_state/Ship.cpp
         game_state/Player.cpp
         game_state/PlayerGrid.cpp
@@ -27,6 +28,7 @@ target_sources(Battleship_Common
         network/responses/ErrorResponse.h
         network/responses/GameEvent.h
         uuid.h
+        Logger.h
         serialization/serialization.h
         game_state/Coordinate.h
         game_state/Ship.h

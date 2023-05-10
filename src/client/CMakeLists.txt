@@ -8,6 +8,7 @@ target_sources(Battleship_Client
     ResponseListenerThread.cpp
     SetupManager.cpp
     EmoteHandler.cpp
+    AudioPlayer.cpp
     panels/ConnectionPanel.cpp
     panels/SetupPanel.cpp
     panels/MainGamePanel.cpp
@@ -24,6 +25,7 @@ target_sources(Battleship_Client
     ResponseListenerThread.h
     SetupManager.h
     EmoteHandler.h
+    AudioPlayer.h
     panels/ConnectionPanel.h
     panels/SetupPanel.h
     panels/MainGamePanel.h

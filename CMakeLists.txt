@@ -27,7 +27,7 @@ target_link_libraries(Battleship_Server PRIVATE project_options)
 target_link_libraries(Battleship_Server PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Server PRIVATE sockpp)
 
-add_executable(Battleship_Client src/common/network/responses/GameEvent.cpp src/common/network/responses/GameEvent.h)
+add_executable(Battleship_Client src/common/network/responses/GameEvent.cpp src/common/network/responses/GameEvent.h src/client/AudioPlayer.cpp src/client/AudioPlayer.h)
 target_link_libraries(Battleship_Client PRIVATE project_options)
 target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Client PRIVATE sockpp)

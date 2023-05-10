@@ -5,9 +5,10 @@
 #include <string>
 #include <utility>
 
-SendEmote::SendEmote(uuid playerId, std::string emote)
-    : ClientRequest(playerId, RequestType::SendEmote), m_emote(std::move(emote)) {}
 
-auto SendEmote::getEmote() const -> std::string {
+SendEmote::SendEmote(uuid playerId, EmoteHandler::Emote emote)
+    : ClientRequest(playerId, RequestType::SendEmote), m_emote(emote) {}
+
+auto SendEmote::getEmote() const -> EmoteHandler::Emote {
   return m_emote;
 }
