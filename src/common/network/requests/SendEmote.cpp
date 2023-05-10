@@ -5,7 +5,6 @@
 #include <string>
 #include <utility>
 
-
 SendEmote::SendEmote(uuid playerId, EmoteHandler::Emote emote)
     : ClientRequest(playerId, RequestType::SendEmote), m_emote(emote) {}
 

@@ -1,7 +1,7 @@
 #ifndef EMOTEHANDLER_H
 #define EMOTEHANDLER_H
 
-#include "network/requests/SendEmote.h"
+#include <string>
 #include <map>
 
 class EmoteHandler {
