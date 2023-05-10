@@ -10,6 +10,7 @@
 #include "network/requests/QuitGame.h"
 #include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
+#include "network/responses/ErrorResponse.h"
 #include "network/responses/GameEvent.h"
 #include "network/responses/ServerResponse.h"
 #include <memory>
@@ -187,6 +188,14 @@ struct adl_serializer<GameEvent> {
 };
 
 template <>
+struct adl_serializer<ErrorResponse> {
+  static void to_json(json &json, const ErrorResponse &responses) {
+    json                  = static_cast<const ServerResponse &>(responses);
+    json["error_message"] = responses.exception.what();
+  }
+};
+
+template <>
 struct adl_serializer<std::unique_ptr<ServerResponse>> {
   static auto from_json(const json &json) -> std::unique_ptr<ServerResponse> {
 
@@ -200,7 +209,7 @@ struct adl_serializer<std::unique_ptr<ServerResponse>> {
     case ResponseType::EmoteEvent:
       return nullptr;
     case ResponseType::ErrorResponse:
-      return nullptr;
+      return std::make_unique<ErrorResponse>(BattleshipException(json.at("error_message").get<std::string>()));
     }
     return nullptr;
   }
@@ -217,8 +226,7 @@ struct adl_serializer<std::unique_ptr<ServerResponse>> {
       // json = static_cast<const EmoteEvent &>(*serverResponse);
       break;
     case ResponseType::ErrorResponse:
-      // TODO create class ErrorResponse
-      // json = static_cast<const ErrorResponse &>(*serverResponse);
+      json = static_cast<const ErrorResponse &>(*serverResponse);
       break;
     }
   }

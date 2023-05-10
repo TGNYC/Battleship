@@ -8,6 +8,7 @@ target_sources(Battleship_Common
         network/requests/QuitGame.cpp
         network/requests/PlayAgain.cpp
         network/responses/ServerResponse.cpp
+        network/responses/ErrorResponse.cpp
         network/responses/GameEvent.cpp
         uuid.cpp
         game_state/Ship.cpp
@@ -23,6 +24,7 @@ target_sources(Battleship_Common
         network/requests/QuitGame.h
         network/requests/PlayAgain.h
         network/responses/ServerResponse.h
+        network/responses/ErrorResponse.h
         network/responses/GameEvent.h
         uuid.h
         serialization/serialization.h
