@@ -11,6 +11,8 @@ target_sources(Battleship_Common
         network/responses/ErrorResponse.cpp
         network/responses/GameEvent.cpp
         network/responses/JoinGameSuccess.cpp
+        network/responses/StartGameSuccess.cpp
+        network/responses/EmoteEvent.cpp
         uuid.cpp
         Logger.cpp
         game_state/Ship.cpp
@@ -29,6 +31,8 @@ target_sources(Battleship_Common
         network/responses/ErrorResponse.h
         network/responses/GameEvent.h
         network/responses/JoinGameSuccess.h
+        network/responses/StartGameSuccess.h
+        network/responses/EmoteEvent.h
         uuid.h
         Logger.h
         serialization/serialization.h

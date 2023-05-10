@@ -3,3 +3,5 @@
 //
 
 #include "JoinGameSuccess.h"
+
+JoinGameSuccess::JoinGameSuccess() : ServerResponse(ResponseType::JoinGameSuccess) {}
