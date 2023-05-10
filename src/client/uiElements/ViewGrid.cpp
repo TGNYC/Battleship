@@ -3,29 +3,30 @@
 // #include <iostream>
 
 ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400)) {
-  wxColor backgroundColor = wxColor(255, 255, 0);
-  this->SetBackgroundColour(backgroundColor);
+    _pos = pos;
+    wxColor backgroundColor = wxColor(255, 255, 0);
+    this->SetBackgroundColour(backgroundColor);
 
-  size_t x = pos.x;
-  size_t y = pos.y;
+    size_t x = pos.x;
+    size_t y = pos.y;
 
-  constexpr int gridSize = 10;
+    constexpr int gridSize = 10;
 
-  //wxStaticBitmap* grid[10][10];
-  this->_grid = new wxStaticBitmap*[gridSize*gridSize];
+    //wxStaticBitmap* grid[10][10];
+    this->_grid = new wxStaticBitmap*[gridSize*gridSize];
 
-  wxBitmap emptyTile = wxBitmap(wxImage("../assets/empty_tile.png"));
-  for (int i = 0; i < gridSize; i++) {
-    for (int j = 0; j < gridSize; j++) {
-      _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(x + i*40, y + j*40), wxSize(40, 40), 0);
+    wxBitmap emptyTile = wxBitmap(wxImage("../assets/empty_tile.png"));
+    for (int i = 0; i < gridSize; i++) {
+        for (int j = 0; j < gridSize; j++) {
+            _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(x + i*40, y + j*40), wxSize(40, 40), 0);
+        }
     }
-  }
 
-  auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
-  auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
+    auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
+    auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
 }
 
-void ViewGrid::showShips(std::vector<Ship> ships) {
+void ViewGrid::showShips(const std::vector<Ship>& ships) {
     for (auto ship : ships) {
         auto orientation = ship.getOrientation();
         int l = ship.getLength();
@@ -48,7 +49,7 @@ void ViewGrid::showShips(std::vector<Ship> ships) {
     }
 }
 
-void ViewGrid::showShots(int shots[10][10]) {
+void ViewGrid::showShots(const int shots[10][10]) {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
             // std::cout << shots[i][j] << " ";

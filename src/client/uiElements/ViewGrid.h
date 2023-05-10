@@ -8,14 +8,18 @@ class ViewGrid : public wxPanel{
 public:
   ViewGrid(wxWindow *parent, wxPoint pos);
 
+  wxPoint GetPosition() const {
+    return _pos;
+  }
   wxStaticBitmap** getGrid() const {
     return _grid;
   }
 
-  void showShips(std::vector<Ship> ships);
-  void showShots(int shots[10][10]);
+  void showShips(const std::vector<Ship>& ships);
+  void showShots(const int shots[10][10]);
 
 private:
+  wxPoint _pos;
   wxStaticBitmap **_grid;
 };
 
