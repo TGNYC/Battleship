@@ -56,6 +56,8 @@ private:
     static MainGamePanel* _mainGamePanel;
 
     static SetupManager *_setupManager;
+
+    static game_state* _gameState;
 };
 
 #endif // GAMECONTROLLER_H
