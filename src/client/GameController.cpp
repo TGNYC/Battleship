@@ -1,4 +1,8 @@
 #include "GameController.h"
+#include "ClientNetworkManager.h"
+#include "network/requests/JoinGame.h"
+#include "network/requests/StartGame.h"
+
 
 // initialize static variables
 GameWindow *GameController::_gameWindow = nullptr;
@@ -6,6 +10,7 @@ ConnectionPanel *GameController::_connectionPanel = nullptr;
 SetupPanel *GameController::_setupPanel = nullptr;
 MainGamePanel *GameController::_mainGamePanel = nullptr;
 SetupManager *GameController::_setupManager = nullptr;
+Player *GameController::_me = nullptr;
 
 
 void GameController::init(GameWindow* gameWindow) {
@@ -46,6 +51,27 @@ void GameController::connectToServer() {
     return;
   }
 
+  // convert host from wxString to std::string
+  std::string host = inputServerAddress.ToStdString();
+
+  // convert port from wxString to uint16_t
+  unsigned long portAsLong;
+  if (!inputServerPort.ToULong(&portAsLong) || portAsLong > 65535) {
+    GameController::showError("Connection error", "Invalid port");
+    return;
+  }
+  uint16_t port = (uint16_t)portAsLong;
+
+  // convert player name from wxString to std::string
+  std::string playerName = inputPlayerName.ToStdString();
+
+  // connect to network
+  ClientNetworkManager::init(host, port);
+
+  // send request to join game
+  GameController::_me       = new Player(uuid::generateRandomUuid(), playerName);
+  JoinGame request = JoinGame(GameController::_me->getId(), GameController::_me->m_name);
+  ClientNetworkManager::sendRequest(request);
 }
 
 void GameController::enterSetupPhase() {
@@ -74,4 +100,7 @@ void GameController::playerReady() {
   //GameController::_mainGamePanel = new MainGamePanel(GameController::_gameWindow);
   //GameController::_setupPanel->Show(false);
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
+}
+wxEvtHandler *GameController::getMainThreadEventHandler() {
+  return GameController::_gameWindow->GetEventHandler();
 }

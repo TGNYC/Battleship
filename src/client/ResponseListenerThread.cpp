@@ -2,6 +2,7 @@
 
 #include "ClientNetworkManager.h"
 #include "GameController.h"
+#include "network/responses/ErrorResponse.h"
 #include <sstream>
 
 ResponseListenerThread::ResponseListenerThread(sockpp::tcp_connector *connection) {
@@ -46,10 +47,25 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
         // process message (if we've received entire message)
         if (bytesReadSoFar == messageLength) {
           std::string message = messageStream.str();
-          // TODO GameController getMainThreadEventHandler
-          //   GameController::getMainThreadEventHandler()->CallAfter([message] {
-          //     ClientNetworkManager::parseResponse(message);
-          //   });
+          std::unique_ptr<ServerResponse> response = ClientNetworkManager::parseResponse(message);
+
+          switch (response->responseType) {
+
+          case ResponseType::GameEvent:
+            break;
+          case ResponseType::EmoteEvent:
+            break;
+          case ResponseType::JoinGameSuccess:
+            GameController::getMainThreadEventHandler()->CallAfter([] {
+              GameController::enterSetupPhase();
+            });
+            break;
+          case ResponseType::ErrorResponse:
+            GameController::getMainThreadEventHandler()->CallAfter([&response] {
+              GameController::showError("Server Error", static_cast<const ErrorResponse &>(*response).exception.what());
+            });
+            break;
+          }
 
         } else {
           this->outputError("Network error", "Could not read entire message. TCP stream ended early. Difference is " +

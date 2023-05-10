@@ -7,6 +7,7 @@
 #include "panels/MainGamePanel.h"
 #include "panels/SetupPanel.h"
 #include "SetupManager.h"
+#include "game_state/Player.h"
 
 class GameController {
 public:
@@ -47,6 +48,8 @@ public:
       return _setupPanel;
     }
 
+    static wxEvtHandler* getMainThreadEventHandler();
+
     static void playerReady();
 
 private:
@@ -58,6 +61,7 @@ private:
     static SetupManager *_setupManager;
 
     static game_state* _gameState;
+    static Player *_me;
 };
 
 #endif // GAMECONTROLLER_H
