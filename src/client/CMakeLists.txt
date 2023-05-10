@@ -5,6 +5,7 @@ target_sources(Battleship_Client
     GameController.cpp
     GameWindow.cpp
     ClientNetworkManager.cpp
+    ResponseListenerThread.cpp
     SetupManager.cpp
     EmoteHandler.cpp
     panels/ConnectionPanel.cpp
@@ -20,6 +21,7 @@ target_sources(Battleship_Client
     GameController.h
     GameWindow.h
     ClientNetworkManager.h
+    ResponseListenerThread.h
     SetupManager.h
     EmoteHandler.h
     panels/ConnectionPanel.h
