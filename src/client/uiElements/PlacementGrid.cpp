@@ -16,6 +16,7 @@ PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDef
   //wxStaticBitmap* grid[10][10];
   this->_grid = new wxStaticBitmap*[gridSize*gridSize];
 
+
   wxBitmap emptyTile = wxBitmap(wxImage("../assets/empty_tile.png"));
   for (int i = 0; i < gridSize; i++) {
     for (int j = 0; j < gridSize; j++) {
@@ -62,6 +63,7 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
   auto orientation = SetupManager::_selectedShip->getOrientation();
   //orientation = Ship::Orientation::Vertical;
   // clear previous highlighted tiles
+  /*
   if(cellX_prev != -1 && cellY_prev != -1) {
     if(orientation == Ship::Orientation::Horizontal) {
       for(int i = 0; i < l; i++) {
@@ -78,7 +80,7 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
       }
     }
   }
-
+*/
   // highlight new tiles
   if (orientation == Ship::Orientation::Horizontal) {
     for (int i = 0; i < l; i++) {
@@ -114,7 +116,6 @@ void PlacementGrid::OnMouseClick(wxMouseEvent &event) {
 
   wxPoint mousePosition = event.GetPosition();
   std::cout << "clicked at (" << mousePosition.x/40 << ", " << mousePosition.y/40 << ")\n";
-  auto *grid = SetupManager::getGrid();
   if (!SetupManager::placeShip(mousePosition, SetupManager::_selectedShip)) return;
   std::cout << "placed ship\n";
 

@@ -36,7 +36,8 @@ ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
 }
 
 void ConnectionPanel::onConnectButtonClicked(wxCommandEvent &event) {
-  GameController::enterSetupPhase();
+  GameController::connectToServer();
+  //GameController::enterSetupPhase();
 }
 
 wxString ConnectionPanel::getServerAddress() {
