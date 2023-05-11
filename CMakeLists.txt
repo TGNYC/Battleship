@@ -26,6 +26,7 @@ add_executable(Battleship_Server)
 target_link_libraries(Battleship_Server PRIVATE project_options)
 target_link_libraries(Battleship_Server PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Server PRIVATE sockpp)
+target_link_libraries(Battleship_Server PRIVATE pthread) # Fix for WSL2 with Ubuntu 20.04
 
 add_executable(Battleship_Client src/common/network/responses/GameEvent.cpp src/common/network/responses/GameEvent.h src/client/AudioPlayer.cpp src/client/AudioPlayer.h)
 target_link_libraries(Battleship_Client PRIVATE project_options)
