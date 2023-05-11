@@ -40,6 +40,10 @@ public:
     */
     static void sendEmote();
     /**
+     * @brief Displays an emote to the screen
+     */
+     static void showEmote(EmoteEvent emoteEvent);
+    /**
      * @brief Prints an error message box in case of an invalid move. 
     */
     static void showError(const std::string& title, const std::string& message);
