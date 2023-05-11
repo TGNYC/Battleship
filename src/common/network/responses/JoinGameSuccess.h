@@ -7,6 +7,9 @@
 
 #include "network/responses/ServerResponse.h"
 
-class JoinGameSuccess : public ServerResponse {};
+class JoinGameSuccess : public ServerResponse {
+public:
+  JoinGameSuccess();
+};
 
 #endif // BATTLESHIP_JOINGAMESUCCESS_H

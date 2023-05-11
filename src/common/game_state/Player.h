@@ -12,11 +12,11 @@ class Player {
 public:
   Player(uuid playerId, std::string player_name);
   auto getId() const -> uuid;
+  auto getName() const -> std::string;
 
-
-  const std::string m_name;
 private:
   uuid        m_id;
+  std::string m_name;
 };
 
 #endif // BATTLESHIP_PLAYER_H

@@ -3,23 +3,21 @@
 #include "network/requests/JoinGame.h"
 #include "network/requests/StartGame.h"
 
-
 // initialize static variables
-GameWindow *GameController::_gameWindow = nullptr;
+GameWindow      *GameController::_gameWindow      = nullptr;
 ConnectionPanel *GameController::_connectionPanel = nullptr;
-SetupPanel *GameController::_setupPanel = nullptr;
-MainGamePanel *GameController::_mainGamePanel = nullptr;
-SetupManager *GameController::_setupManager = nullptr;
-Player *GameController::_me = nullptr;
+SetupPanel      *GameController::_setupPanel      = nullptr;
+MainGamePanel   *GameController::_mainGamePanel   = nullptr;
+SetupManager    *GameController::_setupManager    = nullptr;
+Player          *GameController::_me              = nullptr;
 
-
-void GameController::init(GameWindow* gameWindow) {
+void GameController::init(GameWindow *gameWindow) {
   GameController::_gameWindow = gameWindow;
 
   // setup panels
   GameController::_connectionPanel = new ConnectionPanel(gameWindow);
-  GameController::_setupPanel = new SetupPanel(gameWindow);
-  GameController::_mainGamePanel = new MainGamePanel(gameWindow);
+  GameController::_setupPanel      = new SetupPanel(gameWindow);
+  GameController::_mainGamePanel   = new MainGamePanel(gameWindow);
 
   // hide panels
   GameController::_connectionPanel->Show(false);
@@ -28,25 +26,24 @@ void GameController::init(GameWindow* gameWindow) {
 
   // start of game: show connection panel
   GameController::_gameWindow->showPanel(GameController::_connectionPanel);
-
 }
 
 void GameController::connectToServer() {
   // get values
   wxString inputServerAddress = GameController::_connectionPanel->getServerAddress().Trim();
-  wxString inputServerPort = GameController::_connectionPanel->getServerPort().Trim();
-  wxString inputPlayerName = GameController::_connectionPanel->getUserName().Trim();
+  wxString inputServerPort    = GameController::_connectionPanel->getServerPort().Trim();
+  wxString inputPlayerName    = GameController::_connectionPanel->getUserName().Trim();
 
   // check that all values were provided
-  if(inputServerAddress.IsEmpty()) {
+  if (inputServerAddress.IsEmpty()) {
     GameController::showError("Input error", "Please provide the server's address");
     return;
   }
-  if(inputServerPort.IsEmpty()) {
+  if (inputServerPort.IsEmpty()) {
     GameController::showError("Input error", "Please provide the server's port number");
     return;
   }
-  if(inputPlayerName.IsEmpty()) {
+  if (inputPlayerName.IsEmpty()) {
     GameController::showError("Input error", "Please enter your desired player name");
     return;
   }
@@ -69,8 +66,8 @@ void GameController::connectToServer() {
   ClientNetworkManager::init(host, port);
 
   // send request to join game
-  GameController::_me       = new Player(uuid::generateRandomUuid(), playerName);
-  JoinGame request = JoinGame(GameController::_me->getId(), GameController::_me->m_name);
+  GameController::_me = new Player(uuid::generateRandomUuid(), playerName);
+  JoinGame request    = JoinGame(GameController::_me->getId(), GameController::_me->getName());
   ClientNetworkManager::sendRequest(request);
 }
 
@@ -81,25 +78,26 @@ void GameController::enterSetupPhase() {
 }
 
 void GameController::startGame() {
-
-
+  std::cout << "Player is ready. Game is starting." << std::endl;
+  GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
 }
 
-void GameController::callShot() {
-}
+void GameController::callShot() {}
 
-void GameController::sendEmote() {
-}
+void GameController::sendEmote() {}
 
-void GameController::showError(const std::string& title, const std::string& message) {
+void GameController::showError(const std::string &title, const std::string &message) {
   std::cout << "[" << title << "] " << message << std::endl;
 }
-void GameController::showGameOverMessage() {
-}
+void GameController::showGameOverMessage() {}
 void GameController::playerReady() {
-  //GameController::_mainGamePanel = new MainGamePanel(GameController::_gameWindow);
-  //GameController::_setupPanel->Show(false);
-  GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
+
+  // todo: maybe display some waiting for other player information
+  std::cout << "Sending request to server. You might need to wait for your opponent to be ready." << std::endl;
+
+  // send request to start game
+  StartGame request = StartGame(_me->getId(), _setupManager->_ships_placed);
+  ClientNetworkManager::sendRequest(request);
 }
 wxEvtHandler *GameController::getMainThreadEventHandler() {
   return GameController::_gameWindow->GetEventHandler();
