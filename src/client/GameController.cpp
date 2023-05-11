@@ -84,7 +84,7 @@ void GameController::enterSetupPhase() {
 void GameController::startGame() { // called by ResponseListenerThread
   std::cout << "Player is ready. Game is starting." << std::endl;
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
-  GameController::_mainGamePanel->buildGameState(GameController::_gameState, GameController::_me);
+  GameController::_mainGamePanel->buildGameState(GameController::_gameState, GameController::_me->getId());
 }
 
 void GameController::handleGameEvent(const GameEvent &event) {

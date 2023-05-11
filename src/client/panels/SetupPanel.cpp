@@ -44,11 +44,12 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[0];
 
     // display frame around ship button (static bitmap) to indicate selection
+    /*
     wxPaintDC dc(_ship1);
     dc.SetPen(*wxGREEN_PEN);
     dc.SetBrush(*wxTRANSPARENT_BRUSH);
     dc.DrawRectangle(0, 0, _ship1->GetSize().GetWidth(), _ship1->GetSize().GetHeight());
-
+    */
 
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
       std::cout << "this ship is already placed" << std::endl;

@@ -2,9 +2,10 @@
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {}
 
-void MainGamePanel::buildGameState(game_state* gameState, Player& player) {
+void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   _gameState = gameState;
-  _ownId = player.getId();
+  _ownId = ownId;
+  _currentPlayer = gameState->getCurrentPlayerId();
   
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);
@@ -67,7 +68,7 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
     return;
   }
   // temp test
-  AudioPlayer::play(AudioPlayer::BestPirate);
+  //AudioPlayer::play(AudioPlayer::BestPirate);
   // end test
 
   wxPoint mousePosition = event.GetPosition();
