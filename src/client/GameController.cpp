@@ -77,7 +77,9 @@ void GameController::enterSetupPhase() {
   GameController::_gameWindow->showPanel(GameController::_setupPanel);
 }
 
-void GameController::startGame() {}
+void GameController::startGame() {
+  GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
+}
 
 void GameController::callShot() {}
 
@@ -88,9 +90,12 @@ void GameController::showError(const std::string &title, const std::string &mess
 }
 void GameController::showGameOverMessage() {}
 void GameController::playerReady() {
-  // GameController::_mainGamePanel = new MainGamePanel(GameController::_gameWindow);
-  // GameController::_setupPanel->Show(false);
-  GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
+
+  // todo: maybe display some waiting for other player information
+
+  // send request to start game
+  StartGame request = StartGame(_me->getId(), _setupManager->_ships_placed);
+  ClientNetworkManager::sendRequest(request);
 }
 wxEvtHandler *GameController::getMainThreadEventHandler() {
   return GameController::_gameWindow->GetEventHandler();
