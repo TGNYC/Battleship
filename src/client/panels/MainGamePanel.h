@@ -14,7 +14,7 @@ public:
   MainGamePanel(wxWindow *parent);
   void buildGameState(game_state* gameState, uuid ownId);
   void buildEmoteList();
-  void buildTurnIndicator();
+  void buildTurnIndicator(std::string playerName);
 
   void onMouseClick(wxMouseEvent& event);
 

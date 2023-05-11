@@ -95,6 +95,11 @@ public:
    */
   const PlayerGrid& getPlayerGrid(uuid playerId) const;
 
+  /*
+   * returns a vector of all the players (2)
+   */
+  std::vector<Player>& get_players();
+
   /*!
    * returns a reference to the ship with the specified id from a given vector of ships
    */

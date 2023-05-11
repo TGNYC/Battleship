@@ -7,11 +7,12 @@
 
 #include "network/requests/ClientRequest.h"
 #include "network/responses/ServerResponse.h"
-#include <memory>
+#include "game_instance.h"
 
 class request_handler {
 public:
-  static std::unique_ptr<ServerResponse> handle_request(const ClientRequest *const req);
+  static ServerResponse *handle_request(const ClientRequest *const req);
+  static game_instance* current_game;
 };
 
 #endif // BATTLESHIP_REQUEST_HANDLER_H

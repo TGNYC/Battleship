@@ -18,7 +18,7 @@ endif()
 
 project(Battleship VERSION 0.0.1 LANGUAGES CXX)
 
-add_library(Battleship_Common)
+add_library(Battleship_Common src/common/Logger.cpp src/common/Logger.h src/common/Logger.cpp src/common/Logger.cpp src/common/network/responses/JoinGameSuccess.cpp src/common/network/responses/JoinGameSuccess.h src/common/network/responses/RequestResponse.cpp)
 target_link_libraries(Battleship_Common PRIVATE project_options)
 target_link_libraries(Battleship_Common PUBLIC nlohmann_json::nlohmann_json)
 
@@ -26,8 +26,9 @@ add_executable(Battleship_Server)
 target_link_libraries(Battleship_Server PRIVATE project_options)
 target_link_libraries(Battleship_Server PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Server PRIVATE sockpp)
+target_link_libraries(Battleship_Server PRIVATE pthread) # Fix for WSL2 with Ubuntu 20.04
 
-add_executable(Battleship_Client)
+add_executable(Battleship_Client src/common/network/responses/GameEvent.cpp src/common/network/responses/GameEvent.h src/client/AudioPlayer.cpp src/client/AudioPlayer.h)
 target_link_libraries(Battleship_Client PRIVATE project_options)
 target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Client PRIVATE sockpp)

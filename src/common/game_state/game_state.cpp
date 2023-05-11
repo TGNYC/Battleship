@@ -19,12 +19,10 @@ game_state::game_state(game_state::Type type) :
 
 
 auto game_state::addPlayer(Player player) -> bool {
-  // check if player is alrady added
-  if(!players.empty()) {
-    for (const Player& p : players) {
-      if (p.getId() == player.getId()) {
-            return false;
-      }
+  // check if player is already added
+  for (const Player& p : players) {
+    if (p.getId() == player.getId()) {
+      return false;
     }
   }
   if (players.size() >= 2) {
@@ -233,3 +231,6 @@ uuid game_state::getWinner() {
   }
 }
 
+std::vector<Player>& game_state::get_players() {
+  return players;
+}

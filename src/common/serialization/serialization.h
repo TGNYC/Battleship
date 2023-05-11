@@ -78,17 +78,10 @@ struct adl_serializer<Player> {
 };
 
 template <>
-struct adl_serializer<ClientRequest> {
-  static void to_json(json &json, const ClientRequest &request) {
-    json["type"]      = request.getRequestType();
-    json["player_id"] = request.getPlayerId();
-  }
-};
-
-template <>
 struct adl_serializer<JoinGame> {
   static void to_json(json &json, const JoinGame &request) {
-    json                = static_cast<const ClientRequest &>(request);
+    json["type"]        = request.getRequestType();
+    json["player_id"]   = request.getPlayerId();
     json["player_name"] = request.getPlayerName();
   }
 };
@@ -96,7 +89,8 @@ struct adl_serializer<JoinGame> {
 template <>
 struct adl_serializer<StartGame> {
   static void to_json(json &json, const StartGame &request) {
-    json                    = static_cast<const ClientRequest &>(request);
+    json["type"]            = request.getRequestType();
+    json["player_id"]       = request.getPlayerId();
     json["ships_placement"] = request.getShips();
   }
 };
@@ -104,30 +98,60 @@ struct adl_serializer<StartGame> {
 template <>
 struct adl_serializer<CallShot> {
   static void to_json(json &json, const CallShot &request) {
-    json             = static_cast<const ClientRequest &>(request);
-    json["position"] = request.getPosition();
+    json["type"]      = request.getRequestType();
+    json["player_id"] = request.getPlayerId();
+    json["position"]  = request.getPosition();
   }
 };
 
 template <>
 struct adl_serializer<SendEmote> {
   static void to_json(json &json, const SendEmote &request) {
-    json          = static_cast<const ClientRequest &>(request);
-    json["emote"] = request.getEmote();
+    json["type"]      = request.getRequestType();
+    json["player_id"] = request.getPlayerId();
+    json["emote"]     = request.getEmote();
   }
 };
 
 template <>
 struct adl_serializer<QuitGame> {
   static void to_json(json &json, const QuitGame &request) {
-    json = static_cast<const ClientRequest &>(request);
+    json["type"]      = request.getRequestType();
+    json["player_id"] = request.getPlayerId();
   }
 };
 
 template <>
 struct adl_serializer<PlayAgain> {
   static void to_json(json &json, const PlayAgain &request) {
-    json = static_cast<const ClientRequest &>(request);
+    json["type"]      = request.getRequestType();
+    json["player_id"] = request.getPlayerId();
+  }
+};
+
+template <>
+struct adl_serializer<ClientRequest> {
+  static void to_json(json &json, const ClientRequest &request) {
+    switch (request.getRequestType()) {
+    case RequestType::JoinGame:
+      json = static_cast<const JoinGame &>(request);
+      break;
+    case RequestType::StartGame:
+      json = static_cast<const StartGame &>(request);
+      break;
+    case RequestType::CallShot:
+      json = static_cast<const CallShot &>(request);
+      break;
+    case RequestType::SendEmote:
+      json = static_cast<const SendEmote &>(request);
+      break;
+    case RequestType::QuitGame:
+      json = static_cast<const QuitGame &>(request);
+      break;
+    case RequestType::PlayAgain:
+      json = static_cast<const PlayAgain &>(request);
+      break;
+    }
   }
 };
 
