@@ -12,7 +12,7 @@
 class MainGamePanel : public wxPanel {
 public:
   MainGamePanel(wxWindow *parent);
-  void buildGameState(game_state* gameState, uuid ownId, uuid currentPlayer);
+  void buildGameState(game_state* gameState, uuid ownId);
   void buildEmoteList();
   void buildTurnIndicator();
 
