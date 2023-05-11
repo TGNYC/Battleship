@@ -5,8 +5,10 @@ target_sources(Battleship_Server
         player_manager.cpp
         request_handler.cpp
         server_network_manager.cpp
+        game_instance_manager.cpp
     PUBLIC
         game_instance.h
+        game_instance_manager.h
         player_manager.h
         request_handler.h
         server_network_manager.h)

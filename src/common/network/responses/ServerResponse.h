@@ -11,7 +11,8 @@ enum class ResponseType {
   GameEvent,
   EmoteEvent,
   JoinGameSuccess,
-  ErrorResponse
+  ErrorResponse,
+  RequestResponse
 };
 
 class ServerResponse {

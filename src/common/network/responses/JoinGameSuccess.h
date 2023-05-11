@@ -7,6 +7,16 @@
 
 #include "network/responses/ServerResponse.h"
 
-class JoinGameSuccess : public ServerResponse {};
+#include "network/responses/ServerResponse.h"
+#include "uuid.h"
+#include "network/requests/ClientRequest.h"
+
+/*!
+ * ServerResponse to a ClientRequest of whether it was successful or not
+ */
+class JoinGameSuccess : public ServerResponse {
+public:
+  JoinGameSuccess(uuid playerId);
+};
 
 #endif // BATTLESHIP_JOINGAMESUCCESS_H

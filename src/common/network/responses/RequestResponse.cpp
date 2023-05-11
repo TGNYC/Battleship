@@ -3,3 +3,6 @@
 //
 
 #include "RequestResponse.h"
+
+RequestResponse::RequestResponse(uuid playerId, bool success, RequestType requestType)
+    : ServerResponse(ResponseType::RequestResponse) {}

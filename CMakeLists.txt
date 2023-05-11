@@ -18,7 +18,7 @@ endif()
 
 project(Battleship VERSION 0.0.1 LANGUAGES CXX)
 
-add_library(Battleship_Common src/common/Logger.cpp src/common/Logger.h src/common/Logger.cpp src/common/Logger.cpp src/common/network/responses/JoinGameSuccess.cpp src/common/network/responses/JoinGameSuccess.h)
+add_library(Battleship_Common src/common/Logger.cpp src/common/Logger.h src/common/Logger.cpp src/common/Logger.cpp src/common/network/responses/JoinGameSuccess.cpp src/common/network/responses/JoinGameSuccess.h src/common/network/responses/RequestResponse.cpp)
 target_link_libraries(Battleship_Common PRIVATE project_options)
 target_link_libraries(Battleship_Common PUBLIC nlohmann_json::nlohmann_json)
 
