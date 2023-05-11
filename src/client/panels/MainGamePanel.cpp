@@ -13,6 +13,7 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   this->DestroyChildren();
 
   wxBoxSizer *mainWindow = new wxBoxSizer(wxHORIZONTAL);
+  // buildTurnIndicator(gameState->getPlayerName(_currentPlayer));
   wxBoxSizer *leftSide = new wxBoxSizer(wxVERTICAL);
   wxBoxSizer *rightSide = new wxBoxSizer(wxVERTICAL);
 
@@ -58,7 +59,10 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
 void MainGamePanel::buildEmoteList() {
 }
 
-void MainGamePanel::buildTurnIndicator() {
+void MainGamePanel::buildTurnIndicator(std::string playerName) {
+  auto text = "It's " + playerName + "'s turn";
+  wxStaticText* turnText = new wxStaticText(this, wxID_ANY, text);
+  this->GetSizer()->Add(turnText, 0, wxALIGN_CENTER | wxALL, 10);
 }
 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
