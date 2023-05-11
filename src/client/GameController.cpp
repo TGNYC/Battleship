@@ -10,6 +10,7 @@ SetupPanel      *GameController::_setupPanel      = nullptr;
 MainGamePanel   *GameController::_mainGamePanel   = nullptr;
 SetupManager    *GameController::_setupManager    = nullptr;
 Player          *GameController::_me              = nullptr;
+game_state      *GameController::_gameState       = nullptr;
 
 void GameController::init(GameWindow *gameWindow) {
   GameController::_gameWindow = gameWindow;
@@ -25,7 +26,8 @@ void GameController::init(GameWindow *gameWindow) {
   GameController::_mainGamePanel->Show(false);
 
   // start of game: show connection panel
-  GameController::_gameWindow->showPanel(GameController::_connectionPanel);
+  GameController::_gameWindow->showPanel(GameController::_connectionPanel); // TODO: CHANGE BACK, only for testing maingamepanel
+  //GameController::startGame();
 }
 
 void GameController::connectToServer() {
@@ -68,7 +70,9 @@ void GameController::connectToServer() {
   // send request to join game
   GameController::_me = new Player(uuid::generateRandomUuid(), playerName);
   JoinGame request    = JoinGame(GameController::_me->getId(), GameController::_me->getName());
-  ClientNetworkManager::sendRequest(request);
+  //ClientNetworkManager::sendRequest(request); // TODO: REMOVE COMMENT and remove line below
+  GameController::enterSetupPhase();
+
 }
 
 void GameController::enterSetupPhase() {
@@ -77,9 +81,10 @@ void GameController::enterSetupPhase() {
   GameController::_gameWindow->showPanel(GameController::_setupPanel);
 }
 
-void GameController::startGame() {
+void GameController::startGame() { // called by ResponseListenerThread
   std::cout << "Player is ready. Game is starting." << std::endl;
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
+  GameController::_mainGamePanel->buildGameState(GameController::_gameState, GameController::_me);
 }
 
 void GameController::callShot() {}
@@ -91,6 +96,14 @@ void GameController::showError(const std::string &title, const std::string &mess
 }
 void GameController::showGameOverMessage() {}
 void GameController::playerReady() {
+  // generate GameState
+  _gameState = new game_state(game_state::Type::ClientState);
+  _gameState->addPlayer(*_me);
+  _gameState->addShips(_me->getId(), _setupManager->_ships_placed);
+
+
+  GameController::startGame(); // TODO: REMOVE - ONLY FOR TESTING
+  return;
 
   // todo: maybe display some waiting for other player information
   std::cout << "Sending request to server. You might need to wait for your opponent to be ready." << std::endl;

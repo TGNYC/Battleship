@@ -11,7 +11,8 @@ void MainGamePanel::buildGameState(game_state* gameState, Player& player) {
   
   this->DestroyChildren();
 
-  wxBoxSizer *mainWindow = new wxBoxSizer(wxHORIZONTAL);
+  wxBoxSizer *mainLayout = new wxBoxSizer(wxVERTICAL);
+  wxBoxSizer *twoGridLayout = new wxBoxSizer(wxHORIZONTAL);
   wxBoxSizer *leftSide = new wxBoxSizer(wxVERTICAL);
   wxBoxSizer *rightSide = new wxBoxSizer(wxVERTICAL);
 
@@ -46,12 +47,34 @@ void MainGamePanel::buildGameState(game_state* gameState, Player& player) {
   rightSide->Add(_oppShipPanel, 0, wxEXPAND | wxALL, 0);
 
   // add grids to main window
-  mainWindow->Add(leftSide, 1, wxEXPAND | wxALL, 10);
-  mainWindow->Add(rightSide, 1, wxEXPAND | wxALL, 10);
+  twoGridLayout->Add(leftSide, 1, wxEXPAND | wxALL, 10);
+  twoGridLayout->Add(rightSide, 1, wxEXPAND | wxALL, 10);
+  this->SetSizerAndFit(twoGridLayout);
+
+  /*
+  mainLayout->Add(twoGridLayout, 1, wxEXPAND | wxALL, 10);
+
+  // add a view of 5 emotes below the grids
+  wxBoxSizer *emoteLayout = new wxBoxSizer(wxHORIZONTAL);
+
+  wxStaticBitmap *emotes[5];
+
+  for (int i = 0; i < 5; i++) {
+    emotes[i] = new wxStaticBitmap(this, wxID_ANY, wxBitmap(wxImage("../assets/emotes/emote.png"), wxBITMAP_TYPE_PNG));
+    emoteLayout->Add(emotes[i], 1, wxEXPAND | wxALL, 10);
+  }
+
+  mainLayout->Add(emoteLayout, 0, wxEXPAND | wxALL, 10);
+
+  this->SetSizerAndFit(mainLayout);
+  */
+
+
+
 
   this->_oppViewGrid->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onMouseClick, this);
 
-  this->SetSizerAndFit(mainWindow);
+
 }
 
 void MainGamePanel::buildEmoteList() {
@@ -61,6 +84,7 @@ void MainGamePanel::buildTurnIndicator() {
 }
 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
+
   // temp test
   AudioPlayer::play(AudioPlayer::BestPirate);
   // end test

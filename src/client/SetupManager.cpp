@@ -82,19 +82,25 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
         }
   }
 
+  // remove Ship button from UI
+  auto ship_idx = _grid[cellX*10 + cellY] - 1; // idx in [0,4]
+  auto *shipBtn = GameController::getSetupPanel()->getShipButton(ship_idx);
+  if(shipBtn != nullptr) // should never be nullptr but just in case
+        shipBtn->Disable();
+
+
   // print grid (debug)
-  for(int i = 0; i < 10; ++i) {
-          for(int j = 0; j < 10; ++j) {
-          std::cout << _grid[i+j*10] << " ";
-          }
-          std::cout << std::endl;
+  for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 10; ++j) {
+          std::cout << _grid[i + j * 10] << " ";
+        }
+        std::cout << std::endl;
   }
-
-
-
 
   return true;
 }
+
+
 int *SetupManager::getGrid() {
   return _grid;
 }
