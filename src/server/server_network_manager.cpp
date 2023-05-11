@@ -152,11 +152,10 @@ void server_network_manager::handle_incoming_message(const std::string          
     std::cout << "Received valid request : " << msg << std::endl;
 #endif
     // execute client request
-    ServerResponse *res = request_handler::handle_request(req.get());
+    std::unique_ptr<ServerResponse> res = request_handler::handle_request(req.get());
 
     // transform response into a json
-    nlohmann::json res_json; // = res;
-    delete res;
+    nlohmann::json res_json = *res;
 
     // transform json to string
     std::string res_msg = res_json.dump();
