@@ -57,6 +57,9 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             });
             break;
           case ResponseType::EmoteEvent:
+            GameController::getMainThreadEventHandler()->CallAfter([&response]{
+              GameController::showEmote(static_cast<const EmoteEvent&>(*response));
+            });
             break;
           case ResponseType::JoinGameSuccess:
             GameController::getMainThreadEventHandler()->CallAfter([] {

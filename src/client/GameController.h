@@ -8,6 +8,8 @@
 #include "panels/SetupPanel.h"
 #include "SetupManager.h"
 #include "game_state/Player.h"
+#include "network/responses/EmoteEvent.h"
+#include "EmoteHandler.h"
 
 class GameController {
 public:
@@ -39,6 +41,10 @@ public:
      * @brief Sends an emote to the server. 
     */
     static void sendEmote();
+    /**
+     * @brief Displays an emote to the screen
+     */
+     static void showEmote(EmoteEvent emoteEvent);
     /**
      * @brief Prints an error message box in case of an invalid move. 
     */
