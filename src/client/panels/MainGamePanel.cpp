@@ -61,9 +61,6 @@ void MainGamePanel::buildTurnIndicator() {
 }
 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
-  // temp test
-  AudioPlayer::play(AudioPlayer::BestPirate);
-  // end test
 
   wxPoint mousePosition = event.GetPosition();
   mousePosition -= _oppViewGrid->GetPosition();

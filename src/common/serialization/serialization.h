@@ -132,7 +132,7 @@ struct adl_serializer<std::unique_ptr<ClientRequest>> {
     case RequestType::CallShot:
       return std::make_unique<CallShot>(playerId, json.at("position").get<Coordinate>());
     case RequestType::SendEmote:
-      return std::make_unique<SendEmote>(playerId, json.at("emote").get<std::string>());
+      return std::make_unique<SendEmote>(playerId, json.at("emote").get<std::string>());  // TODO serialize this with Emote enum instead of string
     case RequestType::QuitGame:
       return std::make_unique<QuitGame>(playerId);
     case RequestType::PlayAgain:
