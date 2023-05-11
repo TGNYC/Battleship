@@ -7,12 +7,12 @@
 #include "../../common/game_state/Player.h"
 #include "../uiElements/ViewGrid.h"
 #include "../uiElements/ShipPanel.h"
-#include "../AudioPlayer.h"
+//#include "../AudioPlayer.h"
 
 class MainGamePanel : public wxPanel {
 public:
   MainGamePanel(wxWindow *parent);
-  void buildGameState(game_state* gameState, Player& me);
+  void buildGameState(game_state* gameState, uuid ownId);
   void buildEmoteList();
   void buildTurnIndicator();
 
@@ -21,6 +21,7 @@ public:
 private:
   game_state* _gameState;
   uuid _ownId;
+  uuid _currentPlayer;
   ViewGrid* _ownViewGrid;
   ViewGrid* _oppViewGrid;
   ShipPanel* _ownShipPanel;

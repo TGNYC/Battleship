@@ -14,6 +14,7 @@ public:
     return _placementGrid;
   }
 
+  wxStaticBitmap* getShipButton(int idx);
 
 private:
   PlacementGrid *_placementGrid;

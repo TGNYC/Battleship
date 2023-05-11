@@ -28,6 +28,10 @@ public:
     */
     static void startGame();
     /**
+     * @brief Handes shot. 
+    */
+    static void handleGameEvent(const GameEvent &event);
+    /**
         * @brief Sends a shot request to the server. 
     */
     static void callShot();

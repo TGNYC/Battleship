@@ -10,9 +10,12 @@
 #include "network/requests/QuitGame.h"
 #include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
+#include "network/responses/EmoteEvent.h"
 #include "network/responses/ErrorResponse.h"
 #include "network/responses/GameEvent.h"
+#include "network/responses/JoinGameSuccess.h"
 #include "network/responses/ServerResponse.h"
+#include "network/responses/StartGameSuccess.h"
 #include <memory>
 #include <nlohmann/json.hpp>
 
@@ -60,6 +63,17 @@ struct adl_serializer<Ship> {
   static auto from_json(const json &json) -> Ship {
     return {json.at("length").get<int>(), json.at("position").get<Coordinate>(),
             json.at("orientation").get<Ship::Orientation>(), json.at("ship_id").get<uuid>()};
+  }
+};
+
+template <>
+struct adl_serializer<Player> {
+  static void to_json(json &json, const Player &player) {
+    json["id"]   = player.getId();
+    json["name"] = player.getName();
+  }
+  static auto from_json(const json &json) -> Player {
+    return {json.at("id").get<uuid>(), json.at("name").get<std::string>()};
   }
 };
 
@@ -132,7 +146,7 @@ struct adl_serializer<std::unique_ptr<ClientRequest>> {
     case RequestType::CallShot:
       return std::make_unique<CallShot>(playerId, json.at("position").get<Coordinate>());
     case RequestType::SendEmote:
-      return std::make_unique<SendEmote>(playerId, json.at("emote").get<std::string>());
+      return std::make_unique<SendEmote>(playerId, json.at("emote").get<std::string>());  // TODO serialize this with Emote enum instead of string
     case RequestType::QuitGame:
       return std::make_unique<QuitGame>(playerId);
     case RequestType::PlayAgain:
@@ -188,10 +202,35 @@ struct adl_serializer<GameEvent> {
 };
 
 template <>
+struct adl_serializer<EmoteEvent> {
+  static void to_json(json &json, const EmoteEvent &responses) {
+    json              = static_cast<const ServerResponse &>(responses);
+    json["emot"]      = responses.emote;
+    json["player_id"] = responses.playerId;
+  }
+};
+
+template <>
 struct adl_serializer<ErrorResponse> {
   static void to_json(json &json, const ErrorResponse &responses) {
     json                  = static_cast<const ServerResponse &>(responses);
     json["error_message"] = responses.exception.what();
+  }
+};
+
+template <>
+struct adl_serializer<JoinGameSuccess> {
+  static void to_json(json &json, const JoinGameSuccess &responses) {
+    json = static_cast<const ServerResponse &>(responses);
+  }
+};
+
+template <>
+struct adl_serializer<StartGameSuccess> {
+  static void to_json(json &json, const StartGameSuccess &responses) {
+    json                       = static_cast<const ServerResponse &>(responses);
+    json["players"]            = responses.players;
+    json["starting_player_id"] = responses.startingPlayerId;
   }
 };
 
@@ -206,10 +245,17 @@ struct adl_serializer<std::unique_ptr<ServerResponse>> {
       return std::make_unique<GameEvent>(json.at("player_id").get<uuid>(), json.at("position").get<Coordinate>(),
                                          json.at("ship_hit").get<bool>(), json.at("ship_sunk").get<bool>(),
                                          json.at("ship").get<Ship>(), json.at("next_player_id").get<uuid>());
+
     case ResponseType::EmoteEvent:
-      return nullptr;
+      return std::make_unique<EmoteEvent>(json.at("emote").get<EmoteType>(), json.at("player_id").get<uuid>());
+
     case ResponseType::ErrorResponse:
       return std::make_unique<ErrorResponse>(BattleshipException(json.at("error_message").get<std::string>()));
+    case ResponseType::JoinGameSuccess:
+      return std::make_unique<JoinGameSuccess>();
+    case ResponseType::StartGameSuccess:
+      return std::make_unique<StartGameSuccess>(json.at("players").get<std::vector<Player>>(),
+                                                json.at("starting_player_id").get<uuid>());
     }
     return nullptr;
   }
@@ -222,11 +268,16 @@ struct adl_serializer<std::unique_ptr<ServerResponse>> {
       json = static_cast<const GameEvent &>(*serverResponse);
       break;
     case ResponseType::EmoteEvent:
-      // TODO create class EmoteEvent
-      // json = static_cast<const EmoteEvent &>(*serverResponse);
+      json = static_cast<const EmoteEvent &>(*serverResponse);
       break;
     case ResponseType::ErrorResponse:
       json = static_cast<const ErrorResponse &>(*serverResponse);
+      break;
+    case ResponseType::JoinGameSuccess:
+      json = static_cast<const JoinGameSuccess &>(*serverResponse);
+      break;
+    case ResponseType::StartGameSuccess:
+      json = static_cast<const StartGameSuccess &>(*serverResponse);
       break;
     }
   }
