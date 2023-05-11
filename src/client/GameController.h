@@ -8,6 +8,8 @@
 #include "panels/SetupPanel.h"
 #include "SetupManager.h"
 #include "game_state/Player.h"
+#include "network/responses/EmoteEvent.h"
+#include "EmoteHandler.h"
 
 class GameController {
 public:
