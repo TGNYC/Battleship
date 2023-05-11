@@ -78,6 +78,7 @@ void GameController::enterSetupPhase() {
 }
 
 void GameController::startGame() {
+  std::cout << "Player is ready. Game is starting." << std::endl;
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
 }
 
@@ -92,6 +93,7 @@ void GameController::showGameOverMessage() {}
 void GameController::playerReady() {
 
   // todo: maybe display some waiting for other player information
+  std::cout << "Sending request to server. You might need to wait for your opponent to be ready." << std::endl;
 
   // send request to start game
   StartGame request = StartGame(_me->getId(), _setupManager->_ships_placed);
