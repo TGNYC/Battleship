@@ -10,6 +10,7 @@ SetupPanel      *GameController::_setupPanel      = nullptr;
 MainGamePanel   *GameController::_mainGamePanel   = nullptr;
 SetupManager    *GameController::_setupManager    = nullptr;
 Player          *GameController::_me              = nullptr;
+game_state      *GameController::_gameState       = nullptr;
 
 void GameController::init(GameWindow *gameWindow) {
   GameController::_gameWindow = gameWindow;
@@ -80,6 +81,12 @@ void GameController::enterSetupPhase() {
 void GameController::startGame() {
   std::cout << "Player is ready. Game is starting." << std::endl;
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
+}
+
+void GameController::handleGameEvent(const GameEvent &event) {
+  _gameState->updateBoards(event);
+  uuid currentPlayerId = _gameState->getCurrentPlayerId();
+  _mainGamePanel->buildGameState(_gameState, _me->getId(), currentPlayerId);
 }
 
 void GameController::callShot() {}
