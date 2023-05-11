@@ -6,8 +6,9 @@
 #include <array>
 
 enum class EmoteType {
-  Emote1,
-  Emote2
+  MiddleFinger,
+  RussianWarshipGoFuckYourself,
+  Mocking
 };
 
 class EmoteEvent : public ServerResponse {
