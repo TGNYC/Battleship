@@ -137,7 +137,7 @@ public:
    * @brief updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGrid
    * @param event
    */
-  bool updateBoards(GameEvent& event);
+  bool updateBoards(const GameEvent& event);
 
   /*!
    * Checks if the game is over meaning all ships of one player are sunk

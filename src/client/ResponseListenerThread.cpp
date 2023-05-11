@@ -52,6 +52,9 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
           switch (response->responseType) {
 
           case ResponseType::GameEvent:
+            GameController::getMainThreadEventHandler()->CallAfter([&response] {
+              GameController::handleGameEvent(static_cast<const GameEvent&>(*response));
+            });
             break;
           case ResponseType::EmoteEvent:
             break;
@@ -65,8 +68,12 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
               GameController::showError("Server Error", static_cast<const ErrorResponse &>(*response).exception.what());
             });
             break;
+          case ResponseType::StartGameSuccess:
+            GameController::getMainThreadEventHandler()->CallAfter([] {
+              GameController::startGame();
+            });
+            break;
           }
-
         } else {
           this->outputError("Network error", "Could not read entire message. TCP stream ended early. Difference is " +
                                                  std::to_string(messageLength - bytesReadSoFar) + " bytes");

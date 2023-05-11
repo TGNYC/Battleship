@@ -87,6 +87,12 @@ void GameController::startGame() { // called by ResponseListenerThread
   GameController::_mainGamePanel->buildGameState(GameController::_gameState, GameController::_me);
 }
 
+void GameController::handleGameEvent(const GameEvent &event) {
+  _gameState->updateBoards(event);
+  uuid currentPlayerId = _gameState->getCurrentPlayerId();
+  _mainGamePanel->buildGameState(_gameState, _me->getId());
+}
+
 void GameController::callShot() {}
 
 void GameController::sendEmote() {}
