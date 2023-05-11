@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <ctime>
 #include "sstream"
+#include "exceptions/BattleshipException.h"
 
 /*!
  * Basic logging class. Only static usage
@@ -30,7 +31,13 @@ public:
    * @param message text to be logged
    * @param type optional log type (info, warning, error). currently unused
    */
-  static void log(const std::string& message, Type type = Type::Info);
+  static void log(const std::string &message, Type type = Type::Info);
+
+  /*!
+   * outputs the content of a BattleshipException to the logfile
+   * @param exception
+   */
+  static void log(const BattleshipException &exception);
 
 private:
   /*!
@@ -38,7 +45,7 @@ private:
    * @return returns a formatted string timestamp
    */
   static std::string getCurrentDateTime();
-  static const char* logFile;
+  static const char* const logFile;
 };
 
 #endif // BATTLESHIP_LOGGER_H
