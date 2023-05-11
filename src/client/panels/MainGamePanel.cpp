@@ -2,9 +2,10 @@
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {}
 
-void MainGamePanel::buildGameState(game_state* gameState, Player& player) {
+void MainGamePanel::buildGameState(game_state* gameState, uuid ownId, uuid currentPlayer) {
   _gameState = gameState;
-  _ownId = player.getId();
+  _ownId = ownId;
+  _currentPlayer = currentPlayer;
   
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);
@@ -61,6 +62,11 @@ void MainGamePanel::buildTurnIndicator() {
 }
 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
+  // only allow clicks if it is the player's turn
+  if (_currentPlayer != _ownId) {
+    std::cout << "not your turn" << std::endl;
+    return;
+  }
   // temp test
   AudioPlayer::play(AudioPlayer::BestPirate);
   // end test
