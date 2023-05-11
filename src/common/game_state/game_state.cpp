@@ -14,6 +14,7 @@ game_state::game_state(game_state::Type type) :
 
   players = std::vector<Player>();
   playerGrids = std::vector<PlayerGrid>();
+  Logger::log("Created GameState");
 }
 
 
@@ -29,6 +30,7 @@ auto game_state::addPlayer(Player player) -> bool {
   if (players.size() >= 2) {
     return false;
   }
+  Logger::log("Added Player " + player.getName() + " " + player.getId().ToString() + " to GameState");
   players.push_back(std::move(player));
   return true;
 }
@@ -50,6 +52,7 @@ auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> boo
     }
   }
   // create playerGrid and add it to the vector
+  Logger::log("Added Ships of " + playerId.ToString() + " to GameState");
   playerGrids.emplace_back(playerId, std::move(shipPlacement));
   return true;
 }
@@ -70,6 +73,7 @@ bool game_state::start(uuid currentPlayerId) {
   } else {
     this->currentPlayerId = currentPlayerId;
     state = State::Playing;
+    Logger::log("Successfully started GameState");
     return true;
   }
 }
@@ -127,7 +131,7 @@ bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
 bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk, uuid *nextPlayerId) {
 
   // log turn number and current player
-  const std::string msg = "Turn Number " + std::to_string(turnNumber) +
+  const std::string msg = "Registering shot. Turn Number " + std::to_string(turnNumber) +
                           ". Current Player " + currentPlayerId.ToString();
   Logger::log(msg, Logger::Type::Info);
 
@@ -136,7 +140,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
 
   // check if the correct player is playing
   if (playerId != currentPlayerId) {
-    Logger::log("It is not this players turn", Logger::Type::Error);
+    Logger::log("It is not this players turn " + playerId.ToString(), Logger::Type::Error);
     return false;
   }
 
