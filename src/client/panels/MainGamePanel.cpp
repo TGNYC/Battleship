@@ -68,7 +68,7 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
     return;
   }
   // temp test
-  AudioPlayer::play(AudioPlayer::BestPirate);
+  //AudioPlayer::play(AudioPlayer::BestPirate);
   // end test
 
   wxPoint mousePosition = event.GetPosition();
