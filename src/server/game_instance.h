@@ -12,6 +12,7 @@
 #include "game_state/Player.h"
 #include "game_state/game_state.h"
 #include "network/requests/CallShot.h"
+#include "network/requests/JoinGame.h"
 
 class game_instance {
 
@@ -53,6 +54,8 @@ public:
   //  bool draw_card(Player* player, card*& drawn_card, std::string& err);
   //  bool play_card(Player* player, const std::string& card_id, std::string& err);
   //  bool fold(player* Player, std::string& err);
+
+  bool joinGame(JoinGame joinGameRequest);
 };
 
 #endif // BATTLESHIP_GAME_INSTANCE_H
