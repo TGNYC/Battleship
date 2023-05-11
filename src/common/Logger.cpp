@@ -18,7 +18,7 @@ void Logger::log(const std::string& message, Logger::Type type) {
   std::ofstream file;
   try {
     file.open(logFile);
-    file << getCurrentDateTime() << std::setw(15) << message << std::endl;
+    file << getCurrentDateTime() << std::setw(25) << message << std::endl;
     file.close();
   } catch (const std::ofstream::failure& e) {
     std::cout << "Error: Could not open/write to log file" << std::endl;
