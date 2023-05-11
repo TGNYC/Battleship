@@ -2,10 +2,10 @@
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {}
 
-void MainGamePanel::buildGameState(game_state* gameState, uuid ownId, uuid currentPlayer) {
+void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   _gameState = gameState;
   _ownId = ownId;
-  _currentPlayer = currentPlayer;
+  _currentPlayer = gameState->getCurrentPlayerId();
   
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);

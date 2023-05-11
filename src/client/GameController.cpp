@@ -86,7 +86,7 @@ void GameController::startGame() {
 void GameController::handleGameEvent(const GameEvent &event) {
   _gameState->updateBoards(event);
   uuid currentPlayerId = _gameState->getCurrentPlayerId();
-  _mainGamePanel->buildGameState(_gameState, _me->getId(), currentPlayerId);
+  _mainGamePanel->buildGameState(_gameState, _me->getId());
 }
 
 void GameController::callShot() {}
