@@ -19,9 +19,11 @@ game_state::game_state(game_state::Type type) :
 
 auto game_state::addPlayer(Player player) -> bool {
   // check if player is alrady added
-  for (const Player& p : players) {
-    if (p.getId() == player.getId()) {
-      return false;
+  if(!players.empty()) {
+    for (const Player& p : players) {
+      if (p.getId() == player.getId()) {
+            return false;
+      }
     }
   }
   if (players.size() >= 2) {
