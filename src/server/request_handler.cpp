@@ -36,6 +36,7 @@
 >>>>>>> 40180b2488690ca1c9af3c21cb848a3dfcaa196f
 #include "network/responses/ServerResponse.h"
 #include "player_manager.h"
+#include <iostream>
 #include <memory>
 
 <<<<<<< HEAD
@@ -88,6 +89,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(const ClientRequ
 
   // ##################### JOIN GAME #####################  //
   case RequestType::JoinGame: {
+    std::cout << "handle Join Game request\n";
     const JoinGame joinGameRequest = static_cast<const JoinGame &>(*req);
 
     if (game_instance_ptr->joinGame(joinGameRequest)) {
@@ -133,6 +135,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(const ClientRequ
 =======
   // TODO the other Requests
   default:
+    std::cout << "handle Unkonwn request\n";
     return std::make_unique<ErrorResponse>(BattleshipException("Unkonwn Request"));
   }
 >>>>>>> 40180b2488690ca1c9af3c21cb848a3dfcaa196f
