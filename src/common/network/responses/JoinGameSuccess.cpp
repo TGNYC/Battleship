@@ -4,6 +4,4 @@
 
 #include "JoinGameSuccess.h"
 
-
-JoinGameSuccess::JoinGameSuccess(uuid playerId)
-    : ServerResponse(ResponseType::JoinGameSuccess) {}
+JoinGameSuccess::JoinGameSuccess() : ServerResponse(ResponseType::JoinGameSuccess) {}

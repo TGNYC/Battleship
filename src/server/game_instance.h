@@ -55,7 +55,7 @@ public:
   //  bool play_card(Player* player, const std::string& card_id, std::string& err);
   //  bool fold(player* Player, std::string& err);
 
-  bool joinGame(JoinGame joinGameRequest);
+  bool joinGame(const JoinGame &joinGameRequest);
 };
 
 #endif // BATTLESHIP_GAME_INSTANCE_H

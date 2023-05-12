@@ -201,8 +201,8 @@ void server_network_manager::broadcast_message(ServerResponse &msg, const std::v
   // send object_diff to all requested players
   try {
     for (auto &player : players) {
-      if (player != exclude) {
-        int nof_bytes_written = send_message(msg_string, _player_id_to_address.at(player->getId()));
+      if (player != *exclude) {
+        int nof_bytes_written = send_message(msg_string, _player_id_to_address.at(player.getId()));
       }
     }
   } catch (std::exception &e) {
@@ -211,34 +211,33 @@ void server_network_manager::broadcast_message(ServerResponse &msg, const std::v
   _rw_lock.unlock_shared();
 }
 
-
-
 //// Connect to another server instance and send a message to it
-//void server_network_manager::send_message_to_other_server(const std::string& host, const uint16_t port, const std::string& message) {
-//  // Create a TCP socket to connect to the other server
-//  sockpp::tcp_socket sock;
-//  try {
-//    // Connect to the other server at the specified host and port
-//    sock.connect(sockpp::inet_address(host), port);
+// void server_network_manager::send_message_to_other_server(const std::string& host, const uint16_t port, const
+// std::string& message) {
+//   // Create a TCP socket to connect to the other server
+//   sockpp::tcp_socket sock;
+//   try {
+//     // Connect to the other server at the specified host and port
+//     sock.connect(sockpp::inet_address(host), port);
 //
-//    // Send the message to the other server
-//    ssize_t bytes_written = sock.write(message.c_str(), message.length());
-//    if (bytes_written == -1) {
-//      std::cerr << "Failed to send message to other server" << std::endl;
-//    } else {
-//      std::cout << "Sent " << bytes_written << " bytes to other server" << std::endl;
-//    }
+//     // Send the message to the other server
+//     ssize_t bytes_written = sock.write(message.c_str(), message.length());
+//     if (bytes_written == -1) {
+//       std::cerr << "Failed to send message to other server" << std::endl;
+//     } else {
+//       std::cout << "Sent " << bytes_written << " bytes to other server" << std::endl;
+//     }
 //
-//    // Read any response from the other server
-//    char buffer[512];
-//    ssize_t bytes_read = sock.read(buffer, sizeof(buffer));
-//    if (bytes_read == -1) {
-//      std::cerr << "Failed to read response from other server" << std::endl;
-//    } else {
-//      std::cout << "Received " << bytes_read << " bytes from other server: " << std::string(buffer, bytes_read) << std::endl;
-//    }
-//  } catch (const std::exception& e) {
-//    std::cerr << "Failed to connect to other server: " << e.what() << std::endl;
-//  }
-//}
-
+//     // Read any response from the other server
+//     char buffer[512];
+//     ssize_t bytes_read = sock.read(buffer, sizeof(buffer));
+//     if (bytes_read == -1) {
+//       std::cerr << "Failed to read response from other server" << std::endl;
+//     } else {
+//       std::cout << "Received " << bytes_read << " bytes from other server: " << std::string(buffer, bytes_read) <<
+//       std::endl;
+//     }
+//   } catch (const std::exception& e) {
+//     std::cerr << "Failed to connect to other server: " << e.what() << std::endl;
+//   }
+// }
