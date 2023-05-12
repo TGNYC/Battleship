@@ -12,10 +12,16 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   
   this->DestroyChildren();
 
-  wxBoxSizer *mainWindow = new wxBoxSizer(wxHORIZONTAL);
-  // buildTurnIndicator(gameState->getPlayerName(_currentPlayer));
-  wxBoxSizer *leftSide = new wxBoxSizer(wxVERTICAL);
-  wxBoxSizer *rightSide = new wxBoxSizer(wxVERTICAL);
+  // this box contains everything
+  wxBoxSizer* _mainWindow = new wxBoxSizer(wxVERTICAL);
+  // this shows who's turn it is via text
+  wxBoxSizer* turnIndicator = new wxBoxSizer(wxVERTICAL);
+  // this contains both the grids and the shipPanels
+  wxBoxSizer* grids = new wxBoxSizer(wxHORIZONTAL);
+  // this contains the own viewGrid and shipPanels
+  wxBoxSizer* leftSide = new wxBoxSizer(wxVERTICAL);
+  // this contains the opponent's viewGrid and shipPanels
+  wxBoxSizer* rightSide = new wxBoxSizer(wxVERTICAL);
 
   // get player grids
   auto playerGrid = gameState->getPlayerGrid(_ownId);
@@ -28,41 +34,51 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   auto ownShots = playerGrid.shotsFired;
   auto oppShots = playerGrid.shotsReceived;
 
-  this->_ownShipPanel = new ShipPanel(this, wxPoint( 10, 430), playerShips);
+  this->_ownShipPanel = new ShipPanel(this, wxPoint( 10, 470), playerShips);
   // TODO: find a way to do this without requiring acces to opponent ship vector
-  this->_oppShipPanel = new ShipPanel(this, wxPoint(430, 430), playerShips);
+  this->_oppShipPanel = new ShipPanel(this, wxPoint(430, 470), playerShips);
 
-  this->_ownViewGrid = new ViewGrid(this, wxPoint( 10, 10));
-  this->_oppViewGrid = new ViewGrid(this, wxPoint(430, 10));
+  this->_ownViewGrid  = new ViewGrid( this, wxPoint( 10, 50), ViewGrid::gridtype::own);
+  this->_oppViewGrid  = new ViewGrid( this, wxPoint(430, 50), ViewGrid::gridtype::opp);
   
   this->_ownViewGrid->showShips(playerShips);
 
-  this->_oppViewGrid->showShots(ownShots);
   this->_ownViewGrid->showShots(oppShots);
-
-  // place grids next to eachother
-  leftSide->Add(_ownViewGrid, 1, wxEXPAND | wxALL);
-  rightSide->Add(_oppViewGrid, 1, wxEXPAND | wxALL);
-
-  leftSide->Add(_ownShipPanel, 0, wxEXPAND | wxALL, 0);
-  rightSide->Add(_oppShipPanel, 0, wxEXPAND | wxALL, 0);
-
-  // add grids to main window
-  mainWindow->Add(leftSide, 1, wxEXPAND | wxALL, 10);
-  mainWindow->Add(rightSide, 1, wxEXPAND | wxALL, 10);
+  this->_oppViewGrid->showShots(ownShots);
 
   this->_oppViewGrid->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onMouseClick, this);
 
-  this->SetSizerAndFit(mainWindow);
+  wxStaticText* leftTitle = new wxStaticText(this, wxID_ANY, "Your Ships");
+  leftSide->Add(leftTitle, 0, wxALIGN_CENTER, 10);
+
+  leftSide->Add(_ownViewGrid, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+  leftSide->Add(_ownShipPanel, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 10);
+
+  wxStaticText* rightTitle = new wxStaticText(this, wxID_ANY, "Opponent's Ships");
+  rightSide->Add(rightTitle, 0, wxALIGN_CENTER, 10);
+
+  rightSide->Add(_oppViewGrid, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+  rightSide->Add(_oppShipPanel, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 10);
+
+  // place grids next to eachother
+  grids->Add(leftSide, 0, wxALL, 10);
+  grids->Add(rightSide, 0, wxALL, 10);
+
+  // add grids to main window
+  buildTurnIndicator(_gameState->getPlayerName(_currentPlayer), turnIndicator);
+  _mainWindow->Add(turnIndicator, 0, wxALIGN_CENTER, 10);
+  _mainWindow->Add(grids, 0, wxALIGN_CENTER, 10);
+
+  this->SetSizerAndFit(_mainWindow);
 }
 
 void MainGamePanel::buildEmoteList() {
 }
 
-void MainGamePanel::buildTurnIndicator(std::string playerName) {
+void MainGamePanel::buildTurnIndicator(std::string playerName, wxBoxSizer *box) {
   auto text = "It's " + playerName + "'s turn";
   wxStaticText* turnText = new wxStaticText(this, wxID_ANY, text);
-  this->GetSizer()->Add(turnText, 0, wxALIGN_CENTER | wxALL, 10);
+  box->Add(turnText, 0, wxALIGN_TOP, 10);
 }
 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
