@@ -18,9 +18,6 @@
 
 // Constructor of server_network_manager
 server_network_manager::server_network_manager() {
-  if (_instance == nullptr) {
-    _instance = this;
-  }
   // Initialize the sockpp library
   sockpp::socket_initializer::initialize();
   // Connect to the default server host and port, as defined in "default.conf"

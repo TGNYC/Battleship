@@ -2,10 +2,6 @@
 // Created by Tejas Gupta on 4/19/23.
 //
 
-//
-// Created by manuel on 17.03.21.
-//
-
 #include "server_network_manager.h"
 
 int main() {
