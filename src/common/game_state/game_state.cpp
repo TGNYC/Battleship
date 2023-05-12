@@ -112,7 +112,7 @@ std::string game_state::getPlayerName(uuid playerId) {
       return player.getName();
     }
   }
-  std::cout << "Current player doesn't exist";
+  std::cout << "Current player doesn't exist" << std::endl;
   return "UNKNOWN";
 }
 
