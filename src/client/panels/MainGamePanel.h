@@ -26,7 +26,7 @@ private:
   ViewGrid* _oppViewGrid;
   ShipPanel* _ownShipPanel;
   ShipPanel* _oppShipPanel;
-  std::chrono::_V2::system_clock::time_point _lastShot;
+  std::chrono::system_clock::time_point _lastShot; // std::chrono::_V2::system_clock::time_point _lastShot;
 };
 
 #endif // MAINGAMEPANEL_H
