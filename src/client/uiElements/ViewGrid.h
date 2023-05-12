@@ -6,7 +6,9 @@
 
 class ViewGrid : public wxPanel{
 public:
-  ViewGrid(wxWindow *parent, wxPoint pos);
+  enum gridtype {own, opp};
+  
+  ViewGrid(wxWindow *parent, wxPoint pos, gridtype type);
 
   wxPoint GetPosition() const {
     return _pos;
@@ -21,6 +23,7 @@ public:
 private:
   wxPoint _pos;
   wxStaticBitmap **_grid;
+  gridtype _type;
 };
 
 #endif // VIEWGRID_H
