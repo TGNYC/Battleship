@@ -5,30 +5,22 @@
 #ifndef BATTLESHIP_GAME_INSTANCE_H
 #define BATTLESHIP_GAME_INSTANCE_H
 
-#include <mutex>
-#include <string>
-#include <vector>
-
 #include "game_state/Player.h"
 #include "game_state/game_state.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
+#include <mutex>
+#include <string>
+#include <vector>
 
 class game_instance {
 
 private:
-  game_state              *_game_state;
+  game_state               _game_state = game_state(game_state::Type::ServerState);
   bool                     is_player_allowed_to_play(Player *player);
   inline static std::mutex modification_lock;
 
 public:
-  game_instance();
-  ~game_instance() {
-    if (_game_state != nullptr) {
-      delete _game_state;
-    }
-    _game_state = nullptr;
-  }
   std::string get_id();
 
   game_state *get_game_state();

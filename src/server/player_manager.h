@@ -5,11 +5,10 @@
 #ifndef BATTLESHIP_PLAYER_MANAGER_H
 #define BATTLESHIP_PLAYER_MANAGER_H
 
+#include "game_state/Player.h"
 #include <shared_mutex>
 #include <string>
 #include <unordered_map>
-
-#include "game_state/Player.h"
 
 class player_manager {
 
