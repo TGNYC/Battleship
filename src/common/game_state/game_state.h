@@ -112,6 +112,11 @@ public:
    */
   uuid getOtherPlayer(uuid playerId);
 
+  /*
+   * returns the name of the player with the specified id
+  */
+  std::string getPlayerName(uuid playerId);
+
   /*!
    * checks if a called shot is a legal move
    * @param playerId ID of the player calling the shot

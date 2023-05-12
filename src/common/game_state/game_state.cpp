@@ -106,6 +106,15 @@ uuid game_state::getOtherPlayer(uuid playerId) {
   return uuid("Error");
 }
 
+std::string game_state::getPlayerName(uuid playerId) {
+  for (Player player : players) {
+    if (player.getId() == playerId) {
+      return player.getName();
+    }
+  }
+  std::cout << "Current player doesn't exist";
+  return "UNKNOWN";
+}
 
 bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
   if (position.x < 0 || position.x >= 10) {
