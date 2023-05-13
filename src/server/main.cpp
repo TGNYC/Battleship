@@ -6,7 +6,7 @@
 
 int main() {
   // create server_network_manager, which listens endlessly for new connections
-  server_network_manager server(50505);
+  server_network_manager server(8080);
   server.listener_loop();
   return 0;
 }

@@ -70,8 +70,10 @@ void GameController::connectToServer() {
   // send request to join game
   GameController::_me = new Player(uuid::generateRandomUuid(), playerName);
   JoinGame request    = JoinGame(GameController::_me->getId(), GameController::_me->getName());
-  //ClientNetworkManager::sendRequest(request); // TODO: REMOVE COMMENT and remove line below
-  GameController::enterSetupPhase();
+  ClientNetworkManager::sendRequest(request);
+
+  // enter set-up phase if the JoinGame response indicates success
+//  GameController::enterSetupPhase();
 
 }
 

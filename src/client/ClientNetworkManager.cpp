@@ -115,10 +115,17 @@ void ClientNetworkManager::sendRequest(const ClientRequest &request) {
 }
 
 std::unique_ptr<ServerResponse> ClientNetworkManager::parseResponse(const std::string &message) {
+  std::cout << "About to parse the response \n";
+  std::cout << "Message: " << message << std::endl;
 
   nlohmann::json json = nlohmann::json::parse(message);
 
+  std::cout << "one \n";
+  // TODO: make a server response out of the response that you've parsed
+
   std::unique_ptr<ServerResponse> response = json;
+
+  std::cout << "two \n";
 
   return response;
 }

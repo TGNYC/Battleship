@@ -55,6 +55,7 @@ void server_network_manager::listener_loop() {
     if (!sock) {
       std::cerr << "Error accepting incoming connection: " << _acc.last_error_str() << std::endl;
     } else {
+      std::cout << "Socket created successfully\n";
       // Add the socket to a map, and create a new thread to handle incoming messages
       _rw_lock.lock();
       _address_to_socket.emplace(sock.peer_address().to_string(), std::move(sock.clone()));
@@ -106,6 +107,7 @@ void server_network_manager::read_message(
       if (msg_bytes_read == msg_length) {
         // sanity check that really all bytes got read (possibility that count was <= 0, indicating a read error)
         std::string msg = ss_msg.str();
+        std::cout << "About to parse client_request\n";
         message_handler(msg, socket.peer_address()); // attempt to parse client_request from 'msg'
       } else {
         std::cerr << "Could not read entire message. TCP stream ended before. Difference is "
@@ -115,7 +117,10 @@ void server_network_manager::read_message(
       std::cerr << "Error while reading message from " << socket.peer_address() << std::endl << e.what() << std::endl;
     }
   }
+  std::cout << "Value of count: " << count << std::endl;
+
   if (count <= 0) {
+    std::cout << "Didn't get to read anything from the buffer\n";
     std::cout << "Read error [" << socket.last_error() << "]: " << socket.last_error_str() << std::endl;
   }
 
@@ -126,6 +131,8 @@ void server_network_manager::read_message(
 void server_network_manager::handle_incoming_message(const std::string                &msg,
                                                      const sockpp::tcp_socket::addr_t &peer_address) {
   try {
+    std::cout << "Handling the incoming message\n";
+
     // try to parse a json from the 'msg'
     nlohmann::json                       req_json = nlohmann::json::parse(msg);
     const std::unique_ptr<ClientRequest> req      = req_json;
@@ -152,8 +159,12 @@ void server_network_manager::handle_incoming_message(const std::string          
     // transform response into a json
     nlohmann::json res_json = *res;
 
+    nlohmann::json res_json = to_json()
+
     // transform json to string
     std::string res_msg = res_json.dump();
+
+    std::cout << "Res msg (what the response looks like in string form): " << res_msg << std::endl;
 
 #ifdef PRINT_NETWORK_MESSAGES
     std::cout << "Sending response : " << res_msg << std::endl;
