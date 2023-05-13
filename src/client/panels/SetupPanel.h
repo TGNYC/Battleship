@@ -22,6 +22,8 @@ private:
   wxStaticBitmap *_ship3;
   wxStaticBitmap *_ship4;
   wxStaticBitmap *_ship5;
+  wxStaticBitmap *_selectedBitmap;
+  std::vector<wxStaticBitmap*> _ships;
 };
 
 #endif // SETUPPANEL_H
