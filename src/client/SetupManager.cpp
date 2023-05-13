@@ -36,22 +36,19 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
   if(ship == nullptr)
         return false;
 
-  // access setuppanel
-  auto *visualGrid = GameController::getSetupPanel()->getPlacementGrid()->getGrid();
-
   // check in grid if position is valid
   const int length      = ship->getLength();
   auto      orientation = ship->getOrientation();
 
-  const int cellX = position.x / 40;
-  const int cellY = position.y / 40;
-  // column-major order
-  int idx = cellX*10 + cellY;
+  int cellX = position.x / 40;
+  int cellY = position.y / 40;
 
-  // check if ship would be out of bounds
-  if ((orientation == Ship::Orientation::Horizontal && cellX + length > 10) ||
-      (orientation == Ship::Orientation::Vertical && cellY + length > 10)) {
-        return false;
+  // if cursor is too far right or bottom, place ship at right or bottom edge
+  if ((orientation == Ship::Orientation::Horizontal && cellX + length > 10)) {
+          cellX = std::max(10 - length, 0);
+  }
+  if ((orientation == Ship::Orientation::Vertical && cellY + length > 10)) {
+          cellY = std::max(10 - length, 0);
   }
 
   // check if ship would overlap with another ship
