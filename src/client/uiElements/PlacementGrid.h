@@ -13,15 +13,17 @@ public:
   void OnMouseMotion(wxMouseEvent &event);
   void OnMouseClick(wxMouseEvent &event);
   void displayGrid();
+  void highlightTiles(int CellX, int CellY);
 
   wxStaticBitmap** getGrid() const {
     return _grid;
   }
 
-private:
-  wxStaticBitmap **_grid;
   int cellX_prev = -1;
   int cellY_prev = -1;
+
+private:
+  wxStaticBitmap **_grid;
 };
 
 #endif // BATTLESHIP_PLACEMENTGRID_H

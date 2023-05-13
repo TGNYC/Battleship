@@ -112,16 +112,11 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPo
   // add the horizontal sizer to the main vertical sizer
   mainVerticalLayout->Add(horizontalLayout, 1, wxEXPAND | wxALL, 0);
 
-  // add the "Ready" button to the bottom of the main vertical sizer
-  this->_rotateButton = new wxButton(this, wxID_ANY, "Rotate", wxDefaultPosition, wxSize(100, 40));
-  mainVerticalLayout->Add(this->_rotateButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
-
   wxButton *readyButton = new wxButton(this, wxID_ANY, "Ready", wxDefaultPosition, wxSize(100, 40));
   mainVerticalLayout->Add(readyButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
   readyButton->Bind(wxEVT_BUTTON, &SetupPanel::OnReadyButtonClicked, this);
 
-
-  // ready button rotates ship
+  // Key event for rotating ship
   this->Bind(wxEVT_CHAR_HOOK, &SetupPanel::OnKeyDown, this);
 
   this->SetSizerAndFit(mainVerticalLayout);
@@ -140,12 +135,12 @@ void SetupPanel::OnKeyDown(wxKeyEvent &event) {
                            ? Ship::Orientation::Vertical
                            : Ship::Orientation::Horizontal;
       SetupManager::_selectedShip->setOrientation(orientation);
-      this->_placementGrid->displayGrid();
-      // this->_placementGrid->Refresh();
+      this->_placementGrid->highlightTiles(_placementGrid->cellX_prev, _placementGrid->cellY_prev); // re-highlight tiles
     }
   }
   event.Skip();
 }
+
 
 /**
  * @brief event handler for when the "Ready" button is clicked. Checks if all ships have been placed, and if so, notifies the GameController that the player is ready.
@@ -183,3 +178,11 @@ wxStaticBitmap *SetupPanel::getShipButton(int idx) {
   }
 }
 
+
+/**
+ * @brief getter for the placement grid
+ * @return PlacementGrid* representing the placement grid
+ */
+PlacementGrid *SetupPanel::getPlacementGrid() const {
+  return _placementGrid;
+}

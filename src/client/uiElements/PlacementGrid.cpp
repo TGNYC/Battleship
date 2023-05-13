@@ -42,9 +42,52 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
   int CellX = mousePosition.x / 40;
   int CellY = mousePosition.y / 40;
 
-  if (CellX == cellX_prev && CellY == cellY_prev) { // mouse still in same cell as before
+  highlightTiles(CellX, CellY);
+}
+
+/**
+ * @brief function is called when mouse clicks on grid and places ship if possible
+ * @param event
+ */
+void PlacementGrid::OnMouseClick(wxMouseEvent &event) {
+  if(SetupManager::_selectedShip == nullptr) {
+    std::cout << "no ship selected" << std::endl;
     return;
   }
+  if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
+    std::cout << "this ship is already placed" << std::endl;
+    return;
+  }
+
+  wxPoint mousePosition = event.GetPosition();
+  std::cout << "clicked at (" << mousePosition.x/40 << ", " << mousePosition.y/40 << ")\n";
+  if (!SetupManager::placeShip(mousePosition, SetupManager::_selectedShip)) return;
+  std::cout << "placed ship\n";
+
+  this->displayGrid();
+}
+
+/**
+ * @brief function displays grid according to data in SetupManager
+ */
+void PlacementGrid::displayGrid() {
+  auto *grid = SetupManager::getGrid();
+  for(int i = 0; i < 100; ++i) {
+    if(grid[i] != 0) {
+      _grid[i]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
+    }
+    else {
+      _grid[i]->SetBitmap(wxBitmap(wxImage("../assets/empty_tile.png")));
+    }
+  }
+}
+
+/**
+ * @brief function highlights tiles according to mouse position and placed ships
+ * @param CellX x coordinate of mouse position
+ * @param CellY y coordinate of mouse position
+ */
+void PlacementGrid::highlightTiles(int CellX, int CellY) {
   if (SetupManager::_selectedShip == nullptr) { // no ship selected
     return;
   }
@@ -83,41 +126,4 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
 
   cellX_prev = CellX;
   cellY_prev = CellY;
-}
-
-/**
- * @brief function is called when mouse clicks on grid and places ship if possible
- * @param event
- */
-void PlacementGrid::OnMouseClick(wxMouseEvent &event) {
-  if(SetupManager::_selectedShip == nullptr) {
-    std::cout << "no ship selected" << std::endl;
-    return;
-  }
-  if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
-    std::cout << "this ship is already placed" << std::endl;
-    return;
-  }
-
-  wxPoint mousePosition = event.GetPosition();
-  std::cout << "clicked at (" << mousePosition.x/40 << ", " << mousePosition.y/40 << ")\n";
-  if (!SetupManager::placeShip(mousePosition, SetupManager::_selectedShip)) return;
-  std::cout << "placed ship\n";
-
-  this->displayGrid();
-}
-
-/**
- * @brief function displays grid according to data in SetupManager
- */
-void PlacementGrid::displayGrid() {
-  auto *grid = SetupManager::getGrid();
-  for(int i = 0; i < 100; ++i) {
-    if(grid[i] != 0) {
-      _grid[i]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
-    }
-    else {
-      _grid[i]->SetBitmap(wxBitmap(wxImage("../assets/empty_tile.png")));
-    }
-  }
 }
