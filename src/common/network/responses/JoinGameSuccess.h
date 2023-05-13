@@ -15,6 +15,10 @@
 class JoinGameSuccess : public ServerResponse {
 public:
   JoinGameSuccess();
+  bool wasSuccessful() const;
+
+private:
+  bool success;
 };
 
 #endif // BATTLESHIP_JOINGAMESUCCESS_H

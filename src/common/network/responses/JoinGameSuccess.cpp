@@ -4,4 +4,10 @@
 
 #include "JoinGameSuccess.h"
 
-JoinGameSuccess::JoinGameSuccess() : ServerResponse(ResponseType::JoinGameSuccess) {}
+JoinGameSuccess::JoinGameSuccess() : ServerResponse(ResponseType::JoinGameSuccess) {
+  success = true;
+}
+
+bool JoinGameSuccess::wasSuccessful() const {
+  return success;
+}

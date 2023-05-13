@@ -19,6 +19,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
     ssize_t count = 0;
 
     while ((count = this->_connection->read(buffer, sizeof(buffer))) > 0) {
+      std::cout << "Client listening...\n";
       try {
         int pos = 0;
 
@@ -46,8 +47,11 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
 
         // process message (if we've received entire message)
         if (bytesReadSoFar == messageLength) {
+          std::cout << "Received entire message...\n";
           std::string message = messageStream.str();
           std::unique_ptr<ServerResponse> response = ClientNetworkManager::parseResponse(message);
+
+          std::cout << "Response type: " << static_cast<int>(response->responseType) << std::endl;
 
           switch (response->responseType) {
 
@@ -62,6 +66,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             });
             break;
           case ResponseType::JoinGameSuccess:
+            std::cout << "Client received a JoinGameSuccess...\n";
             GameController::getMainThreadEventHandler()->CallAfter([] {
               GameController::enterSetupPhase();
             });

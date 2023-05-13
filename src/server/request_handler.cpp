@@ -19,6 +19,8 @@
 
 std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance             &gameInstance,
                                                                 const ClientRequest *const req) {
+  std::cout << "handle_request() called\n";
+
   // Prepare variables that are used by every request type
   Player     *player;
   std::string err;
@@ -36,14 +38,14 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
     if (gameInstance.joinGame(joinGameRequest)) {
       return std::make_unique<JoinGameSuccess>();
     } else {
-      return std::make_unique<ErrorResponse>(BattleshipException("Faild to join the Game"));
+      return std::make_unique<ErrorResponse>(BattleshipException("Failed to join the Game"));
     }
   } break;
 
   // ##################### START GAME ##################### //
   case RequestType::StartGame: {
     if (gameInstance.start_game(player, err)) {
-      return std::make_unique<StartGameSuccess>(std::vector<Player>(), uuid()); // TODO return the correct values
+      return std::make_unique<StartGameSuccess>(std::vector<Player>(), uuid()); // TODO: return the correct values
     }
     return std::make_unique<ErrorResponse>(BattleshipException("Faild to start the Game"));
   } break;

@@ -78,10 +78,19 @@ bool game_instance::start_game(Player *player, std::string &err) {
 }
 
 bool game_instance::joinGame(const JoinGame &joinGameRequest) {
+  std::cout << "about to add player to the game state\n";
   std::lock_guard<std::mutex> lockGuard(modification_lock);
 
   uuid        playerId   = joinGameRequest.getPlayerId();
   std::string playerName = joinGameRequest.getPlayerName();
   Player      player     = Player(playerId, playerName);
+
+//  // Prints out the names of the current players in the game
+//  std::cout << "current players in the game:\n";
+//  auto players = _game_state.get_players();
+//  for (const auto& player : players) {
+//    std::cout << "Player name: " << player.getName() << std::endl;
+//  }
+
   return _game_state.addPlayer(player);
 }
