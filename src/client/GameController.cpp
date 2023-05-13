@@ -73,7 +73,7 @@ void GameController::connectToServer() {
   ClientNetworkManager::sendRequest(request);
 
   // enter set-up phase if the JoinGame response indicates success
-//  GameController::enterSetupPhase();
+  GameController::enterSetupPhase();
 
 }
 

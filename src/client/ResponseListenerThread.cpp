@@ -49,8 +49,6 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
         if (bytesReadSoFar == messageLength) {
           std::cout << "Received entire message...\n";
           std::string message = messageStream.str();
-          std::cout << "1\n";
-          std::cout << "Message: " << message << std::endl;
           std::unique_ptr<ServerResponse> response = ClientNetworkManager::parseResponse(message);
 
           std::cout << "Response type: " << static_cast<int>(response->responseType) << std::endl;

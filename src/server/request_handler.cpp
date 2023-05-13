@@ -45,7 +45,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   // ##################### START GAME ##################### //
   case RequestType::StartGame: {
     if (gameInstance.start_game(player, err)) {
-      return std::make_unique<StartGameSuccess>(std::vector<Player>(), uuid()); // TODO return the correct values
+      return std::make_unique<StartGameSuccess>(std::vector<Player>(), uuid()); // TODO: return the correct values
     }
     return std::make_unique<ErrorResponse>(BattleshipException("Faild to start the Game"));
   } break;

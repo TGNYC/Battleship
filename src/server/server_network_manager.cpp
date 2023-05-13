@@ -159,8 +159,6 @@ void server_network_manager::handle_incoming_message(const std::string          
     // transform response into a json
     nlohmann::json res_json = *res;
 
-    nlohmann::json res_json = to_json()
-
     // transform json to string
     std::string res_msg = res_json.dump();
 
