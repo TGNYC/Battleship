@@ -49,6 +49,8 @@ NLOHMANN_JSON_SERIALIZE_ENUM(RequestType, {{RequestType::JoinGame, "join_game"},
 
 NLOHMANN_JSON_SERIALIZE_ENUM(ResponseType, {{ResponseType::GameEvent, "game_event"},
                                             {ResponseType::EmoteEvent, "emote_event"},
+                                            {ResponseType::JoinGameSuccess, "join_game_success"},
+                                            {ResponseType::StartGameSuccess, "start_game_success"},
                                             {ResponseType::ErrorResponse, "error_response"}})
 
 namespace nlohmann {
