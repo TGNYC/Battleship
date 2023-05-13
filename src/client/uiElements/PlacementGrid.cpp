@@ -32,6 +32,7 @@ PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDef
   Bind(wxEVT_LEFT_DOWN, &PlacementGrid::OnMouseClick, this);
 }
 
+
 /**
  * @brief function is called when mouse hovers over grid and highlights tiles according to mouse position and placed ships
  * @param event mouse event
@@ -44,6 +45,7 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
 
   highlightTiles(CellX, CellY);
 }
+
 
 /**
  * @brief function is called when mouse clicks on grid and places ship if possible
@@ -67,6 +69,7 @@ void PlacementGrid::OnMouseClick(wxMouseEvent &event) {
   this->displayGrid();
 }
 
+
 /**
  * @brief function displays grid according to data in SetupManager
  */
@@ -81,6 +84,7 @@ void PlacementGrid::displayGrid() {
     }
   }
 }
+
 
 /**
  * @brief function highlights tiles according to mouse position and placed ships
@@ -126,4 +130,13 @@ void PlacementGrid::highlightTiles(int CellX, int CellY) {
 
   cellX_prev = CellX;
   cellY_prev = CellY;
+}
+
+
+/**
+ * @brief getter for grid
+ * @return pointer to grid (static bitmap array)
+ */
+wxStaticBitmap **PlacementGrid::getGrid() const {
+  return _grid;
 }

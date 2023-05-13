@@ -2,10 +2,12 @@
 #include "GameController.h"
 #include "game_state/Coordinate.h"
 
-//std::vector<Ship> SetupManager::_ships_placed;
-//Ship* SetupManager::_selectedShip;
-int * SetupManager::_grid;
+// declare static variables
+int *SetupManager::_grid;
 
+/**
+ * @brief constructor for SetupManager. Initializes ships and grid.
+ */
 SetupManager::SetupManager() {
   // generate ships
   _ships_placed.emplace_back(Ship(5, Coordinate{-1,-1}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()));
@@ -23,8 +25,8 @@ SetupManager::SetupManager() {
           _grid[i*10+j] = 0;
         }
   }
-
 }
+
 
 /**
  * @brief function places ship on grid and updates ship position
@@ -98,9 +100,19 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
 }
 
 
+/**
+ * @brief getter for _grid
+ * @return int pointer to _grid array
+ */
 int *SetupManager::getGrid() {
   return _grid;
 }
+
+
+/**
+ * @brief checks if all ships have been placed (= no longer at initial position)
+ * @return true if all ships have been placed, false otherwise
+ */
 bool SetupManager::placedAllShips() {
   bool placed = true;
   for(int i = 0; i < _ships_placed.size(); ++i) {
