@@ -11,7 +11,7 @@
  * @brief constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events
  * @param parent
  */
-PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400)) {
+PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400), wxWANTS_CHARS) {
   wxColor backgroundColor = wxColor(255, 255, 0); // yellow, for debugging, shouldn't be visible
   this->SetBackgroundColour(backgroundColor);
 
@@ -37,6 +37,7 @@ PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDef
  * @param event mouse event
  */
 void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
+  this->SetFocus(); // set focus such that key events are received (for rotation)
   wxPoint mousePosition = event.GetPosition();
   int CellX = mousePosition.x / 40;
   int CellY = mousePosition.y / 40;

@@ -6,7 +6,11 @@
 std::vector<Ship> SetupManager::_ships_placed;
 Ship* SetupManager::_selectedShip;
 
-SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
+/**
+ * @brief Constructor of SetupPanel. Creates the panel and all its components.
+ * @param parent
+ */
+SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxWANTS_CHARS) {
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);
 
@@ -40,6 +44,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
   verticalLayout->Add(this->_ship4, 0, wxALIGN_LEFT | wxBOTTOM, 10);
   verticalLayout->Add(this->_ship5, 0, wxALIGN_LEFT | wxBOTTOM, 10);
 
+  // ----------------- event bindings -----------------
   _ship1->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[0];
 
@@ -58,6 +63,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     }
     std::cout << "ship 1 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
+
   _ship2->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[1];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
@@ -67,6 +73,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     }
     std::cout << "ship 2 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
+
   _ship3->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[2];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
@@ -76,6 +83,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     }
     std::cout << "ship 3 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
+
   _ship4->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[3];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
@@ -85,6 +93,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     }
     std::cout << "ship 4 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
+
   _ship5->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &evt) {
     SetupManager::_selectedShip = &SetupManager::_ships_placed[4];
     if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
@@ -94,6 +103,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
     }
     std::cout << "ship 5 clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
   });
+  // ----------------- end event bindings -----------------
 
 
   // add the vertical sizer to the right side of the horizontal sizer
@@ -112,25 +122,35 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent) {
 
 
   // ready button rotates ship
-  this->_rotateButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &evt) {
-  //if (evt.GetUnicodeKey() == 'R') {
-  if(SetupManager::_selectedShip == nullptr) return ;
-    if (SetupManager::_selectedShip != nullptr && SetupManager::_selectedShip->getPosition().x == -1 && SetupManager::_selectedShip->getPosition().y == -1) { // ship must not yet be placed
-      std::cout << "rotate ship " << SetupManager::_selectedShip->getId().ToString() << std::endl;
-      auto orientation = SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Horizontal ?
-                                                                                                        Ship::Orientation::Vertical : Ship::Orientation::Horizontal;
-      SetupManager::_selectedShip->setOrientation(orientation);
-      this->_placementGrid->displayGrid();
-      //this->_placementGrid->Refresh();
-    }
-  //}
-});
-
+  this->Bind(wxEVT_CHAR_HOOK, &SetupPanel::OnKeyDown, this);
 
   this->SetSizerAndFit(mainVerticalLayout);
-        //horizontalLayout->Layout();
-        //this->Layout();
 }
+
+/**
+ * @brief Key Event handler for rotating ship. Rotates selected ship if 'R' is pressed.
+ * @param event
+ */
+void SetupPanel::OnKeyDown(wxKeyEvent &event) {
+  if (event.GetUnicodeKey() == 'R' || event.GetUnicodeKey() == 'r') {
+    if (SetupManager::_selectedShip != nullptr && SetupManager::_selectedShip->getPosition().x == -1 &&
+        SetupManager::_selectedShip->getPosition().y == -1) { // ship must not yet be placed
+      std::cout << "rotate ship " << SetupManager::_selectedShip->getId().ToString() << std::endl;
+      auto orientation = SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Horizontal
+                           ? Ship::Orientation::Vertical
+                           : Ship::Orientation::Horizontal;
+      SetupManager::_selectedShip->setOrientation(orientation);
+      this->_placementGrid->displayGrid();
+      // this->_placementGrid->Refresh();
+    }
+  }
+  event.Skip();
+}
+
+/**
+ * @brief event handler for when the "Ready" button is clicked. Checks if all ships have been placed, and if so, notifies the GameController that the player is ready.
+ * @param event wxCommandEvent
+ */
 void SetupPanel::OnReadyButtonClicked(wxCommandEvent &event) {
   if(SetupManager::placedAllShips()) {
     GameController::playerReady();
@@ -139,6 +159,13 @@ void SetupPanel::OnReadyButtonClicked(wxCommandEvent &event) {
     std::cout << "not all ships placed" << std::endl;
   }
 }
+
+
+/**
+ * @brief helper function used in SetupManager::placeShip() to disable ship button after it has been placed
+ * @param idx int in [0, 4] representing the index of the ship button to disable
+ * @return wxStaticBitmap* representing the ship button that should be disabled. Returns NULL if idx is invalid.
+ */
 wxStaticBitmap *SetupPanel::getShipButton(int idx) {
   switch(idx) {
     case 0:
@@ -155,3 +182,4 @@ wxStaticBitmap *SetupPanel::getShipButton(int idx) {
       return nullptr;
   }
 }
+

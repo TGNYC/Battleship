@@ -9,6 +9,7 @@ class SetupPanel : public wxPanel {
 public:
   SetupPanel(wxWindow *parent);
   void OnReadyButtonClicked(wxCommandEvent &event);
+  void OnKeyDown(wxKeyEvent &event);
 
   PlacementGrid* getPlacementGrid() const {
     return _placementGrid;
