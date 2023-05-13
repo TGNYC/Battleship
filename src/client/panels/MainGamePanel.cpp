@@ -34,12 +34,12 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   auto ownShots = playerGrid.shotsFired;
   auto oppShots = playerGrid.shotsReceived;
 
-  this->_ownShipPanel = new ShipPanel(this, wxPoint( 10, 470), playerShips);
+  this->_ownShipPanel = new ShipPanel(this, wxPoint( 10, 460-3), playerShips);
   // TODO: find a way to do this without requiring acces to opponent ship vector
-  this->_oppShipPanel = new ShipPanel(this, wxPoint(430, 470), playerShips);
+  this->_oppShipPanel = new ShipPanel(this, wxPoint(430, 460-3), playerShips);
 
-  this->_ownViewGrid  = new ViewGrid( this, wxPoint( 10, 50), ViewGrid::gridtype::own);
-  this->_oppViewGrid  = new ViewGrid( this, wxPoint(430, 50), ViewGrid::gridtype::opp);
+  this->_ownViewGrid  = new ViewGrid( this, wxPoint( 10, 40-3), ViewGrid::gridtype::own);
+  this->_oppViewGrid  = new ViewGrid( this, wxPoint(430, 40-3), ViewGrid::gridtype::opp);
   
   this->_ownViewGrid->showShips(playerShips);
 
@@ -49,24 +49,24 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   this->_oppViewGrid->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onMouseClick, this);
 
   wxStaticText* leftTitle = new wxStaticText(this, wxID_ANY, "Your Ships");
-  leftSide->Add(leftTitle, 0, wxALIGN_CENTER, 10);
+  leftSide->Add(leftTitle, 0, wxALIGN_CENTER, 0);
 
   leftSide->Add(_ownViewGrid, 0, wxALIGN_CENTER | wxBOTTOM, 10);
-  leftSide->Add(_ownShipPanel, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 10);
+  leftSide->Add(_ownShipPanel, 0, wxALIGN_CENTER | wxBOTTOM, 10);
 
   wxStaticText* rightTitle = new wxStaticText(this, wxID_ANY, "Opponent's Ships");
-  rightSide->Add(rightTitle, 0, wxALIGN_CENTER, 10);
+  rightSide->Add(rightTitle, 0, wxALIGN_CENTER, 0);
 
   rightSide->Add(_oppViewGrid, 0, wxALIGN_CENTER | wxBOTTOM, 10);
-  rightSide->Add(_oppShipPanel, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 10);
+  rightSide->Add(_oppShipPanel, 0, wxALIGN_CENTER | wxBOTTOM, 10);
 
   // place grids next to eachother
-  grids->Add(leftSide, 0, wxALL, 10);
-  grids->Add(rightSide, 0, wxALL, 10);
+  grids->Add(leftSide, 0, wxLEFT | wxBOTTOM | wxRIGHT, 10);
+  grids->Add(rightSide, 0, wxLEFT | wxBOTTOM | wxRIGHT, 10);
 
   // add grids to main window
   buildTurnIndicator(_gameState->getPlayerName(_currentPlayer), turnIndicator);
-  _mainWindow->Add(turnIndicator, 0, wxALIGN_CENTER, 10);
+  _mainWindow->Add(turnIndicator, 0, wxALIGN_CENTER, 0);
   _mainWindow->Add(grids, 0, wxALIGN_CENTER, 10);
 
   this->SetSizerAndFit(_mainWindow);
@@ -78,7 +78,7 @@ void MainGamePanel::buildEmoteList() {
 void MainGamePanel::buildTurnIndicator(std::string playerName, wxBoxSizer *box) {
   auto text = "It's " + playerName + "'s turn";
   wxStaticText* turnText = new wxStaticText(this, wxID_ANY, text);
-  box->Add(turnText, 0, wxALIGN_TOP, 10);
+  box->Add(turnText, 0, wxALIGN_TOP, 0);
 }
 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
