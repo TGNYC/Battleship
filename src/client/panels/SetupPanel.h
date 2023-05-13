@@ -9,22 +9,19 @@ class SetupPanel : public wxPanel {
 public:
   SetupPanel(wxWindow *parent);
   void OnReadyButtonClicked(wxCommandEvent &event);
+  void OnKeyDown(wxKeyEvent &event);
 
-  PlacementGrid* getPlacementGrid() const {
-    return _placementGrid;
-  }
+  PlacementGrid* getPlacementGrid() const;
 
   wxStaticBitmap* getShipButton(int idx);
 
 private:
   PlacementGrid *_placementGrid;
-  wxButton *_rotateButton;
   wxStaticBitmap *_ship1;
   wxStaticBitmap *_ship2;
   wxStaticBitmap *_ship3;
   wxStaticBitmap *_ship4;
   wxStaticBitmap *_ship5;
-
 };
 
 #endif // SETUPPANEL_H
