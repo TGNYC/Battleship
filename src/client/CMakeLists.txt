@@ -17,6 +17,7 @@ target_sources(Battleship_Client
     uiElements/PlacementGrid.cpp
     uiElements/ViewGrid.cpp
     uiElements/ShipPanel.cpp
+    uiElements/EmotePanel.cpp
   PUBLIC
     Battleship.h
     GameController.h
@@ -34,4 +35,5 @@ target_sources(Battleship_Client
     uiElements/PlacementGrid.h
     uiElements/ViewGrid.h
     uiElements/ShipPanel.h
+    uiElements/EmotePanel.h
 )
