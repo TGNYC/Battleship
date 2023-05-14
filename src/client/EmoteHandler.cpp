@@ -1,9 +1,9 @@
 #include "EmoteHandler.h"
 
 const std::map<EmoteType, std::string> EmoteHandler::images = {
-    {EmoteType::MiddleFinger, "../assets/ship_1.png"},
-    {EmoteType::RussianWarshipGoFuckYourself, "../assets/ship_2.png"},
-    {EmoteType::Mocking, "../assets/ship_2.png"}
+    {EmoteType::MiddleFinger, "../assets/emotes/middlefinger.png"},
+    {EmoteType::RussianWarshipGoFuckYourself, "../assets/emotes/gofuckyourself.png"},
+    {EmoteType::Mocking, "../assets/emotes/mocking.png"}
 };
 
 const std::map<EmoteType, std::string> EmoteHandler::sounds = {
