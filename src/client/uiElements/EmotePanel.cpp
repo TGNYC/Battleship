@@ -4,17 +4,20 @@ EmotePanel::EmotePanel(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY
     _parent = parent;
     // wxColor backgroundColor = wxColor(255, 0, 255);
     // this->SetBackgroundColour(backgroundColor);
-    // display emotes that can be sent at the bottom of the box
     wxBitmap emoteBitmaps[3] = {
-        wxBitmap(wxImage(filepath.at(EmoteType::MiddleFinger))),
-        wxBitmap(wxImage(filepath.at(EmoteType::RussianWarshipGoFuckYourself))),
-        wxBitmap(wxImage(filepath.at(EmoteType::Mocking)))
+        wxBitmap(wxImage(EmoteHandler::getImage(EmoteType::MiddleFinger))),
+        wxBitmap(wxImage(EmoteHandler::getImage(EmoteType::RussianWarshipGoFuckYourself))),
+        wxBitmap(wxImage(EmoteHandler::getImage(EmoteType::Mocking)))
     };
     for (int i=0; i<3; ++i) {
         _emoteBitmaps[i] = new wxStaticBitmap(_parent, wxID_ANY, emoteBitmaps[i], wxPoint(20, 90 + 90*i), wxSize(80, 80), 0);
     }
+    displayEmote(EmoteType::MiddleFinger);
 }
 
 void EmotePanel::displayEmote(EmoteType emote) {
-    _currentEmote = new wxStaticBitmap(_parent, wxID_ANY, wxBitmap(wxImage(filepath.at(emote))), wxPoint(200, 200), wxSize(80, 80));
+    _currentEmote = new wxStaticBitmap(_parent, wxID_ANY, wxBitmap(wxImage(EmoteHandler::getImage(emote))), wxPoint(200, 200), wxSize(800, 800));
+    _currentEmote->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) {
+        // TODO: find a way to remove the image
+    });
 }
