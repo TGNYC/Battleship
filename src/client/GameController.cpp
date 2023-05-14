@@ -121,6 +121,7 @@ void GameController::showEmote(EmoteEvent emoteEvent) {
   EmoteType emote = emoteEvent.emote;
   std::string file = EmoteHandler::getImage(emote);
   //TODO call a function in MainGamePanel to display the png file
+  _mainGamePanel->displayEmote(emote);
 }
 
 void GameController::showError(const std::string &title, const std::string &message) {
