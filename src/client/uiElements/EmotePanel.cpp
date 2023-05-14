@@ -12,7 +12,7 @@ EmotePanel::EmotePanel(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY
     for (int i=0; i<3; ++i) {
         _emoteBitmaps[i] = new wxStaticBitmap(_parent, wxID_ANY, emoteBitmaps[i], wxPoint(20, 90 + 90*i), wxSize(80, 80), 0);
     }
-    displayEmote(EmoteType::MiddleFinger);
+    // displayEmote(EmoteType::MiddleFinger);
 }
 
 void EmotePanel::displayEmote(EmoteType emote) {
