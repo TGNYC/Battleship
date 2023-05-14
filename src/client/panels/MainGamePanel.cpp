@@ -1,5 +1,7 @@
 #include "MainGamePanel.h"
 
+#include "../GameController.h"
+
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   buildEmoteList();
 }
@@ -121,7 +123,7 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
   // end test
 
   wxPoint mousePosition = event.GetPosition();
-  mousePosition -= _oppViewGrid->GetPosition();
+  // mousePosition -= _oppViewGrid->GetPosition();
   
   Coordinate shot = Coordinate{mousePosition.x / 40, mousePosition.y / 40};
 
@@ -141,4 +143,5 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
   }
 
   // TODO: Send shot to server and wait for response
+  GameController::callShot(shot);
 }

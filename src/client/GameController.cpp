@@ -2,6 +2,7 @@
 #include "ClientNetworkManager.h"
 #include "network/requests/JoinGame.h"
 #include "network/requests/StartGame.h"
+#include "network/requests/CallShot.h"
 
 // initialize static variables
 GameWindow      *GameController::_gameWindow      = nullptr;
@@ -109,7 +110,10 @@ void GameController::handleGameEvent(const GameEvent &event) {
   _mainGamePanel->buildGameState(_gameState, _me->getId());
 }
 
-void GameController::callShot() {}
+void GameController::callShot(Coordinate position) {
+  CallShot request = CallShot(_me->getId(), position);
+  ClientNetworkManager::sendRequest(request);
+}
 
 void GameController::sendEmote() {}
 

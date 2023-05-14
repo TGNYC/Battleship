@@ -36,7 +36,7 @@ public:
     /**
         * @brief Sends a shot request to the server. 
     */
-    static void callShot();
+    static void callShot(Coordinate position);
     /**
      * @brief Sends an emote to the server. 
     */
