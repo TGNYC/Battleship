@@ -5,8 +5,10 @@
 #include <chrono>
 #include "../../common/game_state/game_state.h"
 #include "../../common/game_state/Player.h"
+#include "../../common/network/responses/EmoteEvent.h"
 #include "../uiElements/ViewGrid.h"
 #include "../uiElements/ShipPanel.h"
+#include "../uiElements/EmotePanel.h"
 //#include "../AudioPlayer.h"
 
 class MainGamePanel : public wxPanel {
@@ -29,6 +31,12 @@ public:
   */
   void buildEmoteList();
   /**
+   * @brief Displays the emote sent by the other player.
+   * @param emote The emote type that was sent.
+   * Not implemented yet.
+  */
+  void displayEmote(EmoteType emote);
+  /**
    * @brief Displays the turn indicator: It's ((playerName))'s turn
    * @param playerName The name of the player who's turn it is.
    * @param header The wxBoxSizer that contains the turn indicator.
@@ -44,6 +52,8 @@ public:
   void onMouseClick(wxMouseEvent& event);
 
 private:
+  wxBoxSizer* _mainWindow;
+  wxBoxSizer* _emoteWindow;
   game_state* _gameState;
   uuid _ownId;
   uuid _currentPlayer;
@@ -51,6 +61,7 @@ private:
   ViewGrid* _oppViewGrid;
   ShipPanel* _ownShipPanel;
   ShipPanel* _oppShipPanel;
+  EmotePanel* _emotePanel;
   std::chrono::system_clock::time_point _lastShot; // std::chrono::_V2::system_clock::time_point _lastShot;
 };
 
