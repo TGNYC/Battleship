@@ -64,17 +64,30 @@ bool game_instance::try_add_player(Player *new_player, std::string &err) {
   return false;
 }
 
-bool game_instance::start_game(Player *player, std::string &err) {
+// first boolean returns whether start_game was successful
+// second boolean returns whether both players are ready to start the game
+std::pair<std::pair<bool, bool>, std::vector<Player>> game_instance::start_game(Player *player, std::string &err) {
   modification_lock.lock();
+
+  std::vector<Player> currentPlayers = _game_state.get_players();
+
+  // indicates that the player is ready to the server
   if (_game_state.start(player->getId())) {
-    // send state update to all other players
-    //    full_state_response state_update_msg = full_state_response(this->get_id(), *_game_state);
-    //    server_network_manager::broadcast_message(state_update_msg, _game_state->get_players(), player);
+    std::cout << "In game_instance, game_State.start() returned true" << std::endl;
+
     modification_lock.unlock();
-    return true;
+    bool oldAtLeastOnePlayerReady = atLeastOnePlayerReady;
+    atLeastOnePlayerReady = true;
+
+    std::cout << "Old value of atLeastOnePlayerReady: " << oldAtLeastOnePlayerReady << std::endl;
+
+    std::pair<bool, bool> booleanPair = std::make_pair(true, oldAtLeastOnePlayerReady);
+    return std::make_pair(booleanPair, currentPlayers);
   }
   modification_lock.unlock();
-  return false;
+
+  std::pair<bool, bool> booleanPair = std::make_pair(false, false);
+  return std::make_pair(booleanPair, currentPlayers);;
 }
 
 bool game_instance::joinGame(const JoinGame &joinGameRequest) {

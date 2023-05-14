@@ -54,15 +54,19 @@ auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> boo
 
 bool game_state::start(uuid currentPlayerId) {
   if (state != State::Starting) {
+    std::cout << "Game state not in starting phase. Cannot start game." << std::endl;
     Logger::log("Game state not in starting phase. Cannot start game.");
     return false;
   } else if (players.size() != 2) {
+    std::cout << "Number of players is not 2. Cannot start game." << std::endl;
     Logger::log("Number of players is not 2. Cannot start game.");
-    return false;
+    return true; // start game with only one player means the server will wait for 2nd player to join
   } else if (type == Type::ServerState && playerGrids.size() != 2) {
+    std::cout << "Not 2 grids on server. Cannot start game." << std::endl;
     Logger::log("Not 2 grids on server. Cannot start game.");
-    return false;
+    return true; // TODO: find out what this does and return false if needed
   } else if (type == Type::ClientState && playerGrids.size() != 1) {
+    std::cout << "Not 1 grid on client. Cannot start game." << std::endl;
     Logger::log("Not 1 grid on client. Cannot start game.");
     return false;
   } else {

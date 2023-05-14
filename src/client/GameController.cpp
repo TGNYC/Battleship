@@ -135,8 +135,8 @@ void GameController::playerReady() {
   _gameState->addShips(_me->getId(), _setupManager->_ships_placed);
 
 
-  GameController::startGame(); // TODO: REMOVE - ONLY FOR TESTING. SHOULD BE CALLED BY RESPONSELISTENERTHREAD
-  return; // TODO: remove as well
+//  GameController::startGame(); // TODO: REMOVE - ONLY FOR TESTING. SHOULD BE CALLED BY RESPONSELISTENERTHREAD
+//  return; // TODO: remove as well
 
   // todo: maybe display some waiting for other player information
   std::cout << "Sending request to server. You might need to wait for your opponent to be ready." << std::endl;

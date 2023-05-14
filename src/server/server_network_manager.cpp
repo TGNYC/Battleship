@@ -156,20 +156,23 @@ void server_network_manager::handle_incoming_message(const std::string          
     // execute client request
     std::unique_ptr<ServerResponse> res = request_handler::handle_request(_game_instance, req.get());
 
-    // transform response into a json
-    nlohmann::json res_json = *res;
+    // res == nullptr if player is waiting to start the game (no action required until indication of readiness is sent)
+    if (res != nullptr) {
+      // transform response into a json
+      nlohmann::json res_json = *res;
 
-    // transform json to string
-    std::string res_msg = res_json.dump();
+      // transform json to string
+      std::string res_msg = res_json.dump();
 
-    std::cout << "Res msg (what the response looks like in string form): " << res_msg << std::endl;
+      std::cout << "Res msg (what the response looks like in string form): " << res_msg << std::endl;
 
 #ifdef PRINT_NETWORK_MESSAGES
     std::cout << "Sending response : " << res_msg << std::endl;
 #endif
 
-    // send response back to client
-    send_message(res_msg, peer_address.to_string());
+      // send response back to client
+      send_message(res_msg, peer_address.to_string());
+    }
   } catch (const std::exception &e) {
     std::cerr << "Failed to execute client request. Content was :\n"
               << msg << std::endl

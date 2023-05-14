@@ -16,6 +16,8 @@
 #include "player_manager.h"
 #include <iostream>
 #include <memory>
+#include "server_network_manager.h"
+
 
 std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance             &gameInstance,
                                                                 const ClientRequest *const req) {
@@ -44,10 +46,35 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
 
   // ##################### START GAME ##################### //
   case RequestType::StartGame: {
-    if (gameInstance.start_game(player, err)) {
-      return std::make_unique<StartGameSuccess>(std::vector<Player>(), uuid()); // TODO: return the correct values
+    std::cout << "handle Start Game request\n";
+
+
+    std::pair<std::pair<bool, bool>, std::vector<Player>> result = gameInstance.start_game(player, err);
+    bool requestSucceeded = result.first.first;
+    bool bothPlayersReady = result.first.second;
+
+    std::cout << "Request succeeded: " << requestSucceeded << std::endl;
+    std::cout << "Both players ready: " << bothPlayersReady << std::endl;
+
+    // indicates that both players are ready to the server by sending a success response to the current player's server
+    // (the response to the other player is sent in the logic in game_instance)
+    if (requestSucceeded && bothPlayersReady) {
+      std::cout << "Request succeeded and both players are ready" << std::endl;
+      // TODO: make sure starting player is consistent across both players
+
+      // send StartGameSuccess update to the already-ready player
+      std::cout << "Sending StartGameSuccess to the already-ready player" << std::endl;
+      std::unique_ptr<ServerResponse> resp = std::make_unique<StartGameSuccess>(result.second, player_id);
+      server_network_manager::broadcast_message(*resp, result.second, player);
+
+      // send StartGameSuccess update to the newly-ready player
+      std::cout << "Sending StartGameSuccess to the newly-ready player" << std::endl;
+      return std::make_unique<StartGameSuccess>(result.second, player_id);
+    } else if (requestSucceeded && !bothPlayersReady) {
+      std::cout << "Request succeeded, but both players aren't ready" << std::endl;
+      return nullptr;
     }
-    return std::make_unique<ErrorResponse>(BattleshipException("Faild to start the Game"));
+    return std::make_unique<ErrorResponse>(BattleshipException("Failed to start the Game"));
   } break;
 
   // ##################### CALL SHOT ##################### //
@@ -57,7 +84,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
       return std::make_unique<GameEvent>(player_id, Coordinate(), false, false,
                                          Ship(0, Coordinate(), Ship::Orientation::Horizontal, uuid()), uuid());
     } else {
-      return std::make_unique<ErrorResponse>(BattleshipException("Faild to execute Shot"));
+      return std::make_unique<ErrorResponse>(BattleshipException("Failed to execute Shot"));
     }
   } break;
 

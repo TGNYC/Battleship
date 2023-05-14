@@ -19,6 +19,7 @@ private:
   game_state               _game_state = game_state(game_state::Type::ServerState);
   bool                     is_player_allowed_to_play(Player *player);
   inline static std::mutex modification_lock;
+  bool atLeastOnePlayerReady;
 
 public:
   std::string get_id();
@@ -29,8 +30,12 @@ public:
   bool is_started();
   bool is_finished();
 
+  game_instance() {
+    atLeastOnePlayerReady = false;
+  }
+
   // game update functions
-  bool start_game(Player *player, std::string &err);
+  std::pair<std::pair<bool, bool>, std::vector<Player>> start_game(Player *player, std::string &err);
   bool try_add_player(Player *new_player, std::string &err);
   bool try_remove_player(Player *player, std::string &err);
   /*!
