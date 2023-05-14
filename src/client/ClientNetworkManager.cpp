@@ -120,12 +120,7 @@ std::unique_ptr<ServerResponse> ClientNetworkManager::parseResponse(const std::s
 
   nlohmann::json json = nlohmann::json::parse(message);
 
-  std::cout << "one \n";
-  // TODO: make a server response out of the response that you've parsed
-
   std::unique_ptr<ServerResponse> response = json;
-
-  std::cout << "two \n";
 
   return response;
 }
