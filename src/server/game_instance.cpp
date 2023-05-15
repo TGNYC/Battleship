@@ -51,6 +51,8 @@ bool game_instance::executeShot(CallShot shotRequest) {
     // TODO send GameOver response to clients
   }
 }
+
+// TODO remove because never used. functionality is implemented in game_instance::joinGame
 bool game_instance::try_add_player(Player *new_player, std::string &err) {
   modification_lock.lock();
   if (_game_state.addPlayer(*new_player)) {

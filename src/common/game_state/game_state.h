@@ -95,7 +95,7 @@ public:
    */
   const PlayerGrid& getPlayerGrid(uuid playerId) const;
 
-  /*
+  /*!
    * returns a vector of all the players (2)
    */
   std::vector<Player>& get_players();
@@ -112,6 +112,7 @@ public:
    */
   const Player& getOtherPlayer(uuid playerId);
 
+  // TODO change to getPlayer
   /*
    * returns the name of the player with the specified id
   */
