@@ -10,6 +10,50 @@
 #include "network/responses/ServerResponse.h"
 #include "server_network_manager.h"
 
+bool game_instance::joinGame(const JoinGame &joinGameRequest) {
+    std::cout << "about to add player to the game state\n";
+    std::lock_guard<std::mutex> lockGuard(modification_lock);
+
+    uuid        playerId   = joinGameRequest.getPlayerId();
+    std::string playerName = joinGameRequest.getPlayerName();
+    Player      player     = Player(playerId, playerName);
+
+//  // Prints out the names of the current players in the game
+//  std::cout << "current players in the game:\n";
+//  auto players = _game_state.get_players();
+//  for (const auto& player : players) {
+//    std::cout << "Player name: " << player.getName() << std::endl;
+//  }
+
+    return _game_state.addPlayer(player);
+}
+
+// first boolean returns whether start_game was successful
+// second boolean returns whether both players are ready to start the game
+std::pair<std::pair<bool, bool>, std::vector<Player>> game_instance::start_game(Player *player, std::string &err) {
+    modification_lock.lock();
+
+    std::vector<Player> currentPlayers = _game_state.get_players();
+
+    // indicates that the player is ready to the server
+    if (_game_state.start(player->getId())) {
+        std::cout << "In game_instance, game_State.start() returned true" << std::endl;
+
+        modification_lock.unlock();
+        bool oldAtLeastOnePlayerReady = atLeastOnePlayerReady;
+        atLeastOnePlayerReady = true;
+
+        std::cout << "Old value of atLeastOnePlayerReady: " << oldAtLeastOnePlayerReady << std::endl;
+
+        std::pair<bool, bool> booleanPair = std::make_pair(true, oldAtLeastOnePlayerReady);
+        return std::make_pair(booleanPair, currentPlayers);
+    }
+    modification_lock.unlock();
+
+    std::pair<bool, bool> booleanPair = std::make_pair(false, false);
+    return std::make_pair(booleanPair, currentPlayers);;
+}
+
 bool game_instance::executeShot(CallShot shotRequest) {
   uuid    currPlayerID = shotRequest.getPlayerId();
   Player *currPlayer   = nullptr;
@@ -64,48 +108,4 @@ bool game_instance::try_add_player(Player *new_player, std::string &err) {
   }
   modification_lock.unlock();
   return false;
-}
-
-// first boolean returns whether start_game was successful
-// second boolean returns whether both players are ready to start the game
-std::pair<std::pair<bool, bool>, std::vector<Player>> game_instance::start_game(Player *player, std::string &err) {
-  modification_lock.lock();
-
-  std::vector<Player> currentPlayers = _game_state.get_players();
-
-  // indicates that the player is ready to the server
-  if (_game_state.start(player->getId())) {
-    std::cout << "In game_instance, game_State.start() returned true" << std::endl;
-
-    modification_lock.unlock();
-    bool oldAtLeastOnePlayerReady = atLeastOnePlayerReady;
-    atLeastOnePlayerReady = true;
-
-    std::cout << "Old value of atLeastOnePlayerReady: " << oldAtLeastOnePlayerReady << std::endl;
-
-    std::pair<bool, bool> booleanPair = std::make_pair(true, oldAtLeastOnePlayerReady);
-    return std::make_pair(booleanPair, currentPlayers);
-  }
-  modification_lock.unlock();
-
-  std::pair<bool, bool> booleanPair = std::make_pair(false, false);
-  return std::make_pair(booleanPair, currentPlayers);;
-}
-
-bool game_instance::joinGame(const JoinGame &joinGameRequest) {
-  std::cout << "about to add player to the game state\n";
-  std::lock_guard<std::mutex> lockGuard(modification_lock);
-
-  uuid        playerId   = joinGameRequest.getPlayerId();
-  std::string playerName = joinGameRequest.getPlayerName();
-  Player      player     = Player(playerId, playerName);
-
-//  // Prints out the names of the current players in the game
-//  std::cout << "current players in the game:\n";
-//  auto players = _game_state.get_players();
-//  for (const auto& player : players) {
-//    std::cout << "Player name: " << player.getName() << std::endl;
-//  }
-
-  return _game_state.addPlayer(player);
 }
