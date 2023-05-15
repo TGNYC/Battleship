@@ -18,16 +18,16 @@ bool player_manager::try_get_player(uuid player_id, Player *&player_ptr) {
   return player_ptr;
 }
 
-//bool player_manager::add_or_get_player(std::string name, uuid player_id, Player *&player_ptr) {
-//  if (try_get_player(player_id, player_ptr)) {
-//    return true;
-//  }
-//  player_ptr = new Player(player_id, name);
-//  _rw_lock.lock(); // exclusive
-//  player_manager::_players_lut.insert({player_id, player_ptr});
-//  _rw_lock.unlock();
-//  return true;
-//}
+// bool player_manager::add_or_get_player(std::string name, uuid player_id, Player *&player_ptr) {
+//   if (try_get_player(player_id, player_ptr)) {
+//     return true;
+//   }
+//   player_ptr = new Player(player_id, name);
+//   _rw_lock.lock(); // exclusive
+//   player_manager::_players_lut.insert({player_id, player_ptr});
+//   _rw_lock.unlock();
+//   return true;
+// }
 
 bool player_manager::add_or_get_player(std::string name, uuid player_id, Player *&player_ptr) {
   if (try_get_player(player_id, player_ptr)) {

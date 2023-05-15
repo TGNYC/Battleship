@@ -10,12 +10,13 @@
 class BattleshipException : public std::exception {
 private:
   std::string _msg;
-public:
-  explicit BattleshipException(const std::string& message) : _msg(message) { };
 
-  const char* what() const noexcept override {
+public:
+  explicit BattleshipException(const std::string &message) : _msg(message) {}
+
+  const char *what() const noexcept override {
     return _msg.c_str();
   }
 };
 
-#endif //LAMA_LAMAEXCEPTION_H
+#endif // LAMA_LAMAEXCEPTION_H

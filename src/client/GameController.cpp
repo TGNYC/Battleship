@@ -2,6 +2,7 @@
 #include "ClientNetworkManager.h"
 #include "network/requests/JoinGame.h"
 #include "network/requests/StartGame.h"
+#include "network/requests/CallShot.h"
 
 // initialize static variables
 GameWindow      *GameController::_gameWindow      = nullptr;
@@ -12,6 +13,11 @@ SetupManager    *GameController::_setupManager    = nullptr;
 Player          *GameController::_me              = nullptr;
 game_state      *GameController::_gameState       = nullptr;
 
+
+/**
+ * @brief Constructor for GameController. Initializes different panels
+ * @param gameWindow
+ */
 void GameController::init(GameWindow *gameWindow) {
   GameController::_gameWindow = gameWindow;
 
@@ -26,10 +32,14 @@ void GameController::init(GameWindow *gameWindow) {
   GameController::_mainGamePanel->Show(false);
 
   // start of game: show connection panel
-  GameController::_gameWindow->showPanel(GameController::_connectionPanel); // TODO: CHANGE BACK, only for testing maingamepanel
-  //GameController::startGame();
+  GameController::_gameWindow->showPanel(GameController::_connectionPanel); // TODO: CHANGE BACK, only for testing maingamepanel and skipping server connection
+  //GameController::startGame(); // TODO: should be the function to be called
 }
 
+
+/**
+ * @brief Function that is called when connect button on ConnectionPanel is clicked. Will try to connect to the server
+ */
 void GameController::connectToServer() {
   // get values
   wxString inputServerAddress = GameController::_connectionPanel->getServerAddress().Trim();
@@ -70,21 +80,28 @@ void GameController::connectToServer() {
   // send request to join game
   GameController::_me = new Player(uuid::generateRandomUuid(), playerName);
   JoinGame request    = JoinGame(GameController::_me->getId(), GameController::_me->getName());
-  //ClientNetworkManager::sendRequest(request); // TODO: REMOVE COMMENT and remove line below
-  GameController::enterSetupPhase();
 
+  ClientNetworkManager::sendRequest(request);
 }
 
+/**
+ * @beief function that is called when server responds with JoinGameSuccess response. Will show setup panel.
+ */
 void GameController::enterSetupPhase() {
   // show setup panel
   GameController::_setupManager = new SetupManager();
   GameController::_gameWindow->showPanel(GameController::_setupPanel);
 }
 
+
+/**
+ * @brief Function that is called when server responds with StartGameSuccess. Will show main game panel.
+ */
 void GameController::startGame() { // called by ResponseListenerThread
   std::cout << "Player is ready. Game is starting." << std::endl;
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
   GameController::_mainGamePanel->buildGameState(GameController::_gameState, GameController::_me->getId());
+  GameController::_gameWindow->Layout();
 }
 
 void GameController::handleGameEvent(const GameEvent &event) {
@@ -93,7 +110,10 @@ void GameController::handleGameEvent(const GameEvent &event) {
   _mainGamePanel->buildGameState(_gameState, _me->getId());
 }
 
-void GameController::callShot() {}
+void GameController::callShot(Coordinate position) {
+  CallShot request = CallShot(_me->getId(), position);
+  ClientNetworkManager::sendRequest(request);
+}
 
 void GameController::sendEmote() {}
 
@@ -101,21 +121,23 @@ void GameController::showEmote(EmoteEvent emoteEvent) {
   EmoteType emote = emoteEvent.emote;
   std::string file = EmoteHandler::getImage(emote);
   //TODO call a function in MainGamePanel to display the png file
+  _mainGamePanel->displayEmote(emote);
 }
 
 void GameController::showError(const std::string &title, const std::string &message) {
   std::cout << "[" << title << "] " << message << std::endl;
 }
-void GameController::showGameOverMessage() {}
+void GameController::showGameOverMessage() {} // TODO
+
+
+/**
+ * @brief function that is called when ready button in SetupPanel is clicked. Will send request to server to start game and creates GameState used on client side.
+ */
 void GameController::playerReady() {
   // generate GameState
   _gameState = new game_state(game_state::Type::ClientState);
   _gameState->addPlayer(*_me);
   _gameState->addShips(_me->getId(), _setupManager->_ships_placed);
-
-
-  GameController::startGame(); // TODO: REMOVE - ONLY FOR TESTING
-  return;
 
   // todo: maybe display some waiting for other player information
   std::cout << "Sending request to server. You might need to wait for your opponent to be ready." << std::endl;
@@ -124,6 +146,8 @@ void GameController::playerReady() {
   StartGame request = StartGame(_me->getId(), _setupManager->_ships_placed);
   ClientNetworkManager::sendRequest(request);
 }
+
+
 wxEvtHandler *GameController::getMainThreadEventHandler() {
   return GameController::_gameWindow->GetEventHandler();
 }

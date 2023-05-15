@@ -5,14 +5,14 @@
 #ifndef BATTLESHIP_REQUEST_HANDLER_H
 #define BATTLESHIP_REQUEST_HANDLER_H
 
+#include "game_instance.h"
 #include "network/requests/ClientRequest.h"
 #include "network/responses/ServerResponse.h"
-#include "game_instance.h"
+#include <memory>
 
 class request_handler {
 public:
-  static ServerResponse *handle_request(const ClientRequest *const req);
-  static game_instance* current_game;
+  static std::unique_ptr<ServerResponse> handle_request(game_instance &gameInstance, const ClientRequest *const req);
 };
 
 #endif // BATTLESHIP_REQUEST_HANDLER_H

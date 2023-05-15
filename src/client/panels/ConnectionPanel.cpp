@@ -2,6 +2,11 @@
 #include "../uiElements/ImagePanel.h"
 #include "../GameController.h"
 
+/**
+ * @brief Constructor for ConnectionPanel
+ * @param parent
+ */
+
 ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   wxColor white = wxColor(255, 255, 255);
   this->SetBackgroundColour(white);
@@ -35,19 +40,33 @@ ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   this->SetSizerAndFit(verticalLayout);
 }
 
+/**
+ * @brief Button event handler. Will trigger GameController::connectToServer() to establish a connection to the server
+ */
 void ConnectionPanel::onConnectButtonClicked(wxCommandEvent &event) {
   GameController::connectToServer();
-  //GameController::enterSetupPhase();
 }
 
+/**
+ * @brief Getter for the server address
+ * @return wxString
+ */
 wxString ConnectionPanel::getServerAddress() {
   return this->_serverAddressField->getValue();
 }
 
+/**
+ * @brief Getter for the server port
+ * @return wxString
+ */
 wxString ConnectionPanel::getServerPort() {
   return this->_serverPortField->getValue();
 }
 
+/**
+ * @brief Getter for the username
+ * @return wxString
+ */
 wxString ConnectionPanel::getUserName() {
   return this->_userNameField->getValue();
 }

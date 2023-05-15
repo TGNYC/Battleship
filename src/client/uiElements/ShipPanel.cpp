@@ -1,7 +1,10 @@
 #include "ShipPanel.h"
 #include <iostream>
 
-ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, const std::vector<Ship>& ships) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 120)) {
+ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, const std::vector<Ship>& ships) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 100)) {
+    // set the minimum size of the panel to 400x100
+    this->SetMinSize(wxSize(400, 100));
+    
     _ships = ships;
     std::string filenames[5] = {
         "../assets/ship_1.png",

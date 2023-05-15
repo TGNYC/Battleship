@@ -4,6 +4,10 @@
 
 #include "JoinGameSuccess.h"
 
+JoinGameSuccess::JoinGameSuccess() : ServerResponse(ResponseType::JoinGameSuccess) {
+  success = true;
+}
 
-JoinGameSuccess::JoinGameSuccess(uuid playerId)
-    : ServerResponse(ResponseType::JoinGameSuccess) {}
+bool JoinGameSuccess::wasSuccessful() const {
+  return success;
+}

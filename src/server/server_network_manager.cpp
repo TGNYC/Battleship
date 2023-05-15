@@ -3,35 +3,27 @@
 //
 
 #include "server_network_manager.h"
-#include "request_handler.h"
 
-// The server_network_manager handles all incoming messages and offers functionality to broadcast messages
-// to all connected players of a game.
-
-// include server address configurations TODO!!
-#include "network/default.conf"
 #include "network/responses/ServerResponse.h"
+#include "request_handler.h"
 #include "serialization/serialization.h"
 #include <nlohmann/json.hpp>
 #include <sstream>
 #include <string>
 
 // Constructor of server_network_manager
-server_network_manager::server_network_manager() {
-  if (_instance == nullptr) {
-    _instance = this;
-  }
+server_network_manager::server_network_manager(const uint16_t port) : _port(port) {
   // Initialize the sockpp library
   sockpp::socket_initializer::initialize();
   // Connect to the default server host and port, as defined in "default.conf"
-  this->connect(default_server_host, default_port);
+  this->connect(port);
 }
 
 // Destructor of server_network_manager
 server_network_manager::~server_network_manager() = default;
 
 // Connect to a specified url and port using a tcp_acceptor
-void server_network_manager::connect(const std::string &url, const uint16_t port) {
+void server_network_manager::connect(const uint16_t port) {
   // Create a tcp_acceptor using the specified port
   this->_acc = sockpp::tcp_acceptor(port);
 
@@ -45,7 +37,7 @@ void server_network_manager::connect(const std::string &url, const uint16_t port
   std::cout << "Awaiting connections on port " << port << "..." << std::endl;
 
   // Start an endless loop that listens for incoming connections and reads incoming messages
-  listener_loop();
+  // this->listener_loop();
 }
 
 // Endless loop that listens for incoming connections and reads incoming messages
@@ -63,11 +55,15 @@ void server_network_manager::listener_loop() {
     if (!sock) {
       std::cerr << "Error accepting incoming connection: " << _acc.last_error_str() << std::endl;
     } else {
+      std::cout << "Socket created successfully\n";
       // Add the socket to a map, and create a new thread to handle incoming messages
       _rw_lock.lock();
       _address_to_socket.emplace(sock.peer_address().to_string(), std::move(sock.clone()));
       _rw_lock.unlock();
-      std::thread listener(read_message, std::move(sock), handle_incoming_message);
+      std::thread listener(read_message, std::move(sock),
+                           [this](const std::string &message, const sockpp::tcp_socket::addr_t &address) {
+                             this->handle_incoming_message(message, address);
+                           });
       listener.detach();
     }
   }
@@ -111,6 +107,7 @@ void server_network_manager::read_message(
       if (msg_bytes_read == msg_length) {
         // sanity check that really all bytes got read (possibility that count was <= 0, indicating a read error)
         std::string msg = ss_msg.str();
+        std::cout << "About to parse client_request\n";
         message_handler(msg, socket.peer_address()); // attempt to parse client_request from 'msg'
       } else {
         std::cerr << "Could not read entire message. TCP stream ended before. Difference is "
@@ -120,7 +117,10 @@ void server_network_manager::read_message(
       std::cerr << "Error while reading message from " << socket.peer_address() << std::endl << e.what() << std::endl;
     }
   }
+  std::cout << "Value of count: " << count << std::endl;
+
   if (count <= 0) {
+    std::cout << "Didn't get to read anything from the buffer\n";
     std::cout << "Read error [" << socket.last_error() << "]: " << socket.last_error_str() << std::endl;
   }
 
@@ -131,6 +131,8 @@ void server_network_manager::read_message(
 void server_network_manager::handle_incoming_message(const std::string                &msg,
                                                      const sockpp::tcp_socket::addr_t &peer_address) {
   try {
+    std::cout << "Handling the incoming message\n";
+
     // try to parse a json from the 'msg'
     nlohmann::json                       req_json = nlohmann::json::parse(msg);
     const std::unique_ptr<ClientRequest> req      = req_json;
@@ -152,20 +154,25 @@ void server_network_manager::handle_incoming_message(const std::string          
     std::cout << "Received valid request : " << msg << std::endl;
 #endif
     // execute client request
-    std::unique_ptr<ServerResponse> res = request_handler::handle_request(req.get());
+    std::unique_ptr<ServerResponse> res = request_handler::handle_request(_game_instance, req.get());
 
-    // transform response into a json
-    nlohmann::json res_json = *res;
+    // res == nullptr if player is waiting to start the game (no action required until indication of readiness is sent)
+    if (res != nullptr) {
+      // transform response into a json
+      nlohmann::json res_json = *res;
 
-    // transform json to string
-    std::string res_msg = res_json.dump();
+      // transform json to string
+      std::string res_msg = res_json.dump();
+
+      std::cout << "Res msg (what the response looks like in string form): " << res_msg << std::endl;
 
 #ifdef PRINT_NETWORK_MESSAGES
     std::cout << "Sending response : " << res_msg << std::endl;
 #endif
 
-    // send response back to client
-    send_message(res_msg, peer_address.to_string());
+      // send response back to client
+      send_message(res_msg, peer_address.to_string());
+    }
   } catch (const std::exception &e) {
     std::cerr << "Failed to execute client request. Content was :\n"
               << msg << std::endl
@@ -201,8 +208,8 @@ void server_network_manager::broadcast_message(ServerResponse &msg, const std::v
   // send object_diff to all requested players
   try {
     for (auto &player : players) {
-      if (player != exclude) {
-        int nof_bytes_written = send_message(msg_string, _player_id_to_address.at(player->getId()));
+      if (player != *exclude) {
+        int nof_bytes_written = send_message(msg_string, _player_id_to_address.at(player.getId()));
       }
     }
   } catch (std::exception &e) {
@@ -210,35 +217,3 @@ void server_network_manager::broadcast_message(ServerResponse &msg, const std::v
   }
   _rw_lock.unlock_shared();
 }
-
-
-
-//// Connect to another server instance and send a message to it
-//void server_network_manager::send_message_to_other_server(const std::string& host, const uint16_t port, const std::string& message) {
-//  // Create a TCP socket to connect to the other server
-//  sockpp::tcp_socket sock;
-//  try {
-//    // Connect to the other server at the specified host and port
-//    sock.connect(sockpp::inet_address(host), port);
-//
-//    // Send the message to the other server
-//    ssize_t bytes_written = sock.write(message.c_str(), message.length());
-//    if (bytes_written == -1) {
-//      std::cerr << "Failed to send message to other server" << std::endl;
-//    } else {
-//      std::cout << "Sent " << bytes_written << " bytes to other server" << std::endl;
-//    }
-//
-//    // Read any response from the other server
-//    char buffer[512];
-//    ssize_t bytes_read = sock.read(buffer, sizeof(buffer));
-//    if (bytes_read == -1) {
-//      std::cerr << "Failed to read response from other server" << std::endl;
-//    } else {
-//      std::cout << "Received " << bytes_read << " bytes from other server: " << std::string(buffer, bytes_read) << std::endl;
-//    }
-//  } catch (const std::exception& e) {
-//    std::cerr << "Failed to connect to other server: " << e.what() << std::endl;
-//  }
-//}
-

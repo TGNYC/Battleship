@@ -49,6 +49,8 @@ NLOHMANN_JSON_SERIALIZE_ENUM(RequestType, {{RequestType::JoinGame, "join_game"},
 
 NLOHMANN_JSON_SERIALIZE_ENUM(ResponseType, {{ResponseType::GameEvent, "game_event"},
                                             {ResponseType::EmoteEvent, "emote_event"},
+                                            {ResponseType::JoinGameSuccess, "join_game_success"},
+                                            {ResponseType::StartGameSuccess, "start_game_success"},
                                             {ResponseType::ErrorResponse, "error_response"}})
 
 namespace nlohmann {
@@ -170,7 +172,8 @@ struct adl_serializer<std::unique_ptr<ClientRequest>> {
     case RequestType::CallShot:
       return std::make_unique<CallShot>(playerId, json.at("position").get<Coordinate>());
     case RequestType::SendEmote:
-      return std::make_unique<SendEmote>(playerId, json.at("emote").get<std::string>());  // TODO serialize this with Emote enum instead of string
+      return std::make_unique<SendEmote>(
+          playerId, json.at("emote").get<std::string>()); // TODO serialize this with Emote enum instead of string
     case RequestType::QuitGame:
       return std::make_unique<QuitGame>(playerId);
     case RequestType::PlayAgain:
@@ -206,16 +209,9 @@ struct adl_serializer<std::unique_ptr<ClientRequest>> {
 };
 
 template <>
-struct adl_serializer<ServerResponse> {
-  static void to_json(json &json, const ServerResponse &responses) {
-    json["type"] = responses.responseType;
-  }
-};
-
-template <>
 struct adl_serializer<GameEvent> {
   static void to_json(json &json, const GameEvent &responses) {
-    json                   = static_cast<const ServerResponse &>(responses);
+    json["type"]           = responses.responseType;
     json["player_id"]      = responses.playerId;
     json["position"]       = responses.position;
     json["ship_hit"]       = responses.hit;
@@ -228,7 +224,7 @@ struct adl_serializer<GameEvent> {
 template <>
 struct adl_serializer<EmoteEvent> {
   static void to_json(json &json, const EmoteEvent &responses) {
-    json              = static_cast<const ServerResponse &>(responses);
+    json["type"]      = responses.responseType;
     json["emot"]      = responses.emote;
     json["player_id"] = responses.playerId;
   }
@@ -237,7 +233,7 @@ struct adl_serializer<EmoteEvent> {
 template <>
 struct adl_serializer<ErrorResponse> {
   static void to_json(json &json, const ErrorResponse &responses) {
-    json                  = static_cast<const ServerResponse &>(responses);
+    json["type"]          = responses.responseType;
     json["error_message"] = responses.exception.what();
   }
 };
@@ -245,16 +241,42 @@ struct adl_serializer<ErrorResponse> {
 template <>
 struct adl_serializer<JoinGameSuccess> {
   static void to_json(json &json, const JoinGameSuccess &responses) {
-    json = static_cast<const ServerResponse &>(responses);
+    json["type"] = responses.responseType;
   }
 };
 
 template <>
 struct adl_serializer<StartGameSuccess> {
   static void to_json(json &json, const StartGameSuccess &responses) {
-    json                       = static_cast<const ServerResponse &>(responses);
+
+    json["type"]               = responses.responseType;
     json["players"]            = responses.players;
     json["starting_player_id"] = responses.startingPlayerId;
+  }
+};
+
+template <>
+struct adl_serializer<ServerResponse> {
+  static void to_json(json &json, const ServerResponse &responses) {
+    const ResponseType responsesType = responses.responseType;
+
+    switch (responsesType) {
+    case ResponseType::GameEvent:
+      json = static_cast<const GameEvent &>(responses);
+      break;
+    case ResponseType::EmoteEvent:
+      json = static_cast<const EmoteEvent &>(responses);
+      break;
+    case ResponseType::ErrorResponse:
+      json = static_cast<const ErrorResponse &>(responses);
+      break;
+    case ResponseType::JoinGameSuccess:
+      json = static_cast<const JoinGameSuccess &>(responses);
+      break;
+    case ResponseType::StartGameSuccess:
+      json = static_cast<const StartGameSuccess &>(responses);
+      break;
+    }
   }
 };
 
