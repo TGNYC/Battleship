@@ -244,6 +244,6 @@ uuid game_state::getWinner() {
   }
 }
 
-std::vector<Player>& game_state::get_players() {
+const std::vector<Player>& game_state::get_players() const {
   return players;
 }

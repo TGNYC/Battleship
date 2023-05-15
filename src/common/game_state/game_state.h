@@ -98,7 +98,7 @@ public:
   /*!
    * returns a vector of all the players (2)
    */
-  std::vector<Player>& get_players();
+  const std::vector<Player>& get_players() const;
 
   /*!
    * returns a reference to the ship with the specified id from a given vector of ships
