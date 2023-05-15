@@ -25,40 +25,44 @@ bool game_instance::joinGame(const JoinGame &joinGameRequest) {
 //    std::cout << "Player name: " << player.getName() << std::endl;
 //  }
 
-    return _game_state.addPlayer(player);
+    return _game_state.addPlayer(player);   // addPlayer checks if the player was already added or game is full
 }
 
+// is called upon receiving a startGameRequest
 // first boolean returns whether start_game was successful
 // second boolean returns whether both players are ready to start the game
-std::pair<std::pair<bool, bool>, std::vector<Player>> game_instance::start_game(Player *player, std::string &err) {
+bool game_instance::start_game(Player *player, std::string &err) {
     modification_lock.lock();
 
-    std::vector<Player> currentPlayers = _game_state.get_players();
+    const std::vector<Player> currentPlayers = _game_state.get_players();
 
-    // indicates that the player is ready to the server
-    if (_game_state.start(player->getId())) {
-        std::cout << "In game_instance, game_State.start() returned true" << std::endl;
+    // set this player to ready. not a problem if done more than once
+    isReady[player->getId()] = true;
 
-        modification_lock.unlock();
-        bool oldAtLeastOnePlayerReady = atLeastOnePlayerReady;
-        atLeastOnePlayerReady = true;
-
-        std::cout << "Old value of atLeastOnePlayerReady: " << oldAtLeastOnePlayerReady << std::endl;
-
-        std::pair<bool, bool> booleanPair = std::make_pair(true, oldAtLeastOnePlayerReady);
-        return std::make_pair(booleanPair, currentPlayers);
+    // check if we have 2 players
+    if (currentPlayers.size() != 2) {
+      std::cout << "Not 2 players yet. Cannot start game" << std::endl;
+      return false;
     }
-    modification_lock.unlock();
 
-    std::pair<bool, bool> booleanPair = std::make_pair(false, false);
-    return std::make_pair(booleanPair, currentPlayers);;
+    // check if other player is ready
+    const Player &otherPlayer = _game_state.getOtherPlayer(player->getId());
+    if (!isReady[otherPlayer.getId()]) {
+      std::cout << "Other player not ready yet. Cannot start game" << std::endl;
+      return false; 
+    }
+
+   // if reached here everything is fine and we can start
+    _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
+    modification_lock.unlock();
+    return true;
 }
 
 bool game_instance::executeShot(CallShot shotRequest) {
   uuid    currPlayerID = shotRequest.getPlayerId();
-  Player *currPlayer   = nullptr;
-  Player *excluded     = nullptr;
-  for (Player player : _game_state.get_players()) {
+  const Player *currPlayer   = nullptr;
+  const Player *excluded     = nullptr;
+  for (const Player &player : _game_state.get_players()) {
     if (player.getId() != currPlayerID) {
       excluded = &player;
     } else {
@@ -95,9 +99,12 @@ bool game_instance::executeShot(CallShot shotRequest) {
     // TODO send GameOver response to clients
   }
 }
+const game_state& game_instance::getGameState() const {
+  return _game_state;
+}
 
 // TODO remove because never used. functionality is implemented in game_instance::joinGame
-bool game_instance::try_add_player(Player *new_player, std::string &err) {
+/*bool game_instance::try_add_player(Player *new_player, std::string &err) {
   modification_lock.lock();
   if (_game_state.addPlayer(*new_player)) {
     // respond with JoinGameSuccess response
@@ -108,4 +115,4 @@ bool game_instance::try_add_player(Player *new_player, std::string &err) {
   }
   modification_lock.unlock();
   return false;
-}
+}*/

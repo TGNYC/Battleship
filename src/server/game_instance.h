@@ -12,47 +12,48 @@
 #include <mutex>
 #include <string>
 #include <vector>
+#include <map>
 
 class game_instance {
 
 private:
   game_state               _game_state = game_state(game_state::Type::ServerState);
-  bool                     is_player_allowed_to_play(Player *player);
+  //bool                     is_player_allowed_to_play(Player *player);
   inline static std::mutex modification_lock;
   bool atLeastOnePlayerReady;
+  std::map<uuid, bool> isReady;
 
 public:
-  std::string get_id();
-
-  game_state *get_game_state();
-
-  bool is_full();
-  bool is_started();
-  bool is_finished();
 
   game_instance() {
     atLeastOnePlayerReady = false;
   }
 
-  // game update functions
-  std::pair<std::pair<bool, bool>, std::vector<Player>> start_game(Player *player, std::string &err);
-  bool try_add_player(Player *new_player, std::string &err);
-  bool try_remove_player(Player *player, std::string &err);
+  // unused functions
+  //bool is_full();
+  //bool is_started();
+  //std::string get_id();
+  //game_state *get_game_state();
+  //bool is_finished();
+  //bool try_add_player(Player *new_player, std::string &err);
+  //bool draw_card(Player* player, card*& drawn_card, std::string& err);
+  //bool play_card(Player* player, const std::string& card_id, std::string& err);
+  //bool try_remove_player(Player *player, std::string &err);
+
+  bool joinGame(const JoinGame &joinGameRequest);
+
+  bool start_game(Player *player, std::string &err);
+
   /*!
    * Function to handle a CallShot request. Registers the shot in the gameState. Sends out corresponding gameEvents.
    * Checks if the game is over.
    * @param shotRequest
    * @return
    */
-
   bool executeShot(CallShot shotRequest);
+
+  const game_state& getGameState() const;
   // TODO: play_again
-
-  //  bool draw_card(Player* player, card*& drawn_card, std::string& err);
-  //  bool play_card(Player* player, const std::string& card_id, std::string& err);
-  //  bool fold(player* Player, std::string& err);
-
-  bool joinGame(const JoinGame &joinGameRequest);
 };
 
 #endif // BATTLESHIP_GAME_INSTANCE_H

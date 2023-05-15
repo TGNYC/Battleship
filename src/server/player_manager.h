@@ -10,6 +10,7 @@
 #include <string>
 #include <unordered_map>
 
+// TODO remove player manager since it seems obsolete
 class player_manager {
 
 private:
