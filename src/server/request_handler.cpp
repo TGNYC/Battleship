@@ -33,6 +33,8 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
 
   // Switch behavior according to request type
   switch (type) {
+
+// ##################### JOIN GAME ##################### //
   case RequestType::JoinGame: {
     std::cout << "handle Join Game request\n";
     const JoinGame joinGameRequest = static_cast<const JoinGame &>(*req);
@@ -48,6 +50,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   case RequestType::StartGame: {
     std::cout << "handle Start Game request\n";
 
+    std::cout << "adding ships" << std::endl;
 
     std::pair<std::pair<bool, bool>, std::vector<Player>> result = gameInstance.start_game(player, err);
     bool requestSucceeded = result.first.first;
@@ -64,7 +67,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
 
       // send StartGameSuccess update to the already-ready player
       std::cout << "Sending StartGameSuccess to the already-ready player" << std::endl;
-      std::unique_ptr<ServerResponse> resp = std::make_unique<StartGameSuccess>(result.second, player_id);
+      std::unique_ptr<ServerResponse> resp = std::make_unique<StartGameSuccess>(result.second, player_id); // meaning second player joining always goes first?
       server_network_manager::broadcast_message(*resp, result.second, player);
 
       // send StartGameSuccess update to the newly-ready player
@@ -76,6 +79,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
     }
     return std::make_unique<ErrorResponse>(BattleshipException("Failed to start the Game"));
   } break;
+
 
   // ##################### CALL SHOT ##################### //
   // TODO: finish implementing the call shot request
