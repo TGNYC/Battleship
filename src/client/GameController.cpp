@@ -147,6 +147,12 @@ void GameController::showGameOverMessage() {} // TODO
  * @brief function that is called when ready button in SetupPanel is clicked. Will send request to server to start game and creates GameState used on client side.
  */
 void GameController::playerReady() {
+  if(!_setupManager->placedAllShips()) {
+        GameController::showError("Setup error", "Please place all ships before clicking ready", true);
+        return;
+  }
+
+
   // generate GameState
   _gameState = new game_state(game_state::Type::ClientState);
   _gameState->addPlayer(*_me);
@@ -158,6 +164,9 @@ void GameController::playerReady() {
   // send request to start game
   StartGame request = StartGame(_me->getId(), _setupManager->_ships_placed);
   ClientNetworkManager::sendRequest(request);
+
+  // disable button such that player cannot click it again
+  GameController::_setupPanel->getReadyButton()->Disable();
 }
 
 
