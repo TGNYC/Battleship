@@ -110,7 +110,7 @@ public:
    * @param playerId
    * @return id of the other player. "Error" if no other player found.
    */
-  uuid getOtherPlayer(uuid playerId);
+  const Player& getOtherPlayer(uuid playerId);
 
   /*
    * returns the name of the player with the specified id

@@ -104,14 +104,14 @@ Ship &game_state::getShip(std::vector<Ship>& ships, uuid shipId) {
 }
 
 
-uuid game_state::getOtherPlayer(uuid playerId) {
+const Player& game_state::getOtherPlayer(uuid playerId) {
   for (const Player& player : players) {
     if (player.getId() != playerId) {
-      return player.getId();
+      return player;
     }
   }
   Logger::log("Fatal Error: did not find other player", Logger::Type::Error);
-  return uuid("Error");
+  std::cout << "GameState::getOtherPlayer : Did not find other player" << std::endl;
 }
 
 std::string game_state::getPlayerName(uuid playerId) {
@@ -227,7 +227,7 @@ bool game_state::gameOver() {
         }
       }
       if (lost) {
-        winner = getOtherPlayer(grid.playerId); // this player lost, so the other player is the winner
+        winner = getOtherPlayer(grid.playerId).getId(); // this player lost, so the other player is the winner
         state      = State::Finished;
         return true;
       }
