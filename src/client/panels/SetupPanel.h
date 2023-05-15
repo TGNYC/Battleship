@@ -14,6 +14,7 @@ public:
   PlacementGrid* getPlacementGrid() const;
 
   wxStaticBitmap* getShipButton(int idx);
+  wxButton *getReadyButton() const;
 
 private:
   PlacementGrid *_placementGrid;
@@ -24,6 +25,8 @@ private:
   wxStaticBitmap *_ship5;
   wxStaticBitmap *_selectedBitmap;
   std::vector<wxStaticBitmap*> _ships;
+
+  wxButton *_readyButton;
 };
 
 #endif // SETUPPANEL_H

@@ -49,7 +49,7 @@ public:
     /**
      * @brief Prints an error message box in case of an invalid move. 
     */
-    static void showError(const std::string& title, const std::string& message);
+    static void showError(const std::string& title, const std::string& message, bool popup);
     /**
      * @brief Displays dialog box when game is finished. 
     */

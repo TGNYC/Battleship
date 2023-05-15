@@ -93,9 +93,10 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPo
   // add the horizontal sizer to the main vertical sizer
   mainVerticalLayout->Add(horizontalLayout, 1, wxEXPAND | wxALL, 0);
 
-  wxButton *readyButton = new wxButton(this, wxID_ANY, "Ready", wxDefaultPosition, wxSize(100, 40));
-  mainVerticalLayout->Add(readyButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
-  readyButton->Bind(wxEVT_BUTTON, &SetupPanel::OnReadyButtonClicked, this);
+  // ready button
+  _readyButton = new wxButton(this, wxID_ANY, "Ready", wxDefaultPosition, wxSize(100, 40));
+  mainVerticalLayout->Add(_readyButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
+  _readyButton->Bind(wxEVT_BUTTON, &SetupPanel::OnReadyButtonClicked, this);
 
   // Key event for rotating ship
   this->Bind(wxEVT_CHAR_HOOK, &SetupPanel::OnKeyDown, this);
@@ -128,12 +129,7 @@ void SetupPanel::OnKeyDown(wxKeyEvent &event) {
  * @param event wxCommandEvent
  */
 void SetupPanel::OnReadyButtonClicked(wxCommandEvent &event) {
-  if(SetupManager::placedAllShips()) {
     GameController::playerReady();
-  }
-  else {
-    std::cout << "not all ships placed" << std::endl;
-  }
 }
 
 
@@ -166,4 +162,12 @@ wxStaticBitmap *SetupPanel::getShipButton(int idx) {
  */
 PlacementGrid *SetupPanel::getPlacementGrid() const {
   return _placementGrid;
+}
+
+/**
+ * @brief getter for the ready button (for GameController to disable after it has been clicked)
+ * @return wxButton* pointing to the ready button
+ */
+wxButton *SetupPanel::getReadyButton() const {
+  return _readyButton;
 }
