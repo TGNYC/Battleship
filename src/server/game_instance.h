@@ -42,7 +42,7 @@ public:
 
   bool joinGame(const JoinGame &joinGameRequest);
 
-  bool start_game(Player *player, std::string &err);
+  bool start_game(const Player *player, std::string &err);
 
   /*!
    * Function to handle a CallShot request. Registers the shot in the gameState. Sends out corresponding gameEvents.

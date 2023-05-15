@@ -31,13 +31,14 @@ bool game_instance::joinGame(const JoinGame &joinGameRequest) {
 // is called upon receiving a startGameRequest
 // first boolean returns whether start_game was successful
 // second boolean returns whether both players are ready to start the game
-bool game_instance::start_game(Player *player, std::string &err) {
+bool game_instance::start_game(const Player *player, std::string &err) {
     modification_lock.lock();
-
+    std::cout << "start_game called" << std::endl;
     const std::vector<Player> currentPlayers = _game_state.get_players();
 
     // set this player to ready. not a problem if done more than once
     isReady[player->getId()] = true;
+    std::cout << player->getId().ToString() << " is ready" << std::endl;
 
     // check if we have 2 players
     if (currentPlayers.size() != 2) {
@@ -48,11 +49,12 @@ bool game_instance::start_game(Player *player, std::string &err) {
     // check if other player is ready
     const Player &otherPlayer = _game_state.getOtherPlayer(player->getId());
     if (!isReady[otherPlayer.getId()]) {
-      std::cout << "Other player not ready yet. Cannot start game" << std::endl;
-      return false; 
+      std::cout << "Other player " + otherPlayer.getId().ToString() + " not ready yet. Cannot start game" << std::endl;
+      return false;
     }
 
    // if reached here everything is fine and we can start
+   std::cout << "got here " << std::endl;
     _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
     modification_lock.unlock();
     return true;
