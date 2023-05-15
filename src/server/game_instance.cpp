@@ -49,6 +49,7 @@ bool game_instance::start_game(Player *player, std::string &err) {
     const Player &otherPlayer = _game_state.getOtherPlayer(player->getId());
     if (!isReady[otherPlayer.getId()]) {
       std::cout << "Other player not ready yet. Cannot start game" << std::endl;
+      return false; 
     }
 
    // if reached here everything is fine and we can start
