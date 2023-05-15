@@ -99,9 +99,8 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPo
   _readyButton->Bind(wxEVT_BUTTON, &SetupPanel::OnReadyButtonClicked, this);
 
   // ready text (hidden by default)
-  _readyText = new wxStaticText(this, wxID_ANY, "Submitted ship placement successfully.\nWaiting for opponent to be ready.", wxDefaultPosition, wxDefaultSize);
+  _readyText = new wxStaticText(this, wxID_ANY, "\n", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
   mainVerticalLayout->Add(_readyText, 0, wxALIGN_CENTER | wxBOTTOM, 15);
-  _readyText->Hide();
 
 
   // Key event for rotating ship
