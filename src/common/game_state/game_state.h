@@ -116,7 +116,7 @@ public:
   /*
    * returns the name of the player with the specified id
   */
-  std::string getPlayerName(uuid playerId);
+  const Player& getPlayer(uuid playerId) const;
 
   /*!
    * checks if a called shot is a legal move

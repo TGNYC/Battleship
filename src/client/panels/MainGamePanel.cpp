@@ -70,7 +70,7 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   grids->Add(leftSide, 0, wxLEFT | wxBOTTOM | wxRIGHT, 10);
   grids->Add(rightSide, 0, wxLEFT | wxBOTTOM | wxRIGHT, 10);
 
-  buildTurnIndicator(_gameState->getPlayerName(_currentPlayer), turnIndicator);
+  buildTurnIndicator(_gameState->getPlayer(_currentPlayer).getName(), turnIndicator);
   gameWindow->Add(turnIndicator, 0, wxALIGN_CENTER, 0);
   gameWindow->Add(grids, 0, wxALIGN_CENTER, 10);
 
