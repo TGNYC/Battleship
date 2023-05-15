@@ -73,7 +73,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             break;
           case ResponseType::ErrorResponse:
             GameController::getMainThreadEventHandler()->CallAfter([&response] {
-              GameController::showError("Server Error", static_cast<const ErrorResponse &>(*response).exception.what());
+              GameController::showError("Server Error", static_cast<const ErrorResponse &>(*response).exception.what(), false);
             });
             break;
           case ResponseType::StartGameSuccess:

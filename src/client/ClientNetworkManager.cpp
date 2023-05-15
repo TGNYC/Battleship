@@ -39,7 +39,7 @@ void ::ClientNetworkManager::init(const std::string &host, const uint16_t port) 
     // start network thread
     ResponseListenerThread *responseListenerThread = new ResponseListenerThread(ClientNetworkManager::_connection);
     if (responseListenerThread->Run() != wxTHREAD_NO_ERROR) {
-      GameController::showError("Connection error", "Could not create client network thread");
+      GameController::showError("Connection error", "Could not create client network thread", false);
     }
 
   } else {
@@ -56,13 +56,13 @@ bool ClientNetworkManager::connect(const std::string &host, const uint16_t port)
   try {
     address = sockpp::inet_address(host, port);
   } catch (const sockpp::getaddrinfo_error &e) {
-    GameController::showError("Connection error", "Failed to resolve address " + e.hostname());
+    GameController::showError("Connection error", "Failed to resolve address " + e.hostname(), true);
     return false;
   }
 
   // establish connection to given address
   if (!ClientNetworkManager::_connection->connect(address)) {
-    GameController::showError("Connection error", "Failed to connect to server " + address.to_string());
+    GameController::showError("Connection error", "Failed to connect to server " + address.to_string(), true);
     return false;
   }
 
@@ -106,11 +106,11 @@ void ClientNetworkManager::sendRequest(const ClientRequest &request) {
     // if the number of bytes sent does not match the length of the message, probably something went wrong
     if (bytesSent != ssize_t(message.length())) {
       GameController::showError("Network error", "Error writing to the TCP stream: " +
-                                                     ClientNetworkManager::_connection->last_error_str());
+                                                     ClientNetworkManager::_connection->last_error_str(), false);
     }
 
   } else {
-    GameController::showError("Network error", "Lost connection to server");
+    GameController::showError("Network error", "Lost connection to server", true);
   }
 }
 

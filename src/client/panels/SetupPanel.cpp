@@ -133,6 +133,7 @@ void SetupPanel::OnReadyButtonClicked(wxCommandEvent &event) {
   }
   else {
     std::cout << "not all ships placed" << std::endl;
+    GameController::showError("Error", "Not all ships have been placed", true);
   }
 }
 

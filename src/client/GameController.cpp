@@ -48,15 +48,15 @@ void GameController::connectToServer() {
 
   // check that all values were provided
   if (inputServerAddress.IsEmpty()) {
-    GameController::showError("Input error", "Please provide the server's address");
+    GameController::showError("Input error", "Please provide the server's address", true);
     return;
   }
   if (inputServerPort.IsEmpty()) {
-    GameController::showError("Input error", "Please provide the server's port number");
+    GameController::showError("Input error", "Please provide the server's port number", true);
     return;
   }
   if (inputPlayerName.IsEmpty()) {
-    GameController::showError("Input error", "Please enter your desired player name");
+    GameController::showError("Input error", "Please enter your desired player name", true);
     return;
   }
 
@@ -66,7 +66,7 @@ void GameController::connectToServer() {
   // convert port from wxString to uint16_t
   unsigned long portAsLong;
   if (!inputServerPort.ToULong(&portAsLong) || portAsLong > 65535) {
-    GameController::showError("Connection error", "Invalid port");
+    GameController::showError("Connection error", "Invalid port", true);
     return;
   }
   uint16_t port = (uint16_t)portAsLong;
@@ -109,7 +109,7 @@ void GameController::startGame(const StartGameSuccess &response) { // called by 
   // set starting player
   std::cout << "Starting game state" << std::endl;
   assert(_gameState != nullptr);
-  _gameState->start(response.startingPlayerId);
+  assert(_gameState->start(response.startingPlayerId));
   // show GUI
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
   GameController::_mainGamePanel->buildGameState(GameController::_gameState, GameController::_me->getId());
@@ -136,8 +136,9 @@ void GameController::showEmote(EmoteEvent emoteEvent) {
   _mainGamePanel->displayEmote(emote);
 }
 
-void GameController::showError(const std::string &title, const std::string &message) {
+void GameController::showError(const std::string &title, const std::string &message, bool popup) {
   std::cout << "[" << title << "] " << message << std::endl;
+  if (popup) wxMessageBox(message, title, wxOK | wxICON_ERROR);
 }
 void GameController::showGameOverMessage() {} // TODO
 
