@@ -91,12 +91,18 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPo
   horizontalLayout->Add(verticalLayout, 0, wxEXPAND | wxALL, 20);
 
   // add the horizontal sizer to the main vertical sizer
-  mainVerticalLayout->Add(horizontalLayout, 1, wxEXPAND | wxALL, 0);
+  mainVerticalLayout->Add(horizontalLayout, 1, wxBOTTOM, 15);
 
   // ready button
   _readyButton = new wxButton(this, wxID_ANY, "Ready", wxDefaultPosition, wxSize(100, 40));
-  mainVerticalLayout->Add(_readyButton, 0, wxALIGN_RIGHT | wxTOP | wxBOTTOM, 10);
+  mainVerticalLayout->Add(_readyButton, 0, wxALIGN_CENTER | wxBOTTOM, 15);
   _readyButton->Bind(wxEVT_BUTTON, &SetupPanel::OnReadyButtonClicked, this);
+
+  // ready text (hidden by default)
+  _readyText = new wxStaticText(this, wxID_ANY, "Submitted ship placement successfully.\nWaiting for opponent to be ready.", wxDefaultPosition, wxDefaultSize);
+  mainVerticalLayout->Add(_readyText, 0, wxALIGN_CENTER | wxBOTTOM, 15);
+  _readyText->Hide();
+
 
   // Key event for rotating ship
   this->Bind(wxEVT_CHAR_HOOK, &SetupPanel::OnKeyDown, this);
@@ -170,4 +176,7 @@ PlacementGrid *SetupPanel::getPlacementGrid() const {
  */
 wxButton *SetupPanel::getReadyButton() const {
   return _readyButton;
+}
+wxStaticText *SetupPanel::getReadyText() const {
+  return _readyText;
 }
