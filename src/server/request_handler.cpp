@@ -50,34 +50,24 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   case RequestType::StartGame: {
     std::cout << "handle Start Game request\n";
 
-    std::cout << "adding ships" << std::endl;
-
-    std::pair<std::pair<bool, bool>, std::vector<Player>> result = gameInstance.start_game(player, err);
-    bool requestSucceeded = result.first.first;
-    bool bothPlayersReady = result.first.second;
-
-    std::cout << "Request succeeded: " << requestSucceeded << std::endl;
-    std::cout << "Both players ready: " << bothPlayersReady << std::endl;
+    bool result = gameInstance.start_game(player, err);
 
     // indicates that both players are ready to the server by sending a success response to the current player's server
     // (the response to the other player is sent in the logic in game_instance)
-    if (requestSucceeded && bothPlayersReady) {
+    if (result) {
       std::cout << "Request succeeded and both players are ready" << std::endl;
-      // TODO: make sure starting player is consistent across both players
 
       // send StartGameSuccess update to the already-ready player
       std::cout << "Sending StartGameSuccess to the already-ready player" << std::endl;
-      std::unique_ptr<ServerResponse> resp = std::make_unique<StartGameSuccess>(result.second, player_id); // meaning second player joining always goes first?
-      server_network_manager::broadcast_message(*resp, result.second, player);
+      std::unique_ptr<ServerResponse> resp = std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id); // meaning second player joining always goes first?
+      server_network_manager::broadcast_message(*resp, gameInstance.getGameState().get_players(), player);
 
       // send StartGameSuccess update to the newly-ready player
       std::cout << "Sending StartGameSuccess to the newly-ready player" << std::endl;
-      return std::make_unique<StartGameSuccess>(result.second, player_id);
-    } else if (requestSucceeded && !bothPlayersReady) {
-      std::cout << "Request succeeded, but both players aren't ready" << std::endl;
-      return nullptr;
+      return std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id);
     }
-    return std::make_unique<ErrorResponse>(BattleshipException("Failed to start the Game"));
+    std::cout << "Request succeeded and set player ready. But opponent not ready yet" << std::endl;
+    return nullptr;
   } break;
 
 
@@ -85,6 +75,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   // TODO: finish implementing the call shot request
   case RequestType::CallShot: {
     if (gameInstance.executeShot((*(CallShot *)req))) { // if it worked
+      // TODO : currently the GameEvent is only sent to the player who called the shot. Change to make it go to both
       return std::make_unique<GameEvent>(player_id, Coordinate(), false, false,
                                          Ship(0, Coordinate(), Ship::Orientation::Horizontal, uuid()), uuid());
     } else {
