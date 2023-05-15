@@ -1,15 +1,16 @@
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 
-#include <wx/wx.h>
+#include "EmoteHandler.h"
 #include "GameWindow.h"
-#include "panels/ConnectionPanel.h"
-#include "panels/MainGamePanel.h"
-#include "panels/SetupPanel.h"
 #include "SetupManager.h"
 #include "game_state/Player.h"
 #include "network/responses/EmoteEvent.h"
-#include "EmoteHandler.h"
+#include "network/responses/StartGameSuccess.h"
+#include "panels/ConnectionPanel.h"
+#include "panels/MainGamePanel.h"
+#include "panels/SetupPanel.h"
+#include <wx/wx.h>
 
 class GameController {
 public:
@@ -28,7 +29,7 @@ public:
     /**
      * @brief Sends a start game request after setup phase. 
     */
-    static void startGame();
+    static void startGame(const StartGameSuccess &response);
     /**
      * @brief Handes shot. 
     */

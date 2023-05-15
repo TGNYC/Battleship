@@ -97,8 +97,20 @@ void GameController::enterSetupPhase() {
 /**
  * @brief Function that is called when server responds with StartGameSuccess. Will show main game panel.
  */
-void GameController::startGame() { // called by ResponseListenerThread
-  std::cout << "Player is ready. Game is starting." << std::endl;
+void GameController::startGame(const StartGameSuccess &response) { // called by ResponseListenerThread
+  std::cout << "Both players ready. Game is starting." << std::endl;
+  // adding opponent to game state
+  assert(response.players.size() == 2);
+  Player opponent = response.players.at(0);
+  if (opponent.getId() == _me->getId()) {
+    opponent = response.players.at(1);
+  }
+  _gameState->addPlayer(opponent);
+  // set starting player
+  std::cout << "Starting game state" << std::endl;
+  assert(_gameState != nullptr);
+  _gameState->start(response.startingPlayerId);
+  // show GUI
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
   GameController::_mainGamePanel->buildGameState(GameController::_gameState, GameController::_me->getId());
   GameController::_gameWindow->Layout();

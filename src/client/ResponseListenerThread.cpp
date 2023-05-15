@@ -77,8 +77,8 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             });
             break;
           case ResponseType::StartGameSuccess:
-            GameController::getMainThreadEventHandler()->CallAfter([] {
-              GameController::startGame();
+            GameController::getMainThreadEventHandler()->CallAfter([&response] {
+              GameController::startGame(static_cast<const StartGameSuccess&>(*response));
             });
             break;
           }
