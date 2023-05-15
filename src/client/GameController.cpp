@@ -167,6 +167,10 @@ void GameController::playerReady() {
 
   // disable button such that player cannot click it again
   GameController::_setupPanel->getReadyButton()->Disable();
+
+  // display text that ship placement was submitted and that player is waiting for opponent
+  GameController::_setupPanel->getReadyText()->SetLabel("Ship placement submitted.\nWaiting for opponent...");
+  GameController::_setupPanel->Layout();
 }
 
 
