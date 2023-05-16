@@ -15,6 +15,9 @@ std::string Logger::getCurrentDateTime() {
 }
 
 void Logger::log(const std::string& message, Logger::Type type) {
+  // write to console
+  std::cout << message << std::endl;
+  // write to log file
   std::ofstream file;
   try {
     file.open(logFile, std::ios_base::app);
