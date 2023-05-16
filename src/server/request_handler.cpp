@@ -59,12 +59,12 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
 
       // send StartGameSuccess update to the already-ready player
       std::cout << "Sending StartGameSuccess to the already-ready player" << std::endl;
-      std::unique_ptr<ServerResponse> resp = std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id); // meaning second player joining always goes first?
+      std::unique_ptr<ServerResponse> resp = std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id);
       server_network_manager::broadcast_message(*resp, gameInstance.getGameState().get_players(), player);
 
       // send StartGameSuccess update to the newly-ready player
       std::cout << "Sending StartGameSuccess to the newly-ready player" << std::endl;
-      return std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id);
+      return std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id); // TODO can you pass here the resp pointer from above?
     }
     std::cout << "Request succeeded and set player ready. But opponent not ready yet" << std::endl;
     return nullptr;
