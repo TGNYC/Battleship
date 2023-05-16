@@ -10,7 +10,6 @@
 #include <fstream>
 #include <iomanip>
 #include <ctime>
-#include "sstream"
 #include "exceptions/BattleshipException.h"
 
 /*!
@@ -27,7 +26,7 @@ public:
   };
 
   /*!
-   * outputs a message to the logfile
+   * outputs a message to std::cout and to the logfile
    * @param message text to be logged
    * @param type optional log type (info, warning, error). currently unused
    */
@@ -39,13 +38,18 @@ public:
    */
   static void log(const BattleshipException &exception);
 
+  static void setPrefix(const std::string &s);
+
 private:
   /*!
    * Helper function for logging
    * @return returns a formatted string timestamp
    */
   static std::string getCurrentDateTime();
-  static const char* const logFile;
+
+  static std::string prefix;  ///< prefix for logging messages. intended to be "client" or "server"
+  static const char* const logFile; ///< file path for the log file
+  static const char* const tab;   ///< defines a tabulator (4 spaces)
 };
 
 #endif // BATTLESHIP_LOGGER_H

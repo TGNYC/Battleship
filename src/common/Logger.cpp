@@ -5,6 +5,8 @@
 #include "Logger.h"
 
 const char* const Logger::logFile = "log.txt";
+const char* const Logger::tab = "    "; // 4 spaces
+std::string Logger::prefix = "      "; // 6 spaces
 
 std::string Logger::getCurrentDateTime() {
   auto t = std::time(nullptr);
@@ -16,12 +18,12 @@ std::string Logger::getCurrentDateTime() {
 
 void Logger::log(const std::string& message, Logger::Type type) {
   // write to console
-  std::cout << message << std::endl;
+  std::cout << tab << prefix << tab << message << std::endl;
   // write to log file
   std::ofstream file;
   try {
     file.open(logFile, std::ios_base::app);
-    file << getCurrentDateTime() << "    " << message << std::endl;
+    file << getCurrentDateTime() << tab << prefix << tab << message << std::endl;
     file.close();
   } catch (const std::ofstream::failure& e) {
     std::cout << "Error: Could not open/write to log file" << std::endl;
@@ -31,3 +33,8 @@ void Logger::log(const std::string& message, Logger::Type type) {
 void Logger::log(const BattleshipException &exception) {
   log(exception.what(), Type::Error);
 }
+
+void Logger::setPrefix(const std::string &s) {
+  Logger::prefix = s;
+}
+
