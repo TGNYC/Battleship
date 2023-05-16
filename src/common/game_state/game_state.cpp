@@ -114,14 +114,12 @@ const Player& game_state::getOtherPlayer(uuid playerId) {
   std::cout << "GameState::getOtherPlayer : Did not find other player" << std::endl;
 }
 
-std::string game_state::getPlayerName(uuid playerId) {
-  for (Player player : players) {
+const Player& game_state::getPlayer(uuid playerId) const {
+  for (const Player& player : players) {
     if (player.getId() == playerId) {
-      return player.getName();
+      return player;
     }
   }
-  std::cout << "Current player doesn't exist" << std::endl;
-  return "UNKNOWN";
 }
 
 bool game_state::shotIsLegal(uuid playerId, Coordinate position) {

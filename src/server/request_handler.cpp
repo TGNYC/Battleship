@@ -24,12 +24,13 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   std::cout << "handle_request() called\n";
 
   // Prepare variables that are used by every request type
-  Player     *player;
+  //Player     *player; //TODO remove this line. dangerous to deal with uninitialized player due to random uuid
   std::string err;
 
   // Get common properties of requests
   RequestType type      = req->getRequestType();
   uuid        player_id = req->getPlayerId();
+  const Player* player = &gameInstance.getGameState().getPlayer(player_id);
 
   // Switch behavior according to request type
   switch (type) {
@@ -51,7 +52,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
     std::cout << "handle Start Game request\n";
 
     bool result = gameInstance.start_game(player, err);
-
+    std::cout << "start game result " << result << std::endl;
     // indicates that both players are ready to the server by sending a success response to the current player's server
     // (the response to the other player is sent in the logic in game_instance)
     if (result) {
