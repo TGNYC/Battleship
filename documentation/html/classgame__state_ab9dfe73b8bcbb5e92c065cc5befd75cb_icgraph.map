@@ -1,0 +1,7 @@
+<map id="game_state::start" name="game_state::start">
+<area shape="rect" id="node1" title=" " alt="" coords="487,46,624,73"/>
+<area shape="rect" id="node2" href="$classgame__instance.html#a7a7ee5afc1d586574feee3fae8ef537c" title=" " alt="" coords="236,17,439,43"/>
+<area shape="rect" id="node4" href="$class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="236,71,439,98"/>
+<area shape="rect" id="node3" href="$classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="7,5,186,47"/>
+<area shape="rect" id="node5" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,71,188,112"/>
+</map>

@@ -75,21 +75,23 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0637cee6f14df18d888846c0c8e11608"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver__network__manager.html#a0637cee6f14df18d888846c0c8e11608">server_network_manager</a> ()</td></tr>
-<tr class="separator:a0637cee6f14df18d888846c0c8e11608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4cf6f9b200a5715558ef60e69f83e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver__network__manager.html#a9f4cf6f9b200a5715558ef60e69f83e9">server_network_manager</a> (uint16_t port)</td></tr>
+<tr class="separator:a9f4cf6f9b200a5715558ef60e69f83e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35effeb59eaf663bceb87da67232bba5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver__network__manager.html#a35effeb59eaf663bceb87da67232bba5">~server_network_manager</a> ()</td></tr>
 <tr class="separator:a35effeb59eaf663bceb87da67232bba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d33c120b1e3b8b90d90d7eb998a5fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver__network__manager.html#a7d33c120b1e3b8b90d90d7eb998a5fa9">listener_loop</a> ()</td></tr>
+<tr class="separator:a7d33c120b1e3b8b90d90d7eb998a5fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad1da46370af71db529f530211d470d14"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver__network__manager.html#ad1da46370af71db529f530211d470d14">broadcast_message</a> (<a class="el" href="classserver__response.html">server_response</a> &amp;msg, const std::vector&lt; <a class="el" href="class_player.html">Player</a> * &gt; &amp;players, const <a class="el" href="class_player.html">Player</a> *exclude)</td></tr>
-<tr class="separator:ad1da46370af71db529f530211d470d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad97a90b9a05fb80ea1734e1071272e7d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver__network__manager.html#ad97a90b9a05fb80ea1734e1071272e7d">broadcast_message</a> (<a class="el" href="class_server_response.html">ServerResponse</a> &amp;msg, const std::vector&lt; <a class="el" href="class_player.html">Player</a> &gt; &amp;players, const <a class="el" href="class_player.html">Player</a> *exclude)</td></tr>
+<tr class="separator:ad97a90b9a05fb80ea1734e1071272e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1baefce8100d6d904cf0436667ec660"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver__network__manager.html#ae1baefce8100d6d904cf0436667ec660">on_player_left</a> (<a class="el" href="classuuid.html">uuid</a> player_id)</td></tr>
 <tr class="separator:ae1baefce8100d6d904cf0436667ec660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0637cee6f14df18d888846c0c8e11608"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0637cee6f14df18d888846c0c8e11608">&#9670;&nbsp;</a></span>server_network_manager()</h2>
+<a id="a9f4cf6f9b200a5715558ef60e69f83e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f4cf6f9b200a5715558ef60e69f83e9">&#9670;&nbsp;</a></span>server_network_manager()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -97,7 +99,8 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">server_network_manager::server_network_manager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>port</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -131,8 +134,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad1da46370af71db529f530211d470d14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1da46370af71db529f530211d470d14">&#9670;&nbsp;</a></span>broadcast_message()</h2>
+<a id="ad97a90b9a05fb80ea1734e1071272e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97a90b9a05fb80ea1734e1071272e7d">&#9670;&nbsp;</a></span>broadcast_message()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,13 +146,13 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void server_network_manager::broadcast_message </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classserver__response.html">server_response</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_server_response.html">ServerResponse</a> &amp;&#160;</td>
           <td class="paramname"><em>msg</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="class_player.html">Player</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="class_player.html">Player</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>players</em>, </td>
         </tr>
         <tr>
@@ -170,6 +173,42 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classserver__network__manager_ad97a90b9a05fb80ea1734e1071272e7d_icgraph.png" border="0" usemap="#aclassserver__network__manager_ad97a90b9a05fb80ea1734e1071272e7d_icgraph" alt=""/></div>
+<map name="aclassserver__network__manager_ad97a90b9a05fb80ea1734e1071272e7d_icgraph" id="aclassserver__network__manager_ad97a90b9a05fb80ea1734e1071272e7d_icgraph">
+<area shape="rect" title=" " alt="" coords="489,23,677,65"/>
+<area shape="rect" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="232,5,441,32"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="5,23,184,65"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7d33c120b1e3b8b90d90d7eb998a5fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d33c120b1e3b8b90d90d7eb998a5fa9">&#9670;&nbsp;</a></span>listener_loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void server_network_manager::listener_loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classserver__network__manager_a7d33c120b1e3b8b90d90d7eb998a5fa9_icgraph.png" border="0" usemap="#aclassserver__network__manager_a7d33c120b1e3b8b90d90d7eb998a5fa9_icgraph" alt=""/></div>
+<map name="aclassserver__network__manager_a7d33c120b1e3b8b90d90d7eb998a5fa9_icgraph" id="aclassserver__network__manager_a7d33c120b1e3b8b90d90d7eb998a5fa9_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,296,47"/>
+<area shape="rect" href="server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -200,8 +239,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/server/<a class="el" href="server__network__manager_8h_source.html">server_network_manager.h</a></li>
-<li>src/server/<a class="el" href="server__network__manager_8cpp.html">server_network_manager.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/server/<a class="el" href="server__network__manager_8h_source.html">server_network_manager.h</a></li>
+<li>/home/nico/Desktop/battleship/src/server/<a class="el" href="server__network__manager_8cpp.html">server_network_manager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

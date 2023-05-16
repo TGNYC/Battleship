@@ -1,0 +1,5 @@
+<map id="GameController::connectToServer" name="GameController::connectToServer">
+<area shape="rect" id="node1" title="Connects to server." alt="" coords="519,5,717,47"/>
+<area shape="rect" id="node2" href="$class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,5,471,47"/>
+<area shape="rect" id="node3" href="$class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="5,5,216,47"/>
+</map>

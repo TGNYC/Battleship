@@ -80,26 +80,44 @@ Public Types</h2></td></tr>
 , <a class="el" href="classgame__state.html#a7a01e4763572f91634786020f54fae26a8f3d10eb21bd36347c258679eba9e92b">Finished</a>
  }</td></tr>
 <tr class="separator:a7a01e4763572f91634786020f54fae26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3c72d18ca475dab9bd584ceb742100c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">Type</a> { <a class="el" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4">ServerState</a>
+, <a class="el" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100caf82b89eac7e586a150926615b0fa1a55">ClientState</a>
+ }</td></tr>
+<tr class="separator:ac3c72d18ca475dab9bd584ceb742100c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ad24dbea7fd1cf2ba7b7863ff9b9394f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#ad24dbea7fd1cf2ba7b7863ff9b9394f8">game_state</a> (<a class="el" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">game_state::Type</a> type)</td></tr>
+<tr class="separator:ad24dbea7fd1cf2ba7b7863ff9b9394f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5af2045269f2bf40a964f221f854b6f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a5af2045269f2bf40a964f221f854b6f4">addPlayer</a> (<a class="el" href="class_player.html">Player</a> player)</td></tr>
 <tr class="separator:a5af2045269f2bf40a964f221f854b6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f2f09b693e4051196249542552cc7c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a8f2f09b693e4051196249542552cc7c4">addShips</a> (<a class="el" href="classuuid.html">uuid</a> playerId, std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; shipPlacement)</td></tr>
 <tr class="separator:a8f2f09b693e4051196249542552cc7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5937e0afc8d17a5eff8d0baa74655cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player.html">Player</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#ab5937e0afc8d17a5eff8d0baa74655cd">getCurrentPlayer</a> ()</td></tr>
-<tr class="separator:ab5937e0afc8d17a5eff8d0baa74655cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2933cf9e7c0153f65d613d737f9560d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a2933cf9e7c0153f65d613d737f9560d5">removePlayer</a> (<a class="el" href="classuuid.html">uuid</a> playerId)</td></tr>
-<tr class="separator:a2933cf9e7c0153f65d613d737f9560d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9dfe73b8bcbb5e92c065cc5befd75cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">start</a> (<a class="el" href="classuuid.html">uuid</a> currentPlayerId)</td></tr>
+<tr class="separator:ab9dfe73b8bcbb5e92c065cc5befd75cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24dc77657c61f820f66314111f0268a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuuid.html">uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a24dc77657c61f820f66314111f0268a2">getCurrentPlayerId</a> ()</td></tr>
+<tr class="separator:a24dc77657c61f820f66314111f0268a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49133a15b923ea430467b23ce9b02b40"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_player_grid.html">PlayerGrid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a49133a15b923ea430467b23ce9b02b40">getPlayerGrid</a> (<a class="el" href="classuuid.html">uuid</a> playerId) const</td></tr>
 <tr class="separator:a49133a15b923ea430467b23ce9b02b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9297efbcdf6a248f599639b68f06ce3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a9297efbcdf6a248f599639b68f06ce3e">updateBoards</a> (<a class="el" href="class_game_event.html">GameEvent</a> event)</td></tr>
-<tr class="memdesc:a9297efbcdf6a248f599639b68f06ce3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates the boards after a game event happened.  <a href="classgame__state.html#a9297efbcdf6a248f599639b68f06ce3e">More...</a><br /></td></tr>
-<tr class="separator:a9297efbcdf6a248f599639b68f06ce3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e45edeee6fefc23431c41a734c82730"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_player.html">Player</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a9e45edeee6fefc23431c41a734c82730">get_players</a> () const</td></tr>
+<tr class="separator:a9e45edeee6fefc23431c41a734c82730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a175ad107b4a09824f5c45582dbfab2d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ship.html">Ship</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a175ad107b4a09824f5c45582dbfab2d4">getShip</a> (std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; &amp;ships, <a class="el" href="classuuid.html">uuid</a> shipId)</td></tr>
+<tr class="separator:a175ad107b4a09824f5c45582dbfab2d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b084b0c09621047047c8bfb968568e9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_player.html">Player</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a2b084b0c09621047047c8bfb968568e9">getOtherPlayer</a> (<a class="el" href="classuuid.html">uuid</a> playerId)</td></tr>
+<tr class="separator:a2b084b0c09621047047c8bfb968568e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54adcdbdc846a83f5a2079dd8db7258f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_player.html">Player</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a54adcdbdc846a83f5a2079dd8db7258f">getPlayer</a> (<a class="el" href="classuuid.html">uuid</a> playerId) const</td></tr>
+<tr class="separator:a54adcdbdc846a83f5a2079dd8db7258f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebd13bfa31bce986484b7ed7733a7986"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#aebd13bfa31bce986484b7ed7733a7986">shotIsLegal</a> (<a class="el" href="classuuid.html">uuid</a> playerId, <a class="el" href="struct_coordinate.html">Coordinate</a> position)</td></tr>
 <tr class="separator:aebd13bfa31bce986484b7ed7733a7986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a256e498ce4fc5a309f0975b920a956c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a256e498ce4fc5a309f0975b920a956c2">wrapUpRound</a> ()</td></tr>
-<tr class="separator:a256e498ce4fc5a309f0975b920a956c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9610b5ba928ad54837161d115b6985f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a9610b5ba928ad54837161d115b6985f1">registerShot</a> (<a class="el" href="classuuid.html">uuid</a> playerId, <a class="el" href="struct_coordinate.html">Coordinate</a> position, bool *hit, <a class="el" href="class_ship.html">Ship</a> **hitShipPtr, bool *sunk, <a class="el" href="classuuid.html">uuid</a> *nextPlayerId)</td></tr>
+<tr class="separator:a9610b5ba928ad54837161d115b6985f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae307c8a4233645f20c9a3e8cfd77635b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b">updateBoards</a> (const <a class="el" href="class_game_event.html">GameEvent</a> &amp;event)</td></tr>
+<tr class="memdesc:ae307c8a4233645f20c9a3e8cfd77635b"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGrid  <a href="classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b">More...</a><br /></td></tr>
+<tr class="separator:ae307c8a4233645f20c9a3e8cfd77635b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e0ee1a83eb23c10298b75a89cc781f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f">gameOver</a> ()</td></tr>
+<tr class="separator:a03e0ee1a83eb23c10298b75a89cc781f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70ae55358ec06783e8afd724e6afe37d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuuid.html">uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a70ae55358ec06783e8afd724e6afe37d">getWinner</a> ()</td></tr>
+<tr class="separator:a70ae55358ec06783e8afd724e6afe37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a7a01e4763572f91634786020f54fae26"></a>
@@ -121,11 +139,73 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Enum indicating the phase of the game state. Must be switched to Playing before first move is made </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0"></a>Starting&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428"></a>Playing&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7a01e4763572f91634786020f54fae26a8f3d10eb21bd36347c258679eba9e92b"></a>Finished&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+</div>
+</div>
+<a id="ac3c72d18ca475dab9bd584ceb742100c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3c72d18ca475dab9bd584ceb742100c">&#9670;&nbsp;</a></span>Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">game_state::Type</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Enum indicating whether a server side game state is being stored or a client side game state </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4"></a>ServerState&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac3c72d18ca475dab9bd584ceb742100caf82b89eac7e586a150926615b0fa1a55"></a>ClientState&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad24dbea7fd1cf2ba7b7863ff9b9394f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24dbea7fd1cf2ba7b7863ff9b9394f8">&#9670;&nbsp;</a></span>game_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">game_state::game_state </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">game_state::Type</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor setting initial values </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>defines if this is a server side or client side state </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_ad24dbea7fd1cf2ba7b7863ff9b9394f8_cgraph.png" border="0" usemap="#aclassgame__state_ad24dbea7fd1cf2ba7b7863ff9b9394f8_cgraph" alt=""/></div>
+<map name="aclassgame__state_ad24dbea7fd1cf2ba7b7863ff9b9394f8_cgraph" id="aclassgame__state_ad24dbea7fd1cf2ba7b7863ff9b9394f8_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,189,32"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="237,5,332,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -145,13 +225,35 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Adds a player to the game state </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>the player object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if player was added successfully, false if a problem occurred. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a5af2045269f2bf40a964f221f854b6f4_cgraph.png" border="0" usemap="#aclassgame__state_a5af2045269f2bf40a964f221f854b6f4_cgraph" alt=""/></div>
+<map name="aclassgame__state_a5af2045269f2bf40a964f221f854b6f4_cgraph" id="aclassgame__state_a5af2045269f2bf40a964f221f854b6f4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,177,32"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="225,5,320,32"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgame__state_a5af2045269f2bf40a964f221f854b6f4_icgraph.png" border="0" usemap="#aclassgame__state_a5af2045269f2bf40a964f221f854b6f4_icgraph" alt=""/></div>
 <map name="aclassgame__state_a5af2045269f2bf40a964f221f854b6f4_icgraph" id="aclassgame__state_a5af2045269f2bf40a964f221f854b6f4_icgraph">
-<area shape="rect" title=" " alt="" coords="296,5,468,32"/>
-<area shape="rect" href="class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3" title=" " alt="" coords="5,5,248,32"/>
+<area shape="rect" title=" " alt="" coords="743,78,915,105"/>
+<area shape="rect" href="classgame__instance.html#a10cae87e19d9bde3863c672a1ad24060" title=" " alt="" coords="491,21,683,47"/>
+<area shape="rect" href="class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="480,78,695,105"/>
+<area shape="rect" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="486,135,689,162"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="241,5,419,47"/>
+<area shape="rect" href="class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="228,71,432,112"/>
+<area shape="rect" href="class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="5,78,180,105"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="239,136,421,177"/>
 </map>
 </div>
 
@@ -182,32 +284,216 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Creates a new playerGrid from a full ship placement //TODO rename function to createGrid? </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>id of the player who placed the ships and owns the board </td></tr>
+    <tr><td class="paramname">shipPlacement</td><td>a vector containing all ships </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if grid was created successfully, false if a problem occurred. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a8f2f09b693e4051196249542552cc7c4_cgraph.png" border="0" usemap="#aclassgame__state_a8f2f09b693e4051196249542552cc7c4_cgraph" alt=""/></div>
+<map name="aclassgame__state_a8f2f09b693e4051196249542552cc7c4_cgraph" id="aclassgame__state_a8f2f09b693e4051196249542552cc7c4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,172,32"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="220,5,315,32"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgame__state_a8f2f09b693e4051196249542552cc7c4_icgraph.png" border="0" usemap="#aclassgame__state_a8f2f09b693e4051196249542552cc7c4_icgraph" alt=""/></div>
 <map name="aclassgame__state_a8f2f09b693e4051196249542552cc7c4_icgraph" id="aclassgame__state_a8f2f09b693e4051196249542552cc7c4_icgraph">
-<area shape="rect" title=" " alt="" coords="296,5,463,32"/>
-<area shape="rect" href="class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3" title=" " alt="" coords="5,5,248,32"/>
+<area shape="rect" title=" " alt="" coords="743,13,909,39"/>
+<area shape="rect" href="class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="480,13,695,39"/>
+<area shape="rect" href="class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="228,5,432,47"/>
+<area shape="rect" href="class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="5,13,180,39"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ab5937e0afc8d17a5eff8d0baa74655cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5937e0afc8d17a5eff8d0baa74655cd">&#9670;&nbsp;</a></span>getCurrentPlayer()</h2>
+<a id="a03e0ee1a83eb23c10298b75a89cc781f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03e0ee1a83eb23c10298b75a89cc781f">&#9670;&nbsp;</a></span>gameOver()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_player.html">Player</a> game_state::getCurrentPlayer </td>
+          <td class="memname">bool game_state::gameOver </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Checks if the game is over meaning all ships of one player are sunk </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">winner</td><td>id of the winning player. will be "0" if game is not over. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if game is over. false if game is not over </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a03e0ee1a83eb23c10298b75a89cc781f_cgraph.png" border="0" usemap="#aclassgame__state_a03e0ee1a83eb23c10298b75a89cc781f_cgraph" alt=""/></div>
+<map name="aclassgame__state_a03e0ee1a83eb23c10298b75a89cc781f_cgraph" id="aclassgame__state_a03e0ee1a83eb23c10298b75a89cc781f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,56,180,83"/>
+<area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="279,5,383,32"/>
+<area shape="rect" href="classgame__state.html#a2b084b0c09621047047c8bfb968568e9" title=" " alt="" coords="228,56,433,83"/>
+<area shape="rect" href="class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="267,107,395,133"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="481,56,576,83"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a03e0ee1a83eb23c10298b75a89cc781f_icgraph.png" border="0" usemap="#aclassgame__state_a03e0ee1a83eb23c10298b75a89cc781f_icgraph" alt=""/></div>
+<map name="aclassgame__state_a03e0ee1a83eb23c10298b75a89cc781f_icgraph" id="aclassgame__state_a03e0ee1a83eb23c10298b75a89cc781f_icgraph">
+<area shape="rect" title=" " alt="" coords="489,13,664,39"/>
+<area shape="rect" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="232,13,441,39"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="5,5,184,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9e45edeee6fefc23431c41a734c82730"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e45edeee6fefc23431c41a734c82730">&#9670;&nbsp;</a></span>get_players()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_player.html">Player</a> &gt; &amp; game_state::get_players </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>returns a vector of all the players (2) </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a9e45edeee6fefc23431c41a734c82730_icgraph.png" border="0" usemap="#aclassgame__state_a9e45edeee6fefc23431c41a734c82730_icgraph" alt=""/></div>
+<map name="aclassgame__state_a9e45edeee6fefc23431c41a734c82730_icgraph" id="aclassgame__state_a9e45edeee6fefc23431c41a734c82730_icgraph">
+<area shape="rect" title=" " alt="" coords="489,56,672,83"/>
+<area shape="rect" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="232,5,441,32"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="5,49,184,90"/>
+<area shape="rect" href="classgame__instance.html#a7a7ee5afc1d586574feee3fae8ef537c" title=" " alt="" coords="235,107,438,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a24dc77657c61f820f66314111f0268a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24dc77657c61f820f66314111f0268a2">&#9670;&nbsp;</a></span>getCurrentPlayerId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuuid.html">uuid</a> game_state::getCurrentPlayerId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>getter for the id of the player whose turn it currently is </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a24dc77657c61f820f66314111f0268a2_icgraph.png" border="0" usemap="#aclassgame__state_a24dc77657c61f820f66314111f0268a2_icgraph" alt=""/></div>
+<map name="aclassgame__state_a24dc77657c61f820f66314111f0268a2_icgraph" id="aclassgame__state_a24dc77657c61f820f66314111f0268a2_icgraph">
+<area shape="rect" title=" " alt="" coords="755,42,984,69"/>
+<area shape="rect" href="class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f" title="Builds the game state." alt="" coords="500,64,707,105"/>
+<area shape="rect" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="243,71,445,98"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,35,188,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2b084b0c09621047047c8bfb968568e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b084b0c09621047047c8bfb968568e9">&#9670;&nbsp;</a></span>getOtherPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_player.html">Player</a> &amp; game_state::getOtherPlayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuuid.html">uuid</a>&#160;</td>
+          <td class="paramname"><em>playerId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>returns the id of the player who has NOT the id specified as parameter </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>id of the other player. "Error" if no other player found. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a2b084b0c09621047047c8bfb968568e9_cgraph.png" border="0" usemap="#aclassgame__state_a2b084b0c09621047047c8bfb968568e9_cgraph" alt=""/></div>
+<map name="aclassgame__state_a2b084b0c09621047047c8bfb968568e9_cgraph" id="aclassgame__state_a2b084b0c09621047047c8bfb968568e9_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,211,32"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="259,5,353,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a2b084b0c09621047047c8bfb968568e9_icgraph.png" border="0" usemap="#aclassgame__state_a2b084b0c09621047047c8bfb968568e9_icgraph" alt=""/></div>
+<map name="aclassgame__state_a2b084b0c09621047047c8bfb968568e9_icgraph" id="aclassgame__state_a2b084b0c09621047047c8bfb968568e9_icgraph">
+<area shape="rect" title=" " alt="" coords="712,31,917,57"/>
+<area shape="rect" href="classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f" title=" " alt="" coords="489,5,664,32"/>
+<area shape="rect" href="classgame__instance.html#a7a7ee5afc1d586574feee3fae8ef537c" title=" " alt="" coords="235,56,438,83"/>
+<area shape="rect" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="232,5,441,32"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="5,23,184,65"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a54adcdbdc846a83f5a2079dd8db7258f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54adcdbdc846a83f5a2079dd8db7258f">&#9670;&nbsp;</a></span>getPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_player.html">Player</a> &amp; game_state::getPlayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuuid.html">uuid</a>&#160;</td>
+          <td class="paramname"><em>playerId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a54adcdbdc846a83f5a2079dd8db7258f_icgraph.png" border="0" usemap="#aclassgame__state_a54adcdbdc846a83f5a2079dd8db7258f_icgraph" alt=""/></div>
+<map name="aclassgame__state_a54adcdbdc846a83f5a2079dd8db7258f_icgraph" id="aclassgame__state_a54adcdbdc846a83f5a2079dd8db7258f_icgraph">
+<area shape="rect" title=" " alt="" coords="755,75,924,102"/>
+<area shape="rect" href="class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f" title="Builds the game state." alt="" coords="500,35,707,76"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="514,100,693,141"/>
+<area shape="rect" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="243,71,445,98"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,35,188,76"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -232,28 +518,191 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgame__state_a49133a15b923ea430467b23ce9b02b40_icgraph.png" border="0" usemap="#aclassgame__state_a49133a15b923ea430467b23ce9b02b40_icgraph" alt=""/></div>
 <map name="aclassgame__state_a49133a15b923ea430467b23ce9b02b40_icgraph" id="aclassgame__state_a49133a15b923ea430467b23ce9b02b40_icgraph">
-<area shape="rect" title=" " alt="" coords="235,5,431,32"/>
-<area shape="rect" href="classgame__state.html#aebd13bfa31bce986484b7ed7733a7986" title=" " alt="" coords="5,5,187,32"/>
+<area shape="rect" title=" " alt="" coords="1259,49,1455,75"/>
+<area shape="rect" href="class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f" title="Builds the game state." alt="" coords="500,35,707,76"/>
+<area shape="rect" href="classgame__state.html#aebd13bfa31bce986484b7ed7733a7986" title=" " alt="" coords="1029,74,1211,101"/>
+<area shape="rect" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="243,71,445,98"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,35,188,76"/>
+<area shape="rect" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="763,125,973,151"/>
+<area shape="rect" href="class_main_game_panel.html#a0de8b63f33894ecae06186ec809968e2" title="Function that is bound to the tiles of the opponent&#39;s view grid." alt="" coords="755,74,981,101"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="514,117,693,159"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a2933cf9e7c0153f65d613d737f9560d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2933cf9e7c0153f65d613d737f9560d5">&#9670;&nbsp;</a></span>removePlayer()</h2>
+<a id="a175ad107b4a09824f5c45582dbfab2d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a175ad107b4a09824f5c45582dbfab2d4">&#9670;&nbsp;</a></span>getShip()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool game_state::removePlayer </td>
+          <td class="memname"><a class="el" href="class_ship.html">Ship</a> &amp; game_state::getShip </td>
           <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ships</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="classuuid.html">uuid</a>&#160;</td>
-          <td class="paramname"><em>playerId</em></td><td>)</td>
+          <td class="paramname"><em>shipId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>returns a reference to the ship with the specified id from a given vector of ships </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a175ad107b4a09824f5c45582dbfab2d4_cgraph.png" border="0" usemap="#aclassgame__state_a175ad107b4a09824f5c45582dbfab2d4_cgraph" alt=""/></div>
+<map name="aclassgame__state_a175ad107b4a09824f5c45582dbfab2d4_cgraph" id="aclassgame__state_a175ad107b4a09824f5c45582dbfab2d4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,161,32"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="209,5,304,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a175ad107b4a09824f5c45582dbfab2d4_icgraph.png" border="0" usemap="#aclassgame__state_a175ad107b4a09824f5c45582dbfab2d4_icgraph" alt=""/></div>
+<map name="aclassgame__state_a175ad107b4a09824f5c45582dbfab2d4_icgraph" id="aclassgame__state_a175ad107b4a09824f5c45582dbfab2d4_icgraph">
+<area shape="rect" title=" " alt="" coords="745,13,901,39"/>
+<area shape="rect" href="classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b" title="updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGri..." alt="" coords="500,13,697,39"/>
+<area shape="rect" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a70ae55358ec06783e8afd724e6afe37d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ae55358ec06783e8afd724e6afe37d">&#9670;&nbsp;</a></span>getWinner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classuuid.html">uuid</a> game_state::getWinner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns the winner if the game is over. Should only be called after <a class="el" href="classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f">gameOver()</a> returned true. </p><dl class="section return"><dt>Returns</dt><dd>id of winner. "0" if game is not over </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a70ae55358ec06783e8afd724e6afe37d_cgraph.png" border="0" usemap="#aclassgame__state_a70ae55358ec06783e8afd724e6afe37d_cgraph" alt=""/></div>
+<map name="aclassgame__state_a70ae55358ec06783e8afd724e6afe37d_cgraph" id="aclassgame__state_a70ae55358ec06783e8afd724e6afe37d_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,180,32"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="228,5,323,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a70ae55358ec06783e8afd724e6afe37d_icgraph.png" border="0" usemap="#aclassgame__state_a70ae55358ec06783e8afd724e6afe37d_icgraph" alt=""/></div>
+<map name="aclassgame__state_a70ae55358ec06783e8afd724e6afe37d_icgraph" id="aclassgame__state_a70ae55358ec06783e8afd724e6afe37d_icgraph">
+<area shape="rect" title=" " alt="" coords="489,13,664,39"/>
+<area shape="rect" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="232,13,441,39"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="5,5,184,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9610b5ba928ad54837161d115b6985f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9610b5ba928ad54837161d115b6985f1">&#9670;&nbsp;</a></span>registerShot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool game_state::registerShot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuuid.html">uuid</a>&#160;</td>
+          <td class="paramname"><em>playerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_coordinate.html">Coordinate</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>hit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_ship.html">Ship</a> **&#160;</td>
+          <td class="paramname"><em>hitShipPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>sunk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classuuid.html">uuid</a> *&#160;</td>
+          <td class="paramname"><em>nextPlayerId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function to register a shot ON THE SERVER SIDE and process the results</p>
+<p>All arguments from *hit on are to used to return info back to the caller (in this case to gameInstance) Warning: The double pointer for the ship is intentional. Don't change please!</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>ID of the player who called the shot </td></tr>
+    <tr><td class="paramname">position</td><td>location of the shot</td></tr>
+    <tr><td class="paramname">hit</td><td>holds info on whether the shot was a hit </td></tr>
+    <tr><td class="paramname">hitShip</td><td>holds info on the (potentially) hit ship for the caller to extract (and emit a <a class="el" href="class_game_event.html">GameEvent</a>) Turns the pointer to nullptr if no hit is false. </td></tr>
+    <tr><td class="paramname">sunk</td><td>holds info on whether the hit ship has sunk </td></tr>
+    <tr><td class="paramname">nextPlayerId</td><td>holds id of the player who has to play next </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the shot was registered properly, false if a problem occured </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a9610b5ba928ad54837161d115b6985f1_cgraph.png" border="0" usemap="#aclassgame__state_a9610b5ba928ad54837161d115b6985f1_cgraph" alt=""/></div>
+<map name="aclassgame__state_a9610b5ba928ad54837161d115b6985f1_cgraph" id="aclassgame__state_a9610b5ba928ad54837161d115b6985f1_cgraph">
+<area shape="rect" title=" " alt="" coords="5,56,192,83"/>
+<area shape="rect" href="class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="399,5,527,32"/>
+<area shape="rect" href="class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="258,31,333,57"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="248,81,343,108"/>
+<area shape="rect" href="classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="240,132,351,159"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_a9610b5ba928ad54837161d115b6985f1_icgraph.png" border="0" usemap="#aclassgame__state_a9610b5ba928ad54837161d115b6985f1_icgraph" alt=""/></div>
+<map name="aclassgame__state_a9610b5ba928ad54837161d115b6985f1_icgraph" id="aclassgame__state_a9610b5ba928ad54837161d115b6985f1_icgraph">
+<area shape="rect" title=" " alt="" coords="489,13,676,39"/>
+<area shape="rect" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="232,13,441,39"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="5,5,184,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -282,6 +731,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>checks if a called shot is a legal move </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>ID of the player calling the shot </td></tr>
+    <tr><td class="paramname">position</td><td>location of the shot </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -291,11 +748,73 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="classgame__state.html#a49133a15b923ea430467b23ce9b02b40" title=" " alt="" coords="235,5,431,32"/>
 </map>
 </div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_aebd13bfa31bce986484b7ed7733a7986_icgraph.png" border="0" usemap="#aclassgame__state_aebd13bfa31bce986484b7ed7733a7986_icgraph" alt=""/></div>
+<map name="aclassgame__state_aebd13bfa31bce986484b7ed7733a7986_icgraph" id="aclassgame__state_aebd13bfa31bce986484b7ed7733a7986_icgraph">
+<area shape="rect" title=" " alt="" coords="1029,46,1211,73"/>
+<area shape="rect" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="763,17,973,43"/>
+<area shape="rect" href="class_main_game_panel.html#a0de8b63f33894ecae06186ec809968e2" title="Function that is bound to the tiles of the opponent&#39;s view grid." alt="" coords="755,71,981,98"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="514,5,693,47"/>
+<area shape="rect" href="class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f" title="Builds the game state." alt="" coords="500,71,707,112"/>
+<area shape="rect" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,41,452,83"/>
+<area shape="rect" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="243,107,445,134"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,71,188,112"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a9297efbcdf6a248f599639b68f06ce3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9297efbcdf6a248f599639b68f06ce3e">&#9670;&nbsp;</a></span>updateBoards()</h2>
+<a id="ab9dfe73b8bcbb5e92c065cc5befd75cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9dfe73b8bcbb5e92c065cc5befd75cb">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool game_state::start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classuuid.html">uuid</a>&#160;</td>
+          <td class="paramname"><em>currentPlayerId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Switches the game state from <a class="el" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0">State::Starting</a> to <a class="el" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428">State::Playing</a> </p><dl class="section pre"><dt>Precondition</dt><dd>Two players were added to the state. Grids were added (1 for clients, 2 for servers). </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentPlayerId</td><td>id of the player who will go first </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the game was started, false if a problem occurred. Check log file for details. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_ab9dfe73b8bcbb5e92c065cc5befd75cb_cgraph.png" border="0" usemap="#aclassgame__state_ab9dfe73b8bcbb5e92c065cc5befd75cb_cgraph" alt=""/></div>
+<map name="aclassgame__state_ab9dfe73b8bcbb5e92c065cc5befd75cb_cgraph" id="aclassgame__state_ab9dfe73b8bcbb5e92c065cc5befd75cb_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,143,32"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="191,5,285,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_ab9dfe73b8bcbb5e92c065cc5befd75cb_icgraph.png" border="0" usemap="#aclassgame__state_ab9dfe73b8bcbb5e92c065cc5befd75cb_icgraph" alt=""/></div>
+<map name="aclassgame__state_ab9dfe73b8bcbb5e92c065cc5befd75cb_icgraph" id="aclassgame__state_ab9dfe73b8bcbb5e92c065cc5befd75cb_icgraph">
+<area shape="rect" title=" " alt="" coords="487,46,624,73"/>
+<area shape="rect" href="classgame__instance.html#a7a7ee5afc1d586574feee3fae8ef537c" title=" " alt="" coords="236,17,439,43"/>
+<area shape="rect" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="236,71,439,98"/>
+<area shape="rect" href="classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="7,5,186,47"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,71,188,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae307c8a4233645f20c9a3e8cfd77635b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae307c8a4233645f20c9a3e8cfd77635b">&#9670;&nbsp;</a></span>updateBoards()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,44 +822,49 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">bool game_state::updateBoards </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_game_event.html">GameEvent</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_game_event.html">GameEvent</a> &amp;&#160;</td>
           <td class="paramname"><em>event</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>updates the boards after a game event happened. </p>
+<p>updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGrid </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">playerId</td><td>id of the player who called the shot </td></tr>
-    <tr><td class="paramname">position</td><td>position of the shot </td></tr>
+    <tr><td class="paramname">event</td><td></td></tr>
   </table>
   </dd>
 </dl>
-
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_ae307c8a4233645f20c9a3e8cfd77635b_cgraph.png" border="0" usemap="#aclassgame__state_ae307c8a4233645f20c9a3e8cfd77635b_cgraph" alt=""/></div>
+<map name="aclassgame__state_ae307c8a4233645f20c9a3e8cfd77635b_cgraph" id="aclassgame__state_ae307c8a4233645f20c9a3e8cfd77635b_cgraph">
+<area shape="rect" title="updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGri..." alt="" coords="5,56,203,83"/>
+<area shape="rect" href="class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="283,5,374,32"/>
+<area shape="rect" href="classgame__state.html#a175ad107b4a09824f5c45582dbfab2d4" title=" " alt="" coords="251,56,407,83"/>
+<area shape="rect" href="class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="291,107,366,133"/>
+<area shape="rect" href="class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="471,56,566,83"/>
+<area shape="rect" href="class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="455,107,583,133"/>
+</map>
 </div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgame__state_ae307c8a4233645f20c9a3e8cfd77635b_icgraph.png" border="0" usemap="#aclassgame__state_ae307c8a4233645f20c9a3e8cfd77635b_icgraph" alt=""/></div>
+<map name="aclassgame__state_ae307c8a4233645f20c9a3e8cfd77635b_icgraph" id="aclassgame__state_ae307c8a4233645f20c9a3e8cfd77635b_icgraph">
+<area shape="rect" title="updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGri..." alt="" coords="500,13,697,39"/>
+<area shape="rect" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
+</map>
 </div>
-<a id="a256e498ce4fc5a309f0975b920a956c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a256e498ce4fc5a309f0975b920a956c2">&#9670;&nbsp;</a></span>wrapUpRound()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool game_state::wrapUpRound </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/common/game_state/<a class="el" href="game__state_8h_source.html">game_state.h</a></li>
-<li>src/common/game_state/<a class="el" href="game__state_8cpp.html">game_state.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/common/game_state/<a class="el" href="game__state_8h_source.html">game_state.h</a></li>
+<li>/home/nico/Desktop/battleship/src/common/game_state/<a class="el" href="game__state_8cpp.html">game_state.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

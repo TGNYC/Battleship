@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['main_377',['main',['../server_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['maingamepanel_378',['MainGamePanel',['../class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3',1,'MainGamePanel']]]
+  ['joingame_478',['joinGame',['../classgame__instance.html#a10cae87e19d9bde3863c672a1ad24060',1,'game_instance']]],
+  ['joingame_479',['JoinGame',['../class_join_game.html#ab298372ec58e94c91167d583a92e7dda',1,'JoinGame']]],
+  ['joingamesuccess_480',['JoinGameSuccess',['../class_join_game_success.html#a29456754dd3d98994f090973bba3053c',1,'JoinGameSuccess']]]
 ];

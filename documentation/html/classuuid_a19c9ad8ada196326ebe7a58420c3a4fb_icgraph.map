@@ -1,6 +1,7 @@
 <map id="uuid::generateRandomUuid" name="uuid::generateRandomUuid">
-<area shape="rect" id="node1" title=" " alt="" coords="563,71,763,98"/>
-<area shape="rect" id="node2" href="$class_main_game_panel.html#ae54966f1a077b623da6a105641eb0ffc" title=" " alt="" coords="302,5,509,47"/>
-<area shape="rect" id="node3" href="$class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3" title=" " alt="" coords="5,42,248,69"/>
-<area shape="rect" id="node4" href="$class_setup_manager.html#af4f1553c6b916ee7b0efabb6bb683058" title=" " alt="" coords="296,122,515,149"/>
+<area shape="rect" id="node1" title=" " alt="" coords="785,42,985,69"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="529,5,727,47"/>
+<area shape="rect" id="node5" href="$class_setup_manager.html#af4f1553c6b916ee7b0efabb6bb683058" title="constructor for SetupManager. Initializes ships and grid." alt="" coords="519,71,737,98"/>
+<area shape="rect" id="node3" href="$class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,5,471,47"/>
+<area shape="rect" id="node4" href="$class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="5,5,216,47"/>
 </map>

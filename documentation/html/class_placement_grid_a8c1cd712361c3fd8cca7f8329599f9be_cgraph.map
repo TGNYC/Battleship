@@ -1,0 +1,7 @@
+<map id="PlacementGrid::highlightTiles" name="PlacementGrid::highlightTiles">
+<area shape="rect" id="node1" title="function highlights tiles according to mouse position and placed ships" alt="" coords="5,49,188,90"/>
+<area shape="rect" id="node2" href="$class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="236,5,436,32"/>
+<area shape="rect" id="node4" href="$class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="275,56,397,83"/>
+<area shape="rect" id="node5" href="$class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="260,107,412,133"/>
+<area shape="rect" id="node3" href="$class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="484,5,656,32"/>
+</map>

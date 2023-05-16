@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quitgame_447',['QuitGame',['../_client_request_8h.html#ae10b07f2d0feb103db7fe4cfd192e5afac4932eb27921738ea095473272240ceb',1,'ClientRequest.h']]]
+  ['horizontal_584',['Horizontal',['../class_ship.html#adbae96ba542c40753dcf85144303e11eac1b5fa03ecdb95d4a45dd1c40b02527f',1,'Ship']]]
 ];

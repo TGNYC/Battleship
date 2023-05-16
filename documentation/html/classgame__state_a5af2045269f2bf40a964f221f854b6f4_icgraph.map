@@ -1,4 +1,10 @@
 <map id="game_state::addPlayer" name="game_state::addPlayer">
-<area shape="rect" id="node1" title=" " alt="" coords="296,5,468,32"/>
-<area shape="rect" id="node2" href="$class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3" title=" " alt="" coords="5,5,248,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="743,78,915,105"/>
+<area shape="rect" id="node2" href="$classgame__instance.html#a10cae87e19d9bde3863c672a1ad24060" title=" " alt="" coords="491,21,683,47"/>
+<area shape="rect" id="node4" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="480,78,695,105"/>
+<area shape="rect" id="node7" href="$class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="486,135,689,162"/>
+<area shape="rect" id="node3" href="$classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="241,5,419,47"/>
+<area shape="rect" id="node5" href="$class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="228,71,432,112"/>
+<area shape="rect" id="node6" href="$class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="5,78,180,105"/>
+<area shape="rect" id="node8" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="239,136,421,177"/>
 </map>

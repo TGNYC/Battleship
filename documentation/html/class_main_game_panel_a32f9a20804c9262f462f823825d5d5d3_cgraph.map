@@ -1,10 +1,4 @@
 <map id="MainGamePanel::MainGamePanel" name="MainGamePanel::MainGamePanel">
-<area shape="rect" id="node1" title=" " alt="" coords="5,107,248,133"/>
-<area shape="rect" id="node2" href="$classgame__state.html#a5af2045269f2bf40a964f221f854b6f4" title=" " alt="" coords="313,5,485,32"/>
-<area shape="rect" id="node3" href="$classgame__state.html#a8f2f09b693e4051196249542552cc7c4" title=" " alt="" coords="316,56,483,83"/>
-<area shape="rect" id="node4" href="$class_main_game_panel.html#ae54966f1a077b623da6a105641eb0ffc" title=" " alt="" coords="296,158,503,199"/>
-<area shape="rect" id="node5" href="$classuuid.html#a19c9ad8ada196326ebe7a58420c3a4fb" title=" " alt="" coords="551,109,751,136"/>
-<area shape="rect" id="node8" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="347,224,451,251"/>
-<area shape="rect" id="node6" href="$class_view_grid.html#a9140a563b8f5ccab7c3622c3c002c684" title=" " alt="" coords="571,164,730,191"/>
-<area shape="rect" id="node7" href="$class_view_grid.html#aab0479a263466ec0c3af348b87050f77" title=" " alt="" coords="571,215,730,241"/>
+<area shape="rect" id="node1" title="Constructor for the main game panel. Doesn&#39;t display anything, only the background color." alt="" coords="5,5,248,32"/>
+<area shape="rect" id="node2" href="$class_main_game_panel.html#a09018cbbb652958a50f94e22885cefd9" title="Displays the emote panel. Not implemented yet." alt="" coords="296,5,529,32"/>
 </map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/client/uiElements/ViewGrid.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/client/uiElements/ViewGrid.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,25 +78,36 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_view_grid.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_view_grid.html">ViewGrid</a> : <span class="keyword">public</span> wxPanel{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="class_view_grid.html#a9c966a2459527ff23e8e38a8e72b36f4">ViewGrid</a>(wxWindow *parent, wxPoint pos);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_view_grid.html#aba998a75f23b3da1f14f4ff3cec77fa3">   11</a></span>&#160;  wxStaticBitmap** <a class="code" href="class_view_grid.html#aba998a75f23b3da1f14f4ff3cec77fa3">getGrid</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> _grid;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_view_grid.html#a9140a563b8f5ccab7c3622c3c002c684">showShips</a>(std::vector&lt;Ship&gt; ships);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_view_grid.html#aab0479a263466ec0c3af348b87050f77">showShots</a>(<span class="keywordtype">int</span> shots[10][10]);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  wxStaticBitmap **_grid;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VIEWGRID_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">    9</a></span>&#160;  <span class="keyword">enum</span> <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">gridtype</a> {<a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6">own</a>, <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31">opp</a>};</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_view_grid.html#ae41ab474cba2d95e3251bc10c9ac1a99">ViewGrid</a>(wxWindow *parent, wxPoint pos, <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">gridtype</a> type);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_view_grid.html#a87ffca0c3604a89a2f16683e479f4797">   13</a></span>&#160;  wxPoint <a class="code" href="class_view_grid.html#a87ffca0c3604a89a2f16683e479f4797">GetPosition</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> _pos;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  }</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_view_grid.html#aba998a75f23b3da1f14f4ff3cec77fa3">   16</a></span>&#160;  wxStaticBitmap** <a class="code" href="class_view_grid.html#aba998a75f23b3da1f14f4ff3cec77fa3">getGrid</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> _grid;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2">showShips</a>(<span class="keyword">const</span> std::vector&lt;Ship&gt;&amp; ships);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b">showShots</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> shots[10][10]);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  wxPoint _pos;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  wxStaticBitmap **_grid;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">gridtype</a> _type;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// VIEWGRID_H</span></div>
 <div class="ttc" id="aclass_view_grid_html"><div class="ttname"><a href="class_view_grid.html">ViewGrid</a></div><div class="ttdef"><b>Definition:</b> ViewGrid.h:7</div></div>
-<div class="ttc" id="aclass_view_grid_html_a9140a563b8f5ccab7c3622c3c002c684"><div class="ttname"><a href="class_view_grid.html#a9140a563b8f5ccab7c3622c3c002c684">ViewGrid::showShips</a></div><div class="ttdeci">void showShips(std::vector&lt; Ship &gt; ships)</div><div class="ttdef"><b>Definition:</b> ViewGrid.cpp:28</div></div>
-<div class="ttc" id="aclass_view_grid_html_a9c966a2459527ff23e8e38a8e72b36f4"><div class="ttname"><a href="class_view_grid.html#a9c966a2459527ff23e8e38a8e72b36f4">ViewGrid::ViewGrid</a></div><div class="ttdeci">ViewGrid(wxWindow *parent, wxPoint pos)</div><div class="ttdef"><b>Definition:</b> ViewGrid.cpp:5</div></div>
-<div class="ttc" id="aclass_view_grid_html_aab0479a263466ec0c3af348b87050f77"><div class="ttname"><a href="class_view_grid.html#aab0479a263466ec0c3af348b87050f77">ViewGrid::showShots</a></div><div class="ttdeci">void showShots(int shots[10][10])</div><div class="ttdef"><b>Definition:</b> ViewGrid.cpp:51</div></div>
-<div class="ttc" id="aclass_view_grid_html_aba998a75f23b3da1f14f4ff3cec77fa3"><div class="ttname"><a href="class_view_grid.html#aba998a75f23b3da1f14f4ff3cec77fa3">ViewGrid::getGrid</a></div><div class="ttdeci">wxStaticBitmap ** getGrid() const</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:11</div></div>
+<div class="ttc" id="aclass_view_grid_html_a31781b19eeb822bf529c9adf60c0045b"><div class="ttname"><a href="class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b">ViewGrid::showShots</a></div><div class="ttdeci">void showShots(const int shots[10][10])</div><div class="ttdef"><b>Definition:</b> ViewGrid.cpp:62</div></div>
+<div class="ttc" id="aclass_view_grid_html_a430feba553ffa25ee9e9f5f7048d78e2"><div class="ttname"><a href="class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2">ViewGrid::showShips</a></div><div class="ttdeci">void showShips(const std::vector&lt; Ship &gt; &amp;ships)</div><div class="ttdef"><b>Definition:</b> ViewGrid.cpp:39</div></div>
+<div class="ttc" id="aclass_view_grid_html_a87ffca0c3604a89a2f16683e479f4797"><div class="ttname"><a href="class_view_grid.html#a87ffca0c3604a89a2f16683e479f4797">ViewGrid::GetPosition</a></div><div class="ttdeci">wxPoint GetPosition() const</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:13</div></div>
+<div class="ttc" id="aclass_view_grid_html_aba998a75f23b3da1f14f4ff3cec77fa3"><div class="ttname"><a href="class_view_grid.html#aba998a75f23b3da1f14f4ff3cec77fa3">ViewGrid::getGrid</a></div><div class="ttdeci">wxStaticBitmap ** getGrid() const</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:16</div></div>
+<div class="ttc" id="aclass_view_grid_html_ac29cb12bff7493060e9968c5de516bd3"><div class="ttname"><a href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">ViewGrid::gridtype</a></div><div class="ttdeci">gridtype</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:9</div></div>
+<div class="ttc" id="aclass_view_grid_html_ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31"><div class="ttname"><a href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31">ViewGrid::opp</a></div><div class="ttdeci">@ opp</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:9</div></div>
+<div class="ttc" id="aclass_view_grid_html_ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6"><div class="ttname"><a href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6">ViewGrid::own</a></div><div class="ttdeci">@ own</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:9</div></div>
+<div class="ttc" id="aclass_view_grid_html_ae41ab474cba2d95e3251bc10c9ac1a99"><div class="ttname"><a href="class_view_grid.html#ae41ab474cba2d95e3251bc10c9ac1a99">ViewGrid::ViewGrid</a></div><div class="ttdeci">ViewGrid(wxWindow *parent, wxPoint pos, gridtype type)</div><div class="ttdef"><b>Definition:</b> ViewGrid.cpp:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

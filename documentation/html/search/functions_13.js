@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['what_425',['what',['../class_battleship_exception.html#a8f89c8d18d1b15105eae28d97fb83c9a',1,'BattleshipException']]],
-  ['wrapupround_426',['wrapUpRound',['../classgame__state.html#a256e498ce4fc5a309f0975b920a956c2',1,'game_state']]],
-  ['wximplement_5fapp_427',['wxIMPLEMENT_APP',['../client_2main_8cpp.html#ab2fa53d1e775564f393bef2522b19816',1,'main.cpp']]]
+  ['updateboards_538',['updateBoards',['../classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b',1,'game_state']]],
+  ['uuid_539',['uuid',['../classuuid.html#ac01e37fd299d9d5f3690190c05a94170',1,'uuid::uuid()=default'],['../classuuid.html#a9b197f22825b8168caa74807c717432f',1,'uuid::uuid(const std::string &amp;uuid)']]]
 ];

@@ -1,0 +1,8 @@
+<map id="game_instance::start_game" name="game_instance::start_game">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,208,108"/>
+<area shape="rect" id="node2" href="$classgame__state.html#a9e45edeee6fefc23431c41a734c82730" title=" " alt="" coords="267,5,450,32"/>
+<area shape="rect" id="node3" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="307,56,411,83"/>
+<area shape="rect" id="node4" href="$classgame__state.html#a2b084b0c09621047047c8bfb968568e9" title=" " alt="" coords="256,107,461,133"/>
+<area shape="rect" id="node6" href="$classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb" title=" " alt="" coords="290,157,427,184"/>
+<area shape="rect" id="node5" href="$class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="509,132,604,159"/>
+</map>

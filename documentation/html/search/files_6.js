@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['main_2ecpp_286',['main.cpp',['../client_2main_8cpp.html',1,'(Global Namespace)'],['../server_2main_8cpp.html',1,'(Global Namespace)']]],
-  ['maingamepanel_2ecpp_287',['MainGamePanel.cpp',['../_main_game_panel_8cpp.html',1,'']]],
-  ['maingamepanel_2eh_288',['MainGamePanel.h',['../_main_game_panel_8h.html',1,'']]]
+  ['joingame_2ecpp_361',['JoinGame.cpp',['../_join_game_8cpp.html',1,'']]],
+  ['joingame_2eh_362',['JoinGame.h',['../_join_game_8h.html',1,'']]],
+  ['joingamesuccess_2ecpp_363',['JoinGameSuccess.cpp',['../_join_game_success_8cpp.html',1,'']]],
+  ['joingamesuccess_2eh_364',['JoinGameSuccess.h',['../_join_game_success_8h.html',1,'']]]
 ];

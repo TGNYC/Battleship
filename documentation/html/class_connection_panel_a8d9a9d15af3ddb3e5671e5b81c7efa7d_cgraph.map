@@ -1,5 +1,12 @@
 <map id="ConnectionPanel::onConnectButtonClicked" name="ConnectionPanel::onConnectButtonClicked">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,212,47"/>
-<area shape="rect" id="node2" href="$class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf" title="enter setup phase" alt="" coords="260,5,464,47"/>
-<area shape="rect" id="node3" href="$class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="512,13,701,39"/>
+<area shape="rect" id="node1" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="5,166,212,207"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="260,166,459,207"/>
+<area shape="rect" id="node3" href="$classuuid.html#a19c9ad8ada196326ebe7a58420c3a4fb" title=" " alt="" coords="521,5,721,32"/>
+<area shape="rect" id="node4" href="$class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064" title="Getter for the server address." alt="" coords="520,57,721,98"/>
+<area shape="rect" id="node6" href="$class_connection_panel.html#ab0dc7af0934d4184aa04d220e0bd9719" title="Getter for the server port." alt="" coords="507,123,734,149"/>
+<area shape="rect" id="node7" href="$class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408" title="Getter for the username." alt="" coords="507,173,735,200"/>
+<area shape="rect" id="node8" href="$class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969" title=" " alt="" coords="535,225,707,266"/>
+<area shape="rect" id="node9" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="535,290,707,331"/>
+<area shape="rect" id="node10" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="783,327,981,353"/>
+<area shape="rect" id="node5" href="$class_input_field.html#abf8772b4331e10f7d8f236556f24948d" title=" " alt="" coords="807,123,957,149"/>
 </map>

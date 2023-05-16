@@ -1,0 +1,11 @@
+<map id="PlacementGrid::OnMouseClick" name="PlacementGrid::OnMouseClick">
+<area shape="rect" id="node1" title="function is called when mouse clicks on grid and places ship if possible" alt="" coords="5,107,224,133"/>
+<area shape="rect" id="node2" href="$class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="272,44,472,71"/>
+<area shape="rect" id="node4" href="$class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8" title="function places ship on grid and updates ship position" alt="" coords="279,132,465,159"/>
+<area shape="rect" id="node3" href="$class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="531,5,703,32"/>
+<area shape="rect" id="node5" href="$class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="572,56,663,83"/>
+<area shape="rect" id="node6" href="$class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="556,107,679,133"/>
+<area shape="rect" id="node7" href="$class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="541,157,693,184"/>
+<area shape="rect" id="node8" href="$class_game_controller.html#a5ea6d7c2b11e338a3389dd3689fde9fb" title=" " alt="" coords="522,209,713,250"/>
+<area shape="rect" id="node9" href="$class_setup_panel.html#af74edcf19b0a67d7e0d74ba1c638a261" title="helper function used in SetupManager::placeShip() to disable ship button after it has been placed" alt="" coords="520,275,715,301"/>
+</map>

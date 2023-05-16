@@ -1,0 +1,6 @@
+<map id="EmotePanel::displayEmote" name="EmotePanel::displayEmote">
+<area shape="rect" id="node1" title=" " alt="" coords="767,13,963,39"/>
+<area shape="rect" id="node2" href="$class_main_game_panel.html#a5301c840919c65bec3a6161d44610e6c" title="Displays the emote sent by the other player." alt="" coords="493,13,719,39"/>
+<area shape="rect" id="node3" href="$class_game_controller.html#a4319385541953201ca2e6a13ea77b2dc" title="Displays an emote to the screen." alt="" coords="236,13,445,39"/>
+<area shape="rect" id="node4" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
+</map>

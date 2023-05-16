@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/common/game_state/game_state.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/common/game_state/game_state.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,58 +79,127 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_coordinate_8h.html">Coordinate.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classgame__state.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgame__state.html">game_state</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classgame__state.html#a7a01e4763572f91634786020f54fae26">   12</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26">State</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0">Starting</a>,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428">Playing</a>,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26a8f3d10eb21bd36347c258679eba9e92b">Finished</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  };</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a5af2045269f2bf40a964f221f854b6f4">addPlayer</a>(<a class="code" href="class_player.html">Player</a> player);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a8f2f09b693e4051196249542552cc7c4">addShips</a>(<a class="code" href="classuuid.html">uuid</a> playerId, std::vector&lt;Ship&gt; shipPlacement);</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classgame__state.html#ab5937e0afc8d17a5eff8d0baa74655cd">   20</a></span>&#160;  <a class="code" href="class_player.html">Player</a> <a class="code" href="classgame__state.html#ab5937e0afc8d17a5eff8d0baa74655cd">getCurrentPlayer</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classgame__state.html#a2933cf9e7c0153f65d613d737f9560d5">   21</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a2933cf9e7c0153f65d613d737f9560d5">removePlayer</a>(<a class="code" href="classuuid.html">uuid</a> playerId);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">const</span> <a class="code" href="class_player_grid.html">PlayerGrid</a> &amp;<a class="code" href="classgame__state.html#a49133a15b923ea430467b23ce9b02b40">getPlayerGrid</a>(<a class="code" href="classuuid.html">uuid</a> playerId) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a9297efbcdf6a248f599639b68f06ce3e">updateBoards</a>(<a class="code" href="class_game_event.html">GameEvent</a> event);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#aebd13bfa31bce986484b7ed7733a7986">shotIsLegal</a>(<a class="code" href="classuuid.html">uuid</a> playerId, <a class="code" href="struct_coordinate.html">Coordinate</a> position);</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classgame__state.html#a256e498ce4fc5a309f0975b920a956c2">   36</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a256e498ce4fc5a309f0975b920a956c2">wrapUpRound</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26">State</a>                   m_state = <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0">State::Starting</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::vector&lt;Player&gt;     players;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::vector&lt;PlayerGrid&gt; playerGrids;  <span class="comment">// length 1 (on client) or 2 (on server)</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>            m_num_players = 2;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classuuid.html">uuid</a>                    currentPlayerId;  <span class="comment">// specifies the id of the player whose turn it is</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>            turnNumber = 0; <span class="comment">// specifies the current numbered turn</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">bool</span>                    isFinished = <span class="keyword">false</span>; <span class="comment">// specifies whether the game is finished or not</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">bool</span>                    serverSide = <span class="keyword">false</span>; <span class="comment">// indicates if this game_state is run server side</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_GAME_STATE_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * USAGE SERVER</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * -- setup --</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * Call constructor</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * addPlayer() for both players</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * addShips() for both players</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * determine player who goes first. send startGame response to clients with this info</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * start()</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * -- playing --</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * whenever a callShot request is received: check shotIsLegal(), then call registerShot()</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * send a gameEvent to clients with the info provided by registerShot() -&gt; see function documentation for details</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> * check gameOver() to see if game is finished</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * if yes, call getWinner() to receive winner id. then send corresponding event to clients</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * USAGE CLIENT</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> * -- setup --</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> * Call constructor</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> * addPlayer() for both players (needs to receive other player from server somehow)</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * addShips() ONLY FOR THE LOCAL PLAYER</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * wait for startGame response which includes id of player who goes first</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * start()</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * -- playing --</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * when receiving a gameEvent: updateBoards(event)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> * use getPlayerGrid() to get grid data for UI update</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> * use getCurrentPlayerId() to see if it is your turn</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"> * check shotIsLegal() before sending a callShot Request</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classgame__state.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgame__state.html">game_state</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classgame__state.html#a7a01e4763572f91634786020f54fae26">   45</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26">State</a> {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0">Starting</a>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428">Playing</a>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26a8f3d10eb21bd36347c258679eba9e92b">Finished</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">   54</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">Type</a> {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4">ServerState</a>,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100caf82b89eac7e586a150926615b0fa1a55">ClientState</a></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  };</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="classgame__state.html#ad24dbea7fd1cf2ba7b7863ff9b9394f8">game_state</a>(<a class="code" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">game_state::Type</a> type);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a5af2045269f2bf40a964f221f854b6f4">addPlayer</a>(<a class="code" href="class_player.html">Player</a> player);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a8f2f09b693e4051196249542552cc7c4">addShips</a>(<a class="code" href="classuuid.html">uuid</a> playerId, std::vector&lt;Ship&gt; shipPlacement);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">start</a>(<a class="code" href="classuuid.html">uuid</a> currentPlayerId);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <a class="code" href="classuuid.html">uuid</a> <a class="code" href="classgame__state.html#a24dc77657c61f820f66314111f0268a2">getCurrentPlayerId</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">const</span> <a class="code" href="class_player_grid.html">PlayerGrid</a>&amp; <a class="code" href="classgame__state.html#a49133a15b923ea430467b23ce9b02b40">getPlayerGrid</a>(<a class="code" href="classuuid.html">uuid</a> playerId) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keyword">const</span> std::vector&lt;Player&gt;&amp; <a class="code" href="classgame__state.html#a9e45edeee6fefc23431c41a734c82730">get_players</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <a class="code" href="class_ship.html">Ship</a>&amp; <a class="code" href="classgame__state.html#a175ad107b4a09824f5c45582dbfab2d4">getShip</a>(std::vector&lt;Ship&gt;&amp; ships, <a class="code" href="classuuid.html">uuid</a> shipId);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">const</span> <a class="code" href="class_player.html">Player</a>&amp; <a class="code" href="classgame__state.html#a2b084b0c09621047047c8bfb968568e9">getOtherPlayer</a>(<a class="code" href="classuuid.html">uuid</a> playerId);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">// TODO change to getPlayer</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">/*</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">   * returns the name of the player with the specified id</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keyword">const</span> <a class="code" href="class_player.html">Player</a>&amp; <a class="code" href="classgame__state.html#a54adcdbdc846a83f5a2079dd8db7258f">getPlayer</a>(<a class="code" href="classuuid.html">uuid</a> playerId) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#aebd13bfa31bce986484b7ed7733a7986">shotIsLegal</a>(<a class="code" href="classuuid.html">uuid</a> playerId, <a class="code" href="struct_coordinate.html">Coordinate</a> position);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a9610b5ba928ad54837161d115b6985f1">registerShot</a>(<a class="code" href="classuuid.html">uuid</a> playerId, <a class="code" href="struct_coordinate.html">Coordinate</a> position, <span class="keywordtype">bool</span> *hit, <a class="code" href="class_ship.html">Ship</a> **hitShipPtr, <span class="keywordtype">bool</span> *sunk, <a class="code" href="classuuid.html">uuid</a> *nextPlayerId);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b">updateBoards</a>(<span class="keyword">const</span> <a class="code" href="class_game_event.html">GameEvent</a>&amp; event);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f">gameOver</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <a class="code" href="classuuid.html">uuid</a> <a class="code" href="classgame__state.html#a70ae55358ec06783e8afd724e6afe37d">getWinner</a>();</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="comment">//bool wrapUpRound();</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <a class="code" href="classgame__state.html#a7a01e4763572f91634786020f54fae26">State</a>                   state;  <span class="comment">// currently unused. will be needed later</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <a class="code" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">Type</a>                    type; <span class="comment">// indicates if this game_state is run server side</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  std::vector&lt;Player&gt;     players;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  std::vector&lt;PlayerGrid&gt; playerGrids;  </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <a class="code" href="classuuid.html">uuid</a>                    currentPlayerId;  <span class="comment">// specifies the id of the player whose turn it is</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>            turnNumber; <span class="comment">// specifies the current numbered turn</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <a class="code" href="classuuid.html">uuid</a>                    winner;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_GAME_STATE_H</span></div>
 <div class="ttc" id="a_coordinate_8h_html"><div class="ttname"><a href="_coordinate_8h.html">Coordinate.h</a></div></div>
 <div class="ttc" id="a_game_event_8h_html"><div class="ttname"><a href="_game_event_8h.html">GameEvent.h</a></div></div>
 <div class="ttc" id="a_player_8h_html"><div class="ttname"><a href="_player_8h.html">Player.h</a></div></div>
 <div class="ttc" id="a_player_grid_8h_html"><div class="ttname"><a href="_player_grid_8h.html">PlayerGrid.h</a></div></div>
-<div class="ttc" id="aclass_game_event_html"><div class="ttname"><a href="class_game_event.html">GameEvent</a></div><div class="ttdef"><b>Definition:</b> GameEvent.h:14</div></div>
-<div class="ttc" id="aclass_player_grid_html"><div class="ttname"><a href="class_player_grid.html">PlayerGrid</a></div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:8</div></div>
+<div class="ttc" id="aclass_game_event_html"><div class="ttname"><a href="class_game_event.html">GameEvent</a></div><div class="ttdef"><b>Definition:</b> GameEvent.h:16</div></div>
+<div class="ttc" id="aclass_player_grid_html"><div class="ttname"><a href="class_player_grid.html">PlayerGrid</a></div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:12</div></div>
 <div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.h:11</div></div>
-<div class="ttc" id="aclassgame__state_html"><div class="ttname"><a href="classgame__state.html">game_state</a></div><div class="ttdef"><b>Definition:</b> game_state.h:10</div></div>
-<div class="ttc" id="aclassgame__state_html_a256e498ce4fc5a309f0975b920a956c2"><div class="ttname"><a href="classgame__state.html#a256e498ce4fc5a309f0975b920a956c2">game_state::wrapUpRound</a></div><div class="ttdeci">bool wrapUpRound()</div></div>
-<div class="ttc" id="aclassgame__state_html_a2933cf9e7c0153f65d613d737f9560d5"><div class="ttname"><a href="classgame__state.html#a2933cf9e7c0153f65d613d737f9560d5">game_state::removePlayer</a></div><div class="ttdeci">bool removePlayer(uuid playerId)</div></div>
-<div class="ttc" id="aclassgame__state_html_a49133a15b923ea430467b23ce9b02b40"><div class="ttname"><a href="classgame__state.html#a49133a15b923ea430467b23ce9b02b40">game_state::getPlayerGrid</a></div><div class="ttdeci">const PlayerGrid &amp; getPlayerGrid(uuid playerId) const</div><div class="ttdef"><b>Definition:</b> game_state.cpp:29</div></div>
-<div class="ttc" id="aclassgame__state_html_a5af2045269f2bf40a964f221f854b6f4"><div class="ttname"><a href="classgame__state.html#a5af2045269f2bf40a964f221f854b6f4">game_state::addPlayer</a></div><div class="ttdeci">bool addPlayer(Player player)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:6</div></div>
-<div class="ttc" id="aclassgame__state_html_a7a01e4763572f91634786020f54fae26"><div class="ttname"><a href="classgame__state.html#a7a01e4763572f91634786020f54fae26">game_state::State</a></div><div class="ttdeci">State</div><div class="ttdef"><b>Definition:</b> game_state.h:12</div></div>
+<div class="ttc" id="aclass_ship_html"><div class="ttname"><a href="class_ship.html">Ship</a></div><div class="ttdef"><b>Definition:</b> Ship.h:8</div></div>
+<div class="ttc" id="aclassgame__state_html"><div class="ttname"><a href="classgame__state.html">game_state</a></div><div class="ttdef"><b>Definition:</b> game_state.h:40</div></div>
+<div class="ttc" id="aclassgame__state_html_a03e0ee1a83eb23c10298b75a89cc781f"><div class="ttname"><a href="classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f">game_state::gameOver</a></div><div class="ttdeci">bool gameOver()</div><div class="ttdef"><b>Definition:</b> game_state.cpp:215</div></div>
+<div class="ttc" id="aclassgame__state_html_a175ad107b4a09824f5c45582dbfab2d4"><div class="ttname"><a href="classgame__state.html#a175ad107b4a09824f5c45582dbfab2d4">game_state::getShip</a></div><div class="ttdeci">Ship &amp; getShip(std::vector&lt; Ship &gt; &amp;ships, uuid shipId)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:97</div></div>
+<div class="ttc" id="aclassgame__state_html_a24dc77657c61f820f66314111f0268a2"><div class="ttname"><a href="classgame__state.html#a24dc77657c61f820f66314111f0268a2">game_state::getCurrentPlayerId</a></div><div class="ttdeci">uuid getCurrentPlayerId()</div><div class="ttdef"><b>Definition:</b> game_state.cpp:83</div></div>
+<div class="ttc" id="aclassgame__state_html_a2b084b0c09621047047c8bfb968568e9"><div class="ttname"><a href="classgame__state.html#a2b084b0c09621047047c8bfb968568e9">game_state::getOtherPlayer</a></div><div class="ttdeci">const Player &amp; getOtherPlayer(uuid playerId)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:107</div></div>
+<div class="ttc" id="aclassgame__state_html_a49133a15b923ea430467b23ce9b02b40"><div class="ttname"><a href="classgame__state.html#a49133a15b923ea430467b23ce9b02b40">game_state::getPlayerGrid</a></div><div class="ttdeci">const PlayerGrid &amp; getPlayerGrid(uuid playerId) const</div><div class="ttdef"><b>Definition:</b> game_state.cpp:87</div></div>
+<div class="ttc" id="aclassgame__state_html_a54adcdbdc846a83f5a2079dd8db7258f"><div class="ttname"><a href="classgame__state.html#a54adcdbdc846a83f5a2079dd8db7258f">game_state::getPlayer</a></div><div class="ttdeci">const Player &amp; getPlayer(uuid playerId) const</div><div class="ttdef"><b>Definition:</b> game_state.cpp:117</div></div>
+<div class="ttc" id="aclassgame__state_html_a5af2045269f2bf40a964f221f854b6f4"><div class="ttname"><a href="classgame__state.html#a5af2045269f2bf40a964f221f854b6f4">game_state::addPlayer</a></div><div class="ttdeci">bool addPlayer(Player player)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:21</div></div>
+<div class="ttc" id="aclassgame__state_html_a70ae55358ec06783e8afd724e6afe37d"><div class="ttname"><a href="classgame__state.html#a70ae55358ec06783e8afd724e6afe37d">game_state::getWinner</a></div><div class="ttdeci">uuid getWinner()</div><div class="ttdef"><b>Definition:</b> game_state.cpp:236</div></div>
+<div class="ttc" id="aclassgame__state_html_a7a01e4763572f91634786020f54fae26"><div class="ttname"><a href="classgame__state.html#a7a01e4763572f91634786020f54fae26">game_state::State</a></div><div class="ttdeci">State</div><div class="ttdef"><b>Definition:</b> game_state.h:45</div></div>
 <div class="ttc" id="aclassgame__state_html_a7a01e4763572f91634786020f54fae26a8f3d10eb21bd36347c258679eba9e92b"><div class="ttname"><a href="classgame__state.html#a7a01e4763572f91634786020f54fae26a8f3d10eb21bd36347c258679eba9e92b">game_state::State::Finished</a></div><div class="ttdeci">@ Finished</div></div>
 <div class="ttc" id="aclassgame__state_html_a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0"><div class="ttname"><a href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0">game_state::State::Starting</a></div><div class="ttdeci">@ Starting</div></div>
 <div class="ttc" id="aclassgame__state_html_a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428"><div class="ttname"><a href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428">game_state::State::Playing</a></div><div class="ttdeci">@ Playing</div></div>
-<div class="ttc" id="aclassgame__state_html_a8f2f09b693e4051196249542552cc7c4"><div class="ttname"><a href="classgame__state.html#a8f2f09b693e4051196249542552cc7c4">game_state::addShips</a></div><div class="ttdeci">bool addShips(uuid playerId, std::vector&lt; Ship &gt; shipPlacement)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:15</div></div>
-<div class="ttc" id="aclassgame__state_html_a9297efbcdf6a248f599639b68f06ce3e"><div class="ttname"><a href="classgame__state.html#a9297efbcdf6a248f599639b68f06ce3e">game_state::updateBoards</a></div><div class="ttdeci">bool updateBoards(GameEvent event)</div><div class="ttdoc">updates the boards after a game event happened.</div><div class="ttdef"><b>Definition:</b> game_state.cpp:44</div></div>
-<div class="ttc" id="aclassgame__state_html_ab5937e0afc8d17a5eff8d0baa74655cd"><div class="ttname"><a href="classgame__state.html#ab5937e0afc8d17a5eff8d0baa74655cd">game_state::getCurrentPlayer</a></div><div class="ttdeci">Player getCurrentPlayer()</div></div>
-<div class="ttc" id="aclassgame__state_html_aebd13bfa31bce986484b7ed7733a7986"><div class="ttname"><a href="classgame__state.html#aebd13bfa31bce986484b7ed7733a7986">game_state::shotIsLegal</a></div><div class="ttdeci">bool shotIsLegal(uuid playerId, Coordinate position)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:36</div></div>
+<div class="ttc" id="aclassgame__state_html_a8f2f09b693e4051196249542552cc7c4"><div class="ttname"><a href="classgame__state.html#a8f2f09b693e4051196249542552cc7c4">game_state::addShips</a></div><div class="ttdeci">bool addShips(uuid playerId, std::vector&lt; Ship &gt; shipPlacement)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:37</div></div>
+<div class="ttc" id="aclassgame__state_html_a9610b5ba928ad54837161d115b6985f1"><div class="ttname"><a href="classgame__state.html#a9610b5ba928ad54837161d115b6985f1">game_state::registerShot</a></div><div class="ttdeci">bool registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk, uuid *nextPlayerId)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:140</div></div>
+<div class="ttc" id="aclassgame__state_html_a9e45edeee6fefc23431c41a734c82730"><div class="ttname"><a href="classgame__state.html#a9e45edeee6fefc23431c41a734c82730">game_state::get_players</a></div><div class="ttdeci">const std::vector&lt; Player &gt; &amp; get_players() const</div><div class="ttdef"><b>Definition:</b> game_state.cpp:245</div></div>
+<div class="ttc" id="aclassgame__state_html_ab9dfe73b8bcbb5e92c065cc5befd75cb"><div class="ttname"><a href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">game_state::start</a></div><div class="ttdeci">bool start(uuid currentPlayerId)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:58</div></div>
+<div class="ttc" id="aclassgame__state_html_ac3c72d18ca475dab9bd584ceb742100c"><div class="ttname"><a href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">game_state::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> game_state.h:54</div></div>
+<div class="ttc" id="aclassgame__state_html_ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4"><div class="ttname"><a href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4">game_state::Type::ServerState</a></div><div class="ttdeci">@ ServerState</div></div>
+<div class="ttc" id="aclassgame__state_html_ac3c72d18ca475dab9bd584ceb742100caf82b89eac7e586a150926615b0fa1a55"><div class="ttname"><a href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100caf82b89eac7e586a150926615b0fa1a55">game_state::Type::ClientState</a></div><div class="ttdeci">@ ClientState</div></div>
+<div class="ttc" id="aclassgame__state_html_ad24dbea7fd1cf2ba7b7863ff9b9394f8"><div class="ttname"><a href="classgame__state.html#ad24dbea7fd1cf2ba7b7863ff9b9394f8">game_state::game_state</a></div><div class="ttdeci">game_state(game_state::Type type)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:9</div></div>
+<div class="ttc" id="aclassgame__state_html_ae307c8a4233645f20c9a3e8cfd77635b"><div class="ttname"><a href="classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b">game_state::updateBoards</a></div><div class="ttdeci">bool updateBoards(const GameEvent &amp;event)</div><div class="ttdoc">updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGri...</div><div class="ttdef"><b>Definition:</b> game_state.cpp:193</div></div>
+<div class="ttc" id="aclassgame__state_html_aebd13bfa31bce986484b7ed7733a7986"><div class="ttname"><a href="classgame__state.html#aebd13bfa31bce986484b7ed7733a7986">game_state::shotIsLegal</a></div><div class="ttdeci">bool shotIsLegal(uuid playerId, Coordinate position)</div><div class="ttdef"><b>Definition:</b> game_state.cpp:125</div></div>
 <div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
 <div class="ttc" id="astruct_coordinate_html"><div class="ttname"><a href="struct_coordinate.html">Coordinate</a></div><div class="ttdef"><b>Definition:</b> Coordinate.h:6</div></div>
 </div><!-- fragment --></div><!-- contents -->

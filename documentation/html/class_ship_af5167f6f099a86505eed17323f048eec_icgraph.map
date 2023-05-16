@@ -1,0 +1,11 @@
+<map id="Ship::hasSunken" name="Ship::hasSunken">
+<area shape="rect" id="node1" title=" " alt="" coords="968,56,1096,83"/>
+<area shape="rect" id="node2" href="$classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f" title=" " alt="" coords="745,5,920,32"/>
+<area shape="rect" id="node5" href="$class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="795,107,870,133"/>
+<area shape="rect" id="node6" href="$classgame__state.html#a9610b5ba928ad54837161d115b6985f1" title=" " alt="" coords="505,56,692,83"/>
+<area shape="rect" id="node3" href="$classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="239,24,449,51"/>
+<area shape="rect" id="node4" href="$classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="7,17,186,58"/>
+<area shape="rect" id="node7" href="$classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b" title="updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGri..." alt="" coords="500,107,697,133"/>
+<area shape="rect" id="node8" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,99,452,141"/>
+<area shape="rect" id="node9" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,99,188,141"/>
+</map>

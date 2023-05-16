@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/common/network/requests/SendEmote.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/common/network/requests/SendEmote.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,29 +73,36 @@ $(function() {
 <a href="_send_emote_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SENDEMOTE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SENDEMOTE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_client_request_8h.html">ClientRequest.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="classuuid.html">uuid</a>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_emote_event_8h.html">network/responses/EmoteEvent.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_client_request_8h.html">ClientRequest.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_send_emote.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_send_emote.html">SendEmote</a> : <span class="keyword">public</span> <a class="code" href="class_client_request.html">ClientRequest</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <a class="code" href="class_send_emote.html#abbb8dd73ca193086df3072f38b0d3a27">SendEmote</a>(<a class="code" href="classuuid.html">uuid</a> playerId, std::string emote);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  [[nodiscard]] <span class="keyword">auto</span> <a class="code" href="class_send_emote.html#a7905359473aa2bffbe28e10dd2ea77e1">getEmote</a>() <span class="keyword">const</span> -&gt; std::string;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_send_emote.html#ac95f9f4429831c23eb957bb071a1b51d">   14</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="class_send_emote.html#ac95f9f4429831c23eb957bb071a1b51d">operator&lt;=&gt;</a>(<span class="keyword">const</span> <a class="code" href="class_send_emote.html">SendEmote</a> &amp;) <span class="keyword">const</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classuuid.html">uuid</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="class_emote_handler.html">EmoteHandler</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_send_emote.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_send_emote.html">SendEmote</a> : <span class="keyword">public</span> <a class="code" href="class_client_request.html">ClientRequest</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="class_send_emote.html#a6d91f365faa9882e0dbb7cde79bdcdf4">SendEmote</a>(<a class="code" href="classuuid.html">uuid</a> playerId, <a class="code" href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a> emote);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <a class="code" href="class_send_emote.html#a6d91f365faa9882e0dbb7cde79bdcdf4">SendEmote</a>(<a class="code" href="classuuid.html">uuid</a> playerId, std::string emote); <span class="comment">//TODO remove this. just keeping it until serialization uses the other constructor</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  std::string m_emote;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  [[nodiscard]] <span class="keyword">auto</span> <a class="code" href="class_send_emote.html#afa9bf762783fff02f73b2f2677afdf41">getEmote</a>() <span class="keyword">const</span> -&gt; <a class="code" href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_send_emote.html#ac95f9f4429831c23eb957bb071a1b51d">   18</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="class_send_emote.html#ac95f9f4429831c23eb957bb071a1b51d">operator&lt;=&gt;</a>(<span class="keyword">const</span> <a class="code" href="class_send_emote.html">SendEmote</a> &amp;) <span class="keyword">const</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SENDEMOTE_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a> m_emote;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SENDEMOTE_H</span></div>
 <div class="ttc" id="a_client_request_8h_html"><div class="ttname"><a href="_client_request_8h.html">ClientRequest.h</a></div></div>
-<div class="ttc" id="aclass_client_request_html"><div class="ttname"><a href="class_client_request.html">ClientRequest</a></div><div class="ttdef"><b>Definition:</b> ClientRequest.h:15</div></div>
-<div class="ttc" id="aclass_send_emote_html"><div class="ttname"><a href="class_send_emote.html">SendEmote</a></div><div class="ttdef"><b>Definition:</b> SendEmote.h:8</div></div>
-<div class="ttc" id="aclass_send_emote_html_a7905359473aa2bffbe28e10dd2ea77e1"><div class="ttname"><a href="class_send_emote.html#a7905359473aa2bffbe28e10dd2ea77e1">SendEmote::getEmote</a></div><div class="ttdeci">auto getEmote() const -&gt; std::string</div><div class="ttdef"><b>Definition:</b> SendEmote.cpp:11</div></div>
-<div class="ttc" id="aclass_send_emote_html_abbb8dd73ca193086df3072f38b0d3a27"><div class="ttname"><a href="class_send_emote.html#abbb8dd73ca193086df3072f38b0d3a27">SendEmote::SendEmote</a></div><div class="ttdeci">SendEmote(uuid playerId, std::string emote)</div><div class="ttdef"><b>Definition:</b> SendEmote.cpp:8</div></div>
+<div class="ttc" id="a_emote_event_8h_html"><div class="ttname"><a href="_emote_event_8h.html">EmoteEvent.h</a></div></div>
+<div class="ttc" id="a_emote_event_8h_html_a2e3a48cf37b9e80a34755a3632ac9c95"><div class="ttname"><a href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a></div><div class="ttdeci">EmoteType</div><div class="ttdef"><b>Definition:</b> EmoteEvent.h:8</div></div>
+<div class="ttc" id="aclass_client_request_html"><div class="ttname"><a href="class_client_request.html">ClientRequest</a></div><div class="ttdef"><b>Definition:</b> ClientRequest.h:16</div></div>
+<div class="ttc" id="aclass_emote_handler_html"><div class="ttname"><a href="class_emote_handler.html">EmoteHandler</a></div><div class="ttdef"><b>Definition:</b> EmoteHandler.h:8</div></div>
+<div class="ttc" id="aclass_send_emote_html"><div class="ttname"><a href="class_send_emote.html">SendEmote</a></div><div class="ttdef"><b>Definition:</b> SendEmote.h:11</div></div>
+<div class="ttc" id="aclass_send_emote_html_a6d91f365faa9882e0dbb7cde79bdcdf4"><div class="ttname"><a href="class_send_emote.html#a6d91f365faa9882e0dbb7cde79bdcdf4">SendEmote::SendEmote</a></div><div class="ttdeci">SendEmote(uuid playerId, EmoteType emote)</div><div class="ttdef"><b>Definition:</b> SendEmote.cpp:8</div></div>
 <div class="ttc" id="aclass_send_emote_html_ac95f9f4429831c23eb957bb071a1b51d"><div class="ttname"><a href="class_send_emote.html#ac95f9f4429831c23eb957bb071a1b51d">SendEmote::operator&lt;=&gt;</a></div><div class="ttdeci">auto operator&lt;=&gt;(const SendEmote &amp;) const =default</div></div>
+<div class="ttc" id="aclass_send_emote_html_afa9bf762783fff02f73b2f2677afdf41"><div class="ttname"><a href="class_send_emote.html#afa9bf762783fff02f73b2f2677afdf41">SendEmote::getEmote</a></div><div class="ttdeci">auto getEmote() const -&gt; EmoteType</div><div class="ttdef"><b>Definition:</b> SendEmote.cpp:15</div></div>
 <div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -1,11 +1,8 @@
 <map id="GameWindow::showPanel" name="GameWindow::showPanel">
-<area shape="rect" id="node1" title=" " alt="" coords="781,71,971,98"/>
-<area shape="rect" id="node2" href="$class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf" title="enter setup phase" alt="" coords="524,5,728,47"/>
-<area shape="rect" id="node5" href="$class_game_controller.html#a8889bad76bc35487d3391fb8a5791616" title="Initializes all panels, displays the connection panel." alt="" coords="549,71,703,98"/>
-<area shape="rect" id="node7" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title=" " alt="" coords="519,126,733,153"/>
-<area shape="rect" id="node3" href="$class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title=" " alt="" coords="264,5,471,47"/>
-<area shape="rect" id="node4" href="$class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title=" " alt="" coords="5,5,216,47"/>
-<area shape="rect" id="node6" href="$class_battleship.html#a07e673975dfed4f8252e1c3be538db44" title=" " alt="" coords="300,71,435,98"/>
-<area shape="rect" id="node8" href="$class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title=" " alt="" coords="265,123,469,164"/>
-<area shape="rect" id="node9" href="$class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title=" " alt="" coords="23,130,198,157"/>
+<area shape="rect" id="node1" title=" " alt="" coords="488,71,677,98"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf" title="enter setup phase" alt="" coords="236,5,440,47"/>
+<area shape="rect" id="node4" href="$class_game_controller.html#a8889bad76bc35487d3391fb8a5791616" title="Initializes all panels, displays the connection panel." alt="" coords="261,122,415,149"/>
+<area shape="rect" id="node6" href="$class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="237,71,439,98"/>
+<area shape="rect" id="node3" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,31,188,72"/>
+<area shape="rect" id="node5" href="$class_battleship.html#a07e673975dfed4f8252e1c3be538db44" title=" " alt="" coords="29,122,164,149"/>
 </map>

@@ -1,0 +1,17 @@
+<map id="MainGamePanel::buildGameState" name="MainGamePanel::buildGameState">
+<area shape="rect" id="node1" title="Builds the game state." alt="" coords="5,217,212,258"/>
+<area shape="rect" id="node2" href="$class_main_game_panel.html#a09018cbbb652958a50f94e22885cefd9" title="Displays the emote panel. Not implemented yet." alt="" coords="260,5,493,32"/>
+<area shape="rect" id="node3" href="$class_main_game_panel.html#a0bb767c5a632325fbddbc17e30be899c" title="Displays the turn indicator: It&#39;s ((playerName))&#39;s turn." alt="" coords="279,57,474,98"/>
+<area shape="rect" id="node4" href="$classgame__state.html#a24dc77657c61f820f66314111f0268a2" title=" " alt="" coords="262,123,491,149"/>
+<area shape="rect" id="node5" href="$class_player.html#a8750e6a68f0829cd242b57a0309712fe" title=" " alt="" coords="311,173,442,200"/>
+<area shape="rect" id="node6" href="$classgame__state.html#a54adcdbdc846a83f5a2079dd8db7258f" title=" " alt="" coords="292,224,461,251"/>
+<area shape="rect" id="node7" href="$classgame__state.html#a49133a15b923ea430467b23ce9b02b40" title=" " alt="" coords="775,287,971,313"/>
+<area shape="rect" id="node8" href="$class_main_game_panel.html#a0de8b63f33894ecae06186ec809968e2" title="Function that is bound to the tiles of the opponent&#39;s view grid." alt="" coords="263,325,490,352"/>
+<area shape="rect" id="node14" href="$class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title=" " alt="" coords="297,376,456,403"/>
+<area shape="rect" id="node15" href="$class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title=" " alt="" coords="297,427,456,453"/>
+<area shape="rect" id="node9" href="$class_game_controller.html#a8e910b739b81989267a48436e887c14f" title="Sends a shot request to the server." alt="" coords="541,376,727,403"/>
+<area shape="rect" id="node13" href="$classgame__state.html#aebd13bfa31bce986484b7ed7733a7986" title=" " alt="" coords="543,325,725,352"/>
+<area shape="rect" id="node10" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="821,363,925,389"/>
+<area shape="rect" id="node11" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="787,414,959,455"/>
+<area shape="rect" id="node12" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="1019,421,1217,448"/>
+</map>

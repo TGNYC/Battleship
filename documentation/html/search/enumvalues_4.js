@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['playagain_445',['PlayAgain',['../_client_request_8h.html#ae10b07f2d0feb103db7fe4cfd192e5afa4051077f07265546a8caf71dca1a4d3b',1,'ClientRequest.h']]],
-  ['playing_446',['Playing',['../classgame__state.html#a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428',1,'game_state']]]
+  ['gameevent_582',['GameEvent',['../_server_response_8h.html#af5055605e320b3f9ea9fa330b57604e7a5d3e6239c0ae2ab7b203eeb2192ad035',1,'ServerResponse.h']]],
+  ['gameover_583',['GameOver',['../class_audio_player.html#a4bf4a4acfeed7454917eff2943532011a0e175ee845206e13bde08eea54ae2771',1,'AudioPlayer']]]
 ];

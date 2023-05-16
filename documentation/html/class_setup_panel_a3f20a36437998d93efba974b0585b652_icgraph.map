@@ -1,0 +1,6 @@
+<map id="SetupPanel::getReadyText" name="SetupPanel::getReadyText">
+<area shape="rect" id="node1" title=" " alt="" coords="743,13,933,39"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="480,13,695,39"/>
+<area shape="rect" id="node3" href="$class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="228,5,432,47"/>
+<area shape="rect" id="node4" href="$class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="5,13,180,39"/>
+</map>

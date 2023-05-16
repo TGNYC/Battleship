@@ -63,6 +63,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_view_grid-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -80,30 +81,49 @@ Inheritance diagram for ViewGrid:</div>
 <area shape="rect" title=" " alt="" coords="8,5,84,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for ViewGrid:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_view_grid__coll__graph.png" border="0" usemap="#a_view_grid_coll__map" alt="Collaboration graph"/></div>
-<map name="a_view_grid_coll__map" id="a_view_grid_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,87,107"/>
-<area shape="rect" title=" " alt="" coords="8,5,84,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac29cb12bff7493060e9968c5de516bd3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">gridtype</a> { <a class="el" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6">own</a>
+, <a class="el" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31">opp</a>
+ }</td></tr>
+<tr class="separator:ac29cb12bff7493060e9968c5de516bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9c966a2459527ff23e8e38a8e72b36f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#a9c966a2459527ff23e8e38a8e72b36f4">ViewGrid</a> (wxWindow *parent, wxPoint pos)</td></tr>
-<tr class="separator:a9c966a2459527ff23e8e38a8e72b36f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae41ab474cba2d95e3251bc10c9ac1a99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#ae41ab474cba2d95e3251bc10c9ac1a99">ViewGrid</a> (wxWindow *parent, wxPoint pos, <a class="el" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">gridtype</a> type)</td></tr>
+<tr class="separator:ae41ab474cba2d95e3251bc10c9ac1a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87ffca0c3604a89a2f16683e479f4797"><td class="memItemLeft" align="right" valign="top">wxPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#a87ffca0c3604a89a2f16683e479f4797">GetPosition</a> () const</td></tr>
+<tr class="separator:a87ffca0c3604a89a2f16683e479f4797"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba998a75f23b3da1f14f4ff3cec77fa3"><td class="memItemLeft" align="right" valign="top">wxStaticBitmap **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#aba998a75f23b3da1f14f4ff3cec77fa3">getGrid</a> () const</td></tr>
 <tr class="separator:aba998a75f23b3da1f14f4ff3cec77fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9140a563b8f5ccab7c3622c3c002c684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#a9140a563b8f5ccab7c3622c3c002c684">showShips</a> (std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; ships)</td></tr>
-<tr class="separator:a9140a563b8f5ccab7c3622c3c002c684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab0479a263466ec0c3af348b87050f77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#aab0479a263466ec0c3af348b87050f77">showShots</a> (int shots[10][10])</td></tr>
-<tr class="separator:aab0479a263466ec0c3af348b87050f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a430feba553ffa25ee9e9f5f7048d78e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2">showShips</a> (const std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; &amp;ships)</td></tr>
+<tr class="separator:a430feba553ffa25ee9e9f5f7048d78e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31781b19eeb822bf529c9adf60c0045b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b">showShots</a> (const int shots[10][10])</td></tr>
+<tr class="separator:a31781b19eeb822bf529c9adf60c0045b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ac29cb12bff7493060e9968c5de516bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29cb12bff7493060e9968c5de516bd3">&#9670;&nbsp;</a></span>gridtype</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">ViewGrid::gridtype</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6"></a>own&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31"></a>opp&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9c966a2459527ff23e8e38a8e72b36f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c966a2459527ff23e8e38a8e72b36f4">&#9670;&nbsp;</a></span>ViewGrid()</h2>
+<a id="ae41ab474cba2d95e3251bc10c9ac1a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae41ab474cba2d95e3251bc10c9ac1a99">&#9670;&nbsp;</a></span>ViewGrid()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -118,7 +138,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">wxPoint&#160;</td>
-          <td class="paramname"><em>pos</em>&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">ViewGrid::gridtype</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -156,8 +182,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9140a563b8f5ccab7c3622c3c002c684"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9140a563b8f5ccab7c3622c3c002c684">&#9670;&nbsp;</a></span>showShips()</h2>
+<a id="a87ffca0c3604a89a2f16683e479f4797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87ffca0c3604a89a2f16683e479f4797">&#9670;&nbsp;</a></span>GetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">wxPoint ViewGrid::GetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a430feba553ffa25ee9e9f5f7048d78e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a430feba553ffa25ee9e9f5f7048d78e2">&#9670;&nbsp;</a></span>showShips()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +216,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void ViewGrid::showShips </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>ships</em></td><td>)</td>
           <td></td>
         </tr>
@@ -174,18 +225,20 @@ Public Member Functions</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_view_grid_a9140a563b8f5ccab7c3622c3c002c684_icgraph.png" border="0" usemap="#aclass_view_grid_a9140a563b8f5ccab7c3622c3c002c684_icgraph" alt=""/></div>
-<map name="aclass_view_grid_a9140a563b8f5ccab7c3622c3c002c684_icgraph" id="aclass_view_grid_a9140a563b8f5ccab7c3622c3c002c684_icgraph">
-<area shape="rect" title=" " alt="" coords="551,13,709,39"/>
-<area shape="rect" href="class_main_game_panel.html#ae54966f1a077b623da6a105641eb0ffc" title=" " alt="" coords="296,5,503,47"/>
-<area shape="rect" href="class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3" title=" " alt="" coords="5,13,248,39"/>
+<div class="center"><img src="class_view_grid_a430feba553ffa25ee9e9f5f7048d78e2_icgraph.png" border="0" usemap="#aclass_view_grid_a430feba553ffa25ee9e9f5f7048d78e2_icgraph" alt=""/></div>
+<map name="aclass_view_grid_a430feba553ffa25ee9e9f5f7048d78e2_icgraph" id="aclass_view_grid_a430feba553ffa25ee9e9f5f7048d78e2_icgraph">
+<area shape="rect" title=" " alt="" coords="755,42,913,69"/>
+<area shape="rect" href="class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f" title="Builds the game state." alt="" coords="500,35,707,76"/>
+<area shape="rect" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="243,71,445,98"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,35,188,76"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aab0479a263466ec0c3af348b87050f77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab0479a263466ec0c3af348b87050f77">&#9670;&nbsp;</a></span>showShots()</h2>
+<a id="a31781b19eeb822bf529c9adf60c0045b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31781b19eeb822bf529c9adf60c0045b">&#9670;&nbsp;</a></span>showShots()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,7 +246,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void ViewGrid::showShots </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>shots</em>[10][10]</td><td>)</td>
           <td></td>
         </tr>
@@ -202,19 +255,21 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_view_grid_aab0479a263466ec0c3af348b87050f77_icgraph.png" border="0" usemap="#aclass_view_grid_aab0479a263466ec0c3af348b87050f77_icgraph" alt=""/></div>
-<map name="aclass_view_grid_aab0479a263466ec0c3af348b87050f77_icgraph" id="aclass_view_grid_aab0479a263466ec0c3af348b87050f77_icgraph">
-<area shape="rect" title=" " alt="" coords="551,13,709,39"/>
-<area shape="rect" href="class_main_game_panel.html#ae54966f1a077b623da6a105641eb0ffc" title=" " alt="" coords="296,5,503,47"/>
-<area shape="rect" href="class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3" title=" " alt="" coords="5,13,248,39"/>
+<div class="center"><img src="class_view_grid_a31781b19eeb822bf529c9adf60c0045b_icgraph.png" border="0" usemap="#aclass_view_grid_a31781b19eeb822bf529c9adf60c0045b_icgraph" alt=""/></div>
+<map name="aclass_view_grid_a31781b19eeb822bf529c9adf60c0045b_icgraph" id="aclass_view_grid_a31781b19eeb822bf529c9adf60c0045b_icgraph">
+<area shape="rect" title=" " alt="" coords="755,42,913,69"/>
+<area shape="rect" href="class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f" title="Builds the game state." alt="" coords="500,35,707,76"/>
+<area shape="rect" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="243,71,445,98"/>
+<area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,35,188,76"/>
 </map>
 </div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/client/uiElements/<a class="el" href="_view_grid_8h_source.html">ViewGrid.h</a></li>
-<li>src/client/uiElements/<a class="el" href="_view_grid_8cpp.html">ViewGrid.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/client/uiElements/<a class="el" href="_view_grid_8h_source.html">ViewGrid.h</a></li>
+<li>/home/nico/Desktop/battleship/src/client/uiElements/<a class="el" href="_view_grid_8cpp.html">ViewGrid.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

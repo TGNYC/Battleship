@@ -1,0 +1,4 @@
+<map id="SetupPanel::OnKeyDown" name="SetupPanel::OnKeyDown">
+<area shape="rect" id="node1" title="Key Event handler for rotating ship. Rotates selected ship if &#39;R&#39; is pressed." alt="" coords="228,5,409,32"/>
+<area shape="rect" id="node2" href="$class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="5,5,180,32"/>
+</map>

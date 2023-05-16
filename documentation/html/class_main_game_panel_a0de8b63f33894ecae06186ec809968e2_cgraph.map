@@ -1,0 +1,9 @@
+<map id="MainGamePanel::onMouseClick" name="MainGamePanel::onMouseClick">
+<area shape="rect" id="node1" title="Function that is bound to the tiles of the opponent&#39;s view grid." alt="" coords="5,93,232,120"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a8e910b739b81989267a48436e887c14f" title="Sends a shot request to the server." alt="" coords="280,64,465,91"/>
+<area shape="rect" id="node6" href="$classgame__state.html#aebd13bfa31bce986484b7ed7733a7986" title=" " alt="" coords="282,119,463,145"/>
+<area shape="rect" id="node3" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="559,5,663,32"/>
+<area shape="rect" id="node4" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="525,57,697,98"/>
+<area shape="rect" id="node5" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="757,64,956,91"/>
+<area shape="rect" id="node7" href="$classgame__state.html#a49133a15b923ea430467b23ce9b02b40" title=" " alt="" coords="513,123,709,149"/>
+</map>

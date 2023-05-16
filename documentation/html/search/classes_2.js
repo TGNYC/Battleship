@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['game_5finstance_220',['game_instance',['../classgame__instance.html',1,'']]],
-  ['game_5fstate_221',['game_state',['../classgame__state.html',1,'']]],
-  ['gamecontroller_222',['GameController',['../class_game_controller.html',1,'']]],
-  ['gameevent_223',['GameEvent',['../class_game_event.html',1,'']]],
-  ['gamewindow_224',['GameWindow',['../class_game_window.html',1,'']]]
+  ['callshot_285',['CallShot',['../class_call_shot.html',1,'']]],
+  ['clientnetworkmanager_286',['ClientNetworkManager',['../class_client_network_manager.html',1,'']]],
+  ['clientrequest_287',['ClientRequest',['../class_client_request.html',1,'']]],
+  ['connectionpanel_288',['ConnectionPanel',['../class_connection_panel.html',1,'']]],
+  ['coordinate_289',['Coordinate',['../struct_coordinate.html',1,'']]]
 ];

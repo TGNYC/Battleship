@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/common/game_state/PlayerGrid.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/common/game_state/PlayerGrid.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,26 +77,28 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="uuid_8h.html">uuid.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_player_grid.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_player_grid.html">PlayerGrid</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// members of grid public so game_state can easily modify them.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// const getter for grid also allows UI to access members without having to call 4 different getters</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="class_player_grid.html#a766274083ee323fbc8452ff08fed7df5">PlayerGrid</a>(<a class="code" href="classuuid.html">uuid</a> playerId, std::vector&lt;Ship&gt; shipsPlacement);</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_player_grid.html#a8044d601a5d9b09050c14a2acc81b4b0">   14</a></span>&#160;  <a class="code" href="classuuid.html">uuid</a>              <a class="code" href="class_player_grid.html#a8044d601a5d9b09050c14a2acc81b4b0">playerId</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_player_grid.html#a210431d46229d85a1bb15810c7097af1">   15</a></span>&#160;  std::vector&lt;Ship&gt; <a class="code" href="class_player_grid.html#a210431d46229d85a1bb15810c7097af1">shipsPlaced</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">   16</a></span>&#160;  <span class="keywordtype">int</span>               <a class="code" href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">shotsReceived</a>[10][10];  <span class="comment">// 0: tile not shot | 1: miss | 2: hit</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">   17</a></span>&#160;  <span class="keywordtype">int</span>               <a class="code" href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">shotsFired</a>[10][10];     <span class="comment">// 0: tile not shot | 1: miss | 2: hit</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_PLAYERGRID_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_player_grid.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_player_grid.html">PlayerGrid</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// members of grid public so game_state can easily modify them.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// const getter for grid also allows UI to access members without having to call 4 different getters</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_player_grid.html#a766274083ee323fbc8452ff08fed7df5">PlayerGrid</a>(<a class="code" href="classuuid.html">uuid</a> <a class="code" href="class_player_grid.html#ac907399aa056c936c10c9d7a38d252c1">playerId</a>, std::vector&lt;Ship&gt; shipsPlacement);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_player_grid.html#ac907399aa056c936c10c9d7a38d252c1">   19</a></span>&#160;  <a class="code" href="classuuid.html">uuid</a>              <a class="code" href="class_player_grid.html#ac907399aa056c936c10c9d7a38d252c1">playerId</a>; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_player_grid.html#a585e5c7dbe69b8f5bc04ed502e82dc69">   20</a></span>&#160;  std::vector&lt;Ship&gt; <a class="code" href="class_player_grid.html#a585e5c7dbe69b8f5bc04ed502e82dc69">shipsPlaced</a>;  </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">   21</a></span>&#160;  <span class="keywordtype">int</span>               <a class="code" href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">shotsReceived</a>[10][10] = {0}; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">   22</a></span>&#160;  <span class="keywordtype">int</span>               <a class="code" href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">shotsFired</a>[10][10] = {0}; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_PLAYERGRID_H</span></div>
 <div class="ttc" id="a_ship_8h_html"><div class="ttname"><a href="_ship_8h.html">Ship.h</a></div></div>
-<div class="ttc" id="aclass_player_grid_html"><div class="ttname"><a href="class_player_grid.html">PlayerGrid</a></div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:8</div></div>
-<div class="ttc" id="aclass_player_grid_html_a210431d46229d85a1bb15810c7097af1"><div class="ttname"><a href="class_player_grid.html#a210431d46229d85a1bb15810c7097af1">PlayerGrid::shipsPlaced</a></div><div class="ttdeci">std::vector&lt; Ship &gt; shipsPlaced</div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:15</div></div>
+<div class="ttc" id="aclass_player_grid_html"><div class="ttname"><a href="class_player_grid.html">PlayerGrid</a></div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:12</div></div>
+<div class="ttc" id="aclass_player_grid_html_a585e5c7dbe69b8f5bc04ed502e82dc69"><div class="ttname"><a href="class_player_grid.html#a585e5c7dbe69b8f5bc04ed502e82dc69">PlayerGrid::shipsPlaced</a></div><div class="ttdeci">std::vector&lt; Ship &gt; shipsPlaced</div><div class="ttdoc">vector of all ships placed on this grid</div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:20</div></div>
 <div class="ttc" id="aclass_player_grid_html_a766274083ee323fbc8452ff08fed7df5"><div class="ttname"><a href="class_player_grid.html#a766274083ee323fbc8452ff08fed7df5">PlayerGrid::PlayerGrid</a></div><div class="ttdeci">PlayerGrid(uuid playerId, std::vector&lt; Ship &gt; shipsPlacement)</div><div class="ttdef"><b>Definition:</b> PlayerGrid.cpp:8</div></div>
-<div class="ttc" id="aclass_player_grid_html_a8044d601a5d9b09050c14a2acc81b4b0"><div class="ttname"><a href="class_player_grid.html#a8044d601a5d9b09050c14a2acc81b4b0">PlayerGrid::playerId</a></div><div class="ttdeci">uuid playerId</div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:14</div></div>
-<div class="ttc" id="aclass_player_grid_html_ad0ca474b64436cedfeed24f3367117eb"><div class="ttname"><a href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">PlayerGrid::shotsFired</a></div><div class="ttdeci">int shotsFired[10][10]</div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:17</div></div>
-<div class="ttc" id="aclass_player_grid_html_aea7addee9fdeda8d65598819c8c5991e"><div class="ttname"><a href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">PlayerGrid::shotsReceived</a></div><div class="ttdeci">int shotsReceived[10][10]</div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:16</div></div>
+<div class="ttc" id="aclass_player_grid_html_ac907399aa056c936c10c9d7a38d252c1"><div class="ttname"><a href="class_player_grid.html#ac907399aa056c936c10c9d7a38d252c1">PlayerGrid::playerId</a></div><div class="ttdeci">uuid playerId</div><div class="ttdoc">id of owner of this grid</div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:19</div></div>
+<div class="ttc" id="aclass_player_grid_html_ad0ca474b64436cedfeed24f3367117eb"><div class="ttname"><a href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">PlayerGrid::shotsFired</a></div><div class="ttdeci">int shotsFired[10][10]</div><div class="ttdoc">shots fired by this player. 0 = tile not shot | 1 = miss | 2 = hit</div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:22</div></div>
+<div class="ttc" id="aclass_player_grid_html_aea7addee9fdeda8d65598819c8c5991e"><div class="ttname"><a href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">PlayerGrid::shotsReceived</a></div><div class="ttdeci">int shotsReceived[10][10]</div><div class="ttdoc">shots received by this grid. 0 = tile not shot | 1 = miss | 2 = hit</div><div class="ttdef"><b>Definition:</b> PlayerGrid.h:21</div></div>
 <div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
 <div class="ttc" id="auuid_8h_html"><div class="ttname"><a href="uuid_8h.html">uuid.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

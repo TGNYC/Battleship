@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joingame_444',['JoinGame',['../_client_request_8h.html#ae10b07f2d0feb103db7fe4cfd192e5afa18a6c2f10d6ea5bf747a280849e36456',1,'ClientRequest.h']]]
+  ['finished_581',['Finished',['../classgame__state.html#a7a01e4763572f91634786020f54fae26a8f3d10eb21bd36347c258679eba9e92b',1,'game_state']]]
 ];

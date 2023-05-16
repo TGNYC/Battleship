@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/client/SetupManager.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/client/SetupManager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,19 +84,23 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_setup_manager.html#a85e28d309bf54d88180c9111a90167f3">   12</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="class_ship.html">Ship</a>* <a class="code" href="class_setup_manager.html#a85e28d309bf54d88180c9111a90167f3">_selectedShip</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8">placeShip</a>(wxPoint &amp;position, <a class="code" href="class_ship.html">Ship</a> *ship);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> _grid[10][10];</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span>* <a class="code" href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30">getGrid</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083">placedAllShips</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> *_grid;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SETUPMANAGER_H</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SETUPMANAGER_H</span></div>
 <div class="ttc" id="aclass_setup_manager_html"><div class="ttname"><a href="class_setup_manager.html">SetupManager</a></div><div class="ttdef"><b>Definition:</b> SetupManager.h:8</div></div>
-<div class="ttc" id="aclass_setup_manager_html_a5bd00c5838cd7400391aebff10bf18b8"><div class="ttname"><a href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8">SetupManager::placeShip</a></div><div class="ttdeci">static bool placeShip(wxPoint &amp;position, Ship *ship)</div><div class="ttdef"><b>Definition:</b> SetupManager.cpp:16</div></div>
+<div class="ttc" id="aclass_setup_manager_html_a5bd00c5838cd7400391aebff10bf18b8"><div class="ttname"><a href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8">SetupManager::placeShip</a></div><div class="ttdeci">static bool placeShip(wxPoint &amp;position, Ship *ship)</div><div class="ttdoc">function places ship on grid and updates ship position</div><div class="ttdef"><b>Definition:</b> SetupManager.cpp:37</div></div>
 <div class="ttc" id="aclass_setup_manager_html_a7a10e597cb06521a305aaf5c41db4e2a"><div class="ttname"><a href="class_setup_manager.html#a7a10e597cb06521a305aaf5c41db4e2a">SetupManager::_ships_placed</a></div><div class="ttdeci">static std::vector&lt; Ship &gt; _ships_placed</div><div class="ttdef"><b>Definition:</b> SetupManager.h:11</div></div>
 <div class="ttc" id="aclass_setup_manager_html_a85e28d309bf54d88180c9111a90167f3"><div class="ttname"><a href="class_setup_manager.html#a85e28d309bf54d88180c9111a90167f3">SetupManager::_selectedShip</a></div><div class="ttdeci">static Ship * _selectedShip</div><div class="ttdef"><b>Definition:</b> SetupManager.h:12</div></div>
-<div class="ttc" id="aclass_setup_manager_html_af4f1553c6b916ee7b0efabb6bb683058"><div class="ttname"><a href="class_setup_manager.html#af4f1553c6b916ee7b0efabb6bb683058">SetupManager::SetupManager</a></div><div class="ttdeci">SetupManager()</div><div class="ttdef"><b>Definition:</b> SetupManager.cpp:6</div></div>
+<div class="ttc" id="aclass_setup_manager_html_ac4d9c14419aa377be6ddc2ee07f48b30"><div class="ttname"><a href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30">SetupManager::getGrid</a></div><div class="ttdeci">static int * getGrid()</div><div class="ttdoc">getter for _grid</div><div class="ttdef"><b>Definition:</b> SetupManager.cpp:107</div></div>
+<div class="ttc" id="aclass_setup_manager_html_af4f1553c6b916ee7b0efabb6bb683058"><div class="ttname"><a href="class_setup_manager.html#af4f1553c6b916ee7b0efabb6bb683058">SetupManager::SetupManager</a></div><div class="ttdeci">SetupManager()</div><div class="ttdoc">constructor for SetupManager. Initializes ships and grid.</div><div class="ttdef"><b>Definition:</b> SetupManager.cpp:11</div></div>
+<div class="ttc" id="aclass_setup_manager_html_afae76f256a7ca05b2c58b0b3f46e5083"><div class="ttname"><a href="class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083">SetupManager::placedAllShips</a></div><div class="ttdeci">static bool placedAllShips()</div><div class="ttdoc">checks if all ships have been placed (= no longer at initial position)</div><div class="ttdef"><b>Definition:</b> SetupManager.cpp:116</div></div>
 <div class="ttc" id="aclass_ship_html"><div class="ttname"><a href="class_ship.html">Ship</a></div><div class="ttdef"><b>Definition:</b> Ship.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

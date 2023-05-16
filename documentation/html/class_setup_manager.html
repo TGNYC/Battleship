@@ -73,25 +73,24 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_setup_manager_8h_source.html">SetupManager.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for SetupManager:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_setup_manager__coll__graph.png" border="0" usemap="#a_setup_manager_coll__map" alt="Collaboration graph"/></div>
-<map name="a_setup_manager_coll__map" id="a_setup_manager_coll__map">
-<area shape="rect" title=" " alt="" coords="5,95,121,121"/>
-<area shape="rect" href="class_ship.html" title=" " alt="" coords="38,5,89,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af4f1553c6b916ee7b0efabb6bb683058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_setup_manager.html#af4f1553c6b916ee7b0efabb6bb683058">SetupManager</a> ()</td></tr>
+<tr class="memdesc:af4f1553c6b916ee7b0efabb6bb683058"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for <a class="el" href="class_setup_manager.html">SetupManager</a>. Initializes ships and grid.  <a href="class_setup_manager.html#af4f1553c6b916ee7b0efabb6bb683058">More...</a><br /></td></tr>
 <tr class="separator:af4f1553c6b916ee7b0efabb6bb683058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5bd00c5838cd7400391aebff10bf18b8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8">placeShip</a> (wxPoint &amp;position, <a class="el" href="class_ship.html">Ship</a> *ship)</td></tr>
+<tr class="memdesc:a5bd00c5838cd7400391aebff10bf18b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">function places ship on grid and updates ship position  <a href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8">More...</a><br /></td></tr>
 <tr class="separator:a5bd00c5838cd7400391aebff10bf18b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d9c14419aa377be6ddc2ee07f48b30"><td class="memItemLeft" align="right" valign="top">static int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30">getGrid</a> ()</td></tr>
+<tr class="memdesc:ac4d9c14419aa377be6ddc2ee07f48b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for _grid  <a href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30">More...</a><br /></td></tr>
+<tr class="separator:ac4d9c14419aa377be6ddc2ee07f48b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae76f256a7ca05b2c58b0b3f46e5083"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083">placedAllShips</a> ()</td></tr>
+<tr class="memdesc:afae76f256a7ca05b2c58b0b3f46e5083"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if all ships have been placed (= no longer at initial position)  <a href="class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083">More...</a><br /></td></tr>
+<tr class="separator:afae76f256a7ca05b2c58b0b3f46e5083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -115,12 +114,14 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>constructor for <a class="el" href="class_setup_manager.html">SetupManager</a>. Initializes ships and grid. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_setup_manager_af4f1553c6b916ee7b0efabb6bb683058_cgraph.png" border="0" usemap="#aclass_setup_manager_af4f1553c6b916ee7b0efabb6bb683058_cgraph" alt=""/></div>
 <map name="aclass_setup_manager_af4f1553c6b916ee7b0efabb6bb683058_cgraph" id="aclass_setup_manager_af4f1553c6b916ee7b0efabb6bb683058_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,224,32"/>
+<area shape="rect" title="constructor for SetupManager. Initializes ships and grid." alt="" coords="5,5,224,32"/>
 <area shape="rect" href="classuuid.html#a19c9ad8ada196326ebe7a58420c3a4fb" title=" " alt="" coords="272,5,472,32"/>
 </map>
 </div>
@@ -128,6 +129,88 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac4d9c14419aa377be6ddc2ee07f48b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d9c14419aa377be6ddc2ee07f48b30">&#9670;&nbsp;</a></span>getGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int * SetupManager::getGrid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getter for _grid </p>
+<dl class="section return"><dt>Returns</dt><dd>int pointer to _grid array </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_setup_manager_ac4d9c14419aa377be6ddc2ee07f48b30_icgraph.png" border="0" usemap="#aclass_setup_manager_ac4d9c14419aa377be6ddc2ee07f48b30_icgraph" alt=""/></div>
+<map name="aclass_setup_manager_ac4d9c14419aa377be6ddc2ee07f48b30_icgraph" id="aclass_setup_manager_ac4d9c14419aa377be6ddc2ee07f48b30_icgraph">
+<area shape="rect" title="getter for _grid" alt="" coords="1071,43,1243,69"/>
+<area shape="rect" href="class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="823,43,1023,69"/>
+<area shape="rect" href="class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be" title="function highlights tiles according to mouse position and placed ships" alt="" coords="574,35,757,77"/>
+<area shape="rect" href="class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="29,15,204,41"/>
+<area shape="rect" href="class_placement_grid.html#a1cef8e1ffd4e7bed11847b206d5acaef" title="function is called when mouse clicks on grid and places ship if possible" alt="" coords="556,119,775,145"/>
+<area shape="rect" href="class_setup_panel.html#a1f2c07616298122fbf3f3b98863341b6" title="Key Event handler for rotating ship. Rotates selected ship if &#39;R&#39; is pressed." alt="" coords="301,27,483,53"/>
+<area shape="rect" href="class_placement_grid.html#ac962edf068bf9c130e86ab7548d5f5de" title="function is called when mouse hovers over grid and highlights tiles according to mouse position and p..." alt="" coords="276,77,508,104"/>
+<area shape="rect" href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507" title="constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events" alt="" coords="5,91,228,117"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afae76f256a7ca05b2c58b0b3f46e5083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae76f256a7ca05b2c58b0b3f46e5083">&#9670;&nbsp;</a></span>placedAllShips()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SetupManager::placedAllShips </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>checks if all ships have been placed (= no longer at initial position) </p>
+<dl class="section return"><dt>Returns</dt><dd>true if all ships have been placed, false otherwise </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_setup_manager_afae76f256a7ca05b2c58b0b3f46e5083_icgraph.png" border="0" usemap="#aclass_setup_manager_afae76f256a7ca05b2c58b0b3f46e5083_icgraph" alt=""/></div>
+<map name="aclass_setup_manager_afae76f256a7ca05b2c58b0b3f46e5083_icgraph" id="aclass_setup_manager_afae76f256a7ca05b2c58b0b3f46e5083_icgraph">
+<area shape="rect" title="checks if all ships have been placed (= no longer at initial position)" alt="" coords="743,13,961,39"/>
+<area shape="rect" href="class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="480,13,695,39"/>
+<area shape="rect" href="class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="228,5,432,47"/>
+<area shape="rect" href="class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="5,13,180,39"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a5bd00c5838cd7400391aebff10bf18b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5bd00c5838cd7400391aebff10bf18b8">&#9670;&nbsp;</a></span>placeShip()</h2>
 
@@ -161,17 +244,37 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>function places ship on grid and updates ship position </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>of left-most or top-most cell of ship (depending on orientation) </td></tr>
+    <tr><td class="paramname">ship</td><td>pointer to ship that should be placed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if ship was placed successfully and false if ship couldn't be placed </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_cgraph.png" border="0" usemap="#aclass_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_cgraph" alt=""/></div>
 <map name="aclass_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_cgraph" id="aclass_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_cgraph">
-<area shape="rect" title=" " alt="" coords="5,107,192,133"/>
-<area shape="rect" href="class_placement_grid.html#a02128e5ccc3d96e4183243e775f8e31a" title=" " alt="" coords="262,5,437,32"/>
-<area shape="rect" href="class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="288,56,411,83"/>
-<area shape="rect" href="class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="273,107,425,133"/>
-<area shape="rect" href="class_setup_panel.html#a72d58b5ea56a5260bc9e0ed6198136c3" title=" " alt="" coords="240,157,459,184"/>
-<area shape="rect" href="class_game_controller.html#a5ea6d7c2b11e338a3389dd3689fde9fb" title=" " alt="" coords="254,209,445,250"/>
+<area shape="rect" title="function places ship on grid and updates ship position" alt="" coords="5,107,192,133"/>
+<area shape="rect" href="class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="292,5,383,32"/>
+<area shape="rect" href="class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="276,56,399,83"/>
+<area shape="rect" href="class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="261,107,413,133"/>
+<area shape="rect" href="class_game_controller.html#a5ea6d7c2b11e338a3389dd3689fde9fb" title=" " alt="" coords="242,158,433,199"/>
+<area shape="rect" href="class_setup_panel.html#af74edcf19b0a67d7e0d74ba1c638a261" title="helper function used in SetupManager::placeShip() to disable ship button after it has been placed" alt="" coords="240,224,435,251"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_icgraph.png" border="0" usemap="#aclass_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_icgraph" alt=""/></div>
+<map name="aclass_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_icgraph" id="aclass_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_icgraph">
+<area shape="rect" title="function places ship on grid and updates ship position" alt="" coords="543,5,729,32"/>
+<area shape="rect" href="class_placement_grid.html#a1cef8e1ffd4e7bed11847b206d5acaef" title="function is called when mouse clicks on grid and places ship if possible" alt="" coords="276,5,495,32"/>
+<area shape="rect" href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507" title="constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events" alt="" coords="5,5,228,32"/>
 </map>
 </div>
 
@@ -223,9 +326,9 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/client/<a class="el" href="_setup_manager_8h_source.html">SetupManager.h</a></li>
-<li>src/client/panels/<a class="el" href="_setup_panel_8cpp.html">SetupPanel.cpp</a></li>
-<li>src/client/<a class="el" href="_setup_manager_8cpp.html">SetupManager.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/client/<a class="el" href="_setup_manager_8h_source.html">SetupManager.h</a></li>
+<li>/home/nico/Desktop/battleship/src/client/panels/<a class="el" href="_setup_panel_8cpp.html">SetupPanel.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/client/<a class="el" href="_setup_manager_8cpp.html">SetupManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

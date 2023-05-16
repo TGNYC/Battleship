@@ -1,4 +1,6 @@
 <map id="ConnectionPanel::getUserName" name="ConnectionPanel::getUserName">
-<area shape="rect" id="node1" title=" " alt="" coords="252,13,480,39"/>
-<area shape="rect" id="node2" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node1" title="Getter for the username." alt="" coords="765,13,993,39"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="519,5,717,47"/>
+<area shape="rect" id="node3" href="$class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,5,471,47"/>
+<area shape="rect" id="node4" href="$class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="5,5,216,47"/>
 </map>

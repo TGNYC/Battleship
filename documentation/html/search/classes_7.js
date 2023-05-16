@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['placementgrid_232',['PlacementGrid',['../class_placement_grid.html',1,'']]],
-  ['playagain_233',['PlayAgain',['../class_play_again.html',1,'']]],
-  ['player_234',['Player',['../class_player.html',1,'']]],
-  ['player_5fmanager_235',['player_manager',['../classplayer__manager.html',1,'']]],
-  ['playergrid_236',['PlayerGrid',['../class_player_grid.html',1,'']]]
+  ['joingame_302',['JoinGame',['../class_join_game.html',1,'']]],
+  ['joingamesuccess_303',['JoinGameSuccess',['../class_join_game_success.html',1,'']]]
 ];

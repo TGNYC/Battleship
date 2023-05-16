@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['m_5fplayerid_432',['m_playerId',['../class_player_grid.html#a8044d601a5d9b09050c14a2acc81b4b0',1,'PlayerGrid']]],
-  ['m_5fshipsplaced_433',['m_shipsPlaced',['../class_player_grid.html#a210431d46229d85a1bb15810c7097af1',1,'PlayerGrid']]]
+  ['cellx_5fprev_548',['cellX_prev',['../class_placement_grid.html#a1f0dc149d96cfefd401641eeaca12cbf',1,'PlacementGrid']]],
+  ['celly_5fprev_549',['cellY_prev',['../class_placement_grid.html#ac772905def446573ccfce2736c18344c',1,'PlacementGrid']]]
 ];

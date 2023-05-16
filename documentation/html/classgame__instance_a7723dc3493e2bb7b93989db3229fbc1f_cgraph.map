@@ -1,0 +1,18 @@
+<map id="game_instance::executeShot" name="game_instance::executeShot">
+<area shape="rect" id="node1" title=" " alt="" coords="5,233,215,260"/>
+<area shape="rect" id="node2" href="$classserver__network__manager.html#ad97a90b9a05fb80ea1734e1071272e7d" title=" " alt="" coords="266,41,454,82"/>
+<area shape="rect" id="node3" href="$classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f" title=" " alt="" coords="273,107,447,133"/>
+<area shape="rect" id="node8" href="$classgame__state.html#a9e45edeee6fefc23431c41a734c82730" title=" " alt="" coords="269,259,451,285"/>
+<area shape="rect" id="node9" href="$class_client_request.html#a02e0b6a5b97e6b67ed1ece52bcbc05c5" title=" " alt="" coords="263,309,457,336"/>
+<area shape="rect" id="node10" href="$class_call_shot.html#ab1ed446f7f5fa1e39c09d3d9cfb8ca91" title=" " alt="" coords="281,360,439,387"/>
+<area shape="rect" id="node11" href="$classgame__state.html#a70ae55358ec06783e8afd724e6afe37d" title=" " alt="" coords="521,157,695,184"/>
+<area shape="rect" id="node12" href="$classgame__state.html#a9610b5ba928ad54837161d115b6985f1" title=" " alt="" coords="267,208,453,235"/>
+<area shape="rect" id="node15" href="$classgame__state.html#aebd13bfa31bce986484b7ed7733a7986" title=" " alt="" coords="269,411,451,437"/>
+<area shape="rect" id="node4" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="556,5,660,32"/>
+<area shape="rect" id="node5" href="$classgame__state.html#a2b084b0c09621047047c8bfb968568e9" title=" " alt="" coords="505,56,711,83"/>
+<area shape="rect" id="node7" href="$class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="759,309,887,336"/>
+<area shape="rect" id="node6" href="$class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="775,157,870,184"/>
+<area shape="rect" id="node13" href="$class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="571,360,645,387"/>
+<area shape="rect" id="node14" href="$classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="553,259,663,285"/>
+<area shape="rect" id="node16" href="$classgame__state.html#a49133a15b923ea430467b23ce9b02b40" title=" " alt="" coords="510,411,706,437"/>
+</map>

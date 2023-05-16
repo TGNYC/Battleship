@@ -1,3 +1,12 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_coordinate.html" title=" " alt="" coords="5,5,99,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,208,81,235"/>
+<area shape="rect" id="node2" href="$class_connection_panel.html" title=" " alt="" coords="129,5,260,32"/>
+<area shape="rect" id="node3" href="$class_emote_panel.html" title=" " alt="" coords="145,56,244,83"/>
+<area shape="rect" id="node4" href="$class_image_panel.html" title=" " alt="" coords="145,107,244,133"/>
+<area shape="rect" id="node5" href="$class_input_field.html" title=" " alt="" coords="151,157,238,184"/>
+<area shape="rect" id="node6" href="$class_main_game_panel.html" title=" " alt="" coords="131,208,259,235"/>
+<area shape="rect" id="node7" href="$class_placement_grid.html" title=" " alt="" coords="135,259,254,285"/>
+<area shape="rect" id="node8" href="$class_setup_panel.html" title=" " alt="" coords="147,309,242,336"/>
+<area shape="rect" id="node9" href="$class_ship_panel.html" title=" " alt="" coords="152,360,237,387"/>
+<area shape="rect" id="node10" href="$class_view_grid.html" title=" " alt="" coords="154,411,235,437"/>
 </map>

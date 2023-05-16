@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/server/player_manager.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/server/player_manager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,12 +77,12 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef BATTLESHIP_PLAYER_MANAGER_H</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define BATTLESHIP_PLAYER_MANAGER_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;shared_mutex&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">game_state/Player.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">game_state/Player.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;shared_mutex&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// TODO remove player manager since it seems obsolete</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classplayer__manager.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classplayer__manager.html">player_manager</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
@@ -100,8 +100,8 @@ $(function() {
 <div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.h:11</div></div>
 <div class="ttc" id="aclassplayer__manager_html"><div class="ttname"><a href="classplayer__manager.html">player_manager</a></div><div class="ttdef"><b>Definition:</b> player_manager.h:14</div></div>
 <div class="ttc" id="aclassplayer__manager_html_a0b7227627acb0ad775d9bcb7db11b8a6"><div class="ttname"><a href="classplayer__manager.html#a0b7227627acb0ad775d9bcb7db11b8a6">player_manager::try_get_player</a></div><div class="ttdeci">static bool try_get_player(uuid player_id, Player *&amp;player_ptr)</div><div class="ttdef"><b>Definition:</b> player_manager.cpp:10</div></div>
-<div class="ttc" id="aclassplayer__manager_html_a84dfb03196aa7af48ee455bed11ebce5"><div class="ttname"><a href="classplayer__manager.html#a84dfb03196aa7af48ee455bed11ebce5">player_manager::add_or_get_player</a></div><div class="ttdeci">static bool add_or_get_player(std::string name, uuid player_id, Player *&amp;player_ptr)</div><div class="ttdef"><b>Definition:</b> player_manager.cpp:21</div></div>
-<div class="ttc" id="aclassplayer__manager_html_ae38577aa955998a2346a40a4b850635b"><div class="ttname"><a href="classplayer__manager.html#ae38577aa955998a2346a40a4b850635b">player_manager::remove_player</a></div><div class="ttdeci">static bool remove_player(uuid player_id, Player *&amp;player)</div><div class="ttdef"><b>Definition:</b> player_manager.cpp:32</div></div>
+<div class="ttc" id="aclassplayer__manager_html_a84dfb03196aa7af48ee455bed11ebce5"><div class="ttname"><a href="classplayer__manager.html#a84dfb03196aa7af48ee455bed11ebce5">player_manager::add_or_get_player</a></div><div class="ttdeci">static bool add_or_get_player(std::string name, uuid player_id, Player *&amp;player_ptr)</div><div class="ttdef"><b>Definition:</b> player_manager.cpp:32</div></div>
+<div class="ttc" id="aclassplayer__manager_html_ae38577aa955998a2346a40a4b850635b"><div class="ttname"><a href="classplayer__manager.html#ae38577aa955998a2346a40a4b850635b">player_manager::remove_player</a></div><div class="ttdeci">static bool remove_player(uuid player_id, Player *&amp;player)</div><div class="ttdef"><b>Definition:</b> player_manager.cpp:43</div></div>
 <div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

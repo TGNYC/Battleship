@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/client/EmoteHandler.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/client/EmoteHandler.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,7 +73,26 @@ $(function() {
 <a href="_emote_handler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef EMOTEHANDLER_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define EMOTEHANDLER_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// EMOTEHANDLER_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_emote_event_8h.html">network/responses/EmoteEvent.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_emote_handler.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_emote_handler.html">EmoteHandler</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">static</span> std::string <a class="code" href="class_emote_handler.html#aec95c74226877a18b944f1ca7e1d8f3c">getImage</a>(<a class="code" href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a> emote);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">static</span> std::string <a class="code" href="class_emote_handler.html#a904515f611d0e49dcd4ac67f1fddf860">getSound</a>(<a class="code" href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a> emote);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> std::map&lt;EmoteType, std::string&gt; images; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> std::map&lt;EmoteType, std::string&gt; sounds; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// EMOTEHANDLER_H</span></div>
+<div class="ttc" id="a_emote_event_8h_html"><div class="ttname"><a href="_emote_event_8h.html">EmoteEvent.h</a></div></div>
+<div class="ttc" id="a_emote_event_8h_html_a2e3a48cf37b9e80a34755a3632ac9c95"><div class="ttname"><a href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a></div><div class="ttdeci">EmoteType</div><div class="ttdef"><b>Definition:</b> EmoteEvent.h:8</div></div>
+<div class="ttc" id="aclass_emote_handler_html"><div class="ttname"><a href="class_emote_handler.html">EmoteHandler</a></div><div class="ttdef"><b>Definition:</b> EmoteHandler.h:8</div></div>
+<div class="ttc" id="aclass_emote_handler_html_a904515f611d0e49dcd4ac67f1fddf860"><div class="ttname"><a href="class_emote_handler.html#a904515f611d0e49dcd4ac67f1fddf860">EmoteHandler::getSound</a></div><div class="ttdeci">static std::string getSound(EmoteType emote)</div><div class="ttdef"><b>Definition:</b> EmoteHandler.cpp:19</div></div>
+<div class="ttc" id="aclass_emote_handler_html_aec95c74226877a18b944f1ca7e1d8f3c"><div class="ttname"><a href="class_emote_handler.html#aec95c74226877a18b944f1ca7e1d8f3c">EmoteHandler::getImage</a></div><div class="ttdeci">static std::string getImage(EmoteType emote)</div><div class="ttdef"><b>Definition:</b> EmoteHandler.cpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

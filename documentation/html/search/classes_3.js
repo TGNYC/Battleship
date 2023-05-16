@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['hash_3c_20uuid_20_3e_225',['hash&lt; uuid &gt;',['../structstd_1_1hash_3_01uuid_01_4.html',1,'std']]]
+  ['emoteevent_290',['EmoteEvent',['../class_emote_event.html',1,'']]],
+  ['emotehandler_291',['EmoteHandler',['../class_emote_handler.html',1,'']]],
+  ['emotepanel_292',['EmotePanel',['../class_emote_panel.html',1,'']]],
+  ['errorresponse_293',['ErrorResponse',['../class_error_response.html',1,'']]]
 ];

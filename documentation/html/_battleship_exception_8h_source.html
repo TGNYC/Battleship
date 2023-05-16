@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/common/exceptions/BattleshipException.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/common/exceptions/BattleshipException.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,18 +82,19 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_battleship_exception.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_battleship_exception.html">BattleshipException</a> : <span class="keyword">public</span> std::exception {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  std::string _msg;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_battleship_exception.html#a38835bd46d2f82417d7f6e4ab31ad70d">   14</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_battleship_exception.html#a38835bd46d2f82417d7f6e4ab31ad70d">BattleshipException</a>(<span class="keyword">const</span> std::string&amp; message) : _msg(message) { };</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_battleship_exception.html#a8f89c8d18d1b15105eae28d97fb83c9a">   16</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_battleship_exception.html#a8f89c8d18d1b15105eae28d97fb83c9a">what</a>() const noexcept<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> _msg.c_str();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//LAMA_LAMAEXCEPTION_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_battleship_exception.html#a38835bd46d2f82417d7f6e4ab31ad70d">   15</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_battleship_exception.html#a38835bd46d2f82417d7f6e4ab31ad70d">BattleshipException</a>(<span class="keyword">const</span> std::string &amp;message) : _msg(message) {}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_battleship_exception.html#a8f89c8d18d1b15105eae28d97fb83c9a">   17</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_battleship_exception.html#a8f89c8d18d1b15105eae28d97fb83c9a">what</a>() const noexcept<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> _msg.c_str();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LAMA_LAMAEXCEPTION_H</span></div>
 <div class="ttc" id="aclass_battleship_exception_html"><div class="ttname"><a href="class_battleship_exception.html">BattleshipException</a></div><div class="ttdef"><b>Definition:</b> BattleshipException.h:10</div></div>
-<div class="ttc" id="aclass_battleship_exception_html_a38835bd46d2f82417d7f6e4ab31ad70d"><div class="ttname"><a href="class_battleship_exception.html#a38835bd46d2f82417d7f6e4ab31ad70d">BattleshipException::BattleshipException</a></div><div class="ttdeci">BattleshipException(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> BattleshipException.h:14</div></div>
-<div class="ttc" id="aclass_battleship_exception_html_a8f89c8d18d1b15105eae28d97fb83c9a"><div class="ttname"><a href="class_battleship_exception.html#a8f89c8d18d1b15105eae28d97fb83c9a">BattleshipException::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdef"><b>Definition:</b> BattleshipException.h:16</div></div>
+<div class="ttc" id="aclass_battleship_exception_html_a38835bd46d2f82417d7f6e4ab31ad70d"><div class="ttname"><a href="class_battleship_exception.html#a38835bd46d2f82417d7f6e4ab31ad70d">BattleshipException::BattleshipException</a></div><div class="ttdeci">BattleshipException(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> BattleshipException.h:15</div></div>
+<div class="ttc" id="aclass_battleship_exception_html_a8f89c8d18d1b15105eae28d97fb83c9a"><div class="ttname"><a href="class_battleship_exception.html#a8f89c8d18d1b15105eae28d97fb83c9a">BattleshipException::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdef"><b>Definition:</b> BattleshipException.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

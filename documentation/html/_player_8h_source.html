@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/common/game_state/Player.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/common/game_state/Player.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,16 +84,21 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="class_player.html#a9bdb3b6b1c440a24658f500f874b7b86">Player</a>(<a class="code" href="classuuid.html">uuid</a> playerId, std::string player_name);</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">auto</span> <a class="code" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478">getId</a>() <span class="keyword">const</span> -&gt; <a class="code" href="classuuid.html">uuid</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  std::string m_name;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="classuuid.html">uuid</a>        m_id;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_PLAYER_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">auto</span> <a class="code" href="class_player.html#a8750e6a68f0829cd242b57a0309712fe">getName</a>() <span class="keyword">const</span> -&gt; std::string;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_player.html#aaaab48fc8b8176c9a288dcbdffefa114">   17</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="class_player.html#aaaab48fc8b8176c9a288dcbdffefa114">operator&lt;=&gt;</a>(<span class="keyword">const</span> <a class="code" href="class_player.html">Player</a> &amp;) <span class="keyword">const</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="classuuid.html">uuid</a>        m_id;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  std::string m_name;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_PLAYER_H</span></div>
 <div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.h:11</div></div>
-<div class="ttc" id="aclass_player_html_a9bdb3b6b1c440a24658f500f874b7b86"><div class="ttname"><a href="class_player.html#a9bdb3b6b1c440a24658f500f874b7b86">Player::Player</a></div><div class="ttdeci">Player(uuid playerId, std::string player_name)</div><div class="ttdef"><b>Definition:</b> Player.cpp:7</div></div>
-<div class="ttc" id="aclass_player_html_ad10627e48f6ddd30053152bb75c9f478"><div class="ttname"><a href="class_player.html#ad10627e48f6ddd30053152bb75c9f478">Player::getId</a></div><div class="ttdeci">auto getId() const -&gt; uuid</div><div class="ttdef"><b>Definition:</b> Player.cpp:9</div></div>
+<div class="ttc" id="aclass_player_html_a8750e6a68f0829cd242b57a0309712fe"><div class="ttname"><a href="class_player.html#a8750e6a68f0829cd242b57a0309712fe">Player::getName</a></div><div class="ttdeci">auto getName() const -&gt; std::string</div><div class="ttdef"><b>Definition:</b> Player.cpp:15</div></div>
+<div class="ttc" id="aclass_player_html_a9bdb3b6b1c440a24658f500f874b7b86"><div class="ttname"><a href="class_player.html#a9bdb3b6b1c440a24658f500f874b7b86">Player::Player</a></div><div class="ttdeci">Player(uuid playerId, std::string player_name)</div><div class="ttdef"><b>Definition:</b> Player.cpp:9</div></div>
+<div class="ttc" id="aclass_player_html_aaaab48fc8b8176c9a288dcbdffefa114"><div class="ttname"><a href="class_player.html#aaaab48fc8b8176c9a288dcbdffefa114">Player::operator&lt;=&gt;</a></div><div class="ttdeci">auto operator&lt;=&gt;(const Player &amp;) const =default</div></div>
+<div class="ttc" id="aclass_player_html_ad10627e48f6ddd30053152bb75c9f478"><div class="ttname"><a href="class_player.html#ad10627e48f6ddd30053152bb75c9f478">Player::getId</a></div><div class="ttdeci">auto getId() const -&gt; uuid</div><div class="ttdef"><b>Definition:</b> Player.cpp:11</div></div>
 <div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
 <div class="ttc" id="auuid_8h_html"><div class="ttname"><a href="uuid_8h.html">uuid.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

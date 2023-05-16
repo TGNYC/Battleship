@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: src/client/panels/MainGamePanel.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/client/panels/MainGamePanel.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -74,31 +74,52 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MAINGAMEPANEL_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;wx/wx.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../../common/game_state/game_state.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../common/game_state/Player.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../uiElements/ViewGrid.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_main_game_panel.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_game_panel.html">MainGamePanel</a> : <span class="keyword">public</span> wxPanel {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3">MainGamePanel</a>(wxWindow *parent);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_main_game_panel.html#ae54966f1a077b623da6a105641eb0ffc">buildGameState</a>(<a class="code" href="classgame__state.html">game_state</a>* gameState, <a class="code" href="class_player.html">Player</a>* me);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_main_game_panel.html#a09018cbbb652958a50f94e22885cefd9">buildEmoteList</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_main_game_panel.html#a8450193316ca4ee82de59cd3876b6328">buildTurnIndicator</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_view_grid.html">ViewGrid</a>* _ownViewGrid;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="class_view_grid.html">ViewGrid</a>* _opponentViewGrid;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MAINGAMEPANEL_H</span></div>
-<div class="ttc" id="aclass_main_game_panel_html"><div class="ttname"><a href="class_main_game_panel.html">MainGamePanel</a></div><div class="ttdef"><b>Definition:</b> MainGamePanel.h:9</div></div>
-<div class="ttc" id="aclass_main_game_panel_html_a09018cbbb652958a50f94e22885cefd9"><div class="ttname"><a href="class_main_game_panel.html#a09018cbbb652958a50f94e22885cefd9">MainGamePanel::buildEmoteList</a></div><div class="ttdeci">void buildEmoteList()</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:69</div></div>
-<div class="ttc" id="aclass_main_game_panel_html_a32f9a20804c9262f462f823825d5d5d3"><div class="ttname"><a href="class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3">MainGamePanel::MainGamePanel</a></div><div class="ttdeci">MainGamePanel(wxWindow *parent)</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:3</div></div>
-<div class="ttc" id="aclass_main_game_panel_html_a8450193316ca4ee82de59cd3876b6328"><div class="ttname"><a href="class_main_game_panel.html#a8450193316ca4ee82de59cd3876b6328">MainGamePanel::buildTurnIndicator</a></div><div class="ttdeci">void buildTurnIndicator()</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:72</div></div>
-<div class="ttc" id="aclass_main_game_panel_html_ae54966f1a077b623da6a105641eb0ffc"><div class="ttname"><a href="class_main_game_panel.html#ae54966f1a077b623da6a105641eb0ffc">MainGamePanel::buildGameState</a></div><div class="ttdeci">void buildGameState(game_state *gameState, Player *me)</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:23</div></div>
-<div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.h:11</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../common/game_state/game_state.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../../common/game_state/Player.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../common/network/responses/EmoteEvent.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../uiElements/ViewGrid.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../uiElements/ShipPanel.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../uiElements/EmotePanel.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//#include &quot;../AudioPlayer.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_main_game_panel.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_game_panel.html">MainGamePanel</a> : <span class="keyword">public</span> wxPanel {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3">MainGamePanel</a>(wxWindow *parent);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f">buildGameState</a>(<a class="code" href="classgame__state.html">game_state</a>* gameState, <a class="code" href="classuuid.html">uuid</a> ownId);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_main_game_panel.html#a09018cbbb652958a50f94e22885cefd9">buildEmoteList</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_main_game_panel.html#a5301c840919c65bec3a6161d44610e6c">displayEmote</a>(<a class="code" href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a> emote);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_main_game_panel.html#a0bb767c5a632325fbddbc17e30be899c">buildTurnIndicator</a>(std::string playerName, wxBoxSizer *header);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_main_game_panel.html#a0de8b63f33894ecae06186ec809968e2">onMouseClick</a>(wxMouseEvent&amp; event);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  wxBoxSizer* _mainWindow;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  wxBoxSizer* _emoteWindow;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="classgame__state.html">game_state</a>* _gameState;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="classuuid.html">uuid</a> _ownId;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="classuuid.html">uuid</a> _currentPlayer;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="class_view_grid.html">ViewGrid</a>* _ownViewGrid;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="class_view_grid.html">ViewGrid</a>* _oppViewGrid;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="class_ship_panel.html">ShipPanel</a>* _ownShipPanel;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="class_ship_panel.html">ShipPanel</a>* _oppShipPanel;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="class_emote_panel.html">EmotePanel</a>* _emotePanel;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::chrono::system_clock::time_point _lastShot; <span class="comment">// std::chrono::_V2::system_clock::time_point _lastShot;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MAINGAMEPANEL_H</span></div>
+<div class="ttc" id="a_emote_event_8h_html_a2e3a48cf37b9e80a34755a3632ac9c95"><div class="ttname"><a href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a></div><div class="ttdeci">EmoteType</div><div class="ttdef"><b>Definition:</b> EmoteEvent.h:8</div></div>
+<div class="ttc" id="aclass_emote_panel_html"><div class="ttname"><a href="class_emote_panel.html">EmotePanel</a></div><div class="ttdef"><b>Definition:</b> EmotePanel.h:8</div></div>
+<div class="ttc" id="aclass_main_game_panel_html"><div class="ttname"><a href="class_main_game_panel.html">MainGamePanel</a></div><div class="ttdef"><b>Definition:</b> MainGamePanel.h:14</div></div>
+<div class="ttc" id="aclass_main_game_panel_html_a09018cbbb652958a50f94e22885cefd9"><div class="ttname"><a href="class_main_game_panel.html#a09018cbbb652958a50f94e22885cefd9">MainGamePanel::buildEmoteList</a></div><div class="ttdeci">void buildEmoteList()</div><div class="ttdoc">Displays the emote panel. Not implemented yet.</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:82</div></div>
+<div class="ttc" id="aclass_main_game_panel_html_a0bb767c5a632325fbddbc17e30be899c"><div class="ttname"><a href="class_main_game_panel.html#a0bb767c5a632325fbddbc17e30be899c">MainGamePanel::buildTurnIndicator</a></div><div class="ttdeci">void buildTurnIndicator(std::string playerName, wxBoxSizer *header)</div><div class="ttdoc">Displays the turn indicator: It's ((playerName))'s turn.</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:109</div></div>
+<div class="ttc" id="aclass_main_game_panel_html_a0de8b63f33894ecae06186ec809968e2"><div class="ttname"><a href="class_main_game_panel.html#a0de8b63f33894ecae06186ec809968e2">MainGamePanel::onMouseClick</a></div><div class="ttdeci">void onMouseClick(wxMouseEvent &amp;event)</div><div class="ttdoc">Function that is bound to the tiles of the opponent's view grid.</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:115</div></div>
+<div class="ttc" id="aclass_main_game_panel_html_a2353deffb362d0c65edc8d386a94b56f"><div class="ttname"><a href="class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f">MainGamePanel::buildGameState</a></div><div class="ttdeci">void buildGameState(game_state *gameState, uuid ownId)</div><div class="ttdoc">Builds the game state.</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:9</div></div>
+<div class="ttc" id="aclass_main_game_panel_html_a32f9a20804c9262f462f823825d5d5d3"><div class="ttname"><a href="class_main_game_panel.html#a32f9a20804c9262f462f823825d5d5d3">MainGamePanel::MainGamePanel</a></div><div class="ttdeci">MainGamePanel(wxWindow *parent)</div><div class="ttdoc">Constructor for the main game panel. Doesn't display anything, only the background color.</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:5</div></div>
+<div class="ttc" id="aclass_main_game_panel_html_a5301c840919c65bec3a6161d44610e6c"><div class="ttname"><a href="class_main_game_panel.html#a5301c840919c65bec3a6161d44610e6c">MainGamePanel::displayEmote</a></div><div class="ttdeci">void displayEmote(EmoteType emote)</div><div class="ttdoc">Displays the emote sent by the other player.</div><div class="ttdef"><b>Definition:</b> MainGamePanel.cpp:105</div></div>
+<div class="ttc" id="aclass_ship_panel_html"><div class="ttname"><a href="class_ship_panel.html">ShipPanel</a></div><div class="ttdef"><b>Definition:</b> ShipPanel.h:8</div></div>
 <div class="ttc" id="aclass_view_grid_html"><div class="ttname"><a href="class_view_grid.html">ViewGrid</a></div><div class="ttdef"><b>Definition:</b> ViewGrid.h:7</div></div>
-<div class="ttc" id="aclassgame__state_html"><div class="ttname"><a href="classgame__state.html">game_state</a></div><div class="ttdef"><b>Definition:</b> game_state.h:10</div></div>
+<div class="ttc" id="aclassgame__state_html"><div class="ttname"><a href="classgame__state.html">game_state</a></div><div class="ttdef"><b>Definition:</b> game_state.h:40</div></div>
+<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

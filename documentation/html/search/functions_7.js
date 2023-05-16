@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['imagepanel_370',['ImagePanel',['../class_image_panel.html#a0b2ab55c6f87b1a457999ae86618367f',1,'ImagePanel']]],
-  ['init_371',['init',['../class_game_controller.html#a8889bad76bc35487d3391fb8a5791616',1,'GameController']]],
-  ['inputfield_372',['InputField',['../class_input_field.html#a6526ccb5dc4fac986e4a372881668964',1,'InputField']]],
-  ['is_5ffinished_373',['is_finished',['../classgame__instance.html#a5a080dfced3d2d1c697e36160b996a9c',1,'game_instance']]],
-  ['is_5ffull_374',['is_full',['../classgame__instance.html#a77d1f40b8727c74f278efe9168f26831',1,'game_instance']]],
-  ['is_5fstarted_375',['is_started',['../classgame__instance.html#a2c8a8be71f8c3016075cc08768ebbb64',1,'game_instance']]]
+  ['handle_5frequest_470',['handle_request',['../classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471',1,'request_handler']]],
+  ['handlegameevent_471',['handleGameEvent',['../class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95',1,'GameController']]],
+  ['hassunken_472',['hasSunken',['../class_ship.html#af5167f6f099a86505eed17323f048eec',1,'Ship']]],
+  ['highlighttiles_473',['highlightTiles',['../class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be',1,'PlacementGrid']]],
+  ['hit_474',['hit',['../class_ship.html#a864b8344f70c440e555fad2cd17f4852',1,'Ship']]]
 ];

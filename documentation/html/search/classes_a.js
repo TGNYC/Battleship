@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['send_5femote_5frequest_240',['send_emote_request',['../classsend__emote__request.html',1,'']]],
-  ['sendemote_241',['SendEmote',['../class_send_emote.html',1,'']]],
-  ['server_5fnetwork_5fmanager_242',['server_network_manager',['../classserver__network__manager.html',1,'']]],
-  ['server_5fresponse_243',['server_response',['../classserver__response.html',1,'']]],
-  ['setupmanager_244',['SetupManager',['../class_setup_manager.html',1,'']]],
-  ['setuppanel_245',['SetupPanel',['../class_setup_panel.html',1,'']]],
-  ['ship_246',['Ship',['../class_ship.html',1,'']]],
-  ['startgame_247',['StartGame',['../class_start_game.html',1,'']]],
-  ['state_5fgame_5frequest_248',['state_game_request',['../classstate__game__request.html',1,'']]]
+  ['placementgrid_306',['PlacementGrid',['../class_placement_grid.html',1,'']]],
+  ['playagain_307',['PlayAgain',['../class_play_again.html',1,'']]],
+  ['player_308',['Player',['../class_player.html',1,'']]],
+  ['player_5fmanager_309',['player_manager',['../classplayer__manager.html',1,'']]],
+  ['playergrid_310',['PlayerGrid',['../class_player_grid.html',1,'']]]
 ];

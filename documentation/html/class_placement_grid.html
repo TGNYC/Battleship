@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_placement_grid-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlacementGrid Class Reference</div>  </div>
@@ -80,24 +81,34 @@ Inheritance diagram for PlacementGrid:</div>
 <area shape="rect" title=" " alt="" coords="27,5,103,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for PlacementGrid:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_placement_grid__coll__graph.png" border="0" usemap="#a_placement_grid_coll__map" alt="Collaboration graph"/></div>
-<map name="a_placement_grid_coll__map" id="a_placement_grid_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,124,107"/>
-<area shape="rect" title=" " alt="" coords="27,5,103,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a47e094ae9f065ea84606ce176f874507"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507">PlacementGrid</a> (wxWindow *parent)</td></tr>
+<tr class="memdesc:a47e094ae9f065ea84606ce176f874507"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for <a class="el" href="class_placement_grid.html">PlacementGrid</a>. Creates grid of 10x10 tiles and binds mouse events  <a href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507">More...</a><br /></td></tr>
 <tr class="separator:a47e094ae9f065ea84606ce176f874507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac962edf068bf9c130e86ab7548d5f5de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#ac962edf068bf9c130e86ab7548d5f5de">OnMouseMotion</a> (wxMouseEvent &amp;event)</td></tr>
+<tr class="memdesc:ac962edf068bf9c130e86ab7548d5f5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">function is called when mouse hovers over grid and highlights tiles according to mouse position and placed ships  <a href="class_placement_grid.html#ac962edf068bf9c130e86ab7548d5f5de">More...</a><br /></td></tr>
 <tr class="separator:ac962edf068bf9c130e86ab7548d5f5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02128e5ccc3d96e4183243e775f8e31a"><td class="memItemLeft" align="right" valign="top">wxStaticBitmap **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#a02128e5ccc3d96e4183243e775f8e31a">getGrid</a> () const</td></tr>
-<tr class="separator:a02128e5ccc3d96e4183243e775f8e31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cef8e1ffd4e7bed11847b206d5acaef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#a1cef8e1ffd4e7bed11847b206d5acaef">OnMouseClick</a> (wxMouseEvent &amp;event)</td></tr>
+<tr class="memdesc:a1cef8e1ffd4e7bed11847b206d5acaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">function is called when mouse clicks on grid and places ship if possible  <a href="class_placement_grid.html#a1cef8e1ffd4e7bed11847b206d5acaef">More...</a><br /></td></tr>
+<tr class="separator:a1cef8e1ffd4e7bed11847b206d5acaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88ee163d0e80f60029f6a729bdc3d56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56">displayGrid</a> ()</td></tr>
+<tr class="memdesc:ac88ee163d0e80f60029f6a729bdc3d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">function displays grid according to data in <a class="el" href="class_setup_manager.html">SetupManager</a>  <a href="class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56">More...</a><br /></td></tr>
+<tr class="separator:ac88ee163d0e80f60029f6a729bdc3d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1cd712361c3fd8cca7f8329599f9be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be">highlightTiles</a> (int CellX, int CellY)</td></tr>
+<tr class="memdesc:a8c1cd712361c3fd8cca7f8329599f9be"><td class="mdescLeft">&#160;</td><td class="mdescRight">function highlights tiles according to mouse position and placed ships  <a href="class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be">More...</a><br /></td></tr>
+<tr class="separator:a8c1cd712361c3fd8cca7f8329599f9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a854f9fc8b8a5a27c6bbd6b61bfe275e0"><td class="memItemLeft" align="right" valign="top">wxStaticBitmap **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#a854f9fc8b8a5a27c6bbd6b61bfe275e0">getGrid</a> () const</td></tr>
+<tr class="memdesc:a854f9fc8b8a5a27c6bbd6b61bfe275e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for grid  <a href="class_placement_grid.html#a854f9fc8b8a5a27c6bbd6b61bfe275e0">More...</a><br /></td></tr>
+<tr class="separator:a854f9fc8b8a5a27c6bbd6b61bfe275e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a1f0dc149d96cfefd401641eeaca12cbf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#a1f0dc149d96cfefd401641eeaca12cbf">cellX_prev</a> = -1</td></tr>
+<tr class="separator:a1f0dc149d96cfefd401641eeaca12cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac772905def446573ccfce2736c18344c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_placement_grid.html#ac772905def446573ccfce2736c18344c">cellY_prev</a> = -1</td></tr>
+<tr class="separator:ac772905def446573ccfce2736c18344c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a47e094ae9f065ea84606ce176f874507"></a>
@@ -115,50 +126,206 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>constructor for <a class="el" href="class_placement_grid.html">PlacementGrid</a>. Creates grid of 10x10 tiles and binds mouse events </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_placement_grid_a47e094ae9f065ea84606ce176f874507_cgraph.png" border="0" usemap="#aclass_placement_grid_a47e094ae9f065ea84606ce176f874507_cgraph" alt=""/></div>
 <map name="aclass_placement_grid_a47e094ae9f065ea84606ce176f874507_cgraph" id="aclass_placement_grid_a47e094ae9f065ea84606ce176f874507_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,228,57"/>
-<area shape="rect" href="class_placement_grid.html#ac962edf068bf9c130e86ab7548d5f5de" title=" " alt="" coords="276,31,508,57"/>
-<area shape="rect" href="class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="571,5,693,32"/>
-<area shape="rect" href="class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="556,56,708,83"/>
+<area shape="rect" title="constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events" alt="" coords="5,191,228,217"/>
+<area shape="rect" href="class_placement_grid.html#a1cef8e1ffd4e7bed11847b206d5acaef" title="function is called when mouse clicks on grid and places ship if possible" alt="" coords="283,165,501,192"/>
+<area shape="rect" href="class_placement_grid.html#ac962edf068bf9c130e86ab7548d5f5de" title="function is called when mouse hovers over grid and highlights tiles according to mouse position and p..." alt="" coords="276,216,508,243"/>
+<area shape="rect" href="class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="791,275,991,301"/>
+<area shape="rect" href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8" title="function places ship on grid and updates ship position" alt="" coords="556,136,743,163"/>
+<area shape="rect" href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="1039,275,1211,301"/>
+<area shape="rect" href="class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="845,56,936,83"/>
+<area shape="rect" href="class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="829,173,952,200"/>
+<area shape="rect" href="class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="815,224,967,251"/>
+<area shape="rect" href="class_game_controller.html#a5ea6d7c2b11e338a3389dd3689fde9fb" title=" " alt="" coords="795,107,986,149"/>
+<area shape="rect" href="class_setup_panel.html#af74edcf19b0a67d7e0d74ba1c638a261" title="helper function used in SetupManager::placeShip() to disable ship button after it has been placed" alt="" coords="793,5,988,32"/>
+<area shape="rect" href="class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be" title="function highlights tiles according to mouse position and placed ships" alt="" coords="558,209,741,250"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a02128e5ccc3d96e4183243e775f8e31a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02128e5ccc3d96e4183243e775f8e31a">&#9670;&nbsp;</a></span>getGrid()</h2>
+<a id="ac88ee163d0e80f60029f6a729bdc3d56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88ee163d0e80f60029f6a729bdc3d56">&#9670;&nbsp;</a></span>displayGrid()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">wxStaticBitmap** PlacementGrid::getGrid </td>
+          <td class="memname">void PlacementGrid::displayGrid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function displays grid according to data in <a class="el" href="class_setup_manager.html">SetupManager</a> </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_placement_grid_ac88ee163d0e80f60029f6a729bdc3d56_cgraph.png" border="0" usemap="#aclass_placement_grid_ac88ee163d0e80f60029f6a729bdc3d56_cgraph" alt=""/></div>
+<map name="aclass_placement_grid_ac88ee163d0e80f60029f6a729bdc3d56_cgraph" id="aclass_placement_grid_ac88ee163d0e80f60029f6a729bdc3d56_cgraph">
+<area shape="rect" title="function displays grid according to data in SetupManager" alt="" coords="5,5,205,32"/>
+<area shape="rect" href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="253,5,425,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_placement_grid_ac88ee163d0e80f60029f6a729bdc3d56_icgraph.png" border="0" usemap="#aclass_placement_grid_ac88ee163d0e80f60029f6a729bdc3d56_icgraph" alt=""/></div>
+<map name="aclass_placement_grid_ac88ee163d0e80f60029f6a729bdc3d56_icgraph" id="aclass_placement_grid_ac88ee163d0e80f60029f6a729bdc3d56_icgraph">
+<area shape="rect" title="function displays grid according to data in SetupManager" alt="" coords="823,43,1023,69"/>
+<area shape="rect" href="class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be" title="function highlights tiles according to mouse position and placed ships" alt="" coords="574,35,757,77"/>
+<area shape="rect" href="class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="29,15,204,41"/>
+<area shape="rect" href="class_placement_grid.html#a1cef8e1ffd4e7bed11847b206d5acaef" title="function is called when mouse clicks on grid and places ship if possible" alt="" coords="556,119,775,145"/>
+<area shape="rect" href="class_setup_panel.html#a1f2c07616298122fbf3f3b98863341b6" title="Key Event handler for rotating ship. Rotates selected ship if &#39;R&#39; is pressed." alt="" coords="301,27,483,53"/>
+<area shape="rect" href="class_placement_grid.html#ac962edf068bf9c130e86ab7548d5f5de" title="function is called when mouse hovers over grid and highlights tiles according to mouse position and p..." alt="" coords="276,77,508,104"/>
+<area shape="rect" href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507" title="constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events" alt="" coords="5,91,228,117"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a854f9fc8b8a5a27c6bbd6b61bfe275e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a854f9fc8b8a5a27c6bbd6b61bfe275e0">&#9670;&nbsp;</a></span>getGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wxStaticBitmap ** PlacementGrid::getGrid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>getter for grid </p>
+<dl class="section return"><dt>Returns</dt><dd>pointer to grid (static bitmap array) </dd></dl>
+
+</div>
+</div>
+<a id="a8c1cd712361c3fd8cca7f8329599f9be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c1cd712361c3fd8cca7f8329599f9be">&#9670;&nbsp;</a></span>highlightTiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlacementGrid::highlightTiles </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>CellX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>CellY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function highlights tiles according to mouse position and placed ships </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">CellX</td><td>x coordinate of mouse position </td></tr>
+    <tr><td class="paramname">CellY</td><td>y coordinate of mouse position </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_placement_grid_a8c1cd712361c3fd8cca7f8329599f9be_cgraph.png" border="0" usemap="#aclass_placement_grid_a8c1cd712361c3fd8cca7f8329599f9be_cgraph" alt=""/></div>
+<map name="aclass_placement_grid_a8c1cd712361c3fd8cca7f8329599f9be_cgraph" id="aclass_placement_grid_a8c1cd712361c3fd8cca7f8329599f9be_cgraph">
+<area shape="rect" title="function highlights tiles according to mouse position and placed ships" alt="" coords="5,49,188,90"/>
+<area shape="rect" href="class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="236,5,436,32"/>
+<area shape="rect" href="class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="275,56,397,83"/>
+<area shape="rect" href="class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="260,107,412,133"/>
+<area shape="rect" href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="484,5,656,32"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_placement_grid_a02128e5ccc3d96e4183243e775f8e31a_icgraph.png" border="0" usemap="#aclass_placement_grid_a02128e5ccc3d96e4183243e775f8e31a_icgraph" alt=""/></div>
-<map name="aclass_placement_grid_a02128e5ccc3d96e4183243e775f8e31a_icgraph" id="aclass_placement_grid_a02128e5ccc3d96e4183243e775f8e31a_icgraph">
-<area shape="rect" title=" " alt="" coords="240,5,415,32"/>
-<area shape="rect" href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8" title=" " alt="" coords="5,5,192,32"/>
+<div class="center"><img src="class_placement_grid_a8c1cd712361c3fd8cca7f8329599f9be_icgraph.png" border="0" usemap="#aclass_placement_grid_a8c1cd712361c3fd8cca7f8329599f9be_icgraph" alt=""/></div>
+<map name="aclass_placement_grid_a8c1cd712361c3fd8cca7f8329599f9be_icgraph" id="aclass_placement_grid_a8c1cd712361c3fd8cca7f8329599f9be_icgraph">
+<area shape="rect" title="function highlights tiles according to mouse position and placed ships" alt="" coords="556,23,739,65"/>
+<area shape="rect" href="class_setup_panel.html#a1f2c07616298122fbf3f3b98863341b6" title="Key Event handler for rotating ship. Rotates selected ship if &#39;R&#39; is pressed." alt="" coords="301,5,483,32"/>
+<area shape="rect" href="class_placement_grid.html#ac962edf068bf9c130e86ab7548d5f5de" title="function is called when mouse hovers over grid and highlights tiles according to mouse position and p..." alt="" coords="276,56,508,83"/>
+<area shape="rect" href="class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="29,5,204,32"/>
+<area shape="rect" href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507" title="constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events" alt="" coords="5,56,228,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1cef8e1ffd4e7bed11847b206d5acaef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cef8e1ffd4e7bed11847b206d5acaef">&#9670;&nbsp;</a></span>OnMouseClick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlacementGrid::OnMouseClick </td>
+          <td>(</td>
+          <td class="paramtype">wxMouseEvent &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function is called when mouse clicks on grid and places ship if possible </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_placement_grid_a1cef8e1ffd4e7bed11847b206d5acaef_cgraph.png" border="0" usemap="#aclass_placement_grid_a1cef8e1ffd4e7bed11847b206d5acaef_cgraph" alt=""/></div>
+<map name="aclass_placement_grid_a1cef8e1ffd4e7bed11847b206d5acaef_cgraph" id="aclass_placement_grid_a1cef8e1ffd4e7bed11847b206d5acaef_cgraph">
+<area shape="rect" title="function is called when mouse clicks on grid and places ship if possible" alt="" coords="5,107,224,133"/>
+<area shape="rect" href="class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="272,44,472,71"/>
+<area shape="rect" href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8" title="function places ship on grid and updates ship position" alt="" coords="279,132,465,159"/>
+<area shape="rect" href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="531,5,703,32"/>
+<area shape="rect" href="class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="572,56,663,83"/>
+<area shape="rect" href="class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="556,107,679,133"/>
+<area shape="rect" href="class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="541,157,693,184"/>
+<area shape="rect" href="class_game_controller.html#a5ea6d7c2b11e338a3389dd3689fde9fb" title=" " alt="" coords="522,209,713,250"/>
+<area shape="rect" href="class_setup_panel.html#af74edcf19b0a67d7e0d74ba1c638a261" title="helper function used in SetupManager::placeShip() to disable ship button after it has been placed" alt="" coords="520,275,715,301"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_placement_grid_a1cef8e1ffd4e7bed11847b206d5acaef_icgraph.png" border="0" usemap="#aclass_placement_grid_a1cef8e1ffd4e7bed11847b206d5acaef_icgraph" alt=""/></div>
+<map name="aclass_placement_grid_a1cef8e1ffd4e7bed11847b206d5acaef_icgraph" id="aclass_placement_grid_a1cef8e1ffd4e7bed11847b206d5acaef_icgraph">
+<area shape="rect" title="function is called when mouse clicks on grid and places ship if possible" alt="" coords="276,5,495,32"/>
+<area shape="rect" href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507" title="constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events" alt="" coords="5,5,228,32"/>
 </map>
 </div>
 
@@ -179,14 +346,25 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>function is called when mouse hovers over grid and highlights tiles according to mouse position and placed ships </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>mouse event </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_placement_grid_ac962edf068bf9c130e86ab7548d5f5de_cgraph.png" border="0" usemap="#aclass_placement_grid_ac962edf068bf9c130e86ab7548d5f5de_cgraph" alt=""/></div>
 <map name="aclass_placement_grid_ac962edf068bf9c130e86ab7548d5f5de_cgraph" id="aclass_placement_grid_ac962edf068bf9c130e86ab7548d5f5de_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,237,57"/>
-<area shape="rect" href="class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="300,5,423,32"/>
-<area shape="rect" href="class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="285,56,437,83"/>
+<area shape="rect" title="function is called when mouse hovers over grid and highlights tiles according to mouse position and p..." alt="" coords="5,56,237,83"/>
+<area shape="rect" href="class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be" title="function highlights tiles according to mouse position and placed ships" alt="" coords="285,49,468,90"/>
+<area shape="rect" href="class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="516,5,716,32"/>
+<area shape="rect" href="class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="555,56,677,83"/>
+<area shape="rect" href="class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="540,107,692,133"/>
+<area shape="rect" href="class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="764,5,936,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -194,16 +372,45 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_placement_grid_ac962edf068bf9c130e86ab7548d5f5de_icgraph.png" border="0" usemap="#aclass_placement_grid_ac962edf068bf9c130e86ab7548d5f5de_icgraph" alt=""/></div>
 <map name="aclass_placement_grid_ac962edf068bf9c130e86ab7548d5f5de_icgraph" id="aclass_placement_grid_ac962edf068bf9c130e86ab7548d5f5de_icgraph">
-<area shape="rect" title=" " alt="" coords="276,5,508,32"/>
-<area shape="rect" href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507" title=" " alt="" coords="5,5,228,32"/>
+<area shape="rect" title="function is called when mouse hovers over grid and highlights tiles according to mouse position and p..." alt="" coords="276,5,508,32"/>
+<area shape="rect" href="class_placement_grid.html#a47e094ae9f065ea84606ce176f874507" title="constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events" alt="" coords="5,5,228,32"/>
 </map>
 </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1f0dc149d96cfefd401641eeaca12cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f0dc149d96cfefd401641eeaca12cbf">&#9670;&nbsp;</a></span>cellX_prev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PlacementGrid::cellX_prev = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac772905def446573ccfce2736c18344c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac772905def446573ccfce2736c18344c">&#9670;&nbsp;</a></span>cellY_prev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PlacementGrid::cellY_prev = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/client/uiElements/<a class="el" href="_placement_grid_8h_source.html">PlacementGrid.h</a></li>
-<li>src/client/uiElements/<a class="el" href="_placement_grid_8cpp.html">PlacementGrid.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/client/uiElements/<a class="el" href="_placement_grid_8h_source.html">PlacementGrid.h</a></li>
+<li>/home/nico/Desktop/battleship/src/client/uiElements/<a class="el" href="_placement_grid_8cpp.html">PlacementGrid.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

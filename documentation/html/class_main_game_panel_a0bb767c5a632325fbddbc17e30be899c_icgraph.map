@@ -1,0 +1,7 @@
+<map id="MainGamePanel::buildTurnIndicator" name="MainGamePanel::buildTurnIndicator">
+<area shape="rect" id="node1" title="Displays the turn indicator: It&#39;s ((playerName))&#39;s turn." alt="" coords="755,35,949,76"/>
+<area shape="rect" id="node2" href="$class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f" title="Builds the game state." alt="" coords="500,35,707,76"/>
+<area shape="rect" id="node3" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" id="node5" href="$class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="243,71,445,98"/>
+<area shape="rect" id="node4" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,35,188,76"/>
+</map>

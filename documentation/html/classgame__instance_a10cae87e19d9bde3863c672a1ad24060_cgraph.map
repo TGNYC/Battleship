@@ -1,0 +1,7 @@
+<map id="game_instance::joinGame" name="game_instance::joinGame">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,197,83"/>
+<area shape="rect" id="node2" href="$classgame__state.html#a5af2045269f2bf40a964f221f854b6f4" title=" " alt="" coords="257,5,429,32"/>
+<area shape="rect" id="node4" href="$class_client_request.html#a02e0b6a5b97e6b67ed1ece52bcbc05c5" title=" " alt="" coords="245,56,440,83"/>
+<area shape="rect" id="node5" href="$class_join_game.html#ab9c08eea7be8a33412e0a4e507ffe50e" title=" " alt="" coords="245,107,440,133"/>
+<area shape="rect" id="node3" href="$class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="488,5,583,32"/>
+</map>

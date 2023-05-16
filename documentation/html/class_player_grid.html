@@ -72,33 +72,30 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_player_grid_8h_source.html">PlayerGrid.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for PlayerGrid:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_player_grid__coll__graph.png" border="0" usemap="#a_player_grid_coll__map" alt="Collaboration graph"/></div>
-<map name="a_player_grid_coll__map" id="a_player_grid_coll__map">
-<area shape="rect" title=" " alt="" coords="5,95,96,121"/>
-<area shape="rect" href="classuuid.html" title=" " alt="" coords="25,5,76,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a766274083ee323fbc8452ff08fed7df5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#a766274083ee323fbc8452ff08fed7df5">PlayerGrid</a> (<a class="el" href="classuuid.html">uuid</a> playerId, std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; shipsPlacement)</td></tr>
+<tr class="memitem:a766274083ee323fbc8452ff08fed7df5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#a766274083ee323fbc8452ff08fed7df5">PlayerGrid</a> (<a class="el" href="classuuid.html">uuid</a> <a class="el" href="class_player_grid.html#ac907399aa056c936c10c9d7a38d252c1">playerId</a>, std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; shipsPlacement)</td></tr>
 <tr class="separator:a766274083ee323fbc8452ff08fed7df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a8044d601a5d9b09050c14a2acc81b4b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuuid.html">uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#a8044d601a5d9b09050c14a2acc81b4b0">playerId</a></td></tr>
-<tr class="separator:a8044d601a5d9b09050c14a2acc81b4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a210431d46229d85a1bb15810c7097af1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#a210431d46229d85a1bb15810c7097af1">shipsPlaced</a></td></tr>
-<tr class="separator:a210431d46229d85a1bb15810c7097af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea7addee9fdeda8d65598819c8c5991e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">shotsReceived</a> [10][10]</td></tr>
+<tr class="memitem:ac907399aa056c936c10c9d7a38d252c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuuid.html">uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#ac907399aa056c936c10c9d7a38d252c1">playerId</a></td></tr>
+<tr class="memdesc:ac907399aa056c936c10c9d7a38d252c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of owner of this grid  <a href="class_player_grid.html#ac907399aa056c936c10c9d7a38d252c1">More...</a><br /></td></tr>
+<tr class="separator:ac907399aa056c936c10c9d7a38d252c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a585e5c7dbe69b8f5bc04ed502e82dc69"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#a585e5c7dbe69b8f5bc04ed502e82dc69">shipsPlaced</a></td></tr>
+<tr class="memdesc:a585e5c7dbe69b8f5bc04ed502e82dc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of all ships placed on this grid  <a href="class_player_grid.html#a585e5c7dbe69b8f5bc04ed502e82dc69">More...</a><br /></td></tr>
+<tr class="separator:a585e5c7dbe69b8f5bc04ed502e82dc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea7addee9fdeda8d65598819c8c5991e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">shotsReceived</a> [10][10] = {0}</td></tr>
+<tr class="memdesc:aea7addee9fdeda8d65598819c8c5991e"><td class="mdescLeft">&#160;</td><td class="mdescRight">shots received by this grid. 0 = tile not shot | 1 = miss | 2 = hit  <a href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">More...</a><br /></td></tr>
 <tr class="separator:aea7addee9fdeda8d65598819c8c5991e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0ca474b64436cedfeed24f3367117eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">shotsFired</a> [10][10]</td></tr>
+<tr class="memitem:ad0ca474b64436cedfeed24f3367117eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">shotsFired</a> [10][10] = {0}</td></tr>
+<tr class="memdesc:ad0ca474b64436cedfeed24f3367117eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">shots fired by this player. 0 = tile not shot | 1 = miss | 2 = hit  <a href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">More...</a><br /></td></tr>
 <tr class="separator:ad0ca474b64436cedfeed24f3367117eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Data container to store ocean grid info. A grid always belongs to one player (the one who has his ships on this grid) </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a766274083ee323fbc8452ff08fed7df5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a766274083ee323fbc8452ff08fed7df5">&#9670;&nbsp;</a></span>PlayerGrid()</h2>
 
@@ -128,8 +125,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8044d601a5d9b09050c14a2acc81b4b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8044d601a5d9b09050c14a2acc81b4b0">&#9670;&nbsp;</a></span>playerId</h2>
+<a id="ac907399aa056c936c10c9d7a38d252c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac907399aa056c936c10c9d7a38d252c1">&#9670;&nbsp;</a></span>playerId</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,10 +137,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>id of owner of this grid </p>
+
 </div>
 </div>
-<a id="a210431d46229d85a1bb15810c7097af1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a210431d46229d85a1bb15810c7097af1">&#9670;&nbsp;</a></span>shipsPlaced</h2>
+<a id="a585e5c7dbe69b8f5bc04ed502e82dc69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a585e5c7dbe69b8f5bc04ed502e82dc69">&#9670;&nbsp;</a></span>shipsPlaced</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,6 +153,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>vector of all ships placed on this grid </p>
+
 </div>
 </div>
 <a id="ad0ca474b64436cedfeed24f3367117eb"></a>
@@ -163,10 +164,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int PlayerGrid::shotsFired[10][10]</td>
+          <td class="memname">int PlayerGrid::shotsFired[10][10] = {0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>shots fired by this player. 0 = tile not shot | 1 = miss | 2 = hit </p>
 
 </div>
 </div>
@@ -177,16 +180,18 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int PlayerGrid::shotsReceived[10][10]</td>
+          <td class="memname">int PlayerGrid::shotsReceived[10][10] = {0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>shots received by this grid. 0 = tile not shot | 1 = miss | 2 = hit </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/common/game_state/<a class="el" href="_player_grid_8h_source.html">PlayerGrid.h</a></li>
-<li>src/common/game_state/<a class="el" href="_player_grid_8cpp.html">PlayerGrid.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/common/game_state/<a class="el" href="_player_grid_8h_source.html">PlayerGrid.h</a></li>
+<li>/home/nico/Desktop/battleship/src/common/game_state/<a class="el" href="_player_grid_8cpp.html">PlayerGrid.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

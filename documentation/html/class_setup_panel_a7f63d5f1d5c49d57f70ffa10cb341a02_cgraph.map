@@ -1,5 +1,13 @@
 <map id="SetupPanel::OnReadyButtonClicked" name="SetupPanel::OnReadyButtonClicked">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,209,47"/>
-<area shape="rect" id="node2" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title=" " alt="" coords="257,13,472,39"/>
-<area shape="rect" id="node3" href="$class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="520,13,709,39"/>
+<area shape="rect" id="node1" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="5,175,209,217"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="257,183,472,209"/>
+<area shape="rect" id="node3" href="$classgame__state.html#a5af2045269f2bf40a964f221f854b6f4" title=" " alt="" coords="543,5,715,32"/>
+<area shape="rect" id="node5" href="$classgame__state.html#a8f2f09b693e4051196249542552cc7c4" title=" " alt="" coords="546,56,713,83"/>
+<area shape="rect" id="node6" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="577,107,681,133"/>
+<area shape="rect" id="node7" href="$class_setup_panel.html#ace6ea6c2941e2f1bf5df1fcc4f38d620" title="getter for the ready button (for GameController to disable after it has been clicked)" alt="" coords="526,157,733,184"/>
+<area shape="rect" id="node8" href="$class_setup_panel.html#a3f20a36437998d93efba974b0585b652" title=" " alt="" coords="534,208,725,235"/>
+<area shape="rect" id="node9" href="$class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083" title="checks if all ships have been placed (= no longer at initial position)" alt="" coords="520,259,739,285"/>
+<area shape="rect" id="node10" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="543,310,715,351"/>
+<area shape="rect" id="node11" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="787,347,985,373"/>
+<area shape="rect" id="node4" href="$class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="839,31,933,57"/>
 </map>

@@ -1,0 +1,7 @@
+<map id="game_state::registerShot" name="game_state::registerShot">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,192,83"/>
+<area shape="rect" id="node2" href="$class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="399,5,527,32"/>
+<area shape="rect" id="node3" href="$class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="258,31,333,57"/>
+<area shape="rect" id="node4" href="$class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="248,81,343,108"/>
+<area shape="rect" id="node5" href="$classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="240,132,351,159"/>
+</map>

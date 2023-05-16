@@ -1,5 +1,22 @@
 var searchData=
 [
-  ['viewgrid_2ecpp_326',['ViewGrid.cpp',['../_view_grid_8cpp.html',1,'']]],
-  ['viewgrid_2eh_327',['ViewGrid.h',['../_view_grid_8h.html',1,'']]]
+  ['sendemote_2ecpp_386',['SendEmote.cpp',['../_send_emote_8cpp.html',1,'']]],
+  ['sendemote_2eh_387',['SendEmote.h',['../_send_emote_8h.html',1,'']]],
+  ['serialization_2eh_388',['serialization.h',['../serialization_8h.html',1,'']]],
+  ['server_5fnetwork_5fmanager_2ecpp_389',['server_network_manager.cpp',['../server__network__manager_8cpp.html',1,'']]],
+  ['server_5fnetwork_5fmanager_2eh_390',['server_network_manager.h',['../server__network__manager_8h.html',1,'']]],
+  ['serverresponse_2ecpp_391',['ServerResponse.cpp',['../_server_response_8cpp.html',1,'']]],
+  ['serverresponse_2eh_392',['ServerResponse.h',['../_server_response_8h.html',1,'']]],
+  ['setupmanager_2ecpp_393',['SetupManager.cpp',['../_setup_manager_8cpp.html',1,'']]],
+  ['setupmanager_2eh_394',['SetupManager.h',['../_setup_manager_8h.html',1,'']]],
+  ['setuppanel_2ecpp_395',['SetupPanel.cpp',['../_setup_panel_8cpp.html',1,'']]],
+  ['setuppanel_2eh_396',['SetupPanel.h',['../_setup_panel_8h.html',1,'']]],
+  ['ship_2ecpp_397',['Ship.cpp',['../_ship_8cpp.html',1,'']]],
+  ['ship_2eh_398',['Ship.h',['../_ship_8h.html',1,'']]],
+  ['shippanel_2ecpp_399',['ShipPanel.cpp',['../_ship_panel_8cpp.html',1,'']]],
+  ['shippanel_2eh_400',['ShipPanel.h',['../_ship_panel_8h.html',1,'']]],
+  ['startgame_2ecpp_401',['StartGame.cpp',['../_start_game_8cpp.html',1,'']]],
+  ['startgame_2eh_402',['StartGame.h',['../_start_game_8h.html',1,'']]],
+  ['startgamesuccess_2ecpp_403',['StartGameSuccess.cpp',['../_start_game_success_8cpp.html',1,'']]],
+  ['startgamesuccess_2eh_404',['StartGameSuccess.h',['../_start_game_success_8h.html',1,'']]]
 ];

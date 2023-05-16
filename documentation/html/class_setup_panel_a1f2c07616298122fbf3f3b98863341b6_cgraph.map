@@ -1,0 +1,10 @@
+<map id="SetupPanel::OnKeyDown" name="SetupPanel::OnKeyDown">
+<area shape="rect" id="node1" title="Key Event handler for rotating ship. Rotates selected ship if &#39;R&#39; is pressed." alt="" coords="5,85,187,112"/>
+<area shape="rect" id="node2" href="$class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="281,5,371,32"/>
+<area shape="rect" id="node3" href="$class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="489,59,641,85"/>
+<area shape="rect" id="node4" href="$class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be" title="function highlights tiles according to mouse position and placed ships" alt="" coords="235,107,417,149"/>
+<area shape="rect" id="node8" href="$class_ship.html#a1a754882cdbbb50c3d99154c21ca5265" title=" " alt="" coords="251,173,401,200"/>
+<area shape="rect" id="node5" href="$class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="465,113,665,140"/>
+<area shape="rect" id="node7" href="$class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="504,164,627,191"/>
+<area shape="rect" id="node6" href="$class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="713,113,885,140"/>
+</map>

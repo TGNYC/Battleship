@@ -1,22 +1,5 @@
 var searchData=
 [
-  ['paintevent_116',['paintEvent',['../class_image_panel.html#a3038249eebb45db8164cf757d21b61c6',1,'ImagePanel']]],
-  ['placementgrid_117',['PlacementGrid',['../class_placement_grid.html',1,'PlacementGrid'],['../class_placement_grid.html#a47e094ae9f065ea84606ce176f874507',1,'PlacementGrid::PlacementGrid()']]],
-  ['placementgrid_2ecpp_118',['PlacementGrid.cpp',['../_placement_grid_8cpp.html',1,'']]],
-  ['placementgrid_2eh_119',['PlacementGrid.h',['../_placement_grid_8h.html',1,'']]],
-  ['placeship_120',['placeShip',['../class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8',1,'SetupManager']]],
-  ['playagain_121',['PlayAgain',['../class_play_again.html',1,'PlayAgain'],['../_client_request_8h.html#ae10b07f2d0feb103db7fe4cfd192e5afa4051077f07265546a8caf71dca1a4d3b',1,'PlayAgain():&#160;ClientRequest.h'],['../class_play_again.html#a8d94460250a1d5ade8472f390f73d92d',1,'PlayAgain::PlayAgain()']]],
-  ['playagain_2ecpp_122',['PlayAgain.cpp',['../_play_again_8cpp.html',1,'']]],
-  ['playagain_2eh_123',['PlayAgain.h',['../_play_again_8h.html',1,'']]],
-  ['player_124',['Player',['../class_player.html#a9bdb3b6b1c440a24658f500f874b7b86',1,'Player::Player()'],['../class_player.html',1,'Player']]],
-  ['player_2ecpp_125',['Player.cpp',['../_player_8cpp.html',1,'']]],
-  ['player_2eh_126',['Player.h',['../_player_8h.html',1,'']]],
-  ['player_5fmanager_127',['player_manager',['../classplayer__manager.html',1,'']]],
-  ['player_5fmanager_2ecpp_128',['player_manager.cpp',['../player__manager_8cpp.html',1,'']]],
-  ['player_5fmanager_2eh_129',['player_manager.h',['../player__manager_8h.html',1,'']]],
-  ['playergrid_130',['PlayerGrid',['../class_player_grid.html',1,'PlayerGrid'],['../class_player_grid.html#a766274083ee323fbc8452ff08fed7df5',1,'PlayerGrid::PlayerGrid()']]],
-  ['playergrid_2ecpp_131',['PlayerGrid.cpp',['../_player_grid_8cpp.html',1,'']]],
-  ['playergrid_2eh_132',['PlayerGrid.h',['../_player_grid_8h.html',1,'']]],
-  ['playerready_133',['playerReady',['../class_game_controller.html#a86c48907cab2eae5871453c599ade0eb',1,'GameController']]],
-  ['playing_134',['Playing',['../classgame__state.html#a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428',1,'game_state']]]
+  ['nextplayerid_152',['nextPlayerId',['../class_game_event.html#a405b6a92fb874f762d18d1e36caf80a2',1,'GameEvent']]],
+  ['nlohmann_5fjson_5fserialize_5fenum_153',['NLOHMANN_JSON_SERIALIZE_ENUM',['../serialization_8h.html#a150539d7cb383a50fd719f1b84d22117',1,'serialization.h']]]
 ];

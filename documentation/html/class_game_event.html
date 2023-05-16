@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_game_event-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GameEvent Class Reference</div>  </div>
@@ -71,43 +72,182 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_game_event_8h_source.html">GameEvent.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GameEvent:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_event__inherit__graph.png" border="0" usemap="#a_game_event_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_game_event_inherit__map" id="a_game_event_inherit__map">
+<area shape="rect" title=" " alt="" coords="19,80,118,107"/>
+<area shape="rect" href="class_server_response.html" title=" " alt="" coords="5,5,132,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a273bc5902e193cf79a6d660c52dfc068"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classuuid.html">uuid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#a273bc5902e193cf79a6d660c52dfc068">getPlayerId</a> () const</td></tr>
-<tr class="separator:a273bc5902e193cf79a6d660c52dfc068"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae8ff93c7b5bfa7a938e2376a61e3b3d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_coordinate.html">Coordinate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#aae8ff93c7b5bfa7a938e2376a61e3b3d">getPosition</a> () const</td></tr>
-<tr class="separator:aae8ff93c7b5bfa7a938e2376a61e3b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a891284c4303b0170a2d9213af897c648"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#a891284c4303b0170a2d9213af897c648">GameEvent</a> (<a class="el" href="classuuid.html">uuid</a> <a class="el" href="class_game_event.html#aca33517ba213b3868963476239a8f61a">playerId</a>, <a class="el" href="struct_coordinate.html">Coordinate</a> <a class="el" href="class_game_event.html#aa8ec1b87976ae70ff793f9a815e222b9">position</a>, bool <a class="el" href="class_game_event.html#abe0df8f86de9de14da6313fe1a00a1ef">hit</a>, bool <a class="el" href="class_game_event.html#aada9647f8e98a3ce1f3cdfeb8dc83708">sunk</a>, <a class="el" href="class_ship.html">Ship</a> <a class="el" href="class_game_event.html#a4770ad211ce65ea239c65daa9a4abe1a">hitShip</a>, <a class="el" href="classuuid.html">uuid</a> <a class="el" href="class_game_event.html#a405b6a92fb874f762d18d1e36caf80a2">nextPlayerId</a>)</td></tr>
+<tr class="separator:a891284c4303b0170a2d9213af897c648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_server_response"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_server_response')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_server_response.html">ServerResponse</a></td></tr>
+<tr class="memitem:aaae28155b3c58981d3d078e0e885fed5 inherit pub_methods_class_server_response"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_response.html#aaae28155b3c58981d3d078e0e885fed5">operator&lt;=&gt;</a> (const <a class="el" href="class_server_response.html">ServerResponse</a> &amp;) const =default</td></tr>
+<tr class="separator:aaae28155b3c58981d3d078e0e885fed5 inherit pub_methods_class_server_response"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aca33517ba213b3868963476239a8f61a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classuuid.html">uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#aca33517ba213b3868963476239a8f61a">playerId</a></td></tr>
+<tr class="separator:aca33517ba213b3868963476239a8f61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8ec1b87976ae70ff793f9a815e222b9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_coordinate.html">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#aa8ec1b87976ae70ff793f9a815e222b9">position</a></td></tr>
+<tr class="separator:aa8ec1b87976ae70ff793f9a815e222b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe0df8f86de9de14da6313fe1a00a1ef"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#abe0df8f86de9de14da6313fe1a00a1ef">hit</a> = false</td></tr>
+<tr class="separator:abe0df8f86de9de14da6313fe1a00a1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aada9647f8e98a3ce1f3cdfeb8dc83708"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#aada9647f8e98a3ce1f3cdfeb8dc83708">sunk</a> = false</td></tr>
+<tr class="separator:aada9647f8e98a3ce1f3cdfeb8dc83708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4770ad211ce65ea239c65daa9a4abe1a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_ship.html">Ship</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#a4770ad211ce65ea239c65daa9a4abe1a">hitShip</a></td></tr>
+<tr class="separator:a4770ad211ce65ea239c65daa9a4abe1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a405b6a92fb874f762d18d1e36caf80a2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classuuid.html">uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_event.html#a405b6a92fb874f762d18d1e36caf80a2">nextPlayerId</a></td></tr>
+<tr class="separator:a405b6a92fb874f762d18d1e36caf80a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_class_server_response"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_server_response')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_server_response.html">ServerResponse</a></td></tr>
+<tr class="memitem:acf91761b67bba8243b11f7917079469d inherit pub_attribs_class_server_response"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="_server_response_8h.html#af5055605e320b3f9ea9fa330b57604e7">ResponseType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_response.html#acf91761b67bba8243b11f7917079469d">responseType</a></td></tr>
+<tr class="separator:acf91761b67bba8243b11f7917079469d inherit pub_attribs_class_server_response"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_server_response"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_server_response')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_server_response.html">ServerResponse</a></td></tr>
+<tr class="memitem:a30fb57fddb32be283f4d03042ebb8071 inherit pro_methods_class_server_response"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_response.html#a30fb57fddb32be283f4d03042ebb8071">ServerResponse</a> (<a class="el" href="_server_response_8h.html#af5055605e320b3f9ea9fa330b57604e7">ResponseType</a> <a class="el" href="class_server_response.html#acf91761b67bba8243b11f7917079469d">responseType</a>)</td></tr>
+<tr class="separator:a30fb57fddb32be283f4d03042ebb8071 inherit pro_methods_class_server_response"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a273bc5902e193cf79a6d660c52dfc068"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a273bc5902e193cf79a6d660c52dfc068">&#9670;&nbsp;</a></span>getPlayerId()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A Game Event is emitted by the server if and only if a new shot was registered </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a891284c4303b0170a2d9213af897c648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a891284c4303b0170a2d9213af897c648">&#9670;&nbsp;</a></span>GameEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classuuid.html">uuid</a> &amp; GameEvent::getPlayerId </td>
+          <td class="memname">GameEvent::GameEvent </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="classuuid.html">uuid</a>&#160;</td>
+          <td class="paramname"><em>playerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_coordinate.html">Coordinate</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>hit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sunk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_ship.html">Ship</a>&#160;</td>
+          <td class="paramname"><em>hitShip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classuuid.html">uuid</a>&#160;</td>
+          <td class="paramname"><em>nextPlayerId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aae8ff93c7b5bfa7a938e2376a61e3b3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae8ff93c7b5bfa7a938e2376a61e3b3d">&#9670;&nbsp;</a></span>getPosition()</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abe0df8f86de9de14da6313fe1a00a1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe0df8f86de9de14da6313fe1a00a1ef">&#9670;&nbsp;</a></span>hit</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="struct_coordinate.html">Coordinate</a> &amp; GameEvent::getPosition </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">const bool GameEvent::hit = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4770ad211ce65ea239c65daa9a4abe1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4770ad211ce65ea239c65daa9a4abe1a">&#9670;&nbsp;</a></span>hitShip</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_ship.html">Ship</a> GameEvent::hitShip</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a405b6a92fb874f762d18d1e36caf80a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a405b6a92fb874f762d18d1e36caf80a2">&#9670;&nbsp;</a></span>nextPlayerId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classuuid.html">uuid</a> GameEvent::nextPlayerId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca33517ba213b3868963476239a8f61a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca33517ba213b3868963476239a8f61a">&#9670;&nbsp;</a></span>playerId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classuuid.html">uuid</a> GameEvent::playerId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8ec1b87976ae70ff793f9a815e222b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8ec1b87976ae70ff793f9a815e222b9">&#9670;&nbsp;</a></span>position</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_coordinate.html">Coordinate</a> GameEvent::position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aada9647f8e98a3ce1f3cdfeb8dc83708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aada9647f8e98a3ce1f3cdfeb8dc83708">&#9670;&nbsp;</a></span>sunk</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool GameEvent::sunk = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -115,8 +255,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/common/network/responses/<a class="el" href="_game_event_8h_source.html">GameEvent.h</a></li>
-<li>src/common/network/responses/<a class="el" href="_game_event_8cpp.html">GameEvent.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/common/network/responses/<a class="el" href="_game_event_8h_source.html">GameEvent.h</a></li>
+<li>/home/nico/Desktop/battleship/src/common/network/responses/<a class="el" href="_game_event_8cpp.html">GameEvent.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

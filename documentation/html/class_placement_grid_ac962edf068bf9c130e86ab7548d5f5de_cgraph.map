@@ -1,5 +1,8 @@
 <map id="PlacementGrid::OnMouseMotion" name="PlacementGrid::OnMouseMotion">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,237,57"/>
-<area shape="rect" id="node2" href="$class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="300,5,423,32"/>
-<area shape="rect" id="node3" href="$class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="285,56,437,83"/>
+<area shape="rect" id="node1" title="function is called when mouse hovers over grid and highlights tiles according to mouse position and p..." alt="" coords="5,56,237,83"/>
+<area shape="rect" id="node2" href="$class_placement_grid.html#a8c1cd712361c3fd8cca7f8329599f9be" title="function highlights tiles according to mouse position and placed ships" alt="" coords="285,49,468,90"/>
+<area shape="rect" id="node3" href="$class_placement_grid.html#ac88ee163d0e80f60029f6a729bdc3d56" title="function displays grid according to data in SetupManager" alt="" coords="516,5,716,32"/>
+<area shape="rect" id="node5" href="$class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="555,56,677,83"/>
+<area shape="rect" id="node6" href="$class_ship.html#a10673d9e8e8a17dfc6e962a4ef7c6c57" title=" " alt="" coords="540,107,692,133"/>
+<area shape="rect" id="node4" href="$class_setup_manager.html#ac4d9c14419aa377be6ddc2ee07f48b30" title="getter for _grid" alt="" coords="764,5,936,32"/>
 </map>

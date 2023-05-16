@@ -1,0 +1,6 @@
+<map id="MainGamePanel::buildGameState" name="MainGamePanel::buildGameState">
+<area shape="rect" id="node1" title="Builds the game state." alt="" coords="500,35,707,76"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" id="node4" href="$class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="243,71,445,98"/>
+<area shape="rect" id="node3" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,35,188,76"/>
+</map>

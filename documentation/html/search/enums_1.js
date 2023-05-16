@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['requesttype_439',['RequestType',['../_client_request_8h.html#ae10b07f2d0feb103db7fe4cfd192e5af',1,'ClientRequest.h']]]
+  ['emotetype_567',['EmoteType',['../_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95',1,'EmoteEvent.h']]]
 ];

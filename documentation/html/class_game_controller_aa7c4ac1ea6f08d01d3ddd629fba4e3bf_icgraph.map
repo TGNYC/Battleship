@@ -1,5 +1,4 @@
 <map id="GameController::enterSetupPhase" name="GameController::enterSetupPhase">
-<area shape="rect" id="node1" title="enter setup phase" alt="" coords="519,5,723,47"/>
-<area shape="rect" id="node2" href="$class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title=" " alt="" coords="264,5,471,47"/>
-<area shape="rect" id="node3" href="$class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title=" " alt="" coords="5,5,216,47"/>
+<area shape="rect" id="node1" title="enter setup phase" alt="" coords="236,5,440,47"/>
+<area shape="rect" id="node2" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
 </map>

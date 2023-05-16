@@ -1,9 +1,15 @@
 var searchData=
 [
-  ['to_5fjson_192',['to_json',['../serialization_8h.html#a84ecc7f64a043cc206166b6cf667032b',1,'to_json(nlohmann::json &amp;json, const Coordinate &amp;position):&#160;serialization.h'],['../serialization_8h.html#a1f4c411913e4f419cbfcb8c3a2be46aa',1,'to_json(nlohmann::json &amp;json, const uuid &amp;uuid):&#160;serialization.h']]],
-  ['to_5fstring_193',['to_string',['../classjson__utils.html#a5e7d8772514ff0203755dd188d7177e8',1,'json_utils']]],
-  ['tostring_194',['ToString',['../classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40',1,'uuid']]],
-  ['try_5fadd_5fplayer_195',['try_add_player',['../classgame__instance.html#a62039b769d3697dca6e4e93f92048377',1,'game_instance']]],
-  ['try_5fget_5fplayer_196',['try_get_player',['../classplayer__manager.html#a0b7227627acb0ad775d9bcb7db11b8a6',1,'player_manager']]],
-  ['try_5fremove_5fplayer_197',['try_remove_player',['../classgame__instance.html#ae9bfe9ea2a99331c631fe8f1a56428ee',1,'game_instance']]]
+  ['registershot_196',['registerShot',['../classgame__state.html#a9610b5ba928ad54837161d115b6985f1',1,'game_state']]],
+  ['remove_5fplayer_197',['remove_player',['../classplayer__manager.html#ae38577aa955998a2346a40a4b850635b',1,'player_manager']]],
+  ['request_5fhandler_198',['request_handler',['../classrequest__handler.html',1,'']]],
+  ['request_5fhandler_2ecpp_199',['request_handler.cpp',['../request__handler_8cpp.html',1,'']]],
+  ['request_5fhandler_2eh_200',['request_handler.h',['../request__handler_8h.html',1,'']]],
+  ['requesttype_201',['RequestType',['../_client_request_8h.html#ae10b07f2d0feb103db7fe4cfd192e5af',1,'ClientRequest.h']]],
+  ['responselistenerthread_202',['ResponseListenerThread',['../class_response_listener_thread.html',1,'ResponseListenerThread'],['../class_response_listener_thread.html#a74d3367112e61051efa42b1fc7f2a7a5',1,'ResponseListenerThread::ResponseListenerThread()']]],
+  ['responselistenerthread_2ecpp_203',['ResponseListenerThread.cpp',['../_response_listener_thread_8cpp.html',1,'']]],
+  ['responselistenerthread_2eh_204',['ResponseListenerThread.h',['../_response_listener_thread_8h.html',1,'']]],
+  ['responsetype_205',['responseType',['../class_server_response.html#acf91761b67bba8243b11f7917079469d',1,'ServerResponse']]],
+  ['responsetype_206',['ResponseType',['../_server_response_8h.html#af5055605e320b3f9ea9fa330b57604e7',1,'ServerResponse.h']]],
+  ['russianwarshipgofuckyourself_207',['RussianWarshipGoFuckYourself',['../_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95a1f86266d75e51c0cd4a470dcf8fb7276',1,'EmoteEvent.h']]]
 ];

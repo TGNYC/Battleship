@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['battleship_213',['Battleship',['../class_battleship.html',1,'']]],
-  ['battleshipexception_214',['BattleshipException',['../class_battleship_exception.html',1,'']]]
+  ['audioplayer_282',['AudioPlayer',['../class_audio_player.html',1,'']]]
 ];
