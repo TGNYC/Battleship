@@ -5,8 +5,8 @@
 #include "Logger.h"
 
 const char* const Logger::logFile = "log.txt";
-const char* const Logger::tab = "    "; // 4 spaces
-std::string Logger::prefix = "      "; // 6 spaces
+const char* const Logger::tab = "  "; // 2 spaces
+std::string Logger::prefix = "";
 
 std::string Logger::getCurrentDateTime() {
   auto t = std::time(nullptr);
@@ -16,25 +16,23 @@ std::string Logger::getCurrentDateTime() {
   return oss.str();
 }
 
-void Logger::log(const std::string& message, Logger::Type type) {
-  // write to console
-  std::cout << tab << prefix << tab << message << std::endl;
-  // write to log file
-  std::ofstream file;
+void Logger::log(const std::string& message, const char function[]) {
+  const std::string output = prefix + tab + function + tab + message; // build message
+  std::cout << output << std::endl; // write to console
+  std::ofstream out; // write to log file
   try {
-    file.open(logFile, std::ios_base::app);
-    file << getCurrentDateTime() << tab << prefix << tab << message << std::endl;
-    file.close();
+    out.open(logFile, std::ios_base::app);
+    out << getCurrentDateTime() << tab << output << std::endl; // we only need time in log file
+    out.close();
   } catch (const std::ofstream::failure& e) {
     std::cout << "Error: Could not open/write to log file" << std::endl;
   }
 }
 
 void Logger::log(const BattleshipException &exception) {
-  log(exception.what(), Type::Error);
+  log(exception.what(), "BattleshipException");
 }
 
 void Logger::setPrefix(const std::string &s) {
   Logger::prefix = s;
 }
-

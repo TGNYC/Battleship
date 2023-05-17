@@ -92,7 +92,8 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   // TODO: finish quit_game request handler
   //    case RequestType::quit_game: { }
 
-  // TODO the other Requests
+    // TODO PlayAgain
+    // TODO QuitGame
   default: {
     std::cout << "handle Unkonwn request\n";
     return std::make_unique<ErrorResponse>(BattleshipException("Unkonwn Request"));

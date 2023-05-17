@@ -12,6 +12,9 @@
 #include <ctime>
 #include "exceptions/BattleshipException.h"
 
+// Macro to include function name in log message
+#define LOG(message) Logger::log(message, __func__)
+
 /*!
  * Basic logging class. Only static usage
  */
@@ -30,7 +33,7 @@ public:
    * @param message text to be logged
    * @param type optional log type (info, warning, error). currently unused
    */
-  static void log(const std::string &message, Type type = Type::Info);
+  static void log(const std::string &message, const char function[] = "");
 
   /*!
    * outputs the content of a BattleshipException to the logfile
