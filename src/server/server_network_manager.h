@@ -29,7 +29,7 @@ private:
 
   static void read_message(sockpp::tcp_socket socket,
                     const std::function<void(const std::string &, const sockpp::tcp_socket::addr_t &)> &message_handler);
-  void handle_incoming_message(const std::string &msg, const sockpp::tcp_socket::addr_t &peer_address);
+  void        handle_message(const std::string &msg, const sockpp::tcp_socket::addr_t &peer_address);
 
   game_instance _game_instance;
   uint16_t _port;

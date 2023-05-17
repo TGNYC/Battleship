@@ -63,7 +63,7 @@ void server_network_manager::listener_loop() {
       _rw_lock.unlock();
       std::thread listener(read_message, std::move(sock),
                            [this](const std::string &message, const sockpp::tcp_socket::addr_t &address) {
-                             this->handle_incoming_message(message, address);
+                             this->handle_message(message, address);
                            });
       listener.detach();
     }
@@ -71,7 +71,7 @@ void server_network_manager::listener_loop() {
 }
 
 // Runs in a thread and reads anything coming in on the 'socket'.
-// Once a message is fully received, the string is passed on to the 'handle_incoming_message()' function
+// Once a message is fully received, the string is passed on to the 'handle_message()' function
 void server_network_manager::read_message(
     sockpp::tcp_socket socket,
     const std::function<void(const std::string &, const sockpp::tcp_socket::addr_t &)> &message_handler) {
@@ -129,7 +129,7 @@ void server_network_manager::read_message(
   socket.shutdown();
 }
 
-void server_network_manager::handle_incoming_message(const std::string                &msg,
+void server_network_manager::handle_message(const std::string                &msg,
                                                      const sockpp::tcp_socket::addr_t &peer_address) {
   try {
     LOG("Handling the incoming message");
