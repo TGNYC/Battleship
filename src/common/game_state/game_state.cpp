@@ -155,9 +155,12 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   }
 
   // get the player grids
+  LOG("grids: " + playerGrids.size());
+  LOG("playerGrids ids: " + playerGrids[0].playerId.ToString() + " " + playerGrids[1].playerId.ToString());
+
   PlayerGrid shooterGrid  = playerGrids[0]; // grid of the shooter
   PlayerGrid targetGrid   = playerGrids[1]; // grid of the victim/target
-  if (shooterGrid.playerId == playerId) {
+  if (shooterGrid.playerId != playerId) {
     std::swap(shooterGrid, targetGrid);
   }
   const uuid targetPlayerId = targetGrid.playerId;
@@ -165,7 +168,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   // set default values
   *hit = false;
   *sunk = false;
-  *hitShipPtr = nullptr;
+  *hitShipPtr = new Ship(0, Coordinate(0,0), Ship::Orientation::Vertical, uuid());  // dummy ship
 
   // loop through all ships
   for (Ship& ship : targetGrid.shipsPlaced) {
@@ -180,13 +183,17 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   }
 
   // update server side game state
-  const int impact = *hit ? 2 : 1;  // 2=hit 1=miss
+  const int impact = *hit ? 2 : 1;  // 2=hit 1=miss;
   shooterGrid.shotsFired[position.x][position.y] = impact;
   targetGrid.shotsReceived[position.x][position.y] = impact;
 
+  LOG(nextPlayerId->ToString());
+
   // determine next player
   *nextPlayerId = *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
+  LOG("player and target: " + playerId.ToString() + " " + targetPlayerId.ToString());
   currentPlayerId = *nextPlayerId;  // update current player
+  LOG(nextPlayerId->ToString());
   turnNumber++;
   return true;
 }

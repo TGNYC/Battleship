@@ -9,4 +9,5 @@
 
 GameEvent::GameEvent(uuid playerId, Coordinate position, bool hit, bool sunk, Ship hitShip, uuid nextPlayerId)
     : ServerResponse(ResponseType::GameEvent), playerId(playerId), position(position), hit(hit), sunk(sunk),
-      hitShip(hitShip), nextPlayerId(nextPlayerId) {}
+      hitShip(Ship(hitShip.getLength(), hitShip.getPosition(), hitShip.getOrientation(), hitShip.getId())),
+      nextPlayerId(nextPlayerId) {}
