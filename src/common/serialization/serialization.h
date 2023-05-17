@@ -13,6 +13,7 @@
 #include "network/responses/EmoteEvent.h"
 #include "network/responses/ErrorResponse.h"
 #include "network/responses/GameEvent.h"
+#include "network/responses/GameOverEvent.h"
 #include "network/responses/JoinGameSuccess.h"
 #include "network/responses/ServerResponse.h"
 #include "network/responses/StartGameSuccess.h"
@@ -51,6 +52,7 @@ NLOHMANN_JSON_SERIALIZE_ENUM(ResponseType, {{ResponseType::GameEvent, "game_even
                                             {ResponseType::EmoteEvent, "emote_event"},
                                             {ResponseType::JoinGameSuccess, "join_game_success"},
                                             {ResponseType::StartGameSuccess, "start_game_success"},
+                                            {ResponseType::GameOverEvent, "game_over_event"},
                                             {ResponseType::ErrorResponse, "error_response"}})
 
 namespace nlohmann {
@@ -256,6 +258,15 @@ struct adl_serializer<StartGameSuccess> {
 };
 
 template <>
+struct adl_serializer<GameOverEvent> {
+  static void to_json(json &json, const GameOverEvent &responses) {
+
+    json["type"]             = responses.responseType;
+    json["winner_player_id"] = responses.winnerPlayerId;
+  }
+};
+
+template <>
 struct adl_serializer<ServerResponse> {
   static void to_json(json &json, const ServerResponse &responses) {
     const ResponseType responsesType = responses.responseType;
@@ -275,6 +286,9 @@ struct adl_serializer<ServerResponse> {
       break;
     case ResponseType::StartGameSuccess:
       json = static_cast<const StartGameSuccess &>(responses);
+      break;
+    case ResponseType::GameOverEvent:
+      json = static_cast<const GameOverEvent &>(responses);
       break;
     }
   }
@@ -302,6 +316,8 @@ struct adl_serializer<std::unique_ptr<ServerResponse>> {
     case ResponseType::StartGameSuccess:
       return std::make_unique<StartGameSuccess>(json.at("players").get<std::vector<Player>>(),
                                                 json.at("starting_player_id").get<uuid>());
+    case ResponseType::GameOverEvent:
+      return std::make_unique<GameOverEvent>(json.at("winner_player_id").get<uuid>());
     }
     return nullptr;
   }
@@ -324,6 +340,9 @@ struct adl_serializer<std::unique_ptr<ServerResponse>> {
       break;
     case ResponseType::StartGameSuccess:
       json = static_cast<const StartGameSuccess &>(*serverResponse);
+      break;
+    case ResponseType::GameOverEvent:
+      json = static_cast<const GameOverEvent &>(*serverResponse);
       break;
     }
   }
