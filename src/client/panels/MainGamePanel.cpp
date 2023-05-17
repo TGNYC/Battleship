@@ -55,16 +55,16 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   this->_oppViewGrid->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onMouseClick, this);
 
   wxStaticText* leftTitle = new wxStaticText(this, wxID_ANY, "Your Ships");
-  leftSide->Add(leftTitle, 0, wxALIGN_CENTER, 0);
+  leftSide->Add(leftTitle, 0, wxBOTTOM | wxALIGN_CENTER, 10);
 
-  leftSide->Add(_ownViewGrid, 0, wxALIGN_CENTER | wxBOTTOM, 10);
-  leftSide->Add(_ownShipPanel, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+  leftSide->Add(_ownViewGrid, 0, wxDEFAULT, 0);
+  leftSide->Add(_ownShipPanel, 0, wxDEFAULT, 10);
 
   wxStaticText* rightTitle = new wxStaticText(this, wxID_ANY, "Opponent's Ships");
-  rightSide->Add(rightTitle, 0, wxALIGN_CENTER, 0);
+  rightSide->Add(rightTitle, 0, wxALIGN_CENTER | wxBOTTOM, 10);
 
-  rightSide->Add(_oppViewGrid, 0, wxALIGN_CENTER | wxBOTTOM, 10);
-  rightSide->Add(_oppShipPanel, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+  rightSide->Add(_oppViewGrid, 0, wxDEFAULT, 0);
+  rightSide->Add(_oppShipPanel, 0, wxDEFAULT, 0);
 
   // place grids next to eachother
   grids->Add(leftSide, 0, wxLEFT | wxBOTTOM | wxRIGHT, 10);

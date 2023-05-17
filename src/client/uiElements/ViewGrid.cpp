@@ -2,7 +2,7 @@
 
 // #include <iostream>
 
-ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos, ViewGrid::gridtype type) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400)) {
+ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos, ViewGrid::gridtype type) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400), wxEXPAND) {
     _pos = pos;
     _type = type;
     wxColor backgroundColor = wxColor(255, 255, 0);
@@ -14,11 +14,11 @@ ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos, ViewGrid::gridtype type) : wxP
     wxBoxSizer *gridTitle = new wxBoxSizer(wxHORIZONTAL);
     wxStaticText *gridTitleText;
     if (type == ViewGrid::gridtype::own) {
-        gridTitleText = new wxStaticText(this, wxID_ANY, "Your grid");
+        gridTitleText = new wxStaticText(this, wxID_ANY, "Your grid [view grid]");
     } else {
-        gridTitleText = new wxStaticText(this, wxID_ANY, "Opponent's grid");
+        gridTitleText = new wxStaticText(this, wxID_ANY, "Opponent's grid [view grid]");
     }
-    gridTitle->Add(gridTitleText, 0, wxALIGN_CENTER | wxALL, 10);
+    gridTitle->Add(gridTitleText, 0, wxALIGN_CENTER | wxALL, 0);
 
     constexpr int gridSize = 10;
 
