@@ -21,8 +21,8 @@ std::string Logger::getCurrentDateTime() {
 
 void Logger::log(const std::string &message, const std::string &func) {
   std::stringstream output;
-  const std::string function = "[" + func + "]";
-  output << prefix << std::setw(20) << function << tab << message; // build message
+  const std::string function = "[" + func + "]"; // format function name
+  output << prefix << tab << std::left << std::setw(18) << function << message; // build message
   std::cout << output.str() << std::endl; // write to console
   std::ofstream out; // write to log file
   try {
@@ -30,7 +30,7 @@ void Logger::log(const std::string &message, const std::string &func) {
     out << getCurrentDateTime() << tab << output.str() << std::endl; // we only need time in log file
     out.close();
   } catch (const std::ofstream::failure& e) {
-    std::cout << "Error: Could not open/write to log file" << std::endl;
+    std::cout << "ERROR: Could not open/write to log file" << std::endl;
   }
 }
 
