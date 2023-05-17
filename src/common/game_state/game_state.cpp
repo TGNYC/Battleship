@@ -45,7 +45,7 @@ auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> boo
   // check if not already placed
   for (const PlayerGrid& grid : playerGrids) {
     if (grid.playerId == playerId) {
-      Logger::log("Ship placement for this player id already exists", Logger::Type::Warning);
+      Logger::log("Ship placement for this player id already exists");
       return false;
     }
   }
@@ -100,7 +100,7 @@ Ship &game_state::getShip(std::vector<Ship>& ships, uuid shipId) {
       return ship;
     }
   }
-  Logger::log("GameState::getShip: no ship with matching id found", Logger::Type::Error);
+  Logger::log("GameState::getShip: no ship with matching id found");
 }
 
 
@@ -110,7 +110,7 @@ const Player& game_state::getOtherPlayer(uuid playerId) {
       return player;
     }
   }
-  Logger::log("Fatal Error: did not find other player", Logger::Type::Error);
+  Logger::log("Fatal Error: did not find other player");
   std::cout << "GameState::getOtherPlayer : Did not find other player" << std::endl;
 }
 
@@ -142,14 +142,14 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   // log turn number and current player
   const std::string msg = "Registering shot. Turn Number " + std::to_string(turnNumber) +
                           ". Current Player " + currentPlayerId.ToString();
-  Logger::log(msg, Logger::Type::Info);
+  Logger::log(msg);
 
   // make sure we are on a server
   //assert(playerGrids.size() == 2 && "Number of grids is not 2. Illegal call on client side or incomplete state on server")
 
   // check if the correct player is playing
   if (playerId != currentPlayerId) {
-    Logger::log("It is not this players turn " + playerId.ToString(), Logger::Type::Error);
+    Logger::log("It is not this players turn " + playerId.ToString());
     return false;
   }
 
@@ -237,7 +237,7 @@ uuid game_state::getWinner() {
   if (state == State::Finished) {
       return winner;
   } else {
-      Logger::log("Asked for winner but game not finished", Logger::Type::Warning);
+      Logger::log("Asked for winner but game not finished");
       return uuid();
   }
 }

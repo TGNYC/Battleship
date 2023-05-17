@@ -9,7 +9,8 @@
 
 auto Battleship::OnInit() -> bool {
 
-  Logger::log("Starting Battleship Client", Logger::Type::Info);
+  Logger::setPrefix("client");
+  LOG("Starting Battleship Client");
 
   wxImage::AddHandler(new wxPNGHandler());
 

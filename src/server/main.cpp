@@ -6,7 +6,8 @@
 #include "Logger.h"
 
 int main() {
-  Logger::log("Starting Battleship Server", Logger::Type::Info);
+  Logger::setPrefix("server");
+  LOG("Starting Battleship Server");
   // create server_network_manager, which listens endlessly for new connections
   server_network_manager server(8080);
   server.listener_loop();

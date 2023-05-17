@@ -51,7 +51,7 @@ public:
    */
   bool executeShot(CallShot shotRequest);
 
-  const game_state &getGameState() const;
+  game_state &getGameState();
   // TODO: play_again
 };
 
