@@ -11,34 +11,33 @@
 #include "network/requests/JoinGame.h"
 #include <mutex>
 #include <string>
+#include <unordered_map>
 #include <vector>
-#include <map>
 
 class game_instance {
 
 private:
-  game_state               _game_state = game_state(game_state::Type::ServerState);
-  //bool                     is_player_allowed_to_play(Player *player);
-  inline static std::mutex modification_lock;
-  bool atLeastOnePlayerReady;
-  std::map<uuid, bool> isReady;
+  game_state _game_state = game_state(game_state::Type::ServerState);
+  // bool                     is_player_allowed_to_play(Player *player);
+  inline static std::mutex       modification_lock;
+  bool                           atLeastOnePlayerReady;
+  std::unordered_map<uuid, bool> isReady;
 
 public:
-
   game_instance() {
     atLeastOnePlayerReady = false;
   }
 
   // unused functions
-  //bool is_full();
-  //bool is_started();
-  //std::string get_id();
-  //game_state *get_game_state();
-  //bool is_finished();
-  //bool try_add_player(Player *new_player, std::string &err);
-  //bool draw_card(Player* player, card*& drawn_card, std::string& err);
-  //bool play_card(Player* player, const std::string& card_id, std::string& err);
-  //bool try_remove_player(Player *player, std::string &err);
+  // bool is_full();
+  // bool is_started();
+  // std::string get_id();
+  // game_state *get_game_state();
+  // bool is_finished();
+  // bool try_add_player(Player *new_player, std::string &err);
+  // bool draw_card(Player* player, card*& drawn_card, std::string& err);
+  // bool play_card(Player* player, const std::string& card_id, std::string& err);
+  // bool try_remove_player(Player *player, std::string &err);
 
   bool joinGame(const JoinGame &joinGameRequest);
 
@@ -52,7 +51,7 @@ public:
    */
   bool executeShot(CallShot shotRequest);
 
-  const game_state& getGameState() const;
+  const game_state &getGameState() const;
   // TODO: play_again
 };
 
