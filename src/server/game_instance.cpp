@@ -11,7 +11,7 @@
 #include "server_network_manager.h"
 
 bool game_instance::joinGame(const JoinGame &joinGameRequest) {
-  std::cout << "about to add player to the game state\n";
+  LOG("about to add player to the game state");
   std::lock_guard<std::mutex> lockGuard(modification_lock);
 
   uuid        playerId   = joinGameRequest.getPlayerId();
@@ -33,33 +33,34 @@ bool game_instance::joinGame(const JoinGame &joinGameRequest) {
 // second boolean returns whether both players are ready to start the game
 bool game_instance::start_game(const Player *player, std::string &err) {
 
+  LOG("GameInstance trying to start");
   std::lock_guard<std::mutex> lockGuard(modification_lock);
-  std::cout << "start_game called" << std::endl;
   const std::vector<Player> currentPlayers = _game_state.get_players();
 
   // set this player to ready. not a problem if done more than once
   isReady[player->getId()] = true;
-  std::cout << player->getId().ToString() << " is ready" << std::endl;
+  LOG(player->getId().ToString() + " is ready");
 
   // check if we have 2 players
   if (currentPlayers.size() != 2) {
-    std::cout << "Not 2 players yet. Cannot start game" << std::endl;
+    LOG("Not 2 players yet. Cannot start game");
     return false;
   }
 
   // check if other player is ready
   const Player &otherPlayer = _game_state.getOtherPlayer(player->getId());
   if (!isReady[otherPlayer.getId()]) {
-    std::cout << "Other player " + otherPlayer.getId().ToString() + " not ready yet. Cannot start game" << std::endl;
+    LOG("Other player " + otherPlayer.getId().ToString() + " not ready yet. Cannot start game");
     return false;
   }
 
   // if reached here everything is fine and we can start
+  LOG("Starting game state");
   return _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
 }
 
 bool game_instance::executeShot(CallShot shotRequest) {
-
+  LOG("Executing shot...");
   // variables to be determined by game_state
   bool  hit;          // indicates if the shot was a hit
   Ship *hitShip;      // the ship that was hit (if there was a hit)
@@ -72,6 +73,7 @@ bool game_instance::executeShot(CallShot shotRequest) {
   GameEvent *shotCalled = new GameEvent(shotRequest.getPlayerId(), shotRequest.getPosition(), hit, sunk, *hitShip, nextPlayerId);
   ServerResponse *msg_string = shotCalled;
   // broadcast to clients
+  LOG("Sending GameEvent to clients");
   server_network_manager::broadcast_message(*msg_string, _game_state.get_players());
   if (_game_state.gameOver()) {
     uuid winnerId = _game_state.getWinner();

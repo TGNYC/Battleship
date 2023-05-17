@@ -3,9 +3,9 @@
 //
 
 #include "PlacementGrid.h"
-#include <wx/wx.h>
 #include "../SetupManager.h"
-
+#include "Logger.h"
+#include <wx/wx.h>
 
 /**
  * @brief constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events
@@ -53,18 +53,18 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
  */
 void PlacementGrid::OnMouseClick(wxMouseEvent &event) {
   if(SetupManager::_selectedShip == nullptr) {
-    std::cout << "no ship selected" << std::endl;
+    LOG("no ship selected");
     return;
   }
   if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) {
-    std::cout << "this ship is already placed" << std::endl;
+    LOG("this ship is already placed");
     return;
   }
 
   wxPoint mousePosition = event.GetPosition();
-  std::cout << "clicked at (" << mousePosition.x/40 << ", " << mousePosition.y/40 << ")\n";
+  LOG("clicked at (" + std::to_string(mousePosition.x/40) + ", " + std::to_string(mousePosition.y/40) + ")");
   if (!SetupManager::placeShip(mousePosition, SetupManager::_selectedShip)) return;
-  std::cout << "placed ship\n";
+  LOG("placed ship");
 
   this->displayGrid();
 }

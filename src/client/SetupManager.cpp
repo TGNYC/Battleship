@@ -1,5 +1,6 @@
 #include "SetupManager.h"
 #include "GameController.h"
+#include "Logger.h"
 #include "game_state/Coordinate.h"
 
 // declare static variables
@@ -62,7 +63,7 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
           overlap = overlap || _grid[(cellX) * 10 + cellY + i] != 0;
   }
   if (overlap) {
-    std::cout << "invalid placement. try again." << std::endl;
+    LOG("invalid placement. try again.");
     return false;
   }
 

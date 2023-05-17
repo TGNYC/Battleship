@@ -2,6 +2,7 @@
 
 #include "ClientNetworkManager.h"
 #include "GameController.h"
+#include "Logger.h"
 #include "network/responses/ErrorResponse.h"
 #include <sstream>
 
@@ -19,7 +20,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
     ssize_t count = 0;
 
     while ((count = this->_connection->read(buffer, sizeof(buffer))) > 0) {
-      std::cout << "Client listening...\n";
+      LOG("Client listening...");
       try {
         int pos = 0;
 
@@ -47,11 +48,11 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
 
         // process message (if we've received entire message)
         if (bytesReadSoFar == messageLength) {
-          std::cout << "Received entire message...\n";
+          LOG("Received entire message...");
           std::string                     message  = messageStream.str();
           std::unique_ptr<ServerResponse> response = ClientNetworkManager::parseResponse(message);
 
-          std::cout << "Response type: " << static_cast<int>(response->responseType) << std::endl;
+          LOG("Response type: " + std::to_string(static_cast<int>(response->responseType)));
 
           switch (response->responseType) {
 
@@ -70,7 +71,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             break;
           }
           case ResponseType::JoinGameSuccess: {
-            std::cout << "Client received a JoinGameSuccess...\n";
+            LOG("Client received a JoinGameSuccess...");
             GameController::getMainThreadEventHandler()->CallAfter([] {
               GameController::enterSetupPhase();
             });

@@ -3,6 +3,7 @@
 //
 #include "request_handler.h"
 
+#include "Logger.h"
 #include "game_instance.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
@@ -20,7 +21,7 @@
 
 std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance             &gameInstance,
                                                                 const ClientRequest *const req) {
-  std::cout << "handle_request() called\n";
+  LOG("handling request");
 
   // Prepare variables that are used by every request type
   std::string err;
@@ -35,7 +36,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
 
     // ##################### JOIN GAME ##################### //
   case RequestType::JoinGame: {
-    std::cout << "handle Join Game request\n";
+    LOG("handle Join Game request");
     const JoinGame joinGameRequest = static_cast<const JoinGame &>(*req);
 
     if (gameInstance.joinGame(joinGameRequest)) {
@@ -47,41 +48,40 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
 
   // ##################### START GAME ##################### //
   case RequestType::StartGame: {
-    std::cout << "handle Start Game request\n";
-    std::cout << "addding ships\n";
+    LOG("handle StartGame request");
     const StartGame startGameRequest = static_cast<const StartGame &>(*req);
-    gameInstance.getGameState().addShips(player_id, startGameRequest.getShips());
-
     const Player player = gameInstance.getGameState().getPlayer(player_id);
-    bool         result = gameInstance.start_game(&player, err);
+    LOG("adding ships of " + player.getName());
+    gameInstance.getGameState().addShips(player_id, startGameRequest.getShips());
+    // trying to start the gameInstance
+    const bool result = gameInstance.start_game(&player, err);  // this function does a lot of checks
 
     // indicates that both players are ready to the server by sending a success response to the current player's server
     // (the response to the other player is sent in the logic in game_instance)
     if (result) {
-      std::cout << "Request succeeded and both players are ready" << std::endl;
+      LOG("Request succeeded and both players are ready");
 
       // send StartGameSuccess update to the already-ready player
-      std::cout << "Sending StartGameSuccess to the already-ready player" << std::endl;
+      LOG("Sending StartGameSuccess to the already-ready player");
       std::unique_ptr<ServerResponse> resp =
           std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id);
       server_network_manager::broadcast_message(*resp, gameInstance.getGameState().get_players(), &player);
 
       // send StartGameSuccess update to the newly-ready player
-      std::cout << "Sending StartGameSuccess to the newly-ready player" << std::endl;
+      LOG("Sending StartGameSuccess to the newly-ready player");
       return std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(),
                                                 player_id); // TODO can you pass here the resp pointer from above?
     }
-    std::cout << "Set player ready. But opponent not ready yet" << std::endl;
+    LOG("Set player " + player.getName() + " ready. But opponent is not ready yet");
     return nullptr;
   } break;
 
   // ##################### CALL SHOT ##################### //
-  // TODO: finish implementing the call shot request
   case RequestType::CallShot: {
-    std::cout << "handle CallShot request\n";
+    LOG("Handle CallShot request");
     const CallShot callShotRequest = static_cast<const CallShot&>(*req);
     if (gameInstance.executeShot(callShotRequest)) { // if it worked
-      return nullptr;
+      return nullptr; // executeShot already broadcasts the gameEvent. no need for a personal response here
     } else {
       return std::make_unique<ErrorResponse>(BattleshipException("Failed to execute Shot"));
     }
@@ -98,7 +98,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
     // TODO PlayAgain
     // TODO QuitGame
   default: {
-    std::cout << "handle Unkonwn request\n";
+    LOG("Handle Unkonwn request");
     return std::make_unique<ErrorResponse>(BattleshipException("Unkonwn Request"));
   }
   }

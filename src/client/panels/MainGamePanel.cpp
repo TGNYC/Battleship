@@ -1,6 +1,7 @@
 #include "MainGamePanel.h"
 
 #include "../GameController.h"
+#include "Logger.h"
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   buildEmoteList();
@@ -92,11 +93,11 @@ void MainGamePanel::buildEmoteList() {
   _mainWindow->Add(_emoteWindow, 0, wxALIGN_CENTER, 0);
 
   this->_emotePanel->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) {
-    std::cout << "clicked on emote";
+    LOG("clicked on emote");
     wxPoint mousePosition = event.GetPosition();
     mousePosition -= wxPoint(20, 90);
     int emote = mousePosition.y / 90;
-    std::cout << emote << std::endl;
+    LOG("emote nr: " + std::to_string(emote));
 
     // TODO: send to server
   });
@@ -115,7 +116,7 @@ void MainGamePanel::buildTurnIndicator(std::string playerName, wxBoxSizer *box) 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
   // only allow clicks if it is the player's turn
   if (_currentPlayer != _ownId) {
-    std::cout << "not your turn" << std::endl;
+    LOG("not your turn");
     return;
   }
   // temp test
@@ -127,21 +128,20 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
   
   Coordinate shot = Coordinate{mousePosition.x / 40, mousePosition.y / 40};
 
-  std::cout << "clicked on cell " << shot.x << ", " << shot.y << std::endl;
+  LOG("clicked on cell " + std::to_string(shot.x) + ", " + std::to_string(shot.y));
 
   // limit shot frequency to one per second to give server time to respond
   auto now = std::chrono::system_clock::now();
   if (now - _lastShot < std::chrono::seconds(1)) {
-    std::cout << "too fast" << std::endl;
+    LOG("too fast");
     return;
   }
   _lastShot = now;
 
   if (!_gameState->shotIsLegal(_ownId, shot)) {
-    std::cout << "illegal shot" << std::endl;
+    LOG("illegal shot");
     return;
   }
 
-  // TODO: Send shot to server and wait for response
-  GameController::callShot(shot);
+  GameController::callShot(shot); // builds callShot request and sends to server
 }

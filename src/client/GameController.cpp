@@ -1,8 +1,9 @@
 #include "GameController.h"
 #include "ClientNetworkManager.h"
+#include "Logger.h"
+#include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
 #include "network/requests/StartGame.h"
-#include "network/requests/CallShot.h"
 
 // initialize static variables
 GameWindow      *GameController::_gameWindow      = nullptr;
@@ -98,7 +99,7 @@ void GameController::enterSetupPhase() {
  * @brief Function that is called when server responds with StartGameSuccess. Will show main game panel.
  */
 void GameController::startGame(const StartGameSuccess &response) { // called by ResponseListenerThread
-  std::cout << "Both players ready. Game is starting." << std::endl;
+  LOG("Game is starting");
   // adding opponent to game state
   assert(response.players.size() == 2);
   Player opponent = response.players.at(0);
@@ -107,7 +108,7 @@ void GameController::startGame(const StartGameSuccess &response) { // called by 
   }
   _gameState->addPlayer(opponent);
   // set starting player
-  std::cout << "Starting game state" << std::endl;
+  LOG("Starting game state");
   assert(_gameState != nullptr);
   assert(_gameState->start(response.startingPlayerId));
   // show GUI
@@ -137,7 +138,7 @@ void GameController::showEmote(EmoteEvent emoteEvent) {
 }
 
 void GameController::showError(const std::string &title, const std::string &message, bool popup) {
-  std::cout << "[" << title << "] " << message << std::endl;
+  std::cout << "ERROR [" << title << "] " << message << std::endl;
   if (popup) wxMessageBox(message, title, wxOK | wxICON_ERROR);
 }
 void GameController::showGameOverMessage() {} // TODO
@@ -159,7 +160,7 @@ void GameController::playerReady() {
   _gameState->addShips(_me->getId(), _setupManager->_ships_placed);
 
   // todo: maybe display some waiting for other player information
-  std::cout << "Sending request to server. You might need to wait for your opponent to be ready." << std::endl;
+  LOG("Sending request to server. You might need to wait for your opponent to be ready.");
 
   // send request to start game
   StartGame request = StartGame(_me->getId(), _setupManager->_ships_placed);

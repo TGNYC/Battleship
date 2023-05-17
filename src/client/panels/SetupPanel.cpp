@@ -1,6 +1,7 @@
 #include "SetupPanel.h"
-#include "../SetupManager.h"
 #include "../GameController.h"
+#include "../SetupManager.h"
+#include "Logger.h"
 
 // declare static variables
 std::vector<Ship> SetupManager::_ships_placed;
@@ -76,11 +77,12 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPo
       }*/
 
       if(SetupManager::_selectedShip->getPosition().x != -1 && SetupManager::_selectedShip->getPosition().y != -1) { //
-        std::cout << "this ship is already placed" << std::endl;
+        LOG("this ship is already placed");
         _placementGrid->displayGrid();
         return;
       }
-      std::cout << "ship " << (i+1) << " clicked (length: " << SetupManager::_selectedShip->getLength() << ", id: " << SetupManager::_selectedShip->getId().ToString() << ")" << std::endl;
+      LOG("ship " + std::to_string(i+1) + " clicked (length: " + std::to_string(SetupManager::_selectedShip->getLength())
+          + ", id: " + SetupManager::_selectedShip->getId().ToString() + ")");
     });
 
   }
@@ -117,7 +119,7 @@ void SetupPanel::OnKeyDown(wxKeyEvent &event) {
   if (event.GetUnicodeKey() == 'R' || event.GetUnicodeKey() == 'r') {
     if (SetupManager::_selectedShip != nullptr && SetupManager::_selectedShip->getPosition().x == -1 &&
         SetupManager::_selectedShip->getPosition().y == -1) { // ship must not yet be placed
-      std::cout << "rotate ship " << SetupManager::_selectedShip->getId().ToString() << std::endl;
+      LOG("rotate ship " + SetupManager::_selectedShip->getId().ToString());
       auto orientation = SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Horizontal
                            ? Ship::Orientation::Vertical
                            : Ship::Orientation::Horizontal;

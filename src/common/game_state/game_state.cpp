@@ -14,7 +14,7 @@ game_state::game_state(game_state::Type type) :
 
   players = std::vector<Player>();
   playerGrids = std::vector<PlayerGrid>();
-  Logger::log("Created GameState");
+  LOG("Created GameState");
 }
 
 
@@ -28,7 +28,7 @@ auto game_state::addPlayer(Player player) -> bool {
   if (players.size() >= 2) {
     return false;
   }
-  Logger::log("Added Player " + player.getName() + " " + player.getId().ToString() + " to GameState");
+  LOG("Added Player to GameState: " + player.getName() + " " + player.getId().ToString());
   players.push_back(std::move(player));
   return true;
 }
@@ -45,45 +45,44 @@ auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> boo
   // check if not already placed
   for (const PlayerGrid& grid : playerGrids) {
     if (grid.playerId == playerId) {
-      Logger::log("Ship placement for this player id already exists");
+      LOG("Ship placement for this player id already exists");
       return false;
     }
   }
   // create playerGrid and add it to the vector
-  Logger::log("Added Ships of " + playerId.ToString() + " to GameState");
+  LOG("Added Ships of " + playerId.ToString() + " to GameState");
   playerGrids.emplace_back(playerId, std::move(shipPlacement));
   return true;
 }
 
+
 bool game_state::start(uuid currentPlayerId) {
   if (state != State::Starting) {
-    std::cout << "Game state not in starting phase. Cannot start game." << std::endl;
-    Logger::log("Game state not in starting phase. Cannot start game.");
+    LOG("Game state not in starting phase. Cannot start game.");
     return false;
   } else if (players.size() != 2) {
-    std::cout << "Number of players is not 2. Cannot start game." << std::endl;
-    Logger::log("Number of players is not 2. Cannot start game.");
-    return false; // start game with only one player means the server will wait for 2nd player to join. @nico: NOPE, you are not supposed to start a game with 1 player!!
+    LOG("Number of players is not 2. Cannot start game.");
+    return false;
   } else if (type == Type::ServerState && playerGrids.size() != 2) {
-    std::cout << "Not 2 grids on server. Cannot start game." << std::endl;
-    Logger::log("Not 2 grids on server. Cannot start game.");
+    LOG("Not 2 grids on server. Cannot start game.");
     return false;
   } else if (type == Type::ClientState && playerGrids.size() != 1) {
-    std::cout << "Not 1 grid on client. Cannot start game." << std::endl;
-    Logger::log("Not 1 grid on client. Cannot start game.");
+    LOG("Not 1 grid on client. Cannot start game.");
     return false;
   } else {
     this->currentPlayerId = currentPlayerId;
-    LOG("first player set " + currentPlayerId.ToString());
+    LOG("first to play: " + currentPlayerId.ToString());
     state = State::Playing;
-    Logger::log("Successfully started GameState");
+    LOG("Successfully started GameState");
     return true;
   }
 }
 
+
 uuid game_state::getCurrentPlayerId() {
   return currentPlayerId;
 }
+
 
 const PlayerGrid &game_state::getPlayerGrid(uuid playerId) const {
   for (const PlayerGrid& grid : playerGrids) {
@@ -91,7 +90,7 @@ const PlayerGrid &game_state::getPlayerGrid(uuid playerId) const {
       return grid;
     }
   }
-  throw std::runtime_error("Could not find grid for this player ID");
+  throw std::runtime_error("Could not find grid for this player id");
 }
 
 
@@ -101,7 +100,8 @@ Ship &game_state::getShip(std::vector<Ship>& ships, uuid shipId) {
       return ship;
     }
   }
-  Logger::log("GameState::getShip: no ship with matching id found");
+  LOG("no ship with matching id found");
+  throw BattleshipException("no ship with matching id found");
 }
 
 
@@ -111,9 +111,10 @@ const Player& game_state::getOtherPlayer(uuid playerId) {
       return player;
     }
   }
-  Logger::log("Fatal Error: did not find other player");
-  std::cout << "GameState::getOtherPlayer : Did not find other player" << std::endl;
+  LOG("did not find other player");
+  throw BattleshipException("did not find other player");
 }
+
 
 const Player& game_state::getPlayer(uuid playerId) const {
   for (const Player& player : players) {
@@ -121,7 +122,10 @@ const Player& game_state::getPlayer(uuid playerId) const {
       return player;
     }
   }
+  LOG("no player with matching id found");
+  throw BattleshipException("no player with matching id found");
 }
+
 
 bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
   if (position.x < 0 || position.x >= 10) {
@@ -140,17 +144,12 @@ bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
 // all parameters after position are used to return info back to the caller
 bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk, uuid *nextPlayerId) {
 
-  // log turn number and current player
-  const std::string msg = "Registering shot. Turn Number " + std::to_string(turnNumber) +
-                          ". Current Player " + currentPlayerId.ToString();
-  Logger::log(msg);
-
-  // make sure we are on a server
-  //assert(playerGrids.size() == 2 && "Number of grids is not 2. Illegal call on client side or incomplete state on server")
+  LOG("Turn Number: " + std::to_string(turnNumber));
+  LOG("Current Player: " + currentPlayerId.ToString());
 
   // check if the correct player is playing
   if (playerId != currentPlayerId) {
-    Logger::log("It is not this players turn " + playerId.ToString());
+    LOG("It is not this players turn " + playerId.ToString());
     return false;
   }
 
@@ -194,12 +193,8 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
 }
 
 bool game_state::updateBoards(const GameEvent &event) {
-
-  // make sure we are on a client
-  //assert(playerGrids.size() == 1 && "Number of grids is not 1. Illegal call on server side or damaged state on client");
-
+  LOG("updating board...");
   PlayerGrid myGrid = playerGrids[0];
-
   // update my grid
   if (event.playerId == myGrid.playerId) {  // I called the shot
       myGrid.shotsFired[event.position.x][event.position.y] = event.hit ? 2 : 1;
@@ -210,7 +205,6 @@ bool game_state::updateBoards(const GameEvent &event) {
       Ship& hitShip = getShip(myGrid.shipsPlaced, event.hitShip.getId()); // find out which of my local ships was hit
       hitShip.hit(event.position);
   }
-
   // update current player
   currentPlayerId = event.nextPlayerId;
 }
@@ -240,7 +234,7 @@ uuid game_state::getWinner() {
   if (state == State::Finished) {
       return winner;
   } else {
-      Logger::log("Asked for winner but game not finished");
+      LOG("Asked for winner but game not finished");
       return uuid();
   }
 }
