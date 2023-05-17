@@ -154,10 +154,6 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
     return false;
   }
 
-  // get the player grids
-  LOG("grids: " + playerGrids.size());
-  LOG("playerGrids ids: " + playerGrids[0].playerId.ToString() + " " + playerGrids[1].playerId.ToString());
-
   PlayerGrid shooterGrid  = playerGrids[0]; // grid of the shooter
   PlayerGrid targetGrid   = playerGrids[1]; // grid of the victim/target
   if (shooterGrid.playerId != playerId) {
@@ -191,7 +187,6 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
 
   // determine next player
   *nextPlayerId = *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
-  LOG("player and target: " + playerId.ToString() + " " + targetPlayerId.ToString());
   currentPlayerId = *nextPlayerId;  // update current player
   LOG(nextPlayerId->ToString());
   turnNumber++;

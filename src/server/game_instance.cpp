@@ -55,7 +55,6 @@ bool game_instance::start_game(const Player *player, std::string &err) {
   }
 
   // if reached here everything is fine and we can start
-  std::cout << "got here " << std::endl;
   return _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
 }
 
@@ -70,14 +69,10 @@ bool game_instance::executeShot(CallShot shotRequest) {
   // register shot and get results
   bool success = _game_state.registerShot(shotRequest.getPlayerId(), shotRequest.getPosition(), &hit, &hitShip, &sunk, &nextPlayerId);
   // build game event
-  LOG("1");
   GameEvent *shotCalled = new GameEvent(shotRequest.getPlayerId(), shotRequest.getPosition(), hit, sunk, *hitShip, nextPlayerId);
-  LOG("2");
   ServerResponse *msg_string = shotCalled;
-  LOG("3");
   // broadcast to clients
   server_network_manager::broadcast_message(*msg_string, _game_state.get_players());
-  LOG("4");
   if (_game_state.gameOver()) {
     uuid winnerId = _game_state.getWinner();
     // TODO send GameOver response to clients
