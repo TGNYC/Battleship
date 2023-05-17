@@ -48,7 +48,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
         // process message (if we've received entire message)
         if (bytesReadSoFar == messageLength) {
           std::cout << "Received entire message...\n";
-          std::string message = messageStream.str();
+          std::string                     message  = messageStream.str();
           std::unique_ptr<ServerResponse> response = ClientNetworkManager::parseResponse(message);
 
           std::cout << "Response type: " << static_cast<int>(response->responseType) << std::endl;
@@ -57,12 +57,12 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
 
           case ResponseType::GameEvent:
             GameController::getMainThreadEventHandler()->CallAfter([&response] {
-              GameController::handleGameEvent(static_cast<const GameEvent&>(*response));
+              GameController::handleGameEvent(static_cast<const GameEvent &>(*response));
             });
             break;
           case ResponseType::EmoteEvent:
-            GameController::getMainThreadEventHandler()->CallAfter([&response]{
-              GameController::showEmote(static_cast<const EmoteEvent&>(*response));
+            GameController::getMainThreadEventHandler()->CallAfter([&response] {
+              GameController::showEmote(static_cast<const EmoteEvent &>(*response));
             });
             break;
           case ResponseType::JoinGameSuccess:
@@ -73,12 +73,14 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             break;
           case ResponseType::ErrorResponse:
             GameController::getMainThreadEventHandler()->CallAfter([&response] {
-              GameController::showError("Server Error", static_cast<const ErrorResponse &>(*response).exception.what(), false);
+              GameController::showError("Server Error", static_cast<const ErrorResponse &>(*response).exception.what(),
+                                        false);
             });
             break;
           case ResponseType::StartGameSuccess:
-            GameController::getMainThreadEventHandler()->CallAfter([&response] {
-              GameController::startGame(static_cast<const StartGameSuccess&>(*response));
+            const StartGameSuccess &startGameSuccess = static_cast<const StartGameSuccess &>(*response);
+            GameController::getMainThreadEventHandler()->CallAfter([&startGameSuccess] {
+              GameController::startGame(startGameSuccess);
             });
             break;
           }
