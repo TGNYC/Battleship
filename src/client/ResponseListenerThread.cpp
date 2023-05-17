@@ -48,39 +48,45 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
         // process message (if we've received entire message)
         if (bytesReadSoFar == messageLength) {
           std::cout << "Received entire message...\n";
-          std::string message = messageStream.str();
+          std::string                     message  = messageStream.str();
           std::unique_ptr<ServerResponse> response = ClientNetworkManager::parseResponse(message);
 
           std::cout << "Response type: " << static_cast<int>(response->responseType) << std::endl;
 
           switch (response->responseType) {
 
-          case ResponseType::GameEvent:
-            GameController::getMainThreadEventHandler()->CallAfter([&response] {
-              GameController::handleGameEvent(static_cast<const GameEvent&>(*response));
+          case ResponseType::GameEvent: {
+            const GameEvent &gameEvent = static_cast<const GameEvent &>(*response);
+            GameController::getMainThreadEventHandler()->CallAfter([gameEvent] {
+              GameController::handleGameEvent(gameEvent);
             });
             break;
-          case ResponseType::EmoteEvent:
-            GameController::getMainThreadEventHandler()->CallAfter([&response]{
-              GameController::showEmote(static_cast<const EmoteEvent&>(*response));
+          }
+          case ResponseType::EmoteEvent: {
+            const EmoteEvent &emoteEvent = static_cast<const EmoteEvent &>(*response);
+            GameController::getMainThreadEventHandler()->CallAfter([emoteEvent] {
+              GameController::showEmote(emoteEvent);
             });
             break;
-          case ResponseType::JoinGameSuccess:
+          }
+          case ResponseType::JoinGameSuccess: {
             std::cout << "Client received a JoinGameSuccess...\n";
             GameController::getMainThreadEventHandler()->CallAfter([] {
               GameController::enterSetupPhase();
             });
-            break;
-          case ResponseType::ErrorResponse:
-            GameController::getMainThreadEventHandler()->CallAfter([&response] {
-              GameController::showError("Server Error", static_cast<const ErrorResponse &>(*response).exception.what(), false);
+          } break;
+          case ResponseType::ErrorResponse: {
+            const ErrorResponse &errorResponse = static_cast<const ErrorResponse &>(*response);
+            GameController::getMainThreadEventHandler()->CallAfter([errorResponse] {
+              GameController::showError("Server Error", errorResponse.exception.what(), false);
             });
-            break;
-          case ResponseType::StartGameSuccess:
-            GameController::getMainThreadEventHandler()->CallAfter([&response] {
-              GameController::startGame(static_cast<const StartGameSuccess&>(*response));
+          } break;
+          case ResponseType::StartGameSuccess: {
+            const StartGameSuccess &startGameSuccess = static_cast<const StartGameSuccess &>(*response);
+            GameController::getMainThreadEventHandler()->CallAfter([startGameSuccess] {
+              GameController::startGame(startGameSuccess);
             });
-            break;
+          } break;
           }
         } else {
           this->outputError("Network error", "Could not read entire message. TCP stream ended early. Difference is " +

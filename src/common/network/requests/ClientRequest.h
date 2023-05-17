@@ -20,6 +20,8 @@ public:
 
   auto operator<=>(const ClientRequest &) const = default;
 
+  virtual ~ClientRequest() = default;
+
 protected:
   ClientRequest(uuid playerId, RequestType requestType);
 

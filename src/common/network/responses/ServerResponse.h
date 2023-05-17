@@ -21,6 +21,8 @@ public:
 
   auto operator<=>(const ServerResponse &) const = default;
 
+  virtual ~ServerResponse() = default;
+
 protected:
   explicit ServerResponse(ResponseType responseType);
 };
