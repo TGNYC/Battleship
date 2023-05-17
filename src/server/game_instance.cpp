@@ -61,6 +61,7 @@ bool game_instance::start_game(const Player *player, std::string &err) {
 }
 
 bool game_instance::executeShot(CallShot shotRequest) {
+  std::cout << "executeShot was called\n";
   uuid          currPlayerID = shotRequest.getPlayerId();
   const Player *currPlayer   = nullptr;
   const Player *excluded     = nullptr;
@@ -101,7 +102,8 @@ bool game_instance::executeShot(CallShot shotRequest) {
     // TODO send GameOver response to clients
   }
 }
-const game_state &game_instance::getGameState() const {
+
+game_state &game_instance::getGameState() {
   return _game_state;
 }
 
