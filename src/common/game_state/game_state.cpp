@@ -55,7 +55,7 @@ auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> boo
   return true;
 }
 
-bool game_state::start(uuid currentPlayerId) {
+bool game_state::cd ..lscd battlestart(uuid currentPlayerId) {
   if (state != State::Starting) {
     std::cout << "Game state not in starting phase. Cannot start game." << std::endl;
     Logger::log("Game state not in starting phase. Cannot start game.");

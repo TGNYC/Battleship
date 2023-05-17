@@ -51,7 +51,12 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
     std::cout << "handle Start Game request\n";
     const Player player = gameInstance.getGameState().getPlayer(player_id);
     bool         result = gameInstance.start_game(&player, err);
+
+    const StartGame startGameRequest = static_cast<const StartGame &>(*req);
+
     std::cout << "start game result " << result << std::endl;
+
+    gameInstance.getGameState().addShips(player_id, startGameRequest.getShips());
     // indicates that both players are ready to the server by sending a success response to the current player's server
     // (the response to the other player is sent in the logic in game_instance)
     if (result) {
@@ -75,6 +80,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   // ##################### CALL SHOT ##################### //
   // TODO: finish implementing the call shot request
   case RequestType::CallShot: {
+    std::cout << "handle CallShot request\n";
     if (gameInstance.executeShot((*(CallShot *)req))) { // if it worked
       // TODO : currently the GameEvent is only sent to the player who called the shot. Change to make it go to both
       return std::make_unique<GameEvent>(player_id, Coordinate(), false, false,

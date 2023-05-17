@@ -1,1 +1,24 @@
 14-05-2023 12-33-46Not 2 grids on server. Cannot start game.
+17-05-2023 12:14:41    Starting Battleship Server
+17-05-2023 12:14:41    Created GameState
+17-05-2023 12:14:44    Added Player test 3bbf2612-44ec-4b1f-8396-219bcc117c73 to GameState
+17-05-2023 12:15:05    Added Player one 57d1f1f8-cf20-40d5-b146-9edcb67f276f to GameState
+17-05-2023 12:15:18    Not 2 grids on server. Cannot start game.
+17-05-2023 12:17:50    Starting Battleship Server
+17-05-2023 12:17:50    Created GameState
+17-05-2023 12:17:53    Added Player test e6ded9d5-fbc4-49ca-8f23-62e85f2045c9 to GameState
+17-05-2023 12:19:23    Starting Battleship Server
+17-05-2023 12:19:23    Created GameState
+17-05-2023 12:19:29    Added Player one e2d564e5-f6dd-428d-af19-86f1c014665d to GameState
+17-05-2023 12:22:22    Starting Battleship Server
+17-05-2023 12:22:22    Created GameState
+17-05-2023 12:22:40    Added Player one 9ed059e1-0301-487a-ac9e-33e713d1c3a8 to GameState
+17-05-2023 12:22:42    Added Player two 796f44fe-0bf7-4025-84e0-70324ddcd217 to GameState
+17-05-2023 12:23:05    Not 2 grids on server. Cannot start game.
+17-05-2023 12:25:01    Starting Battleship Server
+17-05-2023 12:25:01    Created GameState
+17-05-2023 12:25:11    Added Player one 1c8e10f6-6f81-4468-b92f-9d890703b9f8 to GameState
+17-05-2023 12:25:13    Added Player two 310b1a7f-424d-439c-9b2c-9c13503847e7 to GameState
+17-05-2023 12:25:23    Not 2 grids on server. Cannot start game.
+17-05-2023 12:40:38    Starting Battleship Server
+17-05-2023 12:40:38    Created GameState
