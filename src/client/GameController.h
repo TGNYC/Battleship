@@ -41,7 +41,7 @@ public:
     /**
      * @brief Sends an emote to the server. 
     */
-    static void sendEmote();
+    static void sendEmote(EmoteType emote);
     /**
      * @brief Displays an emote to the screen
      */

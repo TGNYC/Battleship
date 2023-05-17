@@ -29,7 +29,6 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   // Get common properties of requests
   RequestType type      = req->getRequestType();
   uuid        player_id = req->getPlayerId();
-  // const Player* player = &gameInstance.getGameState().getPlayer(player_id);
 
   // Switch behavior according to request type
   switch (type) {
@@ -60,13 +59,11 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
     // (the response to the other player is sent in the logic in game_instance)
     if (result) {
       LOG("Request succeeded and both players are ready");
-
       // send StartGameSuccess update to the already-ready player
       LOG("Sending StartGameSuccess to the already-ready player");
       std::unique_ptr<ServerResponse> resp =
           std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id);
       server_network_manager::broadcast_message(*resp, gameInstance.getGameState().get_players(), &player);
-
       // send StartGameSuccess update to the newly-ready player
       LOG("Sending StartGameSuccess to the newly-ready player");
       return std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(),
@@ -88,8 +85,16 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   } break;
 
   // ##################### SEND EMOTE ##################### //
-  // TODO: finish send_emote request handler
-  //    case RequestType::send_emote: {}
+  case RequestType::SendEmote: {
+    LOG("Handle SendEmote request");
+    const Player player = gameInstance.getGameState().getPlayer(player_id);
+    const SendEmote sendEmoteRequest = static_cast<const SendEmote&>(*req);
+    std::unique_ptr<ServerResponse> response = std::make_unique<EmoteEvent>(sendEmoteRequest.getEmote(),
+                                                                            sendEmoteRequest.getPlayerId());
+    LOG("Sending EmoteEvent to the other player");
+    server_network_manager::broadcast_message(*response, gameInstance.getGameState().get_players(), &player);
+    return nullptr; // nothing to send back to the request sender
+  }
 
   // ##################### QUIT GAME ##################### //
   // TODO: finish quit_game request handler

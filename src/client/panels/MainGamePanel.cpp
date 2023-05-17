@@ -100,6 +100,8 @@ void MainGamePanel::buildEmoteList() {
     LOG("emote nr: " + std::to_string(emote));
 
     // TODO: send to server
+    EmoteType e = EmoteType::MiddleFinger;  // TODO replace this with actually determining the correct emote
+    GameController::sendEmote(e);
   });
 }
 

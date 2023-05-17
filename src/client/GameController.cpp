@@ -3,6 +3,7 @@
 #include "Logger.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
+#include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
 
 // initialize static variables
@@ -128,7 +129,10 @@ void GameController::callShot(Coordinate position) {
   ClientNetworkManager::sendRequest(request);
 }
 
-void GameController::sendEmote() {}
+void GameController::sendEmote(EmoteType emote) {
+  SendEmote request = SendEmote(_me->getId(), emote);
+  ClientNetworkManager::sendRequest(request);
+}
 
 void GameController::showEmote(EmoteEvent emoteEvent) {
   EmoteType emote = emoteEvent.emote;
