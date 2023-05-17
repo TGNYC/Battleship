@@ -39,7 +39,7 @@ public:
   ~server_network_manager();
 
   // Used to broadcast a server_response (e.g. a full_state_response) to all 'players' except 'exclude'
-  static void broadcast_message(ServerResponse &msg, const std::vector<Player> &players, const Player *exclude);
+  static void broadcast_message(ServerResponse &msg, const std::vector<Player> &players, const Player *exclude= nullptr);
   //static void send_message_to_other_server(const std::string &host, const uint16_t port, const std::string &message);
   static void on_player_left(uuid player_id);
   void listener_loop();

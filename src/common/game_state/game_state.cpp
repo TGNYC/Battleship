@@ -74,6 +74,7 @@ bool game_state::start(uuid currentPlayerId) {
     return false;
   } else {
     this->currentPlayerId = currentPlayerId;
+    LOG("first player set " + currentPlayerId.ToString());
     state = State::Playing;
     Logger::log("Successfully started GameState");
     return true;

@@ -208,7 +208,7 @@ void server_network_manager::broadcast_message(ServerResponse &msg, const std::v
   // send object_diff to all requested players
   try {
     for (auto &player : players) {
-      if (player != *exclude) {
+      if (exclude == nullptr || player != *exclude) {
         int nof_bytes_written = send_message(msg_string, _player_id_to_address.at(player.getId()));
       }
     }

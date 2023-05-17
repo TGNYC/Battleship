@@ -56,33 +56,10 @@ bool game_instance::start_game(const Player *player, std::string &err) {
 
   // if reached here everything is fine and we can start
   std::cout << "got here " << std::endl;
-  _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
-  return true;
+  return _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
 }
 
 bool game_instance::executeShot(CallShot shotRequest) {
-  std::cout << "executeShot was called\n";
-  uuid          currPlayerID = shotRequest.getPlayerId();
-  const Player *currPlayer   = nullptr;
-  const Player *excluded     = nullptr;
-  for (const Player &player : _game_state.get_players()) {
-    if (player.getId() != currPlayerID) {
-      excluded = &player;
-    } else {
-      currPlayer = &player;
-    }
-  }
-
-  if (!_game_state.shotIsLegal(shotRequest.getPlayerId(), shotRequest.getPosition())) {
-    // TODO: Send error message to player who attempted to make the shot
-    //    std::string msg_string = "ERROR: ILLEGAL SHOT"; // TODO: figure out that JSON BITCH
-    //    ServerResponse msg_string(ResponseType::ErrorResponse);
-    BattleshipException exception("Error message");
-    ErrorResponse      *error_response = new ErrorResponse(exception);
-    ServerResponse     *msg_string     = error_response;
-    server_network_manager::broadcast_message(*msg_string, _game_state.get_players(), excluded);
-    return false;
-  }
 
   // variables to be determined by game_state
   bool  hit;          // indicates if the shot was a hit
@@ -91,16 +68,19 @@ bool game_instance::executeShot(CallShot shotRequest) {
   uuid  nextPlayerId; // player who goes next
 
   // register shot and get results
-  _game_state.registerShot(shotRequest.getPlayerId(), shotRequest.getPosition(), &hit, &hitShip, &sunk, &nextPlayerId);
-  // TODO send gameEvent response to clients with this information
-  GameEvent *shotCalled = new GameEvent(currPlayerID, shotRequest.getPosition(), hit, sunk, *hitShip, nextPlayerId);
+  bool success = _game_state.registerShot(shotRequest.getPlayerId(), shotRequest.getPosition(), &hit, &hitShip, &sunk, &nextPlayerId);
+
+  // build game event
+  GameEvent *shotCalled = new GameEvent(shotRequest.getPlayerId(), shotRequest.getPosition(), hit, sunk, *hitShip, nextPlayerId);
   ServerResponse *msg_string = shotCalled;
-  server_network_manager::broadcast_message(*msg_string, _game_state.get_players(), currPlayer);
+  // broadcast to clients
+  server_network_manager::broadcast_message(*msg_string, _game_state.get_players());
 
   if (_game_state.gameOver()) {
     uuid winnerId = _game_state.getWinner();
     // TODO send GameOver response to clients
   }
+  return success;
 }
 
 game_state &game_instance::getGameState() {
