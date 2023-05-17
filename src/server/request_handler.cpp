@@ -14,28 +14,27 @@
 #include "network/responses/ServerResponse.h"
 #include "network/responses/StartGameSuccess.h"
 #include "player_manager.h"
+#include "server_network_manager.h"
 #include <iostream>
 #include <memory>
-#include "server_network_manager.h"
-
 
 std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance             &gameInstance,
                                                                 const ClientRequest *const req) {
   std::cout << "handle_request() called\n";
 
   // Prepare variables that are used by every request type
-  //Player     *player; //TODO remove this line. dangerous to deal with uninitialized player due to random uuid
+  // Player     *player; //TODO remove this line. dangerous to deal with uninitialized player due to random uuid
   std::string err;
 
   // Get common properties of requests
   RequestType type      = req->getRequestType();
   uuid        player_id = req->getPlayerId();
-  const Player* player = &gameInstance.getGameState().getPlayer(player_id);
+  // const Player* player = &gameInstance.getGameState().getPlayer(player_id);
 
   // Switch behavior according to request type
   switch (type) {
 
-// ##################### JOIN GAME ##################### //
+    // ##################### JOIN GAME ##################### //
   case RequestType::JoinGame: {
     std::cout << "handle Join Game request\n";
     const JoinGame joinGameRequest = static_cast<const JoinGame &>(*req);
@@ -50,8 +49,8 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
   // ##################### START GAME ##################### //
   case RequestType::StartGame: {
     std::cout << "handle Start Game request\n";
-
-    bool result = gameInstance.start_game(player, err);
+    const Player player = gameInstance.getGameState().getPlayer(player_id);
+    bool         result = gameInstance.start_game(&player, err);
     std::cout << "start game result " << result << std::endl;
     // indicates that both players are ready to the server by sending a success response to the current player's server
     // (the response to the other player is sent in the logic in game_instance)
@@ -60,17 +59,18 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
 
       // send StartGameSuccess update to the already-ready player
       std::cout << "Sending StartGameSuccess to the already-ready player" << std::endl;
-      std::unique_ptr<ServerResponse> resp = std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id);
-      server_network_manager::broadcast_message(*resp, gameInstance.getGameState().get_players(), player);
+      std::unique_ptr<ServerResponse> resp =
+          std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id);
+      server_network_manager::broadcast_message(*resp, gameInstance.getGameState().get_players(), &player);
 
       // send StartGameSuccess update to the newly-ready player
       std::cout << "Sending StartGameSuccess to the newly-ready player" << std::endl;
-      return std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id); // TODO can you pass here the resp pointer from above?
+      return std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(),
+                                                player_id); // TODO can you pass here the resp pointer from above?
     }
     std::cout << "Request succeeded and set player ready. But opponent not ready yet" << std::endl;
     return nullptr;
   } break;
-
 
   // ##################### CALL SHOT ##################### //
   // TODO: finish implementing the call shot request
