@@ -14,7 +14,7 @@ public:
   auto getId() const -> uuid;
   auto getName() const -> std::string;
 
-  auto operator<=>(const Player &) const = default;
+  bool operator==(const Player &) const = default;
 
 private:
   uuid        m_id;

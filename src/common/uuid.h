@@ -15,7 +15,7 @@ public:
 
   [[nodiscard]] auto ToString() const -> std::string;
 
-  auto operator<=>(const uuid &) const = default;
+  bool operator==(const uuid &) const = default;
 
 private:
   std::array<std::uint8_t, 16> m_octets = {}; // NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
