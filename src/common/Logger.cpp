@@ -3,6 +3,7 @@
 //
 
 #include "Logger.h"
+#include <sstream>
 
 const char* const Logger::logFile = "log.txt";
 const char* const Logger::tab = "  "; // 2 spaces
