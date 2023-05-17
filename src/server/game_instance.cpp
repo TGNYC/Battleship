@@ -11,57 +11,57 @@
 #include "server_network_manager.h"
 
 bool game_instance::joinGame(const JoinGame &joinGameRequest) {
-    std::cout << "about to add player to the game state\n";
-    std::lock_guard<std::mutex> lockGuard(modification_lock);
+  std::cout << "about to add player to the game state\n";
+  std::lock_guard<std::mutex> lockGuard(modification_lock);
 
-    uuid        playerId   = joinGameRequest.getPlayerId();
-    std::string playerName = joinGameRequest.getPlayerName();
-    Player      player     = Player(playerId, playerName);
+  uuid        playerId   = joinGameRequest.getPlayerId();
+  std::string playerName = joinGameRequest.getPlayerName();
+  Player      player     = Player(playerId, playerName);
 
-//  // Prints out the names of the current players in the game
-//  std::cout << "current players in the game:\n";
-//  auto players = _game_state.get_players();
-//  for (const auto& player : players) {
-//    std::cout << "Player name: " << player.getName() << std::endl;
-//  }
+  //  // Prints out the names of the current players in the game
+  //  std::cout << "current players in the game:\n";
+  //  auto players = _game_state.get_players();
+  //  for (const auto& player : players) {
+  //    std::cout << "Player name: " << player.getName() << std::endl;
+  //  }
 
-    return _game_state.addPlayer(player);   // addPlayer checks if the player was already added or game is full
+  return _game_state.addPlayer(player); // addPlayer checks if the player was already added or game is full
 }
 
 // is called upon receiving a startGameRequest
 // first boolean returns whether start_game was successful
 // second boolean returns whether both players are ready to start the game
 bool game_instance::start_game(const Player *player, std::string &err) {
-    modification_lock.lock();
-    std::cout << "start_game called" << std::endl;
-    const std::vector<Player> currentPlayers = _game_state.get_players();
 
-    // set this player to ready. not a problem if done more than once
-    isReady[player->getId()] = true;
-    std::cout << player->getId().ToString() << " is ready" << std::endl;
+  std::lock_guard<std::mutex> lockGuard(modification_lock);
+  std::cout << "start_game called" << std::endl;
+  const std::vector<Player> currentPlayers = _game_state.get_players();
 
-    // check if we have 2 players
-    if (currentPlayers.size() != 2) {
-      std::cout << "Not 2 players yet. Cannot start game" << std::endl;
-      return false;
-    }
+  // set this player to ready. not a problem if done more than once
+  isReady[player->getId()] = true;
+  std::cout << player->getId().ToString() << " is ready" << std::endl;
 
-    // check if other player is ready
-    const Player &otherPlayer = _game_state.getOtherPlayer(player->getId());
-    if (!isReady[otherPlayer.getId()]) {
-      std::cout << "Other player " + otherPlayer.getId().ToString() + " not ready yet. Cannot start game" << std::endl;
-      return false;
-    }
+  // check if we have 2 players
+  if (currentPlayers.size() != 2) {
+    std::cout << "Not 2 players yet. Cannot start game" << std::endl;
+    return false;
+  }
 
-    // if reached here everything is fine and we can start
-    std::cout << "got here " << std::endl;
-    _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
-    modification_lock.unlock();
-    return true;
+  // check if other player is ready
+  const Player &otherPlayer = _game_state.getOtherPlayer(player->getId());
+  if (!isReady[otherPlayer.getId()]) {
+    std::cout << "Other player " + otherPlayer.getId().ToString() + " not ready yet. Cannot start game" << std::endl;
+    return false;
+  }
+
+  // if reached here everything is fine and we can start
+  std::cout << "got here " << std::endl;
+  _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
+  return true;
 }
 
 bool game_instance::executeShot(CallShot shotRequest) {
-  uuid    currPlayerID = shotRequest.getPlayerId();
+  uuid          currPlayerID = shotRequest.getPlayerId();
   const Player *currPlayer   = nullptr;
   const Player *excluded     = nullptr;
   for (const Player &player : _game_state.get_players()) {
@@ -101,7 +101,7 @@ bool game_instance::executeShot(CallShot shotRequest) {
     // TODO send GameOver response to clients
   }
 }
-const game_state& game_instance::getGameState() const {
+const game_state &game_instance::getGameState() const {
   return _game_state;
 }
 
