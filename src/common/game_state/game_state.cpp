@@ -186,6 +186,29 @@ bool game_state::updateBoards(const GameEvent &event) {
   if (event.playerId == myGrid.playerId) { // I called the shot
     LOG("This was my shot");
     myGrid.shotsFired[event.position.x][event.position.y] = event.hit ? 2 : 1;
+    if (event.sunk) {
+      switch (event.hitShip.getLength()) {
+        case 2:
+          oppShipSunk[4] = true;
+          break;
+        case 3:
+          if (oppShipSunk[3]) {
+            oppShipSunk[2] = true;
+          } else {
+            oppShipSunk[3] = true;
+          }
+          break;
+        case 4:
+          oppShipSunk[1] = true;
+          break;
+        case 5:
+          oppShipSunk[0] = true;
+          break;
+        default:
+          LOG("invalid ship length");
+          break;
+      }
+    }
   } else { // other player shot me
     LOG("This was the other players shot");
     // update shots
@@ -194,30 +217,6 @@ bool game_state::updateBoards(const GameEvent &event) {
     if (event.hit) {
       Ship &hitShip = getShip(myGrid.shipsPlaced, event.hitShip.getId()); // find out which of my local ships was hit
       hitShip.hit(event.position);
-    }
-  }
-
-  if (event.sunk) {
-    switch (event.hitShip.getLength()) {
-      case 2:
-        oppShipSunk[4] = true;
-        break;
-      case 3:
-        if (oppShipSunk[3]) {
-          oppShipSunk[2] = true;
-        } else {
-          oppShipSunk[3] = true;
-        }
-        break;
-      case 4:
-        oppShipSunk[1] = true;
-        break;
-      case 5:
-        oppShipSunk[0] = true;
-        break;
-      default:
-        LOG("invalid ship length");
-        break;
     }
   }
 
