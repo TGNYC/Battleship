@@ -160,6 +160,7 @@ void MainGamePanel::onEmoteClick(wxMouseEvent &event) {
   wxPoint mousePosition = event.GetPosition();
   mousePosition -= wxPoint(20, 90);
   const int emote = mousePosition.y / 90;
+  if(emote < 0 || emote > 3) return;
   LOG("clicked on emote nr " + std::to_string(emote));
   GameController::sendEmote(EmoteType(emote));
 }
