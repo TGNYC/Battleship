@@ -9,8 +9,6 @@ class EmotePanel : public wxPanel {
 public:
     EmotePanel(wxWindow *parent, wxPoint pos);
 
-    void displayEmote(EmoteType emote);
-
     wxStaticBitmap* getCurrentEmote() const {
         return _currentEmote;
     }

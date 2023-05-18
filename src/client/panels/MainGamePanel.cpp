@@ -3,6 +3,7 @@
 #include "../GameController.h"
 #include "Logger.h"
 
+
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   buildEmoteList();
 }
@@ -110,7 +111,9 @@ void MainGamePanel::buildEmoteList() {
 }
 
 void MainGamePanel::displayEmote(EmoteType emote) {
-  _emotePanel->displayEmote(emote);
+  int emoteId = static_cast<int>(emote);
+  LOG("I should display emote " + std::to_string(emoteId));
+  // TODO:
 }
 
 void MainGamePanel::buildTurnIndicator(std::string playerName, wxBoxSizer *box) {
@@ -157,6 +160,7 @@ void MainGamePanel::onEmoteClick(wxMouseEvent &event) {
   wxPoint mousePosition = event.GetPosition();
   mousePosition -= wxPoint(20, 90);
   const int emote = mousePosition.y / 90;
+  if(emote < 0 || emote > 3) return;
   LOG("clicked on emote nr " + std::to_string(emote));
   GameController::sendEmote(EmoteType(emote));
 }

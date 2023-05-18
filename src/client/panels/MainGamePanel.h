@@ -10,6 +10,7 @@
 #include "../uiElements/ShipPanel.h"
 #include "../uiElements/EmotePanel.h"
 //#include "../AudioPlayer.h"
+#include <wx/timer.h>
 
 class MainGamePanel : public wxPanel {
 public:
@@ -65,6 +66,7 @@ private:
   ShipPanel* _oppShipPanel;
   EmotePanel* _emotePanel;
   std::chrono::system_clock::time_point _lastShot; // std::chrono::_V2::system_clock::time_point _lastShot;
+        wxTimer* _timer;
 };
 
 #endif // MAINGAMEPANEL_H
