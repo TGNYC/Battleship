@@ -138,7 +138,7 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
 
   // limit shot frequency to one per second to give server time to respond
   auto now = std::chrono::system_clock::now();
-  if (now - _lastShot < std::chrono::seconds(1)) {
+  if (now - _lastShot < std::chrono::milliseconds(57)) {
     LOG("too fast");
     return;
   }
