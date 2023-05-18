@@ -17,12 +17,3 @@ EmotePanel::EmotePanel(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY
     }
     // displayEmote(EmoteType::MiddleFinger);
 }
-
-void EmotePanel::displayEmote(EmoteType emote) {
-    _currentEmote = new wxStaticBitmap(_parent, wxID_ANY, wxBitmap(wxImage(EmoteHandler::getImage(emote))), wxPoint(20, 300), wxSize(80, 80));
-    _currentEmote->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) {
-        LOG("clicked on emote");
-        // TODO: find a way to remove the image
-        // _currentEmote = nullptr;
-    });
-}
