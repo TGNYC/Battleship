@@ -226,7 +226,7 @@ template <>
 struct adl_serializer<EmoteEvent> {
   static void to_json(json &json, const EmoteEvent &responses) {
     json["type"]      = responses.responseType;
-    json["emot"]      = responses.emote;
+    json["emote"]      = responses.emote;
     json["player_id"] = responses.playerId;
   }
 };
