@@ -92,17 +92,7 @@ void MainGamePanel::buildEmoteList() {
 
   _mainWindow->Add(_emoteWindow, 0, wxALIGN_CENTER, 0);
 
-  this->_emotePanel->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) {
-    LOG("clicked on emote");
-    wxPoint mousePosition = event.GetPosition();
-    mousePosition -= wxPoint(20, 90);
-    int emote = mousePosition.y / 90;
-    LOG("emote nr: " + std::to_string(emote));
-
-    // TODO: send to server
-    EmoteType e = EmoteType::MiddleFinger;  // TODO replace this with actually determining the correct emote
-    GameController::sendEmote(e);
-  });
+  this->_emotePanel->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onEmoteClick, this);
 }
 
 void MainGamePanel::displayEmote(EmoteType emote) {
@@ -146,4 +136,13 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
   }
 
   GameController::callShot(shot); // builds callShot request and sends to server
+}
+
+
+void MainGamePanel::onEmoteClick(wxMouseEvent &event) {
+  wxPoint mousePosition = event.GetPosition();
+  mousePosition -= wxPoint(20, 90);
+  const int emote = mousePosition.y / 90;
+  LOG("clicked on emote nr " + std::to_string(emote));
+  GameController::sendEmote(EmoteType(emote));
 }

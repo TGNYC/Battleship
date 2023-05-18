@@ -51,6 +51,8 @@ public:
   */
   void onMouseClick(wxMouseEvent& event);
 
+  void onEmoteClick(wxMouseEvent& event);
+
 private:
   wxBoxSizer* _mainWindow;
   wxBoxSizer* _emoteWindow;
