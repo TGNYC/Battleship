@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <cassert>
 #include "Logger.h"
+#include "Coordinate.h"
 
 
 game_state::game_state(game_state::Type type) :
@@ -163,7 +164,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   // set default values
   *hit = false;
   *sunk = false;
-  *hitShipPtr = new Ship(0, Coordinate(0,0), Ship::Orientation::Vertical, uuid());  // dummy ship
+  *hitShipPtr = new Ship(0, Coordinate(0, 0), Ship::Orientation::Vertical, uuid());  // dummy ship
 
   // loop through all ships
   for (Ship& ship : targetGrid.shipsPlaced) {

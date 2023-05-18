@@ -1,0 +1,70 @@
+18-05-2023 12:54:05  server  [main]            Starting Battleship Server
+18-05-2023 12:54:05  server  [game_state]      Created GameState
+18-05-2023 12:54:05  server  [connect]         Awaiting connections on port 8080...
+18-05-2023 12:54:28  server  [listener_loop]   Received a connection request from 127.0.0.1:60485
+18-05-2023 12:54:28  server  [listener_loop]   Socket created successfully
+18-05-2023 12:54:28  server  [read_message]    Reading message
+18-05-2023 12:54:28  server  [read_message]    Expecting message of length 92
+18-05-2023 12:54:28  server  [read_message]    About to parse client_request
+18-05-2023 12:54:28  server  [handle_message]  Handling the incoming message
+18-05-2023 12:54:28  server  [handle_message]  New client with id b8e64045-5911-4bd8-9caf-7d4a42004e47
+18-05-2023 12:54:28  server  [handle_request]  handling request
+18-05-2023 12:54:28  server  [handle_request]  handle Join Game request
+18-05-2023 12:54:28  server  [joinGame]        about to add player to the game state
+18-05-2023 12:54:28  server  [addPlayer]       Added Player to GameState: test b8e64045-5911-4bd8-9caf-7d4a42004e47
+18-05-2023 12:54:28  server  [handle_message]  Response message: {"type":"join_game_success"}
+18-05-2023 12:54:29  server  [listener_loop]   Received a connection request from 127.0.0.1:60486
+18-05-2023 12:54:29  server  [listener_loop]   Socket created successfully
+18-05-2023 12:54:29  server  [read_message]    Reading message
+18-05-2023 12:54:29  server  [read_message]    Expecting message of length 92
+18-05-2023 12:54:29  server  [read_message]    About to parse client_request
+18-05-2023 12:54:29  server  [handle_message]  Handling the incoming message
+18-05-2023 12:54:29  server  [handle_message]  New client with id 275d4875-f6d8-4fad-bd49-7f84e0c7df41
+18-05-2023 12:54:29  server  [handle_request]  handling request
+18-05-2023 12:54:29  server  [handle_request]  handle Join Game request
+18-05-2023 12:54:29  server  [joinGame]        about to add player to the game state
+18-05-2023 12:54:29  server  [addPlayer]       Added Player to GameState: test 275d4875-f6d8-4fad-bd49-7f84e0c7df41
+18-05-2023 12:54:29  server  [handle_message]  Response message: {"type":"join_game_success"}
+18-05-2023 12:54:37  server  [read_message]    Expecting message of length 617
+18-05-2023 12:54:37  server  [read_message]    About to parse client_request
+18-05-2023 12:54:37  server  [handle_message]  Handling the incoming message
+18-05-2023 12:54:37  server  [handle_request]  handling request
+18-05-2023 12:54:37  server  [handle_request]  handle StartGame request
+18-05-2023 12:54:37  server  [handle_request]  adding ships of test
+18-05-2023 12:54:37  server  [addShips]        Added Ships of 275d4875-f6d8-4fad-bd49-7f84e0c7df41 to GameState
+18-05-2023 12:54:37  server  [start_game]      GameInstance trying to start
+18-05-2023 12:54:37  server  [start_game]      275d4875-f6d8-4fad-bd49-7f84e0c7df41 is ready
+18-05-2023 12:54:37  server  [start_game]      Other player b8e64045-5911-4bd8-9caf-7d4a42004e47 not ready yet. Cannot start game
+18-05-2023 12:54:37  server  [handle_request]  Set player test ready. But opponent is not ready yet
+18-05-2023 12:54:42  server  [read_message]    Expecting message of length 617
+18-05-2023 12:54:42  server  [read_message]    About to parse client_request
+18-05-2023 12:54:42  server  [handle_message]  Handling the incoming message
+18-05-2023 12:54:42  server  [handle_request]  handling request
+18-05-2023 12:54:42  server  [handle_request]  handle StartGame request
+18-05-2023 12:54:42  server  [handle_request]  adding ships of test
+18-05-2023 12:54:42  server  [addShips]        Added Ships of b8e64045-5911-4bd8-9caf-7d4a42004e47 to GameState
+18-05-2023 12:54:42  server  [start_game]      GameInstance trying to start
+18-05-2023 12:54:42  server  [start_game]      b8e64045-5911-4bd8-9caf-7d4a42004e47 is ready
+18-05-2023 12:54:42  server  [start_game]      Starting game state
+18-05-2023 12:54:42  server  [start]           first to play: b8e64045-5911-4bd8-9caf-7d4a42004e47
+18-05-2023 12:54:42  server  [start]           Successfully started GameState
+18-05-2023 12:54:42  server  [handle_request]  Request succeeded and both players are ready
+18-05-2023 12:54:42  server  [handle_request]  Sending StartGameSuccess to the already-ready player
+18-05-2023 12:54:42  server  [broadcast_message]number of bytes written: 225
+18-05-2023 12:54:42  server  [handle_request]  Sending StartGameSuccess to the newly-ready player
+18-05-2023 12:54:42  server  [handle_message]  Response message: {"players":[{"id":"b8e64045-5911-4bd8-9caf-7d4a42004e47","name":"test"},{"id":"275d4875-f6d8-4fad-bd49-7f84e0c7df41","name":"test"}],"starting_player_id":"b8e64045-5911-4bd8-9caf-7d4a42004e47","type":"start_game_success"}
+18-05-2023 12:54:44  server  [read_message]    Expecting message of length 82
+18-05-2023 12:54:44  server  [read_message]    About to parse client_request
+18-05-2023 12:54:44  server  [handle_message]  Handling the incoming message
+18-05-2023 12:54:47  server  [read_message]    Expecting message of length 96
+18-05-2023 12:54:47  server  [read_message]    About to parse client_request
+18-05-2023 12:54:47  server  [handle_message]  Handling the incoming message
+18-05-2023 12:54:47  server  [handle_request]  handling request
+18-05-2023 12:54:47  server  [handle_request]  Handle CallShot request
+18-05-2023 12:54:47  server  [executeShot]     Executing shot...
+18-05-2023 12:54:47  server  [registerShot]    Turn Number: 0
+18-05-2023 12:54:47  server  [registerShot]    Current Player: b8e64045-5911-4bd8-9caf-7d4a42004e47
+18-05-2023 12:54:47  server  [registerShot]    next player: 275d4875-f6d8-4fad-bd49-7f84e0c7df41
+18-05-2023 12:54:47  server  [executeShot]     Sending GameEvent to clients
+18-05-2023 12:54:47  server  [broadcast_message]number of bytes written: 304
+18-05-2023 12:54:47  server  [broadcast_message]number of bytes written: 304
