@@ -65,12 +65,8 @@ struct adl_serializer<Ship> {
     json["orientation"] = ship.getOrientation();
   }
   static auto from_json(const json &json) -> Ship {
-    int        x = json.at("position").at("x").get<int>(); // Extract "x" position as an integer
-    int        y = json.at("position").at("y").get<int>(); // Extract "y" position as an integer
-    Coordinate position(x, y);                             // Create a Coordinate object from "x" and "y"
-
-    return {json.at("length").get<int>(), position, json.at("orientation").get<Ship::Orientation>(),
-            json.at("ship_id").get<uuid>()};
+    return {json.at("length").get<int>(), json.at("position").get<Coordinate>(),
+            json.at("orientation").get<Ship::Orientation>(), json.at("ship_id").get<uuid>()};
   }
 };
 
@@ -175,12 +171,8 @@ struct adl_serializer<std::unique_ptr<ClientRequest>> {
       return std::make_unique<JoinGame>(playerId, json.at("player_name").get<std::string>());
     case RequestType::StartGame:
       return std::make_unique<StartGame>(playerId, json.at("ships_placement").get<std::vector<Ship>>());
-    case RequestType::CallShot: {
-      int        x = json.at("position").at("x").get<int>(); // Extract "x" position as an integer
-      int        y = json.at("position").at("y").get<int>(); // Extract "y" position as an integer
-      Coordinate position(x, y);                             // Create a Coordinate object from "x" and "y"
-      return std::make_unique<CallShot>(playerId, position);
-    }
+    case RequestType::CallShot:
+      return std::make_unique<CallShot>(playerId, json.at("position").get<Coordinate>());
     case RequestType::SendEmote:
       return std::make_unique<SendEmote>(playerId, json.at("emote").get<EmoteType>());
     case RequestType::QuitGame:
@@ -308,18 +300,12 @@ struct adl_serializer<std::unique_ptr<ServerResponse>> {
     const ResponseType responseType = json.at("type").get<ResponseType>();
 
     switch (responseType) {
-    case ResponseType::GameEvent: {
-      int        x = json.at("position").at("x").get<int>(); // Extract "x" position as an integer
-      int        y = json.at("position").at("y").get<int>(); // Extract "y" position as an integer
-      Coordinate position(x, y);                             // Create a Coordinate object from "x" and "y"
-      return std::make_unique<GameEvent>(json.at("player_id").get<uuid>(), position, json.at("ship_hit").get<bool>(),
-                                         json.at("ship_sunk").get<bool>(), json.at("ship").get<Ship>(),
-                                         json.at("next_player_id").get<uuid>());
-    }
-
+    case ResponseType::GameEvent:
+      return std::make_unique<GameEvent>(json.at("player_id").get<uuid>(), json.at("position").get<Coordinate>(),
+                                         json.at("ship_hit").get<bool>(), json.at("ship_sunk").get<bool>(),
+                                         json.at("ship").get<Ship>(), json.at("next_player_id").get<uuid>());
     case ResponseType::EmoteEvent:
       return std::make_unique<EmoteEvent>(json.at("emote").get<EmoteType>(), json.at("player_id").get<uuid>());
-
     case ResponseType::ErrorResponse:
       return std::make_unique<ErrorResponse>(BattleshipException(json.at("error_message").get<std::string>()));
     case ResponseType::JoinGameSuccess:

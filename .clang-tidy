@@ -9,7 +9,10 @@ Checks: "bugprone-*,
          modernize-*,
          performance-*,
          portability-*,
-         readability-*"
+         readability-*,
+         -modernize-use-trailing-return-type,
+         -misc-non-private-member-variables-in-classes,
+         -cppcoreguidelines-pro-type-static-cast-downcast"
 
 HeaderFilterRegex: "."
 
