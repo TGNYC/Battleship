@@ -139,8 +139,8 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
     return false;
   }
 
-  PlayerGrid shooterGrid = playerGrids[0]; // grid of the shooter
-  PlayerGrid targetGrid  = playerGrids[1]; // grid of the victim/target
+  PlayerGrid &shooterGrid = playerGrids[0]; // grid of the shooter
+  PlayerGrid &targetGrid  = playerGrids[1]; // grid of the victim/target
   if (shooterGrid.playerId != playerId) {
     std::swap(shooterGrid, targetGrid);
   }
@@ -157,6 +157,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
       *hit        = true;
       *hitShipPtr = &ship;
       if (ship.hasSunken()) {
+        LOG("ship sunk");
         *sunk = true;
       }
       break; // if a ship was hit, we can stop the loop
