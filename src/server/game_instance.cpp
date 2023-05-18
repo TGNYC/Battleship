@@ -20,7 +20,7 @@ bool game_instance::joinGame(const JoinGame &joinGameRequest) {
 
   //  // Prints out the names of the current players in the game
   //  std::cout << "current players in the game:\n";
-  //  auto players = _game_state.get_players();
+  //  auto players = _game_state.getPlayers();
   //  for (const auto& player : players) {
   //    std::cout << "Player name: " << player.getName() << std::endl;
   //  }
@@ -35,7 +35,7 @@ bool game_instance::start_game(const Player *player, std::string &err) {
 
   LOG("GameInstance trying to start");
   std::lock_guard<std::mutex> lockGuard(modification_lock);
-  const std::vector<Player> currentPlayers = _game_state.get_players();
+  const std::vector<Player> currentPlayers = _game_state.getPlayers();
 
   // set this player to ready. not a problem if done more than once
   isReady[player->getId()] = true;
@@ -74,7 +74,7 @@ bool game_instance::executeShot(CallShot shotRequest) {
   ServerResponse *msg_string = shotCalled;
   // broadcast to clients
   LOG("Sending GameEvent to clients");
-  server_network_manager::broadcast_message(*msg_string, _game_state.get_players());
+  server_network_manager::broadcast_message(*msg_string, _game_state.getPlayers());
   if (_game_state.gameOver()) {
     uuid winnerId = _game_state.getWinner();
     // TODO send GameOver response to clients
@@ -92,7 +92,7 @@ game_state &game_instance::getGameState() {
   if (_game_state.addPlayer(*new_player)) {
     // respond with JoinGameSuccess response
     JoinGameSuccess *msg_string = new JoinGameSuccess();
-    server_network_manager::broadcast_message(*msg_string, _game_state.get_players(), new_player);
+    server_network_manager::broadcast_message(*msg_string, _game_state.getPlayers(), new_player);
     modification_lock.unlock();
     return true;
   }

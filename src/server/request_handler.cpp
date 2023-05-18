@@ -62,11 +62,11 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
       // send StartGameSuccess update to the already-ready player
       LOG("Sending StartGameSuccess to the already-ready player");
       std::unique_ptr<ServerResponse> resp =
-          std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(), player_id);
-      server_network_manager::broadcast_message(*resp, gameInstance.getGameState().get_players(), &player);
+          std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(), player_id);
+      server_network_manager::broadcast_message(*resp, gameInstance.getGameState().getPlayers(), &player);
       // send StartGameSuccess update to the newly-ready player
       LOG("Sending StartGameSuccess to the newly-ready player");
-      return std::make_unique<StartGameSuccess>(gameInstance.getGameState().get_players(),
+      return std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(),
                                                 player_id); // TODO can you pass here the resp pointer from above?
     }
     LOG("Set player " + player.getName() + " ready. But opponent is not ready yet");
@@ -92,7 +92,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
     std::unique_ptr<ServerResponse> response = std::make_unique<EmoteEvent>(sendEmoteRequest.getEmote(),
                                                                             sendEmoteRequest.getPlayerId());
     LOG("Sending EmoteEvent to the other player");
-    server_network_manager::broadcast_message(*response, gameInstance.getGameState().get_players(), &player);
+    server_network_manager::broadcast_message(*response, gameInstance.getGameState().getPlayers(), &player);
     return nullptr; // nothing to send back to the request sender
   }
 

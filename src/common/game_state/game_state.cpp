@@ -112,6 +112,10 @@ const Player &game_state::getPlayer(uuid playerId) const {
   throw BattleshipException("no player with matching id found");
 }
 
+const std::vector<Player> &game_state::getPlayers() const {
+  return players;
+}
+
 bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
   if (position.x < 0 || position.x >= 10) {
     return false;
@@ -258,6 +262,3 @@ uuid game_state::getWinner() {
   }
 }
 
-const std::vector<Player> &game_state::get_players() const {
-  return players;
-}

@@ -16,18 +16,11 @@
 #define LOG(message) Logger::log(message, __func__)
 
 /*!
- * Basic logging class. //TODO idk if this is actually thread safe. should technically at least not crash stuff
+ * Basic logging class. Use LOG(msg) macro anywhere in the project to log whatever you need.
  */
-class Logger {
+class Logger {  //TODO idk if this class is actually thread safe. should technically at least not crash stuff
 
 public:
-
-  enum class Type {
-    Info,
-    Warning,
-    Error
-  };
-
   /*!
    * outputs a message to std::cout and to the logfile
    * @param message text to be logged
@@ -36,7 +29,7 @@ public:
   static void log(const std::string& message, const std::string &function = "-");
 
   /*!
-   * outputs the content of a BattleshipException to the logfile
+   * overloading of log to output BattleshipExceptions directly
    * @param exception
    */
   static void log(const BattleshipException &exception);
@@ -52,7 +45,7 @@ private:
 
   static std::string prefix;  ///< prefix for logging messages. intended to be "client" or "server"
   static const char* const logFile; ///< file path for the log file
-  static const char* const tab;   ///< defines a tabulator (4 spaces)
+  static const char* const tab;   ///< defines a tabulator for formatting
 };
 
 #endif // BATTLESHIP_LOGGER_H
