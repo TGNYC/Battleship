@@ -68,3 +68,9 @@
 18-05-2023 12:54:47  server  [executeShot]     Sending GameEvent to clients
 18-05-2023 12:54:47  server  [broadcast_message]number of bytes written: 304
 18-05-2023 12:54:47  server  [broadcast_message]number of bytes written: 304
+18-05-2023 13:05:11  client  [OnInit]          Starting Battleship Client
+18-05-2023 13:05:29  client  [onClose]         Closing window
+18-05-2023 13:05:29  client  [quitGame]        Sending quit game request
+18-05-2023 13:07:38  client  [OnInit]          Starting Battleship Client
+18-05-2023 13:07:50  client  [onClose]         Closing window
+18-05-2023 13:07:50  client  [quitGame]        Sending quit game request
