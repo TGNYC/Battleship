@@ -18,7 +18,7 @@
 #include <iostream>
 #include <memory>
 
-std::unique_ptr<ServerResponse> RequestHandler::handle_request(GameInstance              &gameInstance,
+std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance              &gameInstance,
                                                                 const ClientRequest *const req) {
   LOG("handling request");
 

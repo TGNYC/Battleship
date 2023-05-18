@@ -12,7 +12,7 @@
 
 class RequestHandler {
 public:
-  static std::unique_ptr<ServerResponse> handle_request(GameInstance &gameInstance, const ClientRequest *const req);
+  static std::unique_ptr<ServerResponse> handleRequest(GameInstance &gameInstance, const ClientRequest *const req);
 };
 
 #endif // BATTLESHIP_REQUESTHANDLER_H

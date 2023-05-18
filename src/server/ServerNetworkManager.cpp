@@ -154,7 +154,7 @@ void ServerNetworkManager::handle_message(const std::string                &msg,
     LOG("Received valid request : " + msg);
 #endif
     // -- handle client request and create response
-    const std::unique_ptr<ServerResponse> res = RequestHandler::handle_request(_game_instance, req.get());
+    const std::unique_ptr<ServerResponse> res = RequestHandler::handleRequest(_game_instance, req.get());
 
     // res == nullptr if request does not require personal response. e.g. when already broadcasted to both
     if (res != nullptr) {
