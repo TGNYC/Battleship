@@ -1,10 +1,14 @@
 #include "MainGamePanel.h"
 
 #include "../GameController.h"
+#include "../uiElements/EmotePanel.h"
 #include "Logger.h"
 
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
+  // set minimum panel size
+  parent->SetMinSize(wxSize(1200, 800));
+
   buildEmoteList();
 }
 
