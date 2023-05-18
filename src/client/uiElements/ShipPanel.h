@@ -7,9 +7,8 @@
 
 class ShipPanel : public wxPanel {
 public:
-    ShipPanel(wxWindow *parent, wxPoint pos, const std::vector<Ship>& shipVector);
+    ShipPanel(wxWindow *parent, wxPoint pos, const bool sunk[5]);
 private:
-    std::vector<Ship> _ships;
     wxStaticBitmap* _shipBitmaps[5];
 };
 

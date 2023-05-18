@@ -21,7 +21,6 @@ target_sources(Battleship_Common
         game_state/Player.cpp
         game_state/PlayerGrid.cpp
         game_state/game_state.cpp
-        game_state/Coordinate.cpp
     PUBLIC
         network/requests/ClientRequest.h
         network/requests/JoinGame.h

@@ -1,27 +1,21 @@
 #include "game_state.h"
-#include "Player.h"
-#include <utility>
-#include <stdexcept>
-#include <cassert>
-#include "Logger.h"
 #include "Coordinate.h"
+#include "Logger.h"
+#include "Player.h"
+#include <cassert>
+#include <stdexcept>
+#include <utility>
 
+game_state::game_state(game_state::Type type) : state(State::Starting), type(type), currentPlayerId(), turnNumber(0) {
 
-game_state::game_state(game_state::Type type) :
-      state(State::Starting),
-      type(type),
-      currentPlayerId(),
-      turnNumber(0) {
-
-  players = std::vector<Player>();
+  players     = std::vector<Player>();
   playerGrids = std::vector<PlayerGrid>();
   LOG("Created GameState");
 }
 
-
 auto game_state::addPlayer(Player player) -> bool {
   // check if player is already added
-  for (const Player& p : players) {
+  for (const Player &p : players) {
     if (p.getId() == player.getId()) {
       return false;
     }
@@ -34,17 +28,14 @@ auto game_state::addPlayer(Player player) -> bool {
   return true;
 }
 
-
 auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> bool {
   // check for valid player id
-  if(players.empty() ||
-      (players.at(0).getId() != playerId && players.size() == 1) ||
-      (players.at(0).getId() != playerId && players.at(1).getId() != playerId)
-      ) {
+  if (players.empty() || (players.at(0).getId() != playerId && players.size() == 1) ||
+      (players.at(0).getId() != playerId && players.at(1).getId() != playerId)) {
     return false;
   }
   // check if not already placed
-  for (const PlayerGrid& grid : playerGrids) {
+  for (const PlayerGrid &grid : playerGrids) {
     if (grid.playerId == playerId) {
       LOG("Ship placement for this player id already exists");
       return false;
@@ -55,7 +46,6 @@ auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> boo
   playerGrids.emplace_back(playerId, std::move(shipPlacement));
   return true;
 }
-
 
 bool game_state::start(uuid currentPlayerId) {
   if (state != State::Starting) {
@@ -79,14 +69,12 @@ bool game_state::start(uuid currentPlayerId) {
   }
 }
 
-
 uuid game_state::getCurrentPlayerId() {
   return currentPlayerId;
 }
 
-
 const PlayerGrid &game_state::getPlayerGrid(uuid playerId) const {
-  for (const PlayerGrid& grid : playerGrids) {
+  for (const PlayerGrid &grid : playerGrids) {
     if (grid.playerId == playerId) {
       return grid;
     }
@@ -94,9 +82,8 @@ const PlayerGrid &game_state::getPlayerGrid(uuid playerId) const {
   throw std::runtime_error("Could not find grid for this player id");
 }
 
-
-Ship &game_state::getShip(std::vector<Ship>& ships, uuid shipId) {
-  for (Ship& ship : ships) {
+Ship &game_state::getShip(std::vector<Ship> &ships, uuid shipId) {
+  for (Ship &ship : ships) {
     if (ship.getId() == shipId) {
       return ship;
     }
@@ -105,9 +92,8 @@ Ship &game_state::getShip(std::vector<Ship>& ships, uuid shipId) {
   throw BattleshipException("no ship with matching id found");
 }
 
-
-const Player& game_state::getOtherPlayer(uuid playerId) {
-  for (const Player& player : players) {
+const Player &game_state::getOtherPlayer(uuid playerId) {
+  for (const Player &player : players) {
     if (player.getId() != playerId) {
       return player;
     }
@@ -116,9 +102,8 @@ const Player& game_state::getOtherPlayer(uuid playerId) {
   throw BattleshipException("did not find other player");
 }
 
-
-const Player& game_state::getPlayer(uuid playerId) const {
-  for (const Player& player : players) {
+const Player &game_state::getPlayer(uuid playerId) const {
+  for (const Player &player : players) {
     if (player.getId() == playerId) {
       return player;
     }
@@ -127,7 +112,6 @@ const Player& game_state::getPlayer(uuid playerId) const {
   throw BattleshipException("no player with matching id found");
 }
 
-
 bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
   if (position.x < 0 || position.x >= 10) {
     return false;
@@ -135,7 +119,7 @@ bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
   if (position.y < 0 || position.y >= 10) {
     return false;
   }
-  const PlayerGrid& grid = getPlayerGrid(playerId);
+  const PlayerGrid &grid = getPlayerGrid(playerId);
   if (grid.shotsFired[position.x][position.y]) {
     return false; // already fired at this tile
   }
@@ -143,7 +127,8 @@ bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
 }
 
 // all parameters after position are used to return info back to the caller
-bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk, uuid *nextPlayerId) {
+bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk,
+                              uuid *nextPlayerId) {
 
   LOG("Turn Number: " + std::to_string(turnNumber));
   LOG("Current Player: " + currentPlayerId.ToString());
@@ -154,22 +139,22 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
     return false;
   }
 
-  PlayerGrid shooterGrid  = playerGrids[0]; // grid of the shooter
-  PlayerGrid targetGrid   = playerGrids[1]; // grid of the victim/target
+  PlayerGrid shooterGrid = playerGrids[0]; // grid of the shooter
+  PlayerGrid targetGrid  = playerGrids[1]; // grid of the victim/target
   if (shooterGrid.playerId != playerId) {
     std::swap(shooterGrid, targetGrid);
   }
   const uuid targetPlayerId = targetGrid.playerId;
 
   // set default values
-  *hit = false;
-  *sunk = false;
-  *hitShipPtr = new Ship(0, Coordinate(0, 0), Ship::Orientation::Vertical, uuid());  // dummy ship
+  *hit        = false;
+  *sunk       = false;
+  *hitShipPtr = new Ship(0, {0, 0}, Ship::Orientation::Vertical, uuid()); // dummy ship
 
   // loop through all ships
-  for (Ship& ship : targetGrid.shipsPlaced) {
+  for (Ship &ship : targetGrid.shipsPlaced) {
     if (ship.hit(position)) {
-      *hit = true;
+      *hit        = true;
       *hitShipPtr = &ship;
       if (ship.hasSunken()) {
         *sunk = true;
@@ -179,13 +164,14 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   }
 
   // update server side game state
-  const int impact = *hit ? 2 : 1;  // 2=hit 1=miss;
-  shooterGrid.shotsFired[position.x][position.y] = impact;
+  const int impact                                 = *hit ? 2 : 1; // 2=hit 1=miss;
+  shooterGrid.shotsFired[position.x][position.y]   = impact;
   targetGrid.shotsReceived[position.x][position.y] = impact;
 
   // determine next player
-  *nextPlayerId = *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
-  currentPlayerId = *nextPlayerId;  // update current player
+  *nextPlayerId =
+      *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
+  currentPlayerId = *nextPlayerId;      // update current player
   LOG("next player: " + nextPlayerId->ToString());
   turnNumber++;
   return true;
@@ -194,9 +180,9 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
 bool game_state::updateBoards(const GameEvent &event) {
   LOG("updating board...");
   assert(playerGrids.size() == 1);
-  PlayerGrid myGrid = playerGrids[0];
+  auto &myGrid = playerGrids[0];
   // update my grid
-  if (event.playerId == myGrid.playerId) {  // I called the shot
+  if (event.playerId == myGrid.playerId) { // I called the shot
     LOG("This was my shot");
     myGrid.shotsFired[event.position.x][event.position.y] = event.hit ? 2 : 1;
   } else { // other player shot me
@@ -209,41 +195,69 @@ bool game_state::updateBoards(const GameEvent &event) {
       hitShip.hit(event.position);
     }
   }
+
+  if (event.sunk) {
+    switch (event.hitShip.getLength()) {
+      case 2:
+        oppShipSunk[4] = true;
+        break;
+      case 3:
+        if (oppShipSunk[3]) {
+          oppShipSunk[2] = true;
+        } else {
+          oppShipSunk[3] = true;
+        }
+        break;
+      case 4:
+        oppShipSunk[1] = true;
+        break;
+      case 5:
+        oppShipSunk[0] = true;
+        break;
+      default:
+        LOG("invalid ship length");
+        break;
+    }
+  }
+
+  LOG("" + std::to_string((int)oppShipSunk[0]) + " " + std::to_string((int)oppShipSunk[1]) + " " + std::to_string((int)oppShipSunk[2]) + " " + std::to_string((int)oppShipSunk[3]) + " " + std::to_string((int)oppShipSunk[4]));
+
   // update current player
   currentPlayerId = event.nextPlayerId;
   LOG("finished updating board");
+  return true;
 }
 
 bool game_state::gameOver() {
 
-  //assert(playerGrids.size() == 2 && "Number of grids is not 2. Cannot determine round win.");
+  // assert(playerGrids.size() == 2 && "Number of grids is not 2. Cannot determine round win.");
 
-  for (const PlayerGrid& grid: playerGrids) {
-      bool lost = true;
-      for (const Ship& ship : grid.shipsPlaced) {
-        if (!ship.hasSunken()) {  // at least one ship still alive, therefore not lost yet
-          lost = false;
-          break;
-        }
+  for (const PlayerGrid &grid : playerGrids) {
+    bool lost = true;
+    for (const Ship &ship : grid.shipsPlaced) {
+      if (!ship.hasSunken()) { // at least one ship still alive, therefore not lost yet
+        lost = false;
+        break;
       }
-      if (lost) {
-        winner = getOtherPlayer(grid.playerId).getId(); // this player lost, so the other player is the winner
-        state      = State::Finished;
-        return true;
-      }
+    }
+    if (lost) {
+      winner = getOtherPlayer(grid.playerId).getId(); // this player lost, so the other player is the winner
+      state  = State::Finished;
+      return true;
+    }
   }
   return false;
 }
 
 uuid game_state::getWinner() {
   if (state == State::Finished) {
-      return winner;
+    return winner;
   } else {
-      LOG("Asked for winner but game not finished");
-      return uuid();
+    LOG("Asked for winner but game not finished");
+    return uuid();
   }
 }
 
-const std::vector<Player>& game_state::get_players() const {
+const std::vector<Player> &game_state::get_players() const {
   return players;
 }

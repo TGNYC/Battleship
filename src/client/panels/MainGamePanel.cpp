@@ -37,14 +37,28 @@ void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
   // get ships
   std::vector<Ship> playerShips = playerGrid.shipsPlaced;
   // std::vector<Ship> oppShips = oppGrid.m_shipsPlaced;
+  bool ownShipSunk[5] = {false, false, false, false, false};
+  for (int i=0; i<5; ++i) {
+    if (playerShips[i].hasSunken()) {
+      ownShipSunk[i] = true;
+    }
+  }
+
+  for (int i=0; i<5; ++i) {
+    if (gameState->getOppShipSunk()[i]) {
+      LOG("Opponten ship" + std::to_string(i) + " has sunk");
+    } else {
+      LOG("Opponten ship" + std::to_string(i) + " has not sunk");
+    }
+  }
 
   // get shots
   auto ownShots = playerGrid.shotsFired;
   auto oppShots = playerGrid.shotsReceived;
 
-  this->_ownShipPanel = new ShipPanel(this, wxPoint( 10+110, 460-3+10), playerShips);
+  this->_ownShipPanel = new ShipPanel(this, wxPoint( 10+110, 460-3+10), ownShipSunk);
   // TODO: find a way to do this without requiring acces to opponent ship vector
-  this->_oppShipPanel = new ShipPanel(this, wxPoint(430+110, 460-3+10), playerShips);
+  this->_oppShipPanel = new ShipPanel(this, wxPoint(430+110, 460-3+10), gameState->getOppShipSunk());
 
   this->_ownViewGrid  = new ViewGrid( this, wxPoint( 10+110,  40-3+10), ViewGrid::gridtype::own);
   this->_oppViewGrid  = new ViewGrid( this, wxPoint(430+110,  40-3+10), ViewGrid::gridtype::opp);
