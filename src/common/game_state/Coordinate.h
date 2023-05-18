@@ -7,8 +7,6 @@ struct Coordinate {
   int x = 0;
   int y = 0;
 
-  Coordinate(int xValue, int yValue);
-
   auto operator<=>(const Coordinate &) const = default;
 };
 
