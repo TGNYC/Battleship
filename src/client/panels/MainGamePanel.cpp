@@ -164,11 +164,11 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
 
   // limit shot frequency to one per second to give server time to respond
   auto now = std::chrono::system_clock::now();
-  if (now - _lastShot < std::chrono::milliseconds(57)) {
+  if (now - _lastClick < std::chrono::milliseconds(57)) {
     LOG("too fast");
     return;
   }
-  _lastShot = now;
+  _lastClick = now;
 
   if (!_gameState->shotIsLegal(_ownId, shot)) {
     LOG("illegal shot");
@@ -180,6 +180,12 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
 
 
 void MainGamePanel::onEmoteClick(wxMouseEvent &event) {
+  auto now = std::chrono::system_clock::now();
+  if (now - _lastClick < std::chrono::milliseconds(57)) {
+    LOG("too fast");
+    return;
+  }
+  _lastClick = now;
   wxPoint mousePosition = event.GetPosition();
   mousePosition -= wxPoint(20, 90);
   const int emote = mousePosition.y / 90;
