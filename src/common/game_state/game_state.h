@@ -164,11 +164,16 @@ public:
   uuid getWinner();
   //bool wrapUpRound();
 
+  bool* getOppShipSunk() {
+    return oppShipSunk;
+  }
+
 private:
   State                   state;  // currently unused. will be needed later
   Type                    type; // indicates if this game_state is run server side
   std::vector<Player>     players;
   std::vector<PlayerGrid> playerGrids;  ///< holds 1 grid on client and 2 grids on server
+  bool                    oppShipSunk[5];
 
   uuid                    currentPlayerId;  // specifies the id of the player whose turn it is
   unsigned int            turnNumber; // specifies the current numbered turn

@@ -180,7 +180,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
 bool game_state::updateBoards(const GameEvent &event) {
   LOG("updating board...");
   assert(playerGrids.size() == 1);
-  auto& myGrid = playerGrids[0];
+  auto &myGrid = playerGrids[0];
   // update my grid
   if (event.playerId == myGrid.playerId) { // I called the shot
     LOG("This was my shot");
@@ -195,9 +195,37 @@ bool game_state::updateBoards(const GameEvent &event) {
       hitShip.hit(event.position);
     }
   }
+
+  if (event.sunk) {
+    switch (event.hitShip.getLength()) {
+      case 2:
+        oppShipSunk[4] = true;
+        break;
+      case 3:
+        if (oppShipSunk[3]) {
+          oppShipSunk[2] = true;
+        } else {
+          oppShipSunk[3] = true;
+        }
+        break;
+      case 4:
+        oppShipSunk[1] = true;
+        break;
+      case 5:
+        oppShipSunk[0] = true;
+        break;
+      default:
+        LOG("invalid ship length");
+        break;
+    }
+  }
+
+  LOG("" + std::to_string((int)oppShipSunk[0]) + " " + std::to_string((int)oppShipSunk[1]) + " " + std::to_string((int)oppShipSunk[2]) + " " + std::to_string((int)oppShipSunk[3]) + " " + std::to_string((int)oppShipSunk[4]));
+
   // update current player
   currentPlayerId = event.nextPlayerId;
   LOG("finished updating board");
+  return true;
 }
 
 bool game_state::gameOver() {
