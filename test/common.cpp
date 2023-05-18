@@ -16,80 +16,124 @@
 #include <string>
 #include <vector>
 
-TEST(serialization, JoinGame) {
+TEST(requests, CallShot) {
+  const std::string jsonString = R"(
+{
+    "type": "call_shot",
+    "player_id": "30981d12-c9ef-4591-9563-868c0134d05c",
+    "position": {
+        "x": 5,
+        "y": 3
+    }
+}
+)";
 
-  const JoinGame joinGameRequest(uuid::generateRandomUuid(), "Bob");
+  const nlohmann::json                 jsonRequest = CallShot(uuid("30981d12-c9ef-4591-9563-868c0134d05c"), {5, 3});
+  const std::unique_ptr<ClientRequest> request     = jsonRequest.get<std::unique_ptr<ClientRequest>>();
 
-  const nlohmann::json message = joinGameRequest;
-
-  const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
-
-  ASSERT_EQ(joinGameRequest,
-            static_cast<const JoinGame &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
+  ASSERT_EQ(jsonRequest, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonRequest, request);
 }
 
-TEST(serialization, StartGame) {
+TEST(requests, JoinGame) {
+  const std::string jsonString = R"(
+{
+    "type": "join_game",
+    "player_id": "30981d12-c9ef-4591-9563-868c0134d05c",
+    "player_name": "Max"
+}
+)";
 
-  std::vector<Ship> ships;
-  ships.emplace_back(2, Coordinate{5, 2}, Ship::Orientation::Vertical, uuid::generateRandomUuid());
-  ships.emplace_back(4, Coordinate{0, 6}, Ship::Orientation::Horizontal, uuid::generateRandomUuid());
+  const nlohmann::json                 jsonRequest = JoinGame(uuid("30981d12-c9ef-4591-9563-868c0134d05c"), "Max");
+  const std::unique_ptr<ClientRequest> request     = jsonRequest.get<std::unique_ptr<ClientRequest>>();
 
-  const StartGame startGameRequest(uuid::generateRandomUuid(), ships);
-
-  const nlohmann::json message = startGameRequest;
-
-  const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
-
-  ASSERT_EQ(startGameRequest,
-            static_cast<const StartGame &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
+  ASSERT_EQ(jsonRequest, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonRequest, request);
 }
 
-TEST(serialization, CallShot) {
+TEST(requests, PlayAgain) {
+  const std::string jsonString = R"(
+{
+    "type": "play_again",
+    "player_id": "30981d12-c9ef-4591-9563-868c0134d05c"
+}
+)";
 
-  const CallShot callShotRequest(uuid::generateRandomUuid(), Coordinate{3, 6});
+  const nlohmann::json                 jsonRequest = PlayAgain(uuid("30981d12-c9ef-4591-9563-868c0134d05c"));
+  const std::unique_ptr<ClientRequest> request     = jsonRequest.get<std::unique_ptr<ClientRequest>>();
 
-  const nlohmann::json message = callShotRequest;
-
-  const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
-
-  ASSERT_EQ(callShotRequest,
-            static_cast<const CallShot &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
+  ASSERT_EQ(jsonRequest, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonRequest, request);
 }
 
-TEST(serialization, SendEmote) {
+TEST(requests, QuitGame) {
+  const std::string jsonString = R"(
+{
+    "type": "quit_game",
+    "player_id": "30981d12-c9ef-4591-9563-868c0134d05c"
+}
+)";
 
-  const SendEmote sendEmoteRequest(uuid::generateRandomUuid(), "🚢");
+  const nlohmann::json                 jsonRequest = QuitGame(uuid("30981d12-c9ef-4591-9563-868c0134d05c"));
+  const std::unique_ptr<ClientRequest> request     = jsonRequest.get<std::unique_ptr<ClientRequest>>();
 
-  const nlohmann::json message = sendEmoteRequest;
-
-  const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
-
-  ASSERT_EQ(sendEmoteRequest,
-            static_cast<const SendEmote &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
+  ASSERT_EQ(jsonRequest, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonRequest, request);
 }
 
-TEST(serialization, QuitGame) {
+TEST(requests, SendEmote) {
+  const std::string jsonString = R"(
+{
+    "type": "send_emote",
+    "player_id": "30981d12-c9ef-4591-9563-868c0134d05c",
+    "emote": 2
+}
+)";
 
-  const QuitGame quitGameRequest(uuid::generateRandomUuid());
+  const nlohmann::json jsonRequest = SendEmote(uuid("30981d12-c9ef-4591-9563-868c0134d05c"), EmoteType::Mocking);
+  const std::unique_ptr<ClientRequest> request = jsonRequest.get<std::unique_ptr<ClientRequest>>();
 
-  const nlohmann::json message = quitGameRequest;
-
-  const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
-
-  ASSERT_EQ(quitGameRequest,
-            static_cast<const QuitGame &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
+  ASSERT_EQ(jsonRequest, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonRequest, request);
 }
 
-TEST(serialization, PlayAgain) {
+TEST(requests, StartGame) {
+  const std::string jsonString = R"(
+{
+    "type": "start_game",
+    "player_id": "30981d12-c9ef-4591-9563-868c0134d05c",
+    "ships_placement": [
+        {
+            "ship_id": "00000000-0000-0000-0000-000000000000",
+            "length": 2,
+            "position": {
+                "x": 6,
+                "y": 5
+            },
+            "orientation": "h"
+        },
+        {
+            "ship_id": "00000000-0000-0000-0000-000000000000",
+            "length": 5,
+            "position": {
+                "x": 1,
+                "y": 3
+            },
+            "orientation": "v"
+        }
+    ]
+}
+)";
 
-  const PlayAgain playAgainRequest(uuid::generateRandomUuid());
+  const nlohmann::json jsonRequest =
+      StartGame(uuid("30981d12-c9ef-4591-9563-868c0134d05c"),
+                {{2, {6, 5}, Ship::Orientation::Horizontal, uuid()}, {5, {1, 3}, Ship::Orientation::Vertical, uuid()}});
+  const std::unique_ptr<ClientRequest> request = jsonRequest.get<std::unique_ptr<ClientRequest>>();
 
-  const nlohmann::json message = playAgainRequest;
+  std::cout << jsonRequest.dump(4) << '\n';
 
-  const auto clientRequest = message.get<std::unique_ptr<ClientRequest>>();
-
-  ASSERT_EQ(playAgainRequest,
-            static_cast<const PlayAgain &>(*clientRequest)); // NOLINT(cppcoreguidelines-pro-type-static-cast-downcast)
+  ASSERT_EQ(jsonRequest, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonRequest, request);
 }
 
 TEST(uuid, defautluuid) {
