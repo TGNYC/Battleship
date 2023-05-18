@@ -50,9 +50,9 @@ std::unique_ptr<ServerResponse> RequestHandler::handle_request(GameInstance     
     const StartGame startGameRequest = static_cast<const StartGame &>(*req);
     const Player player = gameInstance.getGameState().getPlayer(player_id);
     LOG("adding ships of " + player.getName());
-    gameInstance.getGameState().addShips(player_id, startGameRequest.getShips());
+    gameInstance.getGameState().addShips(player_id, startGameRequest.getShips()); // TODO move this line to gameInstance.startGame()
     // trying to start the gameInstance
-    const bool result = gameInstance.start_game(&player, err);  // this function does a lot of checks
+    const bool result = gameInstance.startGame(&player, err);  // this function does a lot of checks
 
     // indicates that both players are ready to the server by sending a success response to the current player's server
     // (the response to the other player is sent in the logic in game_instance)

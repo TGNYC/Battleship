@@ -169,11 +169,11 @@ public:
   }
 
 private:
-  State                   state;  // currently unused. will be needed later
-  Type                    type; // indicates if this GameState is run server side
-  std::vector<Player>     players;
+  State                   state;
+  Type                    type; ///< indicates if this GameState is run server side
+  std::vector<Player>     players;  ///< contains the 2 players
   std::vector<PlayerGrid> playerGrids;  ///< holds 1 grid on client and 2 grids on server
-  bool                    oppShipSunk[5];
+  bool                    oppShipSunk[5]; ///< helper array for client to cross out enemy ships at the bottom
 
   uuid                    currentPlayerId;  // specifies the id of the player whose turn it is
   unsigned int            turnNumber; // specifies the current numbered turn
