@@ -18,8 +18,7 @@ endif()
 
 project(Battleship VERSION 0.0.1 LANGUAGES CXX)
 
-#add_library(Battleship_Common)
-add_library(Battleship_Common src/common/network/responses/QuitGameEvent.cpp src/common/network/responses/QuitGameEvent.h)
+add_library(Battleship_Common)
 target_link_libraries(Battleship_Common PRIVATE project_options)
 target_link_libraries(Battleship_Common PUBLIC nlohmann_json::nlohmann_json)
 
