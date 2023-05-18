@@ -75,7 +75,7 @@ private:
 
     static SetupManager *_setupManager;
 
-    static game_state* _gameState;
+    static GameState * _gameState;
     static Player *_me;
 };
 

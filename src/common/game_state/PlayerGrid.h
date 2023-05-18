@@ -11,7 +11,7 @@
  */
 class PlayerGrid {
 
-// members of grid public so game_state can easily modify them.
+// members of grid public so GameState can easily modify them.
 // const getter for grid also allows UI to access members without having to call 4 different getters
 public:
   PlayerGrid(uuid playerId, std::vector<Ship> shipsPlacement);

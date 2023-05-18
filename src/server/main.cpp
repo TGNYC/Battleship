@@ -2,14 +2,14 @@
 // Created by Tejas Gupta on 4/19/23.
 //
 
-#include "server_network_manager.h"
 #include "Logger.h"
+#include "ServerNetworkManager.h"
 
 int main() {
   Logger::setPrefix("server");
   LOG("Starting Battleship Server");
   // create server_network_manager, which listens endlessly for new connections
-  server_network_manager server(8080);
+  ServerNetworkManager server(8080);
   server.listener_loop();
   return 0;
 }

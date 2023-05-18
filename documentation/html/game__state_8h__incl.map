@@ -1,4 +1,4 @@
-<map id="src/common/game_state/game_state.h" name="src/common/game_state/game_state.h">
+<map id="src/common/GameState/GameState.h" name="src/common/GameState/GameState.h">
 <area shape="rect" id="node1" title=" " alt="" coords="477,5,659,47"/>
 <area shape="rect" id="node2" href="$_player_8h.html" title=" " alt="" coords="5,169,160,196"/>
 <area shape="rect" id="node7" href="$_player_grid_8h.html" title=" " alt="" coords="477,95,659,121"/>

@@ -1,4 +1,4 @@
-<map id="game_state::getPlayer" name="game_state::getPlayer">
+<map id="GameState::getPlayer" name="GameState::getPlayer">
 <area shape="rect" id="node1" title=" " alt="" coords="755,75,924,102"/>
 <area shape="rect" id="node2" href="$class_main_game_panel.html#a2353deffb362d0c65edc8d386a94b56f" title="Builds the game state." alt="" coords="500,35,707,76"/>
 <area shape="rect" id="node6" href="$classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="514,100,693,141"/>

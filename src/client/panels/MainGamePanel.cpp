@@ -8,7 +8,7 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   buildEmoteList();
 }
 
-void MainGamePanel::buildGameState(game_state* gameState, uuid ownId) {
+void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
   _gameState = gameState;
   _ownId = ownId;
   _currentPlayer = gameState->getCurrentPlayerId();

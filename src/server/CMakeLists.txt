@@ -1,12 +1,12 @@
 target_sources(Battleship_Server
     PRIVATE
         main.cpp
-        game_instance.cpp
+        GameInstance.cpp
         player_manager.cpp
-        request_handler.cpp
-        server_network_manager.cpp
+        RequestHandler.cpp
+        ServerNetworkManager.cpp
     PUBLIC
-        game_instance.h
+        GameInstance.h
         player_manager.h
-        request_handler.h
-        server_network_manager.h)
+        RequestHandler.h
+        ServerNetworkManager.h)

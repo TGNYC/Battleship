@@ -14,7 +14,7 @@ SetupPanel      *GameController::_setupPanel      = nullptr;
 MainGamePanel   *GameController::_mainGamePanel   = nullptr;
 SetupManager    *GameController::_setupManager    = nullptr;
 Player          *GameController::_me              = nullptr;
-game_state      *GameController::_gameState       = nullptr;
+GameState       *GameController::_gameState       = nullptr;
 
 
 /**
@@ -162,7 +162,7 @@ void GameController::playerReady() {
 
   // generate GameState
   LOG("Generating GameState");
-  _gameState = new game_state(game_state::Type::ClientState);
+  _gameState = new GameState(GameState::Type::ClientState);
   _gameState->addPlayer(*_me);
   _gameState->addShips(_me->getId(), _setupManager->_ships_placed);
   LOG("Printing ship ids...");

@@ -1,4 +1,4 @@
-#include "game_state.h"
+#include "GameState.h"
 #include "Coordinate.h"
 #include "Logger.h"
 #include "Player.h"
@@ -6,14 +6,14 @@
 #include <stdexcept>
 #include <utility>
 
-game_state::game_state(game_state::Type type) : state(State::Starting), type(type), currentPlayerId(), turnNumber(0) {
+GameState::GameState(GameState::Type type) : state(State::Starting), type(type), currentPlayerId(), turnNumber(0) {
 
   players     = std::vector<Player>();
   playerGrids = std::vector<PlayerGrid>();
   LOG("Created GameState");
 }
 
-auto game_state::addPlayer(Player player) -> bool {
+auto GameState::addPlayer(Player player) -> bool {
   // check if player is already added
   for (const Player &p : players) {
     if (p.getId() == player.getId()) {
@@ -28,7 +28,7 @@ auto game_state::addPlayer(Player player) -> bool {
   return true;
 }
 
-auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> bool {
+auto GameState::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> bool {
   // check for valid player id
   if (players.empty() || (players.at(0).getId() != playerId && players.size() == 1) ||
       (players.at(0).getId() != playerId && players.at(1).getId() != playerId)) {
@@ -47,7 +47,7 @@ auto game_state::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> boo
   return true;
 }
 
-bool game_state::start(uuid currentPlayerId) {
+bool GameState::start(uuid currentPlayerId) {
   if (state != State::Starting) {
     LOG("Game state not in starting phase. Cannot start game.");
     return false;
@@ -69,11 +69,11 @@ bool game_state::start(uuid currentPlayerId) {
   }
 }
 
-uuid game_state::getCurrentPlayerId() {
+uuid GameState::getCurrentPlayerId() {
   return currentPlayerId;
 }
 
-const PlayerGrid &game_state::getPlayerGrid(uuid playerId) const {
+const PlayerGrid &GameState::getPlayerGrid(uuid playerId) const {
   for (const PlayerGrid &grid : playerGrids) {
     if (grid.playerId == playerId) {
       return grid;
@@ -82,7 +82,7 @@ const PlayerGrid &game_state::getPlayerGrid(uuid playerId) const {
   throw std::runtime_error("Could not find grid for this player id");
 }
 
-Ship &game_state::getShip(std::vector<Ship> &ships, uuid shipId) {
+Ship &GameState::getShip(std::vector<Ship> &ships, uuid shipId) {
   for (Ship &ship : ships) {
     if (ship.getId() == shipId) {
       return ship;
@@ -92,7 +92,7 @@ Ship &game_state::getShip(std::vector<Ship> &ships, uuid shipId) {
   throw BattleshipException("no ship with matching id found");
 }
 
-const Player &game_state::getOtherPlayer(uuid playerId) {
+const Player &GameState::getOtherPlayer(uuid playerId) {
   for (const Player &player : players) {
     if (player.getId() != playerId) {
       return player;
@@ -102,7 +102,7 @@ const Player &game_state::getOtherPlayer(uuid playerId) {
   throw BattleshipException("did not find other player");
 }
 
-const Player &game_state::getPlayer(uuid playerId) const {
+const Player &GameState::getPlayer(uuid playerId) const {
   for (const Player &player : players) {
     if (player.getId() == playerId) {
       return player;
@@ -112,11 +112,11 @@ const Player &game_state::getPlayer(uuid playerId) const {
   throw BattleshipException("no player with matching id found");
 }
 
-const std::vector<Player> &game_state::getPlayers() const {
+const std::vector<Player> &GameState::getPlayers() const {
   return players;
 }
 
-bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
+bool GameState::shotIsLegal(uuid playerId, Coordinate position) {
   if (position.x < 0 || position.x >= 10) {
     return false;
   }
@@ -131,7 +131,7 @@ bool game_state::shotIsLegal(uuid playerId, Coordinate position) {
 }
 
 // all parameters after position are used to return info back to the caller
-bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk,
+bool GameState::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk,
                               uuid *nextPlayerId) {
 
   LOG("Turn Number: " + std::to_string(turnNumber));
@@ -182,7 +182,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   return true;
 }
 
-bool game_state::updateBoards(const GameEvent &event) {
+bool GameState::updateBoards(const GameEvent &event) {
   LOG("updating board...");
   assert(playerGrids.size() == 1);
   auto &myGrid = playerGrids[0];
@@ -232,7 +232,7 @@ bool game_state::updateBoards(const GameEvent &event) {
   return true;
 }
 
-bool game_state::gameOver() {
+bool GameState::gameOver() {
 
   // assert(playerGrids.size() == 2 && "Number of grids is not 2. Cannot determine round win.");
 
@@ -253,7 +253,7 @@ bool game_state::gameOver() {
   return false;
 }
 
-uuid game_state::getWinner() {
+uuid GameState::getWinner() {
   if (state == State::Finished) {
     return winner;
   } else {

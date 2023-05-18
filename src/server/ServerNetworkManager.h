@@ -2,10 +2,10 @@
 // Created by Tejas Gupta on 4/19/23.
 //
 
-#ifndef BATTLESHIP_SERVER_NETWORK_MANAGER_H
-#define BATTLESHIP_SERVER_NETWORK_MANAGER_H
+#ifndef BATTLESHIP_SERVERNETWORKMANAGER_H
+#define BATTLESHIP_SERVERNETWORKMANAGER_H
 
-#include "game_instance.h"
+#include "GameInstance.h"
 #include "game_state/Player.h"
 #include "network/responses/ServerResponse.h"
 #include "sockpp/tcp_acceptor.h"
@@ -16,7 +16,7 @@
 #include <thread>
 #include <unordered_map>
 
-class server_network_manager {
+class ServerNetworkManager {
 private:
   inline static std::shared_mutex _rw_lock;
   inline static sockpp::tcp_acceptor _acc;
@@ -31,12 +31,12 @@ private:
                     const std::function<void(const std::string &, const sockpp::tcp_socket::addr_t &)> &message_handler);
   void        handle_message(const std::string &msg, const sockpp::tcp_socket::addr_t &peer_address);
 
-  game_instance _game_instance;
+  GameInstance _game_instance;
   uint16_t _port;
 
 public:
-  server_network_manager(uint16_t port);
-  ~server_network_manager();
+  ServerNetworkManager(uint16_t port);
+  ~ServerNetworkManager();
 
   // Used to broadcast a server_response (e.g. a full_state_response) to all 'players' except 'exclude'
   static void broadcast_message(ServerResponse &msg, const std::vector<Player> &players, const Player *exclude= nullptr);
@@ -45,4 +45,4 @@ public:
   void listener_loop();
 };
 
-#endif // BATTLESHIP_SERVER_NETWORK_MANAGER_H
+#endif // BATTLESHIP_SERVERNETWORKMANAGER_H

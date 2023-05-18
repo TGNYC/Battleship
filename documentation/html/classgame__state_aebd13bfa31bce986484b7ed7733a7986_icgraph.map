@@ -1,4 +1,4 @@
-<map id="game_state::shotIsLegal" name="game_state::shotIsLegal">
+<map id="GameState::shotIsLegal" name="GameState::shotIsLegal">
 <area shape="rect" id="node1" title=" " alt="" coords="1029,46,1211,73"/>
 <area shape="rect" id="node2" href="$classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="763,17,973,43"/>
 <area shape="rect" id="node4" href="$class_main_game_panel.html#a0de8b63f33894ecae06186ec809968e2" title="Function that is bound to the tiles of the opponent&#39;s view grid." alt="" coords="755,71,981,98"/>

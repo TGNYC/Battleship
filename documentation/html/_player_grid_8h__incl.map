@@ -1,4 +1,4 @@
-<map id="src/common/game_state/PlayerGrid.h" name="src/common/game_state/PlayerGrid.h">
+<map id="src/common/GameState/PlayerGrid.h" name="src/common/GameState/PlayerGrid.h">
 <area shape="rect" id="node1" title=" " alt="" coords="173,5,355,47"/>
 <area shape="rect" id="node2" href="$_ship_8h.html" title=" " alt="" coords="193,95,335,121"/>
 <area shape="rect" id="node3" href="$uuid_8h.html" title=" " alt="" coords="113,169,188,196"/>

@@ -1,4 +1,4 @@
-<map id="game_state::updateBoards" name="game_state::updateBoards">
+<map id="GameState::updateBoards" name="GameState::updateBoards">
 <area shape="rect" id="node1" title="updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGri..." alt="" coords="5,56,203,83"/>
 <area shape="rect" id="node2" href="$class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="283,5,374,32"/>
 <area shape="rect" id="node3" href="$classgame__state.html#a175ad107b4a09824f5c45582dbfab2d4" title=" " alt="" coords="251,56,407,83"/>

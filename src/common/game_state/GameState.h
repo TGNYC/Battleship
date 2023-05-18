@@ -1,5 +1,5 @@
-#ifndef BATTLESHIP_GAME_STATE_H
-#define BATTLESHIP_GAME_STATE_H
+#ifndef BATTLESHIP_GAMESTATE_H
+#define BATTLESHIP_GAMESTATE_H
 
 #include "game_state/Player.h"
 #include "game_state/PlayerGrid.h"
@@ -37,7 +37,7 @@
  * check shotIsLegal() before sending a callShot Request
  */
 
-class game_state {
+class GameState {
 public:
   /*!
    * Enum indicating the phase of the game state. Must be switched to Playing before first move is made
@@ -60,7 +60,7 @@ public:
    * Constructor setting initial values
    * @param type defines if this is a server side or client side state
    */
-  game_state(game_state::Type type);
+  GameState(GameState::Type type);
 
   /*!
    * Adds a player to the game state
@@ -170,7 +170,7 @@ public:
 
 private:
   State                   state;  // currently unused. will be needed later
-  Type                    type; // indicates if this game_state is run server side
+  Type                    type; // indicates if this GameState is run server side
   std::vector<Player>     players;
   std::vector<PlayerGrid> playerGrids;  ///< holds 1 grid on client and 2 grids on server
   bool                    oppShipSunk[5];
@@ -180,4 +180,4 @@ private:
   uuid                    winner;
 };
 
-#endif // BATTLESHIP_GAME_STATE_H
+#endif // BATTLESHIP_GAMESTATE_H

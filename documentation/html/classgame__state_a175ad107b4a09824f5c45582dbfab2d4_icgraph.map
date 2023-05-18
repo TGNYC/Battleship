@@ -1,4 +1,4 @@
-<map id="game_state::getShip" name="game_state::getShip">
+<map id="GameState::getShip" name="GameState::getShip">
 <area shape="rect" id="node1" title=" " alt="" coords="745,13,901,39"/>
 <area shape="rect" id="node2" href="$classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b" title="updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGri..." alt="" coords="500,13,697,39"/>
 <area shape="rect" id="node3" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,5,452,47"/>

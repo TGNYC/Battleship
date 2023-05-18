@@ -2,18 +2,18 @@
 // Created by Tejas Gupta on 4/19/23.
 //
 
-#include "server_network_manager.h"
+#include "ServerNetworkManager.h"
 
+#include "Logger.h"
+#include "RequestHandler.h"
 #include "network/responses/ServerResponse.h"
-#include "request_handler.h"
 #include "serialization/serialization.h"
 #include <nlohmann/json.hpp>
 #include <sstream>
 #include <string>
-#include "Logger.h"
 
 // Constructor of server_network_manager
-server_network_manager::server_network_manager(const uint16_t port) : _port(port) {
+ServerNetworkManager::ServerNetworkManager(const uint16_t port) : _port(port) {
   // Initialize the sockpp library
   sockpp::socket_initializer::initialize();
   // Connect to the default server host and port, as defined in "default.conf"
@@ -21,10 +21,10 @@ server_network_manager::server_network_manager(const uint16_t port) : _port(port
 }
 
 // Destructor of server_network_manager
-server_network_manager::~server_network_manager() = default;
+ServerNetworkManager::~ServerNetworkManager() = default;
 
 // Connect to a specified url and port using a tcp_acceptor
-void server_network_manager::connect(const uint16_t port) {
+void ServerNetworkManager::connect(const uint16_t port) {
   // Create a tcp_acceptor using the specified port
   this->_acc = sockpp::tcp_acceptor(port);
 
@@ -42,7 +42,7 @@ void server_network_manager::connect(const uint16_t port) {
 }
 
 // Endless loop that listens for incoming connections and reads incoming messages
-void server_network_manager::listener_loop() {
+void ServerNetworkManager::listener_loop() {
   // Intentional endless loop
   while (true) {
     // Accept a new client connection
@@ -72,7 +72,7 @@ void server_network_manager::listener_loop() {
 
 // Runs in a thread and reads anything coming in on the 'socket'.
 // Once a message is fully received, the string is passed on to the 'handle_message()' function
-void server_network_manager::read_message(
+void ServerNetworkManager::read_message(
     sockpp::tcp_socket socket,
     const std::function<void(const std::string &, const sockpp::tcp_socket::addr_t &)> &message_handler) {
   // sockpp::socket_initializer sockInit; // initializes socket framework underneath
@@ -129,7 +129,7 @@ void server_network_manager::read_message(
   socket.shutdown();
 }
 
-void server_network_manager::handle_message(const std::string                &msg,
+void ServerNetworkManager::handle_message(const std::string                &msg,
                                                      const sockpp::tcp_socket::addr_t &peer_address) {
   try {
     LOG("Handling the incoming message");
@@ -154,7 +154,7 @@ void server_network_manager::handle_message(const std::string                &ms
     LOG("Received valid request : " + msg);
 #endif
     // -- handle client request and create response
-    const std::unique_ptr<ServerResponse> res = request_handler::handle_request(_game_instance, req.get());
+    const std::unique_ptr<ServerResponse> res = RequestHandler::handle_request(_game_instance, req.get());
 
     // res == nullptr if request does not require personal response. e.g. when already broadcasted to both
     if (res != nullptr) {
@@ -173,7 +173,7 @@ void server_network_manager::handle_message(const std::string                &ms
   }
 }
 
-void server_network_manager::on_player_left(uuid player_id) {
+void ServerNetworkManager::on_player_left(uuid player_id) {
   _rw_lock.lock();
   const std::string address = _player_id_to_address[player_id];
   _player_id_to_address.erase(player_id);
@@ -181,13 +181,13 @@ void server_network_manager::on_player_left(uuid player_id) {
   _rw_lock.unlock();
 }
 
-ssize_t server_network_manager::send_message(const std::string &msg, const std::string &address) {
+ssize_t ServerNetworkManager::send_message(const std::string &msg, const std::string &address) {
   std::stringstream ss_msg;
   ss_msg << std::to_string(msg.size()) << ':' << msg; // prepend message length
   return _address_to_socket.at(address).write(ss_msg.str());
 }
 
-void server_network_manager::broadcast_message(ServerResponse &msg, const std::vector<Player> &players,
+void ServerNetworkManager::broadcast_message(ServerResponse &msg, const std::vector<Player> &players,
                                                const Player *exclude) {
   nlohmann::json msg_json   = msg;             // write to JSON format
   std::string    msg_string = msg_json.dump(); // convert to string

@@ -2,15 +2,15 @@
 // Created by Tejas Gupta on 4/19/23.
 //
 
-#include "game_instance.h"
+#include "GameInstance.h"
 #include "Logger.h"
+#include "ServerNetworkManager.h"
 #include "network/responses/ErrorResponse.h"
 #include "network/responses/GameEvent.h"
 #include "network/responses/JoinGameSuccess.h"
 #include "network/responses/ServerResponse.h"
-#include "server_network_manager.h"
 
-bool game_instance::joinGame(const JoinGame &joinGameRequest) {
+bool GameInstance::joinGame(const JoinGame &joinGameRequest) {
   LOG("about to add player to the game state");
   std::lock_guard<std::mutex> lockGuard(modification_lock);
 
@@ -31,7 +31,7 @@ bool game_instance::joinGame(const JoinGame &joinGameRequest) {
 // is called upon receiving a startGameRequest
 // first boolean returns whether start_game was successful
 // second boolean returns whether both players are ready to start the game
-bool game_instance::start_game(const Player *player, std::string &err) {
+bool GameInstance::start_game(const Player *player, std::string &err) {
 
   LOG("GameInstance trying to start");
   std::lock_guard<std::mutex> lockGuard(modification_lock);
@@ -59,9 +59,9 @@ bool game_instance::start_game(const Player *player, std::string &err) {
   return _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
 }
 
-bool game_instance::executeShot(CallShot shotRequest) {
+bool GameInstance::executeShot(CallShot shotRequest) {
   LOG("Executing shot...");
-  // variables to be determined by game_state
+  // variables to be determined by GameState
   bool  hit;          // indicates if the shot was a hit
   Ship *hitShip;      // the ship that was hit (if there was a hit)
   bool  sunk;         // indicates if a ship was sunk
@@ -74,7 +74,7 @@ bool game_instance::executeShot(CallShot shotRequest) {
   ServerResponse *msg_string = shotCalled;
   // broadcast to clients
   LOG("Sending GameEvent to clients");
-  server_network_manager::broadcast_message(*msg_string, _game_state.getPlayers());
+  ServerNetworkManager::broadcast_message(*msg_string, _game_state.getPlayers());
   if (_game_state.gameOver()) {
     uuid winnerId = _game_state.getWinner();
     // TODO send GameOver response to clients
@@ -82,7 +82,7 @@ bool game_instance::executeShot(CallShot shotRequest) {
   return success;
 }
 
-game_state &game_instance::getGameState() {
+GameState &GameInstance::getGameState() {
   return _game_state;
 }
 

@@ -1,10 +1,11 @@
 //
 // Created by Tejas Gupta on 4/19/23.
 //
-#include "request_handler.h"
+#include "RequestHandler.h"
 
+#include "GameInstance.h"
 #include "Logger.h"
-#include "game_instance.h"
+#include "ServerNetworkManager.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
 #include "network/requests/PlayAgain.h"
@@ -15,11 +16,10 @@
 #include "network/responses/ServerResponse.h"
 #include "network/responses/StartGameSuccess.h"
 #include "player_manager.h"
-#include "server_network_manager.h"
 #include <iostream>
 #include <memory>
 
-std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance             &gameInstance,
+std::unique_ptr<ServerResponse> RequestHandler::handle_request(GameInstance              &gameInstance,
                                                                 const ClientRequest *const req) {
   LOG("handling request");
 
@@ -63,7 +63,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
       LOG("Sending StartGameSuccess to the already-ready player");
       std::unique_ptr<ServerResponse> resp =
           std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(), player_id);
-      server_network_manager::broadcast_message(*resp, gameInstance.getGameState().getPlayers(), &player);
+      ServerNetworkManager::broadcast_message(*resp, gameInstance.getGameState().getPlayers(), &player);
       // send StartGameSuccess update to the newly-ready player
       LOG("Sending StartGameSuccess to the newly-ready player");
       return std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(),
@@ -92,7 +92,7 @@ std::unique_ptr<ServerResponse> request_handler::handle_request(game_instance   
     std::unique_ptr<ServerResponse> response = std::make_unique<EmoteEvent>(sendEmoteRequest.getEmote(),
                                                                             sendEmoteRequest.getPlayerId());
     LOG("Sending EmoteEvent to the other player");
-    server_network_manager::broadcast_message(*response, gameInstance.getGameState().getPlayers(), &player);
+    ServerNetworkManager::broadcast_message(*response, gameInstance.getGameState().getPlayers(), &player);
     return nullptr; // nothing to send back to the request sender
   }
 

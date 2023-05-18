@@ -1,6 +1,6 @@
 #include "game_state/Coordinate.h"
+#include "game_state/GameState.h"
 #include "game_state/Ship.h"
-#include "game_state/game_state.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/ClientRequest.h"
 #include "network/requests/JoinGame.h"
@@ -294,7 +294,7 @@ protected:
       shipPlacement.push_back(Ship(3, Coordinate(0,0), Ship::Orientation::Vertical, uuid::generateRandomUuid()));
     }
   }
-  game_state gameState = game_state(game_state::Type::ServerState);
+  GameState         gameState = GameState(GameState::Type::ServerState);
   Player felix = Player(uuid::generateRandomUuid(), "Felix");
   Player malte = Player(uuid::generateRandomUuid(), "Malte");
   std::vector<Ship> shipPlacement;

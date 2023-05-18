@@ -77,8 +77,8 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef BATTLESHIP_GAME_INSTANCE_H</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define BATTLESHIP_GAME_INSTANCE_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">game_state/Player.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="game__state_8h.html">game_state/game_state.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">GameState/Player.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="game__state_8h.html">GameState/GameState.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_call_shot_8h.html">network/requests/CallShot.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_join_game_8h.html">network/requests/JoinGame.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
@@ -89,7 +89,7 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classgame__instance.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgame__instance.html">game_instance</a> {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="classgame__state.html">game_state</a>               _game_state = <a class="code" href="classgame__state.html">game_state</a>(<a class="code" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4">game_state::Type::ServerState</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="classgame__state.html">GameState</a>               _game_state = <a class="code" href="classgame__state.html">GameState</a>(<a class="code" href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4">GameState::Type::ServerState</a>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="comment">//bool                     is_player_allowed_to_play(Player *player);</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> std::mutex modification_lock;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">bool</span> atLeastOnePlayerReady;</div>
@@ -105,7 +105,7 @@ $(function() {
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">//bool is_full();</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">//bool is_started();</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">//std::string get_id();</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">//game_state *get_game_state();</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">//GameState *get_game_state();</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">//bool is_finished();</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="comment">//bool try_add_player(Player *new_player, std::string &amp;err);</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">//bool draw_card(Player* player, card*&amp; drawn_card, std::string&amp; err);</span></div>
@@ -118,7 +118,7 @@ $(function() {
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f">executeShot</a>(<a class="code" href="class_call_shot.html">CallShot</a> shotRequest);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">const</span> <a class="code" href="classgame__state.html">game_state</a>&amp; <a class="code" href="classgame__instance.html#a5d972ff99f508e624ac6be2d770b4bf5">getGameState</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">const</span> <a class="code" href="classgame__state.html">GameState</a>&amp; <a class="code" href="classgame__instance.html#a5d972ff99f508e624ac6be2d770b4bf5">getGameState</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="comment">// TODO: play_again</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
@@ -132,12 +132,12 @@ $(function() {
 <div class="ttc" id="aclassgame__instance_html"><div class="ttname"><a href="classgame__instance.html">game_instance</a></div><div class="ttdef"><b>Definition:</b> game_instance.h:17</div></div>
 <div class="ttc" id="aclassgame__instance_html_a10cae87e19d9bde3863c672a1ad24060"><div class="ttname"><a href="classgame__instance.html#a10cae87e19d9bde3863c672a1ad24060">game_instance::joinGame</a></div><div class="ttdeci">bool joinGame(const JoinGame &amp;joinGameRequest)</div><div class="ttdef"><b>Definition:</b> game_instance.cpp:13</div></div>
 <div class="ttc" id="aclassgame__instance_html_a2b1d00adf8c933a98698f972827e48b9"><div class="ttname"><a href="classgame__instance.html#a2b1d00adf8c933a98698f972827e48b9">game_instance::game_instance</a></div><div class="ttdeci">game_instance()</div><div class="ttdef"><b>Definition:</b> game_instance.h:28</div></div>
-<div class="ttc" id="aclassgame__instance_html_a5d972ff99f508e624ac6be2d770b4bf5"><div class="ttname"><a href="classgame__instance.html#a5d972ff99f508e624ac6be2d770b4bf5">game_instance::getGameState</a></div><div class="ttdeci">const game_state &amp; getGameState() const</div><div class="ttdef"><b>Definition:</b> game_instance.cpp:104</div></div>
+<div class="ttc" id="aclassgame__instance_html_a5d972ff99f508e624ac6be2d770b4bf5"><div class="ttname"><a href="classgame__instance.html#a5d972ff99f508e624ac6be2d770b4bf5">game_instance::getGameState</a></div><div class="ttdeci">const GameState &amp; getGameState() const</div><div class="ttdef"><b>Definition:</b> game_instance.cpp:104</div></div>
 <div class="ttc" id="aclassgame__instance_html_a7723dc3493e2bb7b93989db3229fbc1f"><div class="ttname"><a href="classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f">game_instance::executeShot</a></div><div class="ttdeci">bool executeShot(CallShot shotRequest)</div><div class="ttdef"><b>Definition:</b> game_instance.cpp:63</div></div>
 <div class="ttc" id="aclassgame__instance_html_a7a7ee5afc1d586574feee3fae8ef537c"><div class="ttname"><a href="classgame__instance.html#a7a7ee5afc1d586574feee3fae8ef537c">game_instance::start_game</a></div><div class="ttdeci">bool start_game(const Player *player, std::string &amp;err)</div><div class="ttdef"><b>Definition:</b> game_instance.cpp:34</div></div>
-<div class="ttc" id="aclassgame__state_html"><div class="ttname"><a href="classgame__state.html">game_state</a></div><div class="ttdef"><b>Definition:</b> game_state.h:40</div></div>
-<div class="ttc" id="aclassgame__state_html_ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4"><div class="ttname"><a href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4">game_state::Type::ServerState</a></div><div class="ttdeci">@ ServerState</div></div>
-<div class="ttc" id="agame__state_8h_html"><div class="ttname"><a href="game__state_8h.html">game_state.h</a></div></div>
+<div class="ttc" id="aclassgame__state_html"><div class="ttname"><a href="classgame__state.html">GameState</a></div><div class="ttdef"><b>Definition:</b> GameState.h:40</div></div>
+<div class="ttc" id="aclassgame__state_html_ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4"><div class="ttname"><a href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4">GameState::Type::ServerState</a></div><div class="ttdeci">@ ServerState</div></div>
+<div class="ttc" id="agame__state_8h_html"><div class="ttname"><a href="game__state_8h.html">GameState.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

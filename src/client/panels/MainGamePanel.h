@@ -1,14 +1,14 @@
 #ifndef MAINGAMEPANEL_H
 #define MAINGAMEPANEL_H
 
-#include <wx/wx.h>
-#include <chrono>
-#include "../../common/game_state/game_state.h"
 #include "../../common/game_state/Player.h"
 #include "../../common/network/responses/EmoteEvent.h"
-#include "../uiElements/ViewGrid.h"
-#include "../uiElements/ShipPanel.h"
 #include "../uiElements/EmotePanel.h"
+#include "../uiElements/ShipPanel.h"
+#include "../uiElements/ViewGrid.h"
+#include "game_state/GameState.h"
+#include <chrono>
+#include <wx/wx.h>
 //#include "../AudioPlayer.h"
 #include <wx/timer.h>
 
@@ -25,7 +25,7 @@ public:
    * @param ownId The id of the player who is using this client.
    * Displays the game state using ViewGrid and ShipPanel.
   */
-  void buildGameState(game_state* gameState, uuid ownId);
+  void buildGameState(GameState * gameState, uuid ownId);
   /**
    * @brief Displays the emote panel.
    * Not implemented yet. 
@@ -57,7 +57,7 @@ public:
 private:
   wxBoxSizer* _mainWindow;
   wxBoxSizer* _emoteWindow;
-  game_state* _gameState;
+  GameState                            * _gameState;
   uuid _ownId;
   uuid _currentPlayer;
   ViewGrid* _ownViewGrid;

@@ -1,4 +1,4 @@
-<map id="game_state::addPlayer" name="game_state::addPlayer">
+<map id="GameState::addPlayer" name="GameState::addPlayer">
 <area shape="rect" id="node1" title=" " alt="" coords="743,78,915,105"/>
 <area shape="rect" id="node2" href="$classgame__instance.html#a10cae87e19d9bde3863c672a1ad24060" title=" " alt="" coords="491,21,683,47"/>
 <area shape="rect" id="node4" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="480,78,695,105"/>

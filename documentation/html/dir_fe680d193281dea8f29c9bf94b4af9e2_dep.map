@@ -1,5 +1,5 @@
 <map id="/home/nico/Desktop/battleship/src/common/network" name="/home/nico/Desktop/battleship/src/common/network">
-<area shape="rect" id="node1" href="dir_5ca9256e394d76a5c0874f18b1fb2558.html" title="game_state" alt="" coords="237,159,336,207"/>
+<area shape="rect" id="node1" href="dir_5ca9256e394d76a5c0874f18b1fb2558.html" title="GameState" alt="" coords="237,159,336,207"/>
 <area shape="rect" id="edge2-headlabel" href="dir_000007_000008.html" title="1" alt="" coords="209,122,218,137"/>
 <area shape="rect" id="node5" href="dir_bc67c975f4a8a2d322be7f47052112ea.html" title="responses" alt="" coords="37,159,125,207"/>
 <area shape="rect" id="edge1-headlabel" href="dir_000007_000010.html" title="1" alt="" coords="139,184,148,198"/>
