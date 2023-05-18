@@ -1,5 +1,6 @@
 #include "game_state/Coordinate.h"
 #include "game_state/Ship.h"
+#include "game_state/game_state.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/ClientRequest.h"
 #include "network/requests/JoinGame.h"
@@ -144,4 +145,71 @@ TEST(uuid, defautluuid) {
 TEST(uuid, parseuuid) {
   const uuid uuid("a3351d70-2422-45cc-b10e-fb893862094f");
   ASSERT_EQ(uuid.ToString(), "a3351d70-2422-45cc-b10e-fb893862094f");
+}
+
+
+class gameStateTest : public::testing::Test {
+protected:
+  virtual void SetUp() {
+    for (int i = 0; i < 5; ++i) { // fill vector with 5 dummy ships
+      shipPlacement.push_back(Ship(3, Coordinate(0,0), Ship::Orientation::Vertical, uuid::generateRandomUuid()));
+    }
+  }
+  game_state gameState = game_state(game_state::Type::ServerState);
+  Player felix = Player(uuid::generateRandomUuid(), "Felix");
+  Player malte = Player(uuid::generateRandomUuid(), "Malte");
+  std::vector<Ship> shipPlacement;
+};
+
+TEST_F(gameStateTest, addPlayer) {
+  gameState.addPlayer(felix);
+  EXPECT_EQ(gameState.getPlayers().size(), 1);
+  gameState.addPlayer(malte);
+  ASSERT_EQ(gameState.getPlayers().size(), 2);
+  ASSERT_FALSE(gameState.addPlayer(Player(uuid::generateRandomUuid(), "Hermann"))); // already 2 players. full
+}
+
+TEST_F(gameStateTest, getPlayer) {
+  gameState.addPlayer(felix);
+  Player p = gameState.getPlayer(felix.getId());
+  ASSERT_EQ(p, felix);
+  ASSERT_EQ(p.getId(), felix.getId());
+}
+
+TEST_F(gameStateTest, getPlayers) {
+  gameState.addPlayer(felix);
+  auto players = gameState.getPlayers();
+  ASSERT_EQ(players.size(), 1);
+  ASSERT_EQ(players[0], felix);
+}
+
+
+TEST_F(gameStateTest, getOtherPlayer) {
+  gameState.addPlayer(felix);
+  gameState.addPlayer(malte);
+  ASSERT_EQ(gameState.getOtherPlayer(malte.getId()).getId(), felix.getId());
+  ASSERT_EQ(gameState.getOtherPlayer(felix.getId()).getId(), malte.getId());
+}
+
+TEST_F(gameStateTest, addShips) {
+  gameState.addPlayer(felix);
+  gameState.addPlayer(malte);
+  ASSERT_TRUE(gameState.addShips(felix.getId(), shipPlacement));
+  ASSERT_FALSE(gameState.addShips(felix.getId(), shipPlacement)); // already have ships of this player
+  ASSERT_TRUE(gameState.addShips(malte.getId(), shipPlacement));
+}
+
+TEST_F(gameStateTest, registerShot) {
+  //TODO
+}
+
+TEST_F(gameStateTest, shotIsLegal) {
+  gameState.addPlayer(felix);
+  gameState.addShips(felix.getId(), shipPlacement);
+  Coordinate exceedsGrid (10, 0);
+  Coordinate negative (0, -1);
+  Coordinate fine (3, 7);
+  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), exceedsGrid), false);
+  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), negative), false);
+  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), fine), true);
 }
