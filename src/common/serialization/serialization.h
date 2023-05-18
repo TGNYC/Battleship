@@ -65,12 +65,12 @@ struct adl_serializer<Ship> {
     json["orientation"] = ship.getOrientation();
   }
   static auto from_json(const json &json) -> Ship {
-    int x = json.at("position").at("x").get<int>();  // Extract "x" position as an integer
-    int y = json.at("position").at("y").get<int>();  // Extract "y" position as an integer
-    Coordinate position(x, y);  // Create a Coordinate object from "x" and "y"
+    int        x = json.at("position").at("x").get<int>(); // Extract "x" position as an integer
+    int        y = json.at("position").at("y").get<int>(); // Extract "y" position as an integer
+    Coordinate position(x, y);                             // Create a Coordinate object from "x" and "y"
 
-    return {json.at("length").get<int>(), position,
-            json.at("orientation").get<Ship::Orientation>(), json.at("ship_id").get<uuid>()};
+    return {json.at("length").get<int>(), position, json.at("orientation").get<Ship::Orientation>(),
+            json.at("ship_id").get<uuid>()};
   }
 };
 
@@ -182,8 +182,7 @@ struct adl_serializer<std::unique_ptr<ClientRequest>> {
       return std::make_unique<CallShot>(playerId, position);
     }
     case RequestType::SendEmote:
-      return std::make_unique<SendEmote>(
-          playerId, json.at("emote").get<std::string>()); // TODO serialize this with Emote enum instead of string
+      return std::make_unique<SendEmote>(playerId, json.at("emote").get<EmoteType>());
     case RequestType::QuitGame:
       return std::make_unique<QuitGame>(playerId);
     case RequestType::PlayAgain:
@@ -310,12 +309,13 @@ struct adl_serializer<std::unique_ptr<ServerResponse>> {
 
     switch (responseType) {
     case ResponseType::GameEvent: {
-      int x = json.at("position").at("x").get<int>();  // Extract "x" position as an integer
-      int y = json.at("position").at("y").get<int>();  // Extract "y" position as an integer
-      Coordinate position(x, y);  // Create a Coordinate object from "x" and "y"
-      return std::make_unique<GameEvent>(json.at("player_id").get<uuid>(), position,
-                                         json.at("ship_hit").get<bool>(), json.at("ship_sunk").get<bool>(),
-                                         json.at("ship").get<Ship>(), json.at("next_player_id").get<uuid>()); }
+      int        x = json.at("position").at("x").get<int>(); // Extract "x" position as an integer
+      int        y = json.at("position").at("y").get<int>(); // Extract "y" position as an integer
+      Coordinate position(x, y);                             // Create a Coordinate object from "x" and "y"
+      return std::make_unique<GameEvent>(json.at("player_id").get<uuid>(), position, json.at("ship_hit").get<bool>(),
+                                         json.at("ship_sunk").get<bool>(), json.at("ship").get<Ship>(),
+                                         json.at("next_player_id").get<uuid>());
+    }
 
     case ResponseType::EmoteEvent:
       return std::make_unique<EmoteEvent>(json.at("emote").get<EmoteType>(), json.at("player_id").get<uuid>());
