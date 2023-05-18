@@ -57,6 +57,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
           switch (response->responseType) {
 
           case ResponseType::GameEvent: {
+            LOG("received a GameEvent");
             const GameEvent &gameEvent = static_cast<const GameEvent &>(*response);
             GameController::getMainThreadEventHandler()->CallAfter([gameEvent] {
               GameController::handleGameEvent(gameEvent);
@@ -64,6 +65,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             break;
           }
           case ResponseType::EmoteEvent: {
+            LOG("received an EmoteEvent");
             const EmoteEvent &emoteEvent = static_cast<const EmoteEvent &>(*response);
             GameController::getMainThreadEventHandler()->CallAfter([emoteEvent] {
               GameController::showEmote(emoteEvent);
@@ -71,7 +73,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             break;
           }
           case ResponseType::JoinGameSuccess: {
-            LOG("Client received a JoinGameSuccess...");
+            LOG("received a JoinGameSuccess");
             GameController::getMainThreadEventHandler()->CallAfter([] {
               GameController::enterSetupPhase();
             });
@@ -83,12 +85,14 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
             });
           } break;
           case ResponseType::StartGameSuccess: {
+            LOG("received a StartGameSuccess");
             const StartGameSuccess &startGameSuccess = static_cast<const StartGameSuccess &>(*response);
             GameController::getMainThreadEventHandler()->CallAfter([startGameSuccess] {
               GameController::startGame(startGameSuccess);
             });
           } break;
           case ResponseType::QuitGameEvent: {
+            LOG("received a QuitGameEvent");
             const QuitGameEvent &quitGameEvent = static_cast<const QuitGameEvent &>(*response);
             LOG("Player " + quitGameEvent.quitPlayerId.ToString() + " quit the game");
             GameController::getMainThreadEventHandler()->CallAfter([] {
