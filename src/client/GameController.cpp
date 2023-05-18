@@ -125,6 +125,7 @@ void GameController::handleGameEvent(const GameEvent &event) {
 }
 
 void GameController::callShot(Coordinate position) {
+  LOG("Calling shot on position " + std::to_string(position.x) + "," + std::to_string(position.y));
   CallShot request = CallShot(_me->getId(), position);
   ClientNetworkManager::sendRequest(request);
 }
@@ -159,9 +160,14 @@ void GameController::playerReady() {
 
 
   // generate GameState
+  LOG("Generating GameState");
   _gameState = new game_state(game_state::Type::ClientState);
   _gameState->addPlayer(*_me);
   _gameState->addShips(_me->getId(), _setupManager->_ships_placed);
+  LOG("Printing ship ids...");
+  for (auto ship : _gameState->getPlayerGrid(_me->getId()).shipsPlaced) {
+        LOG(ship.getId().ToString());
+  }
 
   // todo: maybe display some waiting for other player information
   LOG("Sending request to server. You might need to wait for your opponent to be ready.");

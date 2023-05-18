@@ -182,31 +182,35 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
   shooterGrid.shotsFired[position.x][position.y] = impact;
   targetGrid.shotsReceived[position.x][position.y] = impact;
 
-  LOG(nextPlayerId->ToString());
-
   // determine next player
   *nextPlayerId = *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
   currentPlayerId = *nextPlayerId;  // update current player
-  LOG(nextPlayerId->ToString());
+  LOG("next player: " + nextPlayerId->ToString());
   turnNumber++;
   return true;
 }
 
 bool game_state::updateBoards(const GameEvent &event) {
   LOG("updating board...");
+  assert(playerGrids.size() == 1);
   PlayerGrid myGrid = playerGrids[0];
   // update my grid
   if (event.playerId == myGrid.playerId) {  // I called the shot
-      myGrid.shotsFired[event.position.x][event.position.y] = event.hit ? 2 : 1;
+    LOG("This was my shot");
+    myGrid.shotsFired[event.position.x][event.position.y] = event.hit ? 2 : 1;
   } else { // other player shot me
-      // update shots
-      myGrid.shotsReceived[event.position.x][event.position.y] = event.hit ? 2 : 1;
-      // update my ships
-      Ship& hitShip = getShip(myGrid.shipsPlaced, event.hitShip.getId()); // find out which of my local ships was hit
+    LOG("This was the other players shot");
+    // update shots
+    myGrid.shotsReceived[event.position.x][event.position.y] = event.hit ? 2 : 1;
+    // update my ships. only if there was a hit!! otherwise hitShip might be a dummy (every member 0)
+    if (event.hit) {
+      Ship &hitShip = getShip(myGrid.shipsPlaced, event.hitShip.getId()); // find out which of my local ships was hit
       hitShip.hit(event.position);
+    }
   }
   // update current player
   currentPlayerId = event.nextPlayerId;
+  LOG("finished updating board");
 }
 
 bool game_state::gameOver() {
