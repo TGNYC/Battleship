@@ -8,6 +8,14 @@
 #include "network/requests/QuitGame.h"
 #include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
+#include "network/responses/EmoteEvent.h"
+#include "network/responses/ErrorResponse.h"
+#include "network/responses/GameEvent.h"
+#include "network/responses/GameOverEvent.h"
+#include "network/responses/JoinGameSuccess.h"
+#include "network/responses/QuitGameEvent.h"
+#include "network/responses/ServerResponse.h"
+#include "network/responses/StartGameSuccess.h"
 #include "serialization/serialization.h" // IWYU pragma: keep
 #include "uuid.h"
 #include "gtest/gtest.h"
@@ -131,10 +139,141 @@ TEST(requests, StartGame) {
                 {{2, {6, 5}, Ship::Orientation::Horizontal, uuid()}, {5, {1, 3}, Ship::Orientation::Vertical, uuid()}});
   const std::unique_ptr<ClientRequest> request = jsonRequest.get<std::unique_ptr<ClientRequest>>();
 
-  std::cout << jsonRequest.dump(4) << '\n';
-
   ASSERT_EQ(jsonRequest, nlohmann::json::parse(jsonString));
   ASSERT_EQ(jsonRequest, request);
+}
+
+TEST(responses, EmoteEvent) {
+  const std::string jsonString = R"(
+{
+    "type": "emote_event",
+    "player_id": "30981d12-c9ef-4591-9563-868c0134d05c",
+    "emote": 2
+}
+)";
+
+  const nlohmann::json jsonResponse = EmoteEvent(EmoteType::Mocking, uuid("30981d12-c9ef-4591-9563-868c0134d05c"));
+  const std::unique_ptr<ServerResponse> request = jsonResponse.get<std::unique_ptr<ServerResponse>>();
+
+  ASSERT_EQ(jsonResponse, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonResponse, request);
+}
+
+TEST(responses, ErrorResponse) {
+  const std::string jsonString = R"(
+{
+    "type": "error_response",
+    "error_message": "Exception"
+}
+)";
+
+  const nlohmann::json                  jsonResponse = ErrorResponse(BattleshipException("Exception"));
+  const std::unique_ptr<ServerResponse> request      = jsonResponse.get<std::unique_ptr<ServerResponse>>();
+
+  ASSERT_EQ(jsonResponse, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonResponse, request);
+}
+
+TEST(responses, GameEvent) {
+  const std::string jsonString = R"(
+{
+    "type": "game_event",
+    "player_id": "30981d12-c9ef-4591-9563-868c0134d05c",
+    "position": {
+        "x": 1,
+        "y": 2
+    },
+    "ship_hit": false,
+    "ship_sunk": false,
+    "ship": {
+        "length": 0,
+        "orientation": "h",
+        "position": {
+            "x": 0,
+            "y": 0
+        },
+        "ship_id": "00000000-0000-0000-0000-000000000000"
+    },
+    "next_player_id": "00000000-0000-0000-0000-000000000000"
+}
+)";
+
+  const nlohmann::json jsonResponse = GameEvent(uuid("30981d12-c9ef-4591-9563-868c0134d05c"), {1, 2}, false, false,
+                                                Ship(0, {0, 0}, Ship::Orientation::Horizontal, uuid()), uuid());
+  const std::unique_ptr<ServerResponse> request = jsonResponse.get<std::unique_ptr<ServerResponse>>();
+
+  ASSERT_EQ(jsonResponse, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonResponse, request);
+}
+
+TEST(responses, GameOverEvent) {
+  const std::string jsonString = R"(
+{
+    "type": "game_over_event",
+    "winner_player_id": "30981d12-c9ef-4591-9563-868c0134d05c"
+}
+)";
+
+  const nlohmann::json                  jsonResponse = GameOverEvent(uuid("30981d12-c9ef-4591-9563-868c0134d05c"));
+  const std::unique_ptr<ServerResponse> request      = jsonResponse.get<std::unique_ptr<ServerResponse>>();
+
+  ASSERT_EQ(jsonResponse, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonResponse, request);
+}
+
+TEST(responses, JoinGameSuccess) {
+  const std::string jsonString = R"(
+{
+    "type": "join_game_success"
+}
+)";
+
+  const nlohmann::json                  jsonResponse = JoinGameSuccess();
+  const std::unique_ptr<ServerResponse> request      = jsonResponse.get<std::unique_ptr<ServerResponse>>();
+
+  ASSERT_EQ(jsonResponse, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonResponse, request);
+}
+
+TEST(responses, QuitGameEvent) {
+  const std::string jsonString = R"(
+{
+    "type": "quit_game_event",
+    "quit_player_id": "30981d12-c9ef-4591-9563-868c0134d05c"
+}
+)";
+
+  const nlohmann::json                  jsonResponse = QuitGameEvent(uuid("30981d12-c9ef-4591-9563-868c0134d05c"));
+  const std::unique_ptr<ServerResponse> request      = jsonResponse.get<std::unique_ptr<ServerResponse>>();
+
+  ASSERT_EQ(jsonResponse, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonResponse, request);
+}
+
+TEST(responses, StartGameSuccess) {
+  const std::string jsonString = R"(
+{
+    "type": "start_game_success",
+    "players" : [
+        {
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "name" : "Max"
+        },
+        {
+            "id" : "00000000-0000-0000-0000-000000000000",
+            "name" : "Fritz"
+        }
+    ],
+    "starting_player_id" : "30981d12-c9ef-4591-9563-868c0134d05c"
+}
+)";
+
+  const nlohmann::json jsonResponse =
+      StartGameSuccess({Player(uuid(), "Max"), Player(uuid(), "Fritz")}, uuid("30981d12-c9ef-4591-9563-868c0134d05c"));
+  const std::unique_ptr<ServerResponse> request = jsonResponse.get<std::unique_ptr<ServerResponse>>();
+
+  ASSERT_EQ(jsonResponse, nlohmann::json::parse(jsonString));
+  ASSERT_EQ(jsonResponse, request);
 }
 
 TEST(uuid, defautluuid) {
