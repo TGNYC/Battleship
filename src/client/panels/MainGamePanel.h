@@ -57,7 +57,7 @@ public:
 private:
   wxBoxSizer* _mainWindow;
   wxBoxSizer* _emoteWindow;
-  GameState                            * _gameState;
+  GameState* _gameState;
   uuid _ownId;
   uuid _currentPlayer;
   ViewGrid* _ownViewGrid;
@@ -65,6 +65,7 @@ private:
   ShipPanel* _ownShipPanel;
   ShipPanel* _oppShipPanel;
   EmotePanel* _emotePanel;
+  wxStaticBitmap* _currentEmote = nullptr;
   std::chrono::system_clock::time_point _lastShot; // std::chrono::_V2::system_clock::time_point _lastShot;
         wxTimer* _timer;
 };

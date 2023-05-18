@@ -116,8 +116,27 @@ void MainGamePanel::buildEmoteList() {
 
 void MainGamePanel::displayEmote(EmoteType emote) {
   int emoteId = static_cast<int>(emote);
+  LOG("emote id: " + std::to_string(emoteId));
+  if (emoteId < 0 || emoteId > 2) {
+    LOG("invalid emote id");
+    return;
+  }
   LOG("I should display emote " + std::to_string(emoteId));
-  // TODO:
+  wxImage image;
+  switch (emoteId) {
+    case 0:
+      image = wxImage("../assets/emotes/large_middlefinger.png");
+      break;
+    case 1:
+      image = wxImage("../assets/emotes/large_gofuckyourself.png");
+      break;
+    case 2:
+      image = wxImage("../assets/emotes/large_mocking.png");
+      break;
+  }
+  _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(120, 47), wxSize(400, 400), 0);
+  // for some reason the image is shown and removed at the next panel update
+  _currentEmote = nullptr;
 }
 
 void MainGamePanel::buildTurnIndicator(std::string playerName, wxBoxSizer *box) {
@@ -164,7 +183,7 @@ void MainGamePanel::onEmoteClick(wxMouseEvent &event) {
   wxPoint mousePosition = event.GetPosition();
   mousePosition -= wxPoint(20, 90);
   const int emote = mousePosition.y / 90;
-  if(emote < 0 || emote > 3) return;
+  if(emote < 0 || emote > 2) return;
   LOG("clicked on emote nr " + std::to_string(emote));
   GameController::sendEmote(EmoteType(emote));
 }
