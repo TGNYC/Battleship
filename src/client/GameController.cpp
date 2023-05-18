@@ -5,6 +5,7 @@
 #include "network/requests/JoinGame.h"
 #include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
+#include "network/requests/QuitGame.h"
 
 // initialize static variables
 GameWindow      *GameController::_gameWindow      = nullptr;
@@ -187,4 +188,10 @@ void GameController::playerReady() {
 
 wxEvtHandler *GameController::getMainThreadEventHandler() {
   return GameController::_gameWindow->GetEventHandler();
+}
+void GameController::quitGame() {
+  // send quit game request
+  LOG("Sending quit game request");
+  QuitGame request = QuitGame(_me->getId());
+  ClientNetworkManager::sendRequest(request);
 }

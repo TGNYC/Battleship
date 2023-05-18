@@ -1,6 +1,8 @@
 #include "GameWindow.h"
 
 #include <wx/wx.h>
+#include "../common/Logger.h"
+#include "GameController.h"
 
 GameWindow::GameWindow(const wxString &title, const wxPoint &pos, const wxSize &size)
     : wxFrame(nullptr, wxID_ANY, title, pos, size) {
@@ -20,6 +22,9 @@ GameWindow::GameWindow(const wxString &title, const wxPoint &pos, const wxSize &
 
   // set minimum size of window
   this->SetMinSize(wxSize(1000, 720));
+
+  // close window event
+  Bind(wxEVT_CLOSE_WINDOW, &GameWindow::onClose, this);
 
 }
 
@@ -49,4 +54,10 @@ void GameWindow::showPanel(wxPanel *panel) {
 
 void GameWindow::setStatus(const std::string &message) {
   this->_statusBar->SetStatusText(message, 0);
+}
+
+void GameWindow::onClose(wxCloseEvent &event) {
+  LOG("Closing window");
+  GameController::quitGame();
+  Destroy();
 }

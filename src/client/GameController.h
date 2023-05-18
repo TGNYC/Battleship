@@ -63,6 +63,8 @@ public:
 
     static void playerReady();
 
+    static void quitGame();
+
 private:
     static GameWindow* _gameWindow;
     static ConnectionPanel* _connectionPanel;
