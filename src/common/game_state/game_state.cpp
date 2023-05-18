@@ -180,7 +180,7 @@ bool game_state::registerShot(uuid playerId, Coordinate position, bool *hit, Shi
 bool game_state::updateBoards(const GameEvent &event) {
   LOG("updating board...");
   assert(playerGrids.size() == 1);
-  auto& myGrid = playerGrids[0];
+  auto &myGrid = playerGrids[0];
   // update my grid
   if (event.playerId == myGrid.playerId) { // I called the shot
     LOG("This was my shot");
@@ -225,6 +225,7 @@ bool game_state::updateBoards(const GameEvent &event) {
   // update current player
   currentPlayerId = event.nextPlayerId;
   LOG("finished updating board");
+  return true;
 }
 
 bool game_state::gameOver() {
