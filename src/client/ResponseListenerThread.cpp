@@ -88,6 +88,13 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
               GameController::startGame(startGameSuccess);
             });
           } break;
+          case ResponseType::QuitGameEvent: {
+            const QuitGameEvent &quitGameEvent = static_cast<const QuitGameEvent &>(*response);
+            LOG("Player " + quitGameEvent.quitPlayerId.ToString() + " quit the game");
+            GameController::getMainThreadEventHandler()->CallAfter([] {
+              GameController::quitGame();
+            });
+          } break;
           }
         } else {
           this->outputError("Network error", "Could not read entire message. TCP stream ended early. Difference is " +

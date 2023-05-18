@@ -7,6 +7,8 @@
 #include "game_state/Player.h"
 #include "network/responses/EmoteEvent.h"
 #include "network/responses/StartGameSuccess.h"
+#include "network/responses/GameEvent.h"
+#include "network/responses/QuitGameEvent.h"
 #include "panels/ConnectionPanel.h"
 #include "panels/MainGamePanel.h"
 #include "panels/SetupPanel.h"
