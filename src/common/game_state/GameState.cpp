@@ -132,7 +132,7 @@ bool GameState::shotIsLegal(uuid playerId, Coordinate position) {
 
 // all parameters after position are used to return info back to the caller
 bool GameState::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk,
-                              uuid *nextPlayerId) {
+                             uuid *nextPlayerId) {
 
   LOG("Turn Number: " + std::to_string(turnNumber));
   LOG("Current Player: " + currentPlayerId.ToString());
@@ -192,25 +192,25 @@ bool GameState::updateBoards(const GameEvent &event) {
     myGrid.shotsFired[event.position.x][event.position.y] = event.hit ? 2 : 1;
     if (event.sunk) {
       switch (event.hitShip.getLength()) {
-        case 2:
-          oppShipSunk[4] = true;
-          break;
-        case 3:
-          if (oppShipSunk[3]) {
-            oppShipSunk[2] = true;
-          } else {
-            oppShipSunk[3] = true;
-          }
-          break;
-        case 4:
-          oppShipSunk[1] = true;
-          break;
-        case 5:
-          oppShipSunk[0] = true;
-          break;
-        default:
-          LOG("invalid ship length");
-          break;
+      case 2:
+        oppShipSunk[4] = true;
+        break;
+      case 3:
+        if (oppShipSunk[3]) {
+          oppShipSunk[2] = true;
+        } else {
+          oppShipSunk[3] = true;
+        }
+        break;
+      case 4:
+        oppShipSunk[1] = true;
+        break;
+      case 5:
+        oppShipSunk[0] = true;
+        break;
+      default:
+        LOG("invalid ship length");
+        break;
       }
     }
   } else { // other player shot me
@@ -224,7 +224,9 @@ bool GameState::updateBoards(const GameEvent &event) {
     }
   }
 
-  LOG("" + std::to_string((int)oppShipSunk[0]) + " " + std::to_string((int)oppShipSunk[1]) + " " + std::to_string((int)oppShipSunk[2]) + " " + std::to_string((int)oppShipSunk[3]) + " " + std::to_string((int)oppShipSunk[4]));
+  LOG("" + std::to_string((int)oppShipSunk[0]) + " " + std::to_string((int)oppShipSunk[1]) + " " +
+      std::to_string((int)oppShipSunk[2]) + " " + std::to_string((int)oppShipSunk[3]) + " " +
+      std::to_string((int)oppShipSunk[4]));
 
   // update current player
   currentPlayerId = event.nextPlayerId;
@@ -261,4 +263,3 @@ uuid GameState::getWinner() {
     return uuid();
   }
 }
-
