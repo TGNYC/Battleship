@@ -8,7 +8,7 @@ class ViewGrid : public wxPanel{
 public:
   enum gridtype {own, opp};
   
-  ViewGrid(wxWindow *parent, wxPoint pos, gridtype type);
+  ViewGrid(wxWindow *parent, gridtype type);
 
   wxPoint GetPosition() const {
     return _pos;

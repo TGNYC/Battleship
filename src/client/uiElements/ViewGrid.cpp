@@ -2,14 +2,14 @@
 
 // #include <iostream>
 
-ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos, ViewGrid::gridtype type) : wxPanel(parent, wxID_ANY, pos, wxSize(400, 400), wxEXPAND) {
-    _pos = pos;
+ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::gridtype type) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400), wxWANTS_CHARS) {
+    _pos = this->GetPosition();
     _type = type;
     wxColor backgroundColor = wxColor(255, 255, 0);
     this->SetBackgroundColour(backgroundColor);
 
-    size_t x = pos.x;
-    size_t y = pos.y;
+    size_t x = _pos.x;
+    size_t y = _pos.y;
 
     wxBoxSizer *gridTitle = new wxBoxSizer(wxHORIZONTAL);
     wxStaticText *gridTitleText;
@@ -28,12 +28,12 @@ ViewGrid::ViewGrid(wxWindow *parent, wxPoint pos, ViewGrid::gridtype type) : wxP
     wxBitmap emptyTile = wxBitmap(wxImage("../assets/empty_tile.png"));
     for (int i = 0; i < gridSize; i++) {
         for (int j = 0; j < gridSize; j++) {
-            _grid[i*gridSize+j] = new wxStaticBitmap(parent, wxID_ANY, emptyTile, wxPoint(x + i*40, y + j*40), wxSize(40, 40), 0);
+            _grid[i*gridSize+j] = new wxStaticBitmap(this, wxID_ANY, emptyTile, wxPoint(x + i*40, y + j*40), wxSize(40, 40), 0);
         }
     }
 
     auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
-    auto *gridImage = new wxStaticBitmap(parent, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
+    auto *gridImage = new wxStaticBitmap(this, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
 }
 
 void ViewGrid::showShips(const std::vector<Ship>& ships) {

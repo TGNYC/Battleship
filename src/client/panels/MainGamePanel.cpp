@@ -64,8 +64,8 @@ void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
   // TODO: find a way to do this without requiring acces to opponent ship vector
   this->_oppShipPanel = new ShipPanel(this, wxPoint(430+110, 460-3+10), gameState->getOppShipSunk());
 
-  this->_ownViewGrid  = new ViewGrid( this, wxPoint( 10+110,  40-3+10), ViewGrid::gridtype::own);
-  this->_oppViewGrid  = new ViewGrid( this, wxPoint(430+110,  40-3+10), ViewGrid::gridtype::opp);
+  this->_ownViewGrid  = new ViewGrid( this, ViewGrid::gridtype::own);
+  this->_oppViewGrid  = new ViewGrid( this, ViewGrid::gridtype::opp);
   
   this->_ownViewGrid->showShips(playerShips);
 
@@ -134,7 +134,7 @@ void MainGamePanel::displayEmote(EmoteType emote) {
       image = wxImage("../assets/emotes/large_mocking.png");
       break;
   }
-  _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(120, 47), wxSize(400, 400), 0);
+  _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(120, 56), wxSize(400, 400), 0);
   // for some reason the image is shown and removed at the next panel update
   _currentEmote = nullptr;
 }
@@ -146,6 +146,15 @@ void MainGamePanel::buildTurnIndicator(std::string playerName, wxBoxSizer *box) 
 }
 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
+  wxPoint mousePosition = event.GetPosition();
+  Coordinate shot = Coordinate{mousePosition.x / 40, mousePosition.y / 40};
+
+  // make sure the click is on the grid
+  if (shot.x < 0 || shot.x >= 10 || shot.y < 0 || shot.y >= 10) {
+    LOG("Click is not on grid: " + std::to_string(shot.x) + " " + std::to_string(shot.y));
+    return;
+  }
+
   // only allow clicks if it is the player's turn
   if (_currentPlayer != _ownId) {
     LOG("not your turn");
@@ -154,11 +163,6 @@ void MainGamePanel::onMouseClick(wxMouseEvent &event) {
   // temp test
   //AudioPlayer::play(AudioPlayer::BestPirate);
   // end test
-
-  wxPoint mousePosition = event.GetPosition();
-  // mousePosition -= _oppViewGrid->GetPosition();
-  
-  Coordinate shot = Coordinate{mousePosition.x / 40, mousePosition.y / 40};
 
   LOG("clicked on cell " + std::to_string(shot.x) + ", " + std::to_string(shot.y));
 
