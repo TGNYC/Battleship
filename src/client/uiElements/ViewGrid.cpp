@@ -1,8 +1,10 @@
 #include "ViewGrid.h"
 
 // #include <iostream>
+#include "../common/Logger.h"
 
 ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::gridtype type) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400), wxWANTS_CHARS) {
+    LOG("Constructing ViewGrid");
     _pos = this->GetPosition();
     _type = type;
     wxColor backgroundColor = wxColor(255, 255, 0);
@@ -34,6 +36,8 @@ ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::gridtype type) : wxPanel(parent, 
 
     auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
     auto *gridImage = new wxStaticBitmap(this, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
+
+
 }
 
 void ViewGrid::showShips(const std::vector<Ship>& ships) {
@@ -73,4 +77,10 @@ void ViewGrid::showShots(const int shots[10][10]) {
         }
         // std::cout << std::endl;
     }
+}
+void ViewGrid::onMouseClick(wxMouseEvent &event) {
+  this->SetFocus();
+  LOG("click on grid in viewgrid");
+  LOG("Mouse position: " + std::to_string(event.GetPosition().x) + ", " + std::to_string(event.GetPosition().y));
+  event.Skip();
 }

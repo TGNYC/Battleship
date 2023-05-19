@@ -20,6 +20,8 @@ public:
   void showShips(const std::vector<Ship>& ships);
   void showShots(const int shots[10][10]);
 
+  void onMouseClick(wxMouseEvent &event);
+
 private:
   wxPoint _pos;
   wxStaticBitmap **_grid;
