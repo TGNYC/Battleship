@@ -10,6 +10,6 @@ int main() {
   LOG("Starting Battleship Server");
   // create server_network_manager, which listens endlessly for new connections
   ServerNetworkManager server(8080);
-  server.listener_loop();
+  server.listenerLoop();
   return 0;
 }

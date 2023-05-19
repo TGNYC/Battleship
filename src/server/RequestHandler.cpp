@@ -62,7 +62,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
       LOG("Sending StartGameSuccess to the already-ready player");
       std::unique_ptr<ServerResponse> resp =
           std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(), player_id);
-      ServerNetworkManager::broadcast_message(*resp, gameInstance.getGameState().getPlayers(), &player);
+      ServerNetworkManager::broadcastMessage(*resp, gameInstance.getGameState().getPlayers(), &player);
       // send StartGameSuccess update to the newly-ready player
       LOG("Sending StartGameSuccess to the newly-ready player");
       return std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(),
@@ -91,7 +91,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     std::unique_ptr<ServerResponse> response = std::make_unique<EmoteEvent>(sendEmoteRequest.getEmote(),
                                                                             sendEmoteRequest.getPlayerId());
     LOG("Sending EmoteEvent to the other player");
-    ServerNetworkManager::broadcast_message(*response, gameInstance.getGameState().getPlayers(), &player);
+    ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), &player);
     return nullptr; // nothing to send back to the request sender
   }
 

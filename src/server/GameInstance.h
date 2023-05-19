@@ -45,8 +45,8 @@ public:
 
 private:
   GameState                      _gameState = GameState(GameState::Type::ServerState);
-  inline static std::mutex       modification_lock;
-  std::unordered_map<uuid, bool> isReady; ///< keeps track which players pressed ready
+  inline static std::mutex       _modification_lock;
+  std::unordered_map<uuid, bool> _isReady; ///< keeps track which players pressed ready
 };
 
 #endif // BATTLESHIP_GAMEINSTANCE_H
