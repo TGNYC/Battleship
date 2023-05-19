@@ -86,3 +86,14 @@ ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, const bool sunk[5]) : wxPane
     _shipBitmaps[i] = new wxStaticBitmap(this, wxID_ANY, wxBitmap(wxImage(_filenames[i])), wxPoint(positions[i][0], positions[i][1]), wxSize(lengths[i]*40, 40));
   }
 }
+
+void ShipPanel::update(const bool *sunk) {
+  for (size_t i=0; i<5; ++i) {
+    if (sunk[i]) {
+      _shipBitmaps[i]->SetBitmap(wxBitmap(wxImage(_filenamesSunk[i])));
+    }
+    else {
+      _shipBitmaps[i]->SetBitmap(wxBitmap(wxImage(_filenames[i])));
+    }
+  }
+}

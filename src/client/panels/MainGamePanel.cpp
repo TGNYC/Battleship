@@ -97,6 +97,10 @@ void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
   auto text = "It's " + gameState->getPlayer(_currentPlayer).getName() + "'s turn";
   _turnText->SetLabelText(text);
 
+  // update ship panel
+  this->_ownShipPanel->update(ownShipSunk);
+  this->_oppShipPanel->update(gameState->getOppShipSunk());
+
 }
 
 void MainGamePanel::displayEmote(EmoteType emote) {
