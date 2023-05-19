@@ -5,13 +5,10 @@
 #ifndef BATTLESHIP_AUDIOPLAYER_H
 #define BATTLESHIP_AUDIOPLAYER_H
 
-#define wxUSE_MEDIACTRL
-
 #include "EmoteHandler.h"
 #include "wx/sound.h"
 #include <map>
 #include <string>
-#include <wx/mediactrl.h>
 #include <wx/wx.h>
 
 class AudioPlayer {
@@ -44,7 +41,7 @@ public:
   //static void setMediaCtrl(wxMediaCtrl* mediaCtrl);
 
 private:
-  static const std::map<Clip, std::string> clips;
+  static const std::map<Clip, std::string> _clips;
   //static wxMediaCtrl* _mediaCtrl;
 };
 
