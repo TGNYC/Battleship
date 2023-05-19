@@ -1,6 +1,7 @@
 #include "ShipPanel.h"
 #include <iostream>
 
+#if 0
 ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, const bool sunk[5]) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 100)) {
     // set the minimum size of the panel to 400x100
     this->SetMinSize(wxSize(400, 100));
@@ -60,4 +61,44 @@ ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, const bool sunk[5]) : wxPane
         //     }
         // }
     // }
+}
+#endif
+
+ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, const bool sunk[5]) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 100)) {
+  // set the minimum size of the panel to 400x100
+  this->SetMinSize(wxSize(400, 100));
+
+  std::string filenames[5] = {
+      "../assets/ship_1.png",
+      "../assets/ship_2.png",
+      "../assets/ship_3.png",
+      "../assets/ship_4.png",
+      "../assets/ship_5.png"
+  };
+
+  std::string filenamesSunk[5] = {
+      "../assets/ship_1_sunk.png",
+      "../assets/ship_2_sunk.png",
+      "../assets/ship_3_sunk.png",
+      "../assets/ship_4_sunk.png",
+      "../assets/ship_5_sunk.png"
+  };
+
+  wxColor backgroundColor = wxColor(255, 255, 255);
+  this->SetBackgroundColour(backgroundColor);
+
+  wxGridSizer* gridSizer = new wxGridSizer(2, 3, 10, 10);
+
+  for (size_t i=0; i<5; ++i) {
+    wxStaticBitmap* bitmap;
+    if (sunk[i]) {
+      bitmap = new wxStaticBitmap(this, wxID_ANY, wxBitmap(wxImage(filenamesSunk[i])));
+    } else {
+      bitmap = new wxStaticBitmap(this, wxID_ANY, wxBitmap(wxImage(filenames[i])));
+    }
+    _shipBitmaps[i] = bitmap;
+    gridSizer->Add(bitmap, 1, wxEXPAND);
+  }
+
+  this->SetSizer(gridSizer);
 }
