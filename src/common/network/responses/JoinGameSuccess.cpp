@@ -5,9 +5,9 @@
 #include "JoinGameSuccess.h"
 
 JoinGameSuccess::JoinGameSuccess() : ServerResponse(ResponseType::JoinGameSuccess) {
-  success = true;
+  _success = true;
 }
 
 bool JoinGameSuccess::wasSuccessful() const {
-  return success;
+  return _success;
 }

@@ -26,8 +26,8 @@ protected:
   ClientRequest(uuid playerId, RequestType requestType);
 
 private:
-  uuid        m_playerId;
-  RequestType m_requestType;
+  uuid        _playerId;
+  RequestType _requestType;
 };
 
 #endif // CLIENTREQUEST_H

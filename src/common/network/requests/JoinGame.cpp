@@ -6,8 +6,8 @@
 #include <utility>
 
 JoinGame::JoinGame(uuid playerId, std::string playerName)
-    : ClientRequest(playerId, RequestType::JoinGame), m_playerName(std::move(playerName)) {}
+    : ClientRequest(playerId, RequestType::JoinGame), _playerName(std::move(playerName)) {}
 
 auto JoinGame::getPlayerName() const -> std::string {
-  return m_playerName;
+  return _playerName;
 }
