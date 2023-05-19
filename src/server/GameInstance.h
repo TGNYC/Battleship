@@ -34,7 +34,7 @@ public:
 
   /*!
    * Function to handle a CallShot request. Registers the shot in the gameState. Sends out corresponding gameEvents.
-   * Checks if the game is over and checks for the winner.
+   * Checks if the game is over and checks for the _winner.
    * @param shotRequest
    * @return
    */

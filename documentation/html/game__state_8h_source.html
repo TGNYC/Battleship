@@ -92,7 +92,7 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * whenever a callShot request is received: check shotIsLegal(), then call registerShot()</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * send a gameEvent to clients with the info provided by registerShot() -&gt; see function documentation for details</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> * check gameOver() to see if game is finished</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * if yes, call getWinner() to receive winner id. then send corresponding event to clients</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * if yes, call getWinner() to receive _winner id. then send corresponding event to clients</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * USAGE CLIENT</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> * -- setup --</span></div>
@@ -128,7 +128,7 @@ $(function() {
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#a8f2f09b693e4051196249542552cc7c4">addShips</a>(<a class="code" href="classuuid.html">uuid</a> playerId, std::vector&lt;Ship&gt; shipPlacement);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">start</a>(<a class="code" href="classuuid.html">uuid</a> currentPlayerId);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">start</a>(<a class="code" href="classuuid.html">uuid</a> _currentPlayerId);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <a class="code" href="classuuid.html">uuid</a> <a class="code" href="classgame__state.html#a24dc77657c61f820f66314111f0268a2">getCurrentPlayerId</a>();</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
@@ -163,9 +163,9 @@ $(function() {
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  std::vector&lt;Player&gt;     players;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  std::vector&lt;PlayerGrid&gt; playerGrids;  </div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <a class="code" href="classuuid.html">uuid</a>                    currentPlayerId;  <span class="comment">// specifies the id of the player whose turn it is</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>            turnNumber; <span class="comment">// specifies the current numbered turn</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <a class="code" href="classuuid.html">uuid</a>                    winner;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <a class="code" href="classuuid.html">uuid</a>                    _currentPlayerId;  <span class="comment">// specifies the id of the player whose turn it is</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>            _turnNumber; <span class="comment">// specifies the current numbered turn</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <a class="code" href="classuuid.html">uuid</a>                    _winner;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_GAMESTATE_H</span></div>
@@ -193,7 +193,7 @@ $(function() {
 <div class="ttc" id="aclassgame__state_html_a8f2f09b693e4051196249542552cc7c4"><div class="ttname"><a href="classgame__state.html#a8f2f09b693e4051196249542552cc7c4">GameState::addShips</a></div><div class="ttdeci">bool addShips(uuid playerId, std::vector&lt; Ship &gt; shipPlacement)</div><div class="ttdef"><b>Definition:</b> GameState.cpp:37</div></div>
 <div class="ttc" id="aclassgame__state_html_a9610b5ba928ad54837161d115b6985f1"><div class="ttname"><a href="classgame__state.html#a9610b5ba928ad54837161d115b6985f1">GameState::registerShot</a></div><div class="ttdeci">bool registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk, uuid *nextPlayerId)</div><div class="ttdef"><b>Definition:</b> GameState.cpp:140</div></div>
 <div class="ttc" id="aclassgame__state_html_a9e45edeee6fefc23431c41a734c82730"><div class="ttname"><a href="classgame__state.html#a9e45edeee6fefc23431c41a734c82730">GameState::getPlayers</a></div><div class="ttdeci">const std::vector&lt; Player &gt; &amp; getPlayers() const</div><div class="ttdef"><b>Definition:</b> GameState.cpp:245</div></div>
-<div class="ttc" id="aclassgame__state_html_ab9dfe73b8bcbb5e92c065cc5befd75cb"><div class="ttname"><a href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">GameState::start</a></div><div class="ttdeci">bool start(uuid currentPlayerId)</div><div class="ttdef"><b>Definition:</b> GameState.cpp:58</div></div>
+<div class="ttc" id="aclassgame__state_html_ab9dfe73b8bcbb5e92c065cc5befd75cb"><div class="ttname"><a href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">GameState::start</a></div><div class="ttdeci">bool start(uuid _currentPlayerId)</div><div class="ttdef"><b>Definition:</b> GameState.cpp:58</div></div>
 <div class="ttc" id="aclassgame__state_html_ac3c72d18ca475dab9bd584ceb742100c"><div class="ttname"><a href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100c">GameState::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> GameState.h:54</div></div>
 <div class="ttc" id="aclassgame__state_html_ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4"><div class="ttname"><a href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100ca59be725d3407ec71e2c18cce2090eeb4">GameState::Type::ServerState</a></div><div class="ttdeci">@ ServerState</div></div>
 <div class="ttc" id="aclassgame__state_html_ac3c72d18ca475dab9bd584ceb742100caf82b89eac7e586a150926615b0fa1a55"><div class="ttname"><a href="classgame__state.html#ac3c72d18ca475dab9bd584ceb742100caf82b89eac7e586a150926615b0fa1a55">GameState::Type::ClientState</a></div><div class="ttdeci">@ ClientState</div></div>
