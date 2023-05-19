@@ -7,72 +7,54 @@
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   LOG("Constructing MainGamePanel");
-  // set minimum panel size
   parent->SetMinSize(wxSize(1200, 800));
-  //buildEmoteList();
 
-  // this box contains everything
   _mainWindow = new wxBoxSizer(wxHORIZONTAL);
-  // box for the emote panel
   _emoteWindow = new wxBoxSizer(wxVERTICAL);
-  // this contains the grids and the ships
   wxBoxSizer* gameWindow = new wxBoxSizer(wxVERTICAL);
-  // this shows who's turn it is via text
   wxBoxSizer* turnIndicator = new wxBoxSizer(wxVERTICAL);
-  // this contains both the grids and the shipPanels
   wxBoxSizer* grids = new wxBoxSizer(wxHORIZONTAL);
-  // this contains the own viewGrid and shipPanels
   wxBoxSizer* leftSide = new wxBoxSizer(wxVERTICAL);
-  // this contains the opponent's viewGrid and shipPanels
   wxBoxSizer* rightSide = new wxBoxSizer(wxVERTICAL);
 
-
-  // for game state
   bool init[5] = {false, false, false, false, false};
-  this->_ownShipPanel = new ShipPanel(this, wxPoint( 10+110, 460-3+10), init);
-  this->_oppShipPanel = new ShipPanel(this, wxPoint(430+110, 460-3+10), init);
+  this->_ownShipPanel = new ShipPanel(this, wxDefaultPosition, init);
+  this->_oppShipPanel = new ShipPanel(this, wxDefaultPosition, init);
 
   this->_ownViewGrid  = new ViewGrid( this, ViewGrid::gridtype::own);
   this->_oppViewGrid  = new ViewGrid( this, ViewGrid::gridtype::opp);
 
+  wxBoxSizer* leftTitleSizer = new wxBoxSizer(wxVERTICAL);
   wxStaticText* leftTitle = new wxStaticText(this, wxID_ANY, "Your Ships");
-  leftSide->Add(leftTitle, 0, wxBOTTOM | wxALIGN_CENTER, 10);
+  leftTitleSizer->Add(leftTitle, 1, wxALIGN_CENTER_HORIZONTAL);
+  leftSide->Add(leftTitleSizer, 0, wxEXPAND | wxALL, 10);
+  leftSide->Add(_ownViewGrid, 1, wxEXPAND | wxALL, 10);
+  leftSide->Add(_ownShipPanel, 1, wxEXPAND | wxALL, 10);
 
-  leftSide->Add(_ownViewGrid, 0, wxDEFAULT, 0);
-  leftSide->Add(_ownShipPanel, 0, wxDEFAULT, 10);
-
+  wxBoxSizer* rightTitleSizer = new wxBoxSizer(wxVERTICAL);
   wxStaticText* rightTitle = new wxStaticText(this, wxID_ANY, "Opponent's Ships");
-  rightSide->Add(rightTitle, 0, wxALIGN_CENTER | wxBOTTOM, 10);
+  rightTitleSizer->Add(rightTitle, 1, wxALIGN_CENTER_HORIZONTAL);
+  rightSide->Add(rightTitleSizer, 0, wxEXPAND | wxALL, 10);
+  rightSide->Add(_oppViewGrid, 1, wxEXPAND | wxALL, 10);
+  rightSide->Add(_oppShipPanel, 1, wxEXPAND | wxALL, 10);
 
-  rightSide->Add(_oppViewGrid, 0, wxDEFAULT, 0);
-  rightSide->Add(_oppShipPanel, 0, wxDEFAULT, 0);
+  grids->Add(leftSide, 1, wxEXPAND | wxALL, 10);
+  grids->Add(rightSide, 1, wxEXPAND | wxALL, 10);
 
-  // place grids next to eachother
-  grids->Add(leftSide, 0, wxLEFT | wxBOTTOM | wxRIGHT, 10);
-  grids->Add(rightSide, 0, wxLEFT | wxBOTTOM | wxRIGHT, 10);
-
-  //buildTurnIndicator(_gameState->getPlayer(_currentPlayer).getName(), turnIndicator);
-  gameWindow->Add(turnIndicator, 0, wxALIGN_CENTER, 0);
-  gameWindow->Add(grids, 0, wxALIGN_CENTER, 10);
-
-  _mainWindow->Add(gameWindow, 0, wxALL, 10);
-
-  this->SetSizerAndFit(_mainWindow);
-
-// TURN INDICATOR
   _turnText = new wxStaticText(this, wxID_ANY, "[TURN INDICATOR]");
-  turnIndicator->Add(_turnText, 0, wxALIGN_TOP, 0);
+  turnIndicator->Add(_turnText, 0, wxALIGN_CENTER_HORIZONTAL, 10);
 
-// EMOTES
+  gameWindow->Add(turnIndicator, 0, wxEXPAND | wxALL, 10);
+  gameWindow->Add(grids, 1, wxEXPAND | wxALL, 10);
+
   _emotePanel = new EmotePanel(this, wxPoint(10, 10));
-  _emoteWindow->Add(_emotePanel, 0, wxALIGN_CENTER, 0);
-  _mainWindow->Add(_emoteWindow, 0, wxALIGN_CENTER, 0);
+  _emoteWindow->Add(_emotePanel, 1, wxEXPAND | wxALL, 10);
 
+  _mainWindow->Add(_emoteWindow, 0, wxEXPAND | wxALL, 10);
+  _mainWindow->Add(gameWindow, 1, wxEXPAND | wxALL, 10);
 
-// BINDINGS
-  this->_oppViewGrid->Bind(wxEVT_LEFT_DOWN, &ViewGrid::onMouseClick, this->_oppViewGrid);
-  this->_emotePanel->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onEmoteClick, this);
-
+  this->SetSizer(_mainWindow);
+  this->Fit();
 }
 
 void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
@@ -80,10 +62,10 @@ void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
   _gameState = gameState;
   _ownId = ownId;
   _currentPlayer = gameState->getCurrentPlayerId();
-  
+
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);
-  
+
   //this->DestroyChildren();
 
   //buildEmoteList();
@@ -115,17 +97,16 @@ void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
   auto ownShots = playerGrid.shotsFired;
   auto oppShots = playerGrid.shotsReceived;
 
+
+  _mainWindow->Fit(this);
 /*
   this->_ownViewGrid->showShips(playerShips);
 
   this->_ownViewGrid->showShots(oppShots);
   this->_oppViewGrid->showShots(ownShots);
 */
-
-
-
-
 }
+
 
 void MainGamePanel::buildEmoteList() {
   // this box contains everything
