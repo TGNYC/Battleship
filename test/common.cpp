@@ -286,17 +286,16 @@ TEST(uuid, parseuuid) {
   ASSERT_EQ(uuid.ToString(), "a3351d70-2422-45cc-b10e-fb893862094f");
 }
 
-
-class gameStateTest : public::testing::Test {
+class gameStateTest : public ::testing::Test {
 protected:
   virtual void SetUp() {
     for (int i = 0; i < 5; ++i) { // fill vector with 5 dummy ships
-      shipPlacement.push_back(Ship(3, Coordinate(0,0), Ship::Orientation::Vertical, uuid::generateRandomUuid()));
+      shipPlacement.push_back(Ship(3, Coordinate{0, 0}, Ship::Orientation::Vertical, uuid::generateRandomUuid()));
     }
   }
   GameState         gameState = GameState(GameState::Type::ServerState);
-  Player felix = Player(uuid::generateRandomUuid(), "Felix");
-  Player malte = Player(uuid::generateRandomUuid(), "Malte");
+  Player            felix     = Player(uuid::generateRandomUuid(), "Felix");
+  Player            malte     = Player(uuid::generateRandomUuid(), "Malte");
   std::vector<Ship> shipPlacement;
 };
 
@@ -322,7 +321,6 @@ TEST_F(gameStateTest, getPlayers) {
   ASSERT_EQ(players[0], felix);
 }
 
-
 TEST_F(gameStateTest, getOtherPlayer) {
   gameState.addPlayer(felix);
   gameState.addPlayer(malte);
@@ -339,15 +337,15 @@ TEST_F(gameStateTest, addShips) {
 }
 
 TEST_F(gameStateTest, registerShot) {
-  //TODO
+  // TODO
 }
 
 TEST_F(gameStateTest, shotIsLegal) {
   gameState.addPlayer(felix);
   gameState.addShips(felix.getId(), shipPlacement);
-  Coordinate exceedsGrid (10, 0);
-  Coordinate negative (0, -1);
-  Coordinate fine (3, 7);
+  Coordinate exceedsGrid{10, 0};
+  Coordinate negative{0, -1};
+  Coordinate fine{3, 7};
   ASSERT_EQ(gameState.shotIsLegal(felix.getId(), exceedsGrid), false);
   ASSERT_EQ(gameState.shotIsLegal(felix.getId(), negative), false);
   ASSERT_EQ(gameState.shotIsLegal(felix.getId(), fine), true);
