@@ -53,6 +53,10 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   _mainWindow->Add(_emoteWindow, 0, wxEXPAND | wxALL, 10);
   _mainWindow->Add(gameWindow, 1, wxEXPAND | wxALL, 10);
 
+  // BINDINGS
+  //_oppViewGrid->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onMouseClick);
+
+
   this->SetSizer(_mainWindow);
   this->Fit();
 }
@@ -66,56 +70,33 @@ void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);
 
-  //this->DestroyChildren();
-
-  //buildEmoteList();
-
-
-
   // get player grids
   auto playerGrid = gameState->getPlayerGrid(_ownId);
 
   // get ships
   std::vector<Ship> playerShips = playerGrid.shipsPlaced;
   // std::vector<Ship> oppShips = oppGrid.m_shipsPlaced;
-  bool ownShipSunk[5] = {false, false, false, false, false};
-  for (int i=0; i<5; ++i) {
-    if (playerShips[i].hasSunken()) {
-      ownShipSunk[i] = true;
-    }
+
+  bool ownShipSunk[5];
+  for (int i = 0; i < 5; ++i) {
+    ownShipSunk[i] = playerShips[i].hasSunken();
   }
 
-  for (int i=0; i<5; ++i) {
-    if (gameState->getOppShipSunk()[i]) {
-      LOG("Opponten ship" + std::to_string(i) + " has sunk");
-    } else {
-      LOG("Opponten ship" + std::to_string(i) + " has not sunk");
-    }
-  }
+  LOG("OppShipSunk: " + std::to_string(ownShipSunk[0]) + std::to_string(ownShipSunk[1]) + std::to_string(ownShipSunk[2]) + std::to_string(ownShipSunk[3]) + std::to_string(ownShipSunk[4]));
 
   // get shots
   auto ownShots = playerGrid.shotsFired;
   auto oppShots = playerGrid.shotsReceived;
 
-
-  _mainWindow->Fit(this);
-/*
   this->_ownViewGrid->showShips(playerShips);
 
   this->_ownViewGrid->showShots(oppShots);
   this->_oppViewGrid->showShots(ownShots);
-*/
-}
 
+  // turn indicator
+  auto text = "It's " + gameState->getPlayer(_currentPlayer).getName() + "'s turn";
+  _turnText->SetLabelText(text);
 
-void MainGamePanel::buildEmoteList() {
-  // this box contains everything
-  _mainWindow = new wxBoxSizer(wxHORIZONTAL);
-  // box for the emote panel
-  _emoteWindow = new wxBoxSizer(wxVERTICAL);
-
-
-  //this->_emotePanel->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onEmoteClick, this);
 }
 
 void MainGamePanel::displayEmote(EmoteType emote) {
@@ -143,15 +124,12 @@ void MainGamePanel::displayEmote(EmoteType emote) {
   _currentEmote = nullptr;
 }
 
-void MainGamePanel::buildTurnIndicator(std::string playerName, wxBoxSizer *box) {
-  auto text = "It's " + playerName + "'s turn";
-  // TODO set text in UI element
-}
-
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
   LOG("registered click in Maingamepanel");
   wxPoint mousePosition = event.GetPosition();
+  LOG("clicked at: " + std::to_string(mousePosition.x) + ", " + std::to_string(mousePosition.y));
   Coordinate shot = Coordinate{mousePosition.x / 40, mousePosition.y / 40};
+
 
   // make sure the click is on the grid
   if (shot.x < 0 || shot.x >= 10 || shot.y < 0 || shot.y >= 10) {

@@ -2,11 +2,13 @@
 
 // #include <iostream>
 #include "../common/Logger.h"
+#include "../GameController.h"
 
 ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::gridtype type) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400), wxWANTS_CHARS) {
     LOG("Constructing ViewGrid");
     _pos = this->GetPosition();
     _type = type;
+    _parent = parent;
     wxColor backgroundColor = wxColor(255, 255, 0);
     this->SetBackgroundColour(backgroundColor);
 
@@ -35,9 +37,15 @@ ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::gridtype type) : wxPanel(parent, 
     }
 
     auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
-    auto *gridImage = new wxStaticBitmap(this, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400));
+    auto *gridImage = new wxStaticBitmap(this, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400), 0);
 
+    this->Bind(wxEVT_LEFT_DOWN, &ViewGrid::onMouseClick, this);
+    this->Bind(wxEVT_MOTION, [this](wxMouseEvent &event) { // todo: delete, only for debugging
+        this->SetFocus();
+        LOG("Mouse moved");
+    });
 
+    this->SetFocus();
 }
 
 void ViewGrid::showShips(const std::vector<Ship>& ships) {
@@ -78,9 +86,18 @@ void ViewGrid::showShots(const int shots[10][10]) {
         // std::cout << std::endl;
     }
 }
+
 void ViewGrid::onMouseClick(wxMouseEvent &event) {
   this->SetFocus();
-  LOG("click on grid in viewgrid");
+  if(_type == gridtype::own) {
+        LOG("click on own grid is ignored");
+        return;
+  }
+  LOG("clicked on opponent's grid");
   LOG("Mouse position: " + std::to_string(event.GetPosition().x) + ", " + std::to_string(event.GetPosition().y));
-  event.Skip();
+
+  // call GameController
+  int cellX = event.GetPosition().x / 40;
+  int cellY = event.GetPosition().y / 40;
+  GameController::callShot(Coordinate(cellX, cellY));
 }

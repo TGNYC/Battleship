@@ -26,6 +26,7 @@ private:
   wxPoint _pos;
   wxStaticBitmap **_grid;
   gridtype _type;
+  wxWindow *_parent;
 };
 
 #endif // VIEWGRID_H
