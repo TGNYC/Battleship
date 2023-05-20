@@ -36,24 +36,16 @@ ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, const std::array<bool, 5> su
                              wxPoint(positions[i][0], positions[i][1]), wxSize(lengths[i] * 40, 40));
     }
   }
-
-  // for (size_t i=0; i<ships.size(); i++) {
-  // Ship ship = ships[i];
-  // auto orientation = ship.getOrientation();
-  // int l = ship.getLength();
-  // Coordinate c = ship.getPosition();
-  // int x = c.x;
-  // int y = c.y;
-  // if (orientation == Ship::Orientation::Horizontal) {
-  //     for (int i = 0; i < l; i++) {
-  //         _shipImages.push_back(new wxStaticBitmap(this, wxID_ANY, wxBitmap(wxImage("../assets/ship_tile.png")),
-  //         wxPoint(pos.x + x*40 + i*40, pos.y + y*40), wxSize(40, 40), 0));
-  //     }
-  // } else if (orientation == Ship::Orientation::Vertical) {
-  //     for (int i = 0; i < l; i++) {
-  //         _shipImages.push_back(new wxStaticBitmap(this, wxID_ANY, wxBitmap(wxImage("../assets/ship_tile.png")),
-  //         wxPoint(pos.x + x*40, pos.y + y*40 + i*40), wxSize(40, 40), 0));
-  //     }
-  // }
-  // }
 }
+
+void ShipPanel::update(const std::array<bool, 5> sunk) {
+  for (size_t i=0; i<5; ++i) {
+    if (sunk[i]) {
+      _shipBitmaps[i]->SetBitmap(wxBitmap(wxImage(_filenamesSunk[i])));
+    }
+    else {
+      _shipBitmaps[i]->SetBitmap(wxBitmap(wxImage(_filenames[i])));
+    }
+  }
+}
+

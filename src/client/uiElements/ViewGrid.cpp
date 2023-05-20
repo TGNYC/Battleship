@@ -94,6 +94,7 @@ void ViewGrid::showShots(const int shots[10][10]) {
     }
 }
 
+/*
 void ViewGrid::onMouseClick(wxMouseEvent &event) {
   this->SetFocus();
   if(_type == gridtype::own) {
@@ -108,3 +109,4 @@ void ViewGrid::onMouseClick(wxMouseEvent &event) {
   int cellY = event.GetPosition().y / 40;
   GameController::callShot(Coordinate(cellX, cellY));
 }
+*/
