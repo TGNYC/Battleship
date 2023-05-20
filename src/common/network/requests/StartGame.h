@@ -15,7 +15,7 @@ public:
   auto operator<=>(const StartGame &) const = default;
 
 private:
-  std::vector<Ship> m_ships;
+  std::vector<Ship> _ships;
 };
 
 #endif // STARTGAME_H

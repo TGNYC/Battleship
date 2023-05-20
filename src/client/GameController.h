@@ -63,6 +63,10 @@ public:
 
     static wxEvtHandler* getMainThreadEventHandler();
 
+    /**
+    * @brief function that is called when ready button in SetupPanel is clicked.
+     * Will send request to server to start game and creates GameState used on client side.
+    */
     static void playerReady();
 
     static void quitGame();

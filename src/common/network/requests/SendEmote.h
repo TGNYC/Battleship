@@ -18,7 +18,7 @@ public:
   auto operator<=>(const SendEmote &) const = default;
 
 private:
-  EmoteType m_emote;
+  EmoteType _emote;
 };
 
 #endif // SENDEMOTE_H

@@ -6,6 +6,7 @@
 #include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
 #include "network/requests/QuitGame.h"
+#include "AudioPlayer.h"
 
 // initialize static variables
 GameWindow      *GameController::_gameWindow      = nullptr;
@@ -35,8 +36,8 @@ void GameController::init(GameWindow *gameWindow) {
   GameController::_mainGamePanel->Show(false);
 
   // start of game: show connection panel
-  GameController::_gameWindow->showPanel(GameController::_connectionPanel); // TODO: CHANGE BACK, only for testing maingamepanel and skipping server connection
-  //GameController::startGame(); // TODO: should be the function to be called
+  GameController::_gameWindow->showPanel(GameController::_connectionPanel);
+  //GameController::startGame(); // TODO: should be the function to be called @nico: no? startGame is called when receiving startGameSuccess from server
 }
 
 
@@ -139,7 +140,6 @@ void GameController::sendEmote(EmoteType emote) {
 void GameController::showEmote(EmoteEvent emoteEvent) {
   EmoteType emote = emoteEvent.emote;
   std::string file = EmoteHandler::getImage(emote);
-  //TODO call a function in MainGamePanel to display the png file
   _mainGamePanel->displayEmote(emote);
 }
 
@@ -147,18 +147,15 @@ void GameController::showError(const std::string &title, const std::string &mess
   std::cout << "ERROR [" << title << "] " << message << std::endl;
   if (popup) wxMessageBox(message, title, wxOK | wxICON_ERROR);
 }
+
 void GameController::showGameOverMessage() {} // TODO
 
 
-/**
- * @brief function that is called when ready button in SetupPanel is clicked. Will send request to server to start game and creates GameState used on client side.
- */
 void GameController::playerReady() {
   if(!_setupManager->placedAllShips()) {
         GameController::showError("Setup error", "Please place all ships before clicking ready", true);
         return;
   }
-
 
   // generate GameState
   LOG("Generating GameState");

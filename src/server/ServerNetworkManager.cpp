@@ -42,7 +42,7 @@ void ServerNetworkManager::connect(const uint16_t port) {
 }
 
 // Endless loop that listens for incoming connections and reads incoming messages
-void ServerNetworkManager::listener_loop() {
+void ServerNetworkManager::listenerLoop() {
   // Intentional endless loop
   while (true) {
     // Accept a new client connection
@@ -58,12 +58,12 @@ void ServerNetworkManager::listener_loop() {
     } else {
       LOG("Socket created successfully");
       // Add the socket to a map, and create a new thread to handle incoming messages
-      _rw_lock.lock();
-      _address_to_socket.emplace(sock.peer_address().to_string(), std::move(sock.clone()));
-      _rw_lock.unlock();
-      std::thread listener(read_message, std::move(sock),
+      _rwLock.lock();
+      _addressToSocket.emplace(sock.peer_address().to_string(), std::move(sock.clone()));
+      _rwLock.unlock();
+      std::thread listener(readMessage, std::move(sock),
                            [this](const std::string &message, const sockpp::tcp_socket::addr_t &address) {
-                             this->handle_message(message, address);
+                             this->handleMessage(message, address);
                            });
       listener.detach();
     }
@@ -72,7 +72,7 @@ void ServerNetworkManager::listener_loop() {
 
 // Runs in a thread and reads anything coming in on the 'socket'.
 // Once a message is fully received, the string is passed on to the 'handle_message()' function
-void ServerNetworkManager::read_message(
+void ServerNetworkManager::readMessage(
     sockpp::tcp_socket socket,
     const std::function<void(const std::string &, const sockpp::tcp_socket::addr_t &)> &message_handler) {
   // sockpp::socket_initializer sockInit; // initializes socket framework underneath
@@ -129,7 +129,7 @@ void ServerNetworkManager::read_message(
   socket.shutdown();
 }
 
-void ServerNetworkManager::handle_message(const std::string                &msg,
+void ServerNetworkManager::handleMessage(const std::string                &msg,
                                                      const sockpp::tcp_socket::addr_t &peer_address) {
   try {
     LOG("Handling the incoming message");
@@ -139,22 +139,22 @@ void ServerNetworkManager::handle_message(const std::string                &msg,
 
     // check if this is a connection to a new player
     uuid player_id = req->getPlayerId();
-    _rw_lock.lock_shared();
-    if (_player_id_to_address.find(player_id) == _player_id_to_address.end()) {
+    _rwLock.lock_shared();
+    if (_playerIdToAddress.find(player_id) == _playerIdToAddress.end()) {
       // save connection to this client
-      _rw_lock.unlock_shared();
+      _rwLock.unlock_shared();
       LOG("New client with id " + player_id.ToString());
-      _rw_lock.lock();
-      _player_id_to_address.emplace(player_id, peer_address.to_string());
-      _rw_lock.unlock();
+      _rwLock.lock();
+      _playerIdToAddress.emplace(player_id, peer_address.to_string());
+      _rwLock.unlock();
     } else {
-      _rw_lock.unlock_shared();
+      _rwLock.unlock_shared();
     }
 #ifdef PRINT_NETWORK_MESSAGES
     LOG("Received valid request : " + msg);
 #endif
     // -- handle client request and create response
-    const std::unique_ptr<ServerResponse> res = RequestHandler::handle_request(_game_instance, req.get());
+    const std::unique_ptr<ServerResponse> res = RequestHandler::handleRequest(_gameInstance, req.get());
 
     // res == nullptr if request does not require personal response. e.g. when already broadcasted to both
     if (res != nullptr) {
@@ -164,7 +164,7 @@ void ServerNetworkManager::handle_message(const std::string                &msg,
       const std::string res_msg = res_json.dump();
       LOG("Response message: " + res_msg);
       // send response back to client
-      send_message(res_msg, peer_address.to_string());
+      sendMessage(res_msg, peer_address.to_string());
     }
   } catch (const std::exception &e) {
     std::cerr << "Failed to execute client request. Content was :\n"
@@ -174,20 +174,20 @@ void ServerNetworkManager::handle_message(const std::string                &msg,
 }
 
 void ServerNetworkManager::on_player_left(uuid player_id) {
-  _rw_lock.lock();
-  const std::string address = _player_id_to_address[player_id];
-  _player_id_to_address.erase(player_id);
-  _address_to_socket.erase(address);
-  _rw_lock.unlock();
+  _rwLock.lock();
+  const std::string address = _playerIdToAddress[player_id];
+  _playerIdToAddress.erase(player_id);
+  _addressToSocket.erase(address);
+  _rwLock.unlock();
 }
 
-ssize_t ServerNetworkManager::send_message(const std::string &msg, const std::string &address) {
+ssize_t ServerNetworkManager::sendMessage(const std::string &msg, const std::string &address) {
   std::stringstream ss_msg;
   ss_msg << std::to_string(msg.size()) << ':' << msg; // prepend message length
-  return _address_to_socket.at(address).write(ss_msg.str());
+  return _addressToSocket.at(address).write(ss_msg.str());
 }
 
-void ServerNetworkManager::broadcast_message(ServerResponse &msg, const std::vector<Player> &players,
+void ServerNetworkManager::broadcastMessage(ServerResponse &msg, const std::vector<Player> &players,
                                                const Player *exclude) {
   nlohmann::json msg_json   = msg;             // write to JSON format
   std::string    msg_string = msg_json.dump(); // convert to string
@@ -196,17 +196,17 @@ void ServerNetworkManager::broadcast_message(ServerResponse &msg, const std::vec
   std::cout << "Broadcasting message : " << msg_string << std::endl;
 #endif
 
-  _rw_lock.lock_shared();
+  _rwLock.lock_shared();
   // send object_diff to all requested players
   try {
     for (auto &player : players) {
       if (exclude == nullptr || player != *exclude) {
-        ssize_t nof_bytes_written = send_message(msg_string, _player_id_to_address.at(player.getId()));
+        ssize_t nof_bytes_written = sendMessage(msg_string, _playerIdToAddress.at(player.getId()));
         LOG("number of bytes written: " + std::to_string(nof_bytes_written));
       }
     }
   } catch (std::exception &e) {
     std::cerr << "Encountered error when sending state update: " << e.what() << std::endl;
   }
-  _rw_lock.unlock_shared();
+  _rwLock.unlock_shared();
 }

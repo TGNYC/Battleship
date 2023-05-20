@@ -18,7 +18,7 @@ public:
   bool wasSuccessful() const;
 
 private:
-  bool success;
+  bool _success;
 };
 
 #endif // BATTLESHIP_JOINGAMESUCCESS_H

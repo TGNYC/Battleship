@@ -16,43 +16,37 @@
 
 class GameInstance {
 
-private:
-  GameState _game_state = GameState(GameState::Type::ServerState);
-  // bool                     is_player_allowed_to_play(Player *player);
-  inline static std::mutex       modification_lock;
-  bool                           atLeastOnePlayerReady;
-  std::unordered_map<uuid, bool> isReady;
-
 public:
-  GameInstance() {
-    atLeastOnePlayerReady = false;
-  }
-
-  // unused functions
-  // bool is_full();
-  // bool is_started();
-  // std::string get_id();
-  // GameState *get_game_state();
-  // bool is_finished();
-  // bool try_add_player(Player *new_player, std::string &err);
-  // bool draw_card(Player* player, card*& drawn_card, std::string& err);
-  // bool play_card(Player* player, const std::string& card_id, std::string& err);
-  // bool try_remove_player(Player *player, std::string &err);
-
+  /*!
+   * handles a client request to join the game. adds player to the GameState
+   * @param joinGameRequest contains player name and id
+   * @return true if player was added successfully, false otherwise
+   */
   bool joinGame(const JoinGame &joinGameRequest);
 
-  bool start_game(const Player *player, std::string &err);
+  /*!
+   * starts the game as soon as both players are ready
+   * @param player the player who pressed ready
+   * @param err
+   * @return true if game was started. false if not started
+   */
+  bool startGame(const Player *player, std::string &err);
 
   /*!
    * Function to handle a CallShot request. Registers the shot in the gameState. Sends out corresponding gameEvents.
-   * Checks if the game is over.
+   * Checks if the game is over and checks for the _winner.
    * @param shotRequest
    * @return
    */
   bool executeShot(CallShot shotRequest);
 
   GameState &getGameState();
-  // TODO: play_again
+  // TODO: playAgain
+
+private:
+  GameState                      _gameState = GameState(GameState::Type::ServerState);
+  inline static std::mutex       _modification_lock;
+  std::unordered_map<uuid, bool> _isReady; ///< keeps track which players pressed ready
 };
 
 #endif // BATTLESHIP_GAMEINSTANCE_H

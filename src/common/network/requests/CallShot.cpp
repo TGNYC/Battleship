@@ -5,8 +5,8 @@
 #include "ClientRequest.h"
 
 CallShot::CallShot(uuid playerId, Coordinate position)
-    : ClientRequest(playerId, RequestType::CallShot), m_position(position) {}
+    : ClientRequest(playerId, RequestType::CallShot), _position(position) {}
 
 auto CallShot::getPosition() const -> Coordinate {
-  return m_position;
+  return _position;
 }

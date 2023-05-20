@@ -15,7 +15,7 @@ public:
   auto operator<=>(const JoinGame &) const = default;
 
 private:
-  std::string m_playerName;
+  std::string _playerName;
 };
 
 #endif // JOINGAME_H

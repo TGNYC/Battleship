@@ -7,8 +7,8 @@
 #include <vector>
 
 StartGame::StartGame(uuid playerId, std::vector<Ship> ships)
-    : ClientRequest(playerId, RequestType::StartGame), m_ships(std::move(ships)) {}
+    : ClientRequest(playerId, RequestType::StartGame), _ships(std::move(ships)) {}
 
 auto StartGame::getShips() const -> std::vector<Ship> {
-  return m_ships;
+  return _ships;
 }

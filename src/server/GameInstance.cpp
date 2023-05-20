@@ -12,7 +12,7 @@
 
 bool GameInstance::joinGame(const JoinGame &joinGameRequest) {
   LOG("about to add player to the game state");
-  std::lock_guard<std::mutex> lockGuard(modification_lock);
+  std::lock_guard<std::mutex> lockGuard(_modification_lock);
 
   uuid        playerId   = joinGameRequest.getPlayerId();
   std::string playerName = joinGameRequest.getPlayerName();
@@ -20,25 +20,25 @@ bool GameInstance::joinGame(const JoinGame &joinGameRequest) {
 
   //  // Prints out the names of the current players in the game
   //  std::cout << "current players in the game:\n";
-  //  auto players = _game_state.getPlayers();
+  //  auto players = _gameState.getPlayers();
   //  for (const auto& player : players) {
   //    std::cout << "Player name: " << player.getName() << std::endl;
   //  }
 
-  return _game_state.addPlayer(player); // addPlayer checks if the player was already added or game is full
+  return _gameState.addPlayer(player); // addPlayer checks if the player was already added or game is full
 }
 
 // is called upon receiving a startGameRequest
 // first boolean returns whether start_game was successful
 // second boolean returns whether both players are ready to start the game
-bool GameInstance::start_game(const Player *player, std::string &err) {
+bool GameInstance::startGame(const Player *player, std::string &err) {
 
   LOG("GameInstance trying to start");
-  std::lock_guard<std::mutex> lockGuard(modification_lock);
-  const std::vector<Player> currentPlayers = _game_state.getPlayers();
+  std::lock_guard<std::mutex> lockGuard(_modification_lock);
+  const std::vector<Player> currentPlayers = _gameState.getPlayers();
 
   // set this player to ready. not a problem if done more than once
-  isReady[player->getId()] = true;
+  _isReady[player->getId()] = true;
   LOG(player->getId().ToString() + " is ready");
 
   // check if we have 2 players
@@ -48,15 +48,15 @@ bool GameInstance::start_game(const Player *player, std::string &err) {
   }
 
   // check if other player is ready
-  const Player &otherPlayer = _game_state.getOtherPlayer(player->getId());
-  if (!isReady[otherPlayer.getId()]) {
+  const Player &otherPlayer = _gameState.getOtherPlayer(player->getId());
+  if (!_isReady[otherPlayer.getId()]) {
     LOG("Other player " + otherPlayer.getId().ToString() + " not ready yet. Cannot start game");
     return false;
   }
 
   // if reached here everything is fine and we can start
   LOG("Starting game state");
-  return _game_state.start(player->getId()); // second player to press ready is first player to play for the moment
+  return _gameState.start(player->getId()); // second player to press ready is first player to play for the moment
 }
 
 bool GameInstance::executeShot(CallShot shotRequest) {
@@ -68,34 +68,34 @@ bool GameInstance::executeShot(CallShot shotRequest) {
   uuid  nextPlayerId; // player who goes next
 
   // register shot and get results
-  bool success = _game_state.registerShot(shotRequest.getPlayerId(), shotRequest.getPosition(), &hit, &hitShip, &sunk, &nextPlayerId);
+  bool success = _gameState.registerShot(shotRequest.getPlayerId(), shotRequest.getPosition(), &hit, &hitShip, &sunk, &nextPlayerId);
   // build game event
   GameEvent *shotCalled = new GameEvent(shotRequest.getPlayerId(), shotRequest.getPosition(), hit, sunk, *hitShip, nextPlayerId);
   ServerResponse *msg_string = shotCalled;
   // broadcast to clients
   LOG("Sending GameEvent to clients");
-  ServerNetworkManager::broadcast_message(*msg_string, _game_state.getPlayers());
-  if (_game_state.gameOver()) {
-    uuid winnerId = _game_state.getWinner();
+  ServerNetworkManager::broadcastMessage(*msg_string, _gameState.getPlayers());
+  if (_gameState.gameOver()) {
+    uuid winnerId = _gameState.getWinner();
     // TODO send GameOver response to clients
   }
   return success;
 }
 
 GameState &GameInstance::getGameState() {
-  return _game_state;
+  return _gameState;
 }
 
 // TODO remove because never used. functionality is implemented in game_instance::joinGame
 /*bool game_instance::try_add_player(Player *new_player, std::string &err) {
-  modification_lock.lock();
-  if (_game_state.addPlayer(*new_player)) {
+  _modification_lock.lock();
+  if (_gameState.addPlayer(*new_player)) {
     // respond with JoinGameSuccess response
     JoinGameSuccess *msg_string = new JoinGameSuccess();
-    server_network_manager::broadcast_message(*msg_string, _game_state.getPlayers(), new_player);
-    modification_lock.unlock();
+    server_network_manager::broadcast_message(*msg_string, _gameState.getPlayers(), new_player);
+    _modification_lock.unlock();
     return true;
   }
-  modification_lock.unlock();
+  _modification_lock.unlock();
   return false;
 }*/

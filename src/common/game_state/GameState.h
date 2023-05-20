@@ -1,10 +1,10 @@
 #ifndef BATTLESHIP_GAMESTATE_H
 #define BATTLESHIP_GAMESTATE_H
 
+#include "Coordinate.h"
 #include "game_state/Player.h"
 #include "game_state/PlayerGrid.h"
 #include "network/responses/GameEvent.h"
-#include "Coordinate.h"
 #include <vector>
 
 /*
@@ -20,7 +20,7 @@
  * whenever a callShot request is received: check shotIsLegal(), then call registerShot()
  * send a gameEvent to clients with the info provided by registerShot() -> see function documentation for details
  * check gameOver() to see if game is finished
- * if yes, call getWinner() to receive winner id. then send corresponding event to clients
+ * if yes, call getWinner() to receive _winner id. then send corresponding event to clients
  *
  * USAGE CLIENT
  * -- setup --
@@ -93,30 +93,30 @@ public:
   /*!
    * returns a const reference of the grid for e.g. display through UI
    */
-  const PlayerGrid& getPlayerGrid(uuid playerId) const;
+  const PlayerGrid &getPlayerGrid(uuid playerId) const;
 
   /*!
    * returns a vector of all the players (2)
    */
-  const std::vector<Player>&getPlayers() const;
+  const std::vector<Player> &getPlayers() const;
 
   /*!
    * returns a reference to the ship with the specified id from a given vector of ships
    */
-  Ship& getShip(std::vector<Ship>& ships, uuid shipId);
+  Ship &getShip(std::vector<Ship> &ships, uuid shipId);
 
   /*!
    * returns the id of the player who has NOT the id specified as parameter
    * @param playerId
    * @return id of the other player. "Error" if no other player found.
    */
-  const Player& getOtherPlayer(uuid playerId);
+  const Player &getOtherPlayer(uuid playerId);
 
   // TODO change to getPlayer
   /*
    * returns the name of the player with the specified id
-  */
-  const Player& getPlayer(uuid playerId) const;
+   */
+  const Player &getPlayer(uuid playerId) const;
 
   /*!
    * checks if a called shot is a legal move
@@ -148,7 +148,7 @@ public:
    * @brief updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGrid
    * @param event
    */
-  bool updateBoards(const GameEvent& event);
+  bool updateBoards(const GameEvent &event);
 
   /*!
    * Checks if the game is over meaning all ships of one player are sunk
@@ -159,25 +159,25 @@ public:
 
   /*!
    * Returns the winner if the game is over. Should only be called after gameOver() returned true.
-   * @return id of winner. "0" if game is not over
+   * @return id of winner. null-uuid if game is not over
    */
   uuid getWinner();
-  //bool wrapUpRound();
+  // bool wrapUpRound();
 
-  bool* getOppShipSunk() {
-    return oppShipSunk;
+  std::array<bool, 5> &getOppShipSunk() {
+    return _oppShipSunk;
   }
 
 private:
-  State                   state;  // currently unused. will be needed later
-  Type                    type; // indicates if this GameState is run server side
-  std::vector<Player>     players;
-  std::vector<PlayerGrid> playerGrids;  ///< holds 1 grid on client and 2 grids on server
-  bool                    oppShipSunk[5];
+  State                   _state; // currently unused. will be needed later
+  Type                    _type;  ///< indicates if this GameState is run server side or client side
+  std::vector<Player>     _players;  ///< keeps track of players (2)
+  std::vector<PlayerGrid> _playerGrids; ///< holds 1 grid on client and 2 grids on server
+  std::array<bool, 5>     _oppShipSunk{};  ///< helper for UI to cross out enemy ships
 
-  uuid                    currentPlayerId;  // specifies the id of the player whose turn it is
-  unsigned int            turnNumber; // specifies the current numbered turn
-  uuid                    winner;
+  uuid         _currentPlayerId; // specifies the id of the player whose turn it is
+  unsigned int _turnNumber;      // specifies the current numbered turn
+  uuid         _winner;
 };
 
 #endif // BATTLESHIP_GAMESTATE_H

@@ -11,8 +11,8 @@ public:
   static std::string getSound(EmoteType emote);
 
 private:
-  static const std::map<EmoteType, std::string> images; ///< Mapping emotes to their visuals. For audio-only a clear png will be mapped
-  static const std::map<EmoteType, std::string> sounds; ///< Mapping emotes to their sound effects. For visual-only an empty WAV will be mapped
+  static const std::map<EmoteType, std::string> _images; /// Mapping emotes to their visuals
+  static const std::map<EmoteType, std::string> _sounds; ///< Mapping emotes to their sound effects. unused atm
 };
 
 #endif // EMOTEHANDLER_H

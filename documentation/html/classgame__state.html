@@ -93,7 +93,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5af2045269f2bf40a964f221f854b6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f2f09b693e4051196249542552cc7c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a8f2f09b693e4051196249542552cc7c4">addShips</a> (<a class="el" href="classuuid.html">uuid</a> playerId, std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt; shipPlacement)</td></tr>
 <tr class="separator:a8f2f09b693e4051196249542552cc7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9dfe73b8bcbb5e92c065cc5befd75cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">start</a> (<a class="el" href="classuuid.html">uuid</a> currentPlayerId)</td></tr>
+<tr class="memitem:ab9dfe73b8bcbb5e92c065cc5befd75cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#ab9dfe73b8bcbb5e92c065cc5befd75cb">start</a> (<a class="el" href="classuuid.html">uuid</a> _currentPlayerId)</td></tr>
 <tr class="separator:ab9dfe73b8bcbb5e92c065cc5befd75cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24dc77657c61f820f66314111f0268a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classuuid.html">uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame__state.html#a24dc77657c61f820f66314111f0268a2">getCurrentPlayerId</a> ()</td></tr>
 <tr class="separator:a24dc77657c61f820f66314111f0268a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -331,7 +331,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Checks if the game is over meaning all ships of one player are sunk </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">winner</td><td>id of the winning player. will be "0" if game is not over. </td></tr>
+    <tr><td class="paramname">_winner</td><td>id of the winning player. will be "0" if game is not over. </td></tr>
   </table>
   </dd>
 </dl>
@@ -595,7 +595,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the winner if the game is over. Should only be called after <a class="el" href="classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f">gameOver()</a> returned true. </p><dl class="section return"><dt>Returns</dt><dd>id of winner. "0" if game is not over </dd></dl>
+<p>Returns the _winner if the game is over. Should only be called after <a class="el" href="classgame__state.html#a03e0ee1a83eb23c10298b75a89cc781f">gameOver()</a> returned true. </p><dl class="section return"><dt>Returns</dt><dd>id of _winner. "0" if game is not over </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -776,7 +776,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool GameState::start </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classuuid.html">uuid</a>&#160;</td>
-          <td class="paramname"><em>currentPlayerId</em></td><td>)</td>
+          <td class="paramname"><em>_currentPlayerId</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -784,7 +784,7 @@ Here is the caller graph for this function:</div>
 <p>Switches the game state from <a class="el" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac2efe4bbd13e6cb0db293e72884273c0">State::Starting</a> to <a class="el" href="classgame__state.html#a7a01e4763572f91634786020f54fae26ac9dbb2b7c84159b632d71e512eba8428">State::Playing</a> </p><dl class="section pre"><dt>Precondition</dt><dd>Two players were added to the state. Grids were added (1 for clients, 2 for servers). </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">currentPlayerId</td><td>id of the player who will go first </td></tr>
+    <tr><td class="paramname">_currentPlayerId</td><td>id of the player who will go first </td></tr>
   </table>
   </dd>
 </dl>

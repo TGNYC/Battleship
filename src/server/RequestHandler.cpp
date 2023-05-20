@@ -18,7 +18,7 @@
 #include <iostream>
 #include <memory>
 
-std::unique_ptr<ServerResponse> RequestHandler::handle_request(GameInstance              &gameInstance,
+std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance              &gameInstance,
                                                                 const ClientRequest *const req) {
   LOG("handling request");
 
@@ -50,9 +50,9 @@ std::unique_ptr<ServerResponse> RequestHandler::handle_request(GameInstance     
     const StartGame startGameRequest = static_cast<const StartGame &>(*req);
     const Player player = gameInstance.getGameState().getPlayer(player_id);
     LOG("adding ships of " + player.getName());
-    gameInstance.getGameState().addShips(player_id, startGameRequest.getShips());
+    gameInstance.getGameState().addShips(player_id, startGameRequest.getShips()); // TODO move this line to gameInstance.startGame()
     // trying to start the gameInstance
-    const bool result = gameInstance.start_game(&player, err);  // this function does a lot of checks
+    const bool result = gameInstance.startGame(&player, err);  // this function does a lot of checks
 
     // indicates that both players are ready to the server by sending a success response to the current player's server
     // (the response to the other player is sent in the logic in game_instance)
@@ -62,7 +62,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handle_request(GameInstance     
       LOG("Sending StartGameSuccess to the already-ready player");
       std::unique_ptr<ServerResponse> resp =
           std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(), player_id);
-      ServerNetworkManager::broadcast_message(*resp, gameInstance.getGameState().getPlayers(), &player);
+      ServerNetworkManager::broadcastMessage(*resp, gameInstance.getGameState().getPlayers(), &player);
       // send StartGameSuccess update to the newly-ready player
       LOG("Sending StartGameSuccess to the newly-ready player");
       return std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(),
@@ -91,7 +91,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handle_request(GameInstance     
     std::unique_ptr<ServerResponse> response = std::make_unique<EmoteEvent>(sendEmoteRequest.getEmote(),
                                                                             sendEmoteRequest.getPlayerId());
     LOG("Sending EmoteEvent to the other player");
-    ServerNetworkManager::broadcast_message(*response, gameInstance.getGameState().getPlayers(), &player);
+    ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), &player);
     return nullptr; // nothing to send back to the request sender
   }
 

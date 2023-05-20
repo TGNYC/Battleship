@@ -17,8 +17,8 @@ public:
   bool operator==(const Player &) const = default;
 
 private:
-  uuid        m_id;
-  std::string m_name;
+  uuid        _id;
+  std::string _name;
 };
 
 #endif // BATTLESHIP_PLAYER_H

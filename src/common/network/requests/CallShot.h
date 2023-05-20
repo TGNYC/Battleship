@@ -14,7 +14,7 @@ public:
   auto operator<=>(const CallShot &) const = default;
 
 private:
-  Coordinate m_position;
+  Coordinate _position;
 };
 
 #endif // CALLSHOT_H

@@ -6,12 +6,12 @@
 #include <utility>
 
 SendEmote::SendEmote(uuid playerId, EmoteType emote)
-    : ClientRequest(playerId, RequestType::SendEmote), m_emote(emote) {}
+    : ClientRequest(playerId, RequestType::SendEmote), _emote(emote) {}
 
 //TODO remove
 SendEmote::SendEmote(uuid playerId, std::string emote)
-: ClientRequest(playerId, RequestType::SendEmote), m_emote(EmoteType::MiddleFinger) {}
+: ClientRequest(playerId, RequestType::SendEmote), _emote(EmoteType::MiddleFinger) {}
 
 auto SendEmote::getEmote() const -> EmoteType {
-  return m_emote;
+  return _emote;
 }
