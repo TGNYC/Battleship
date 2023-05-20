@@ -33,17 +33,24 @@ ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::gridtype type) : wxPanel(parent, 
     for (int i = 0; i < gridSize; i++) {
         for (int j = 0; j < gridSize; j++) {
             _grid[i*gridSize+j] = new wxStaticBitmap(this, wxID_ANY, emptyTile, wxPoint(x + i*40, y + j*40), wxSize(40, 40), 0);
+            _grid[i*gridSize+j]->Bind(wxEVT_LEFT_DOWN, [this, i, j](wxMouseEvent &event) {
+              if(_type == gridtype::own) return;
+              LOG("Clicked on tile " + std::to_string(i) + ", " + std::to_string(j));
+              GameController::callShot(Coordinate(i, j));
+            });
         }
     }
 
     auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
     auto *gridImage = new wxStaticBitmap(this, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400), 0);
 
+    /*
     this->Bind(wxEVT_LEFT_DOWN, &ViewGrid::onMouseClick, this);
     this->Bind(wxEVT_MOTION, [this](wxMouseEvent &event) { // todo: delete, only for debugging
         this->SetFocus();
         LOG("Mouse moved");
     });
+     */
 
     this->SetFocus();
 }
