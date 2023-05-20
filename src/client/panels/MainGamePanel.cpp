@@ -5,15 +5,65 @@
 #include "Logger.h"
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
-  // set minimum panel size
+  LOG("Constructing MainGamePanel");
   parent->SetMinSize(wxSize(1200, 800));
 
-  buildEmoteList();
+  _mainWindow = new wxBoxSizer(wxHORIZONTAL);
+  _emoteWindow = new wxBoxSizer(wxVERTICAL);
+  wxBoxSizer* gameWindow = new wxBoxSizer(wxVERTICAL);
+  wxBoxSizer* turnIndicator = new wxBoxSizer(wxVERTICAL);
+  wxBoxSizer* grids = new wxBoxSizer(wxHORIZONTAL);
+  wxBoxSizer* leftSide = new wxBoxSizer(wxVERTICAL);
+  wxBoxSizer* rightSide = new wxBoxSizer(wxVERTICAL);
+
+  bool init[5] = {false, false, false, false, false};
+  this->_ownShipPanel = new ShipPanel(this, wxDefaultPosition, init);
+  this->_oppShipPanel = new ShipPanel(this, wxDefaultPosition, init);
+
+  this->_ownViewGrid  = new ViewGrid( this, ViewGrid::gridtype::own);
+  this->_oppViewGrid  = new ViewGrid( this, ViewGrid::gridtype::opp);
+
+  wxBoxSizer* leftTitleSizer = new wxBoxSizer(wxVERTICAL);
+  wxStaticText* leftTitle = new wxStaticText(this, wxID_ANY, "Your Ships");
+  leftTitleSizer->Add(leftTitle, 1, wxALIGN_CENTER_HORIZONTAL);
+  leftSide->Add(leftTitleSizer, 0, wxEXPAND | wxALL, 10);
+  leftSide->Add(_ownViewGrid, 1, wxEXPAND | wxALL, 10);
+  leftSide->Add(_ownShipPanel, 1, wxEXPAND | wxALL, 10);
+
+  wxBoxSizer* rightTitleSizer = new wxBoxSizer(wxVERTICAL);
+  wxStaticText* rightTitle = new wxStaticText(this, wxID_ANY, "Opponent's Ships");
+  rightTitleSizer->Add(rightTitle, 1, wxALIGN_CENTER_HORIZONTAL);
+  rightSide->Add(rightTitleSizer, 0, wxEXPAND | wxALL, 10);
+  rightSide->Add(_oppViewGrid, 1, wxEXPAND | wxALL, 10);
+  rightSide->Add(_oppShipPanel, 1, wxEXPAND | wxALL, 10);
+
+  grids->Add(leftSide, 1, wxEXPAND | wxALL, 10);
+  grids->Add(rightSide, 1, wxEXPAND | wxALL, 10);
+
+  _turnText = new wxStaticText(this, wxID_ANY, "[TURN INDICATOR]");
+  turnIndicator->Add(_turnText, 0, wxALIGN_CENTER_HORIZONTAL, 10);
+
+  gameWindow->Add(turnIndicator, 0, wxEXPAND | wxALL, 10);
+  gameWindow->Add(grids, 1, wxEXPAND | wxALL, 10);
+
+  _emotePanel = new EmotePanel(this, wxPoint(10, 10));
+  _emoteWindow->Add(_emotePanel, 1, wxEXPAND | wxALL, 10);
+
+  _mainWindow->Add(_emoteWindow, 0, wxEXPAND | wxALL, 10);
+  _mainWindow->Add(gameWindow, 1, wxEXPAND | wxALL, 10);
+
+  // BINDINGS
+  //_oppViewGrid->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onMouseClick);
+
+
+  this->SetSizer(_mainWindow);
+  this->Fit();
 }
 
-void MainGamePanel::buildGameState(GameState *gameState, uuid ownId) {
-  _gameState     = gameState;
-  _ownId         = ownId;
+void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
+  LOG("Building game state");
+  _gameState = gameState;
+  _ownId = ownId;
   _currentPlayer = gameState->getCurrentPlayerId();
 
   wxColor backgroundColor = wxColor(255, 255, 255);
@@ -54,6 +104,8 @@ void MainGamePanel::buildGameState(GameState *gameState, uuid ownId) {
       LOG("Opponten ship" + std::to_string(i) + " has not sunk");
     }
   }
+
+  LOG("OppShipSunk: " + std::to_string(ownShipSunk[0]) + std::to_string(ownShipSunk[1]) + std::to_string(ownShipSunk[2]) + std::to_string(ownShipSunk[3]) + std::to_string(ownShipSunk[4]));
 
   // get shots
   auto ownShots = playerGrid.shotsFired;
@@ -106,11 +158,10 @@ void MainGamePanel::buildEmoteList() {
 
   this->_emotePanel = new EmotePanel(this, wxPoint(10, 10));
 
-  _emoteWindow->Add(_emotePanel, 0, wxALIGN_CENTER, 0);
+  // update ship panel
+  this->_ownShipPanel->update(ownShipSunk);
+  this->_oppShipPanel->update(gameState->getOppShipSunk());
 
-  _mainWindow->Add(_emoteWindow, 0, wxALIGN_CENTER, 0);
-
-  this->_emotePanel->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onEmoteClick, this);
 }
 
 void MainGamePanel::displayEmote(EmoteType emote) {
@@ -133,7 +184,7 @@ void MainGamePanel::displayEmote(EmoteType emote) {
     image = wxImage("../assets/emotes/large_mocking.png");
     break;
   }
-  _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(120, 47), wxSize(400, 400), 0);
+  _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(120, 56), wxSize(400, 400), 0);
   // for some reason the image is shown and removed at the next panel update
   _currentEmote = nullptr;
 }
@@ -145,6 +196,18 @@ void MainGamePanel::buildTurnIndicator(std::string playerName, wxBoxSizer *box) 
 }
 
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
+  LOG("registered click in Maingamepanel");
+  wxPoint mousePosition = event.GetPosition();
+  LOG("clicked at: " + std::to_string(mousePosition.x) + ", " + std::to_string(mousePosition.y));
+  Coordinate shot = Coordinate{mousePosition.x / 40, mousePosition.y / 40};
+
+
+  // make sure the click is on the grid
+  if (shot.x < 0 || shot.x >= 10 || shot.y < 0 || shot.y >= 10) {
+    LOG("Click is not on grid: " + std::to_string(shot.x) + " " + std::to_string(shot.y));
+    return;
+  }
+
   // only allow clicks if it is the player's turn
   if (_currentPlayer != _ownId) {
     LOG("not your turn");

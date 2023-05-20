@@ -65,6 +65,7 @@ private:
   ShipPanel* _ownShipPanel;
   ShipPanel* _oppShipPanel;
   EmotePanel* _emotePanel;
+  wxStaticText *_turnText;
   wxStaticBitmap* _currentEmote = nullptr;
   std::chrono::system_clock::time_point _lastClick; // std::chrono::_V2::system_clock::time_point _lastShot;
         wxTimer* _timer;
