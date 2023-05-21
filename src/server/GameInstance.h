@@ -9,6 +9,7 @@
 #include "game_state/Player.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
+#include "network/requests/QuitGame.h"
 #include <mutex>
 #include <string>
 #include <unordered_map>
@@ -32,16 +33,20 @@ public:
    */
   bool startGame(const Player *player, std::string &err);
 
-  /*!
-   * Function to handle a CallShot request. Registers the shot in the gameState. Sends out corresponding gameEvents.
-   * Checks if the game is over and checks for the _winner.
-   * @param shotRequest
-   * @return
-   */
+
   bool executeShot(CallShot shotRequest);
 
-  GameState &getGameState();
+  /*!
+   * Function to handle a QuitGame request. Recreates a new GameState to be ready for next Game.
+   * <>
+   * @param QuitGame
+   * @return True if all _gameState attributes are reset. Else, false.
+   */
+  bool quitGame(QuitGame quitGameRequest);
   // TODO: playAgain
+
+
+  GameState &getGameState();
 
 private:
   GameState                      _gameState = GameState(GameState::Type::ServerState);

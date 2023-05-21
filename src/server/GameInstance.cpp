@@ -7,6 +7,7 @@
 #include "ServerNetworkManager.h"
 #include "network/responses/ErrorResponse.h"
 #include "network/responses/GameEvent.h"
+#include "network/responses/QuitGameEvent.h"
 #include "network/responses/JoinGameSuccess.h"
 #include "network/responses/ServerResponse.h"
 
@@ -80,6 +81,23 @@ bool GameInstance::executeShot(CallShot shotRequest) {
     // TODO send GameOver response to clients
   }
   return success;
+}
+
+bool GameInstance::quitGame(QuitGame quitGameRequest) {
+  // Set Mutex Lock
+  std::lock_guard<std::mutex> lock(_modification_lock);
+  // Broadcast to all users QuitGameEvent
+  QuitGameEvent *gameQuit = new QuitGameEvent(quitGameRequest.getPlayerId());
+  ServerResponse *msg_string = gameQuit;
+  LOG("Sending QuitGameEvent to clients");
+  ServerNetworkManager::broadcastMessage(*msg_string, _gameState.getPlayers());
+
+  // Recreate GameState (which loses player information)
+  LOG("Recreating GameState in a GameInstance");
+  _gameState = GameState(GameState::Type::ServerState);
+  _gameState.setStateFinished();
+  _isReady.clear();
+  return _gameState.getPlayers().empty(); // checks that _players attribute is an empty vec
 }
 
 GameState &GameInstance::getGameState() {

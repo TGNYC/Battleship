@@ -48,6 +48,14 @@ public:
     Finished
   };
 
+  State getState() const {
+    return _state;
+  }
+
+  void setStateFinished() {
+    _state = State::Finished;
+  }
+
   /*!
    * Enum indicating whether a server side game state is being stored or a client side game state
    */
