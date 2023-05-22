@@ -173,7 +173,7 @@ public:
   uuid getWinner();
 
   /*!
-   * sets gamestate to Finished. For a next game, a new gamestate should be created. Thus this does not reset everything. 
+   * sets gamestate to Finished. For a next game, a new gamestate should be created. Thus this does not reset everything.
    */
   void finish();
 

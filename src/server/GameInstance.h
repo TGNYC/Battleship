@@ -33,7 +33,11 @@ public:
    */
   bool startGame(const Player *player, std::string &err);
 
-
+  /*!
+   * handles a call shot request. registers the shot in the gamestate and sends out a corresponding gameEvent
+   * @param shotRequest
+   * @return
+   */
   bool executeShot(CallShot shotRequest);
 
   /*!
@@ -43,8 +47,8 @@ public:
    * @return True if all _gameState attributes are reset. Else, false.
    */
   bool quitGame(QuitGame quitGameRequest);
-  // TODO: playAgain
 
+  // TODO: playAgain
 
   GameState &getGameState();
 

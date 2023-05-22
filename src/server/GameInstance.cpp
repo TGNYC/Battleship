@@ -7,8 +7,9 @@
 #include "ServerNetworkManager.h"
 #include "network/responses/ErrorResponse.h"
 #include "network/responses/GameEvent.h"
-#include "network/responses/QuitGameEvent.h"
+#include "network/responses/GameOverEvent.h"
 #include "network/responses/JoinGameSuccess.h"
+#include "network/responses/QuitGameEvent.h"
 #include "network/responses/ServerResponse.h"
 
 bool GameInstance::joinGame(const JoinGame &joinGameRequest) {
@@ -76,9 +77,15 @@ bool GameInstance::executeShot(CallShot shotRequest) {
   // broadcast to clients
   LOG("Sending GameEvent to clients");
   ServerNetworkManager::broadcastMessage(*msg_string, _gameState.getPlayers());
+
+  LOG("checking for game over");
   if (_gameState.gameOver()) {
+    LOG("game is over");
     uuid winnerId = _gameState.getWinner();
-    // TODO send GameOver response to clients
+    LOG("winner is " + winnerId.ToString());
+    GameOverEvent *gameOverEvent = new GameOverEvent(winnerId);
+    ServerNetworkManager::broadcastMessage(*gameOverEvent, _gameState.getPlayers());
+    LOG("broadcasted GameOverEvent to both clients");
   }
   return success;
 }
@@ -87,13 +94,14 @@ bool GameInstance::quitGame(QuitGame quitGameRequest) {
   // Set Mutex Lock
   std::lock_guard<std::mutex> lock(_modification_lock);
   // Broadcast to all users QuitGameEvent
-  QuitGameEvent *gameQuit = new QuitGameEvent(quitGameRequest.getPlayerId());
-  ServerResponse *msg_string = gameQuit;
+  QuitGameEvent *gameQuitEvent = new QuitGameEvent(quitGameRequest.getPlayerId());
+  ServerResponse *msg_string = gameQuitEvent;
+  LOG("Player " + quitGameRequest.getPlayerId().ToString() + " quit the game.");
   LOG("Sending QuitGameEvent to clients");
   ServerNetworkManager::broadcastMessage(*msg_string, _gameState.getPlayers());
 
   // Recreate GameState (which loses player information)
-  LOG("Recreating GameState in a GameInstance");
+  LOG("Recreating GameState in GameInstance. Ready for 2 new players to connect");
   _gameState = GameState(GameState::Type::ServerState);
   _gameState.finish();
   _isReady.clear();
