@@ -17,8 +17,13 @@ GameWindow::GameWindow(const wxString &title, const wxPoint &pos, const wxSize &
   this->_statusBar = this->CreateStatusBar(1);
 
   // set background
-  wxColor lightBlue = wxColor(213, 231, 239);
-  this->SetBackgroundColour(lightBlue);
+  wxColor lightBlue = wxColor(213, 231, 239);   // default background color
+  wxColor navyBlue = wxColor(0, 0, 128);        // too blue
+  wxColor oceanBlue = wxColor(0, 59, 105);      // not bad, but doesn't go well with the view grid color
+  wxColor darkBlue = wxColor(11, 26, 51);       // favorite color
+  wxColor meanBlue = wxColor(56, 79, 131);      // too bright
+  wxColor doubleBlue = wxColor(22, 52, 102);    // probably the best one
+  this->SetBackgroundColour(doubleBlue);
 
   // set minimum size of window
   this->SetMinSize(wxSize(1000, 720));
