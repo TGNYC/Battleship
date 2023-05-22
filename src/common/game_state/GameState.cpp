@@ -125,6 +125,10 @@ std::array<bool, 5> &GameState::getOppShipSunk() {
 }
 
 bool GameState::shotIsLegal(uuid playerId, Coordinate position) {
+  if (_state != State::Playing) {
+    LOG("State is not set to playing");
+    return false;
+  }
   if (position.x < 0 || position.x >= 10) {
     return false;
   }
