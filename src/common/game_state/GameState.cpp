@@ -116,7 +116,7 @@ const std::vector<Player> &GameState::getPlayers() const {
   return _players;
 }
 
-const GameState::State GameState::getState() const {
+const GameState::State &GameState::getState() const {
   return _state;
 }
 
