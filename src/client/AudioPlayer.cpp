@@ -9,7 +9,7 @@
 const std::map<AudioPlayer::Clip, std::string> AudioPlayer::_clips = {
     {ButtonClick, "../assets/audio/Button.wav"},
     {GameOver, "../assets/audio/BestPirate.mp3"},
-    {ShipHit, "../assets/audio/BestPirate.wav"},
+    {ShipHit, "../assets/audio/test.wav"},
     {ShipMiss, "../assets/audio/BestPirate.wav"},
     {BestPirate, "../assets/audio/BestPirate.wav"}
 };
@@ -18,8 +18,8 @@ void AudioPlayer::play(const AudioPlayer::Clip& clip) {
   play(AudioPlayer::_clips.at(clip));
 }
 
-void AudioPlayer::play(const std::string& file) {
-  /*LOG("trying to play a sound");
+void AudioPlayer::play(const std::string& file) {/*
+  LOG("trying to play a sound");
   LOG("filepath: " + file);
   wxChar** c;
   int a = 1;
@@ -40,9 +40,9 @@ void AudioPlayer::play(const std::string& file) {
     LOG("played the sound");
   } else {
     LOG("Could not play audio file " + file);
-  }
+  }*/
   //_mediaCtrl->Load(file);
-  //_mediaCtrl->Play();*/
+  //_mediaCtrl->Play();
 }
 /*
 void AudioPlayer::setMediaCtrl(wxMediaCtrl* mediaCtrl) {

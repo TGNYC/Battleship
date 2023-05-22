@@ -48,14 +48,6 @@ public:
     Finished
   };
 
-  State getState() const {
-    return _state;
-  }
-
-  void setStateFinished() {
-    _state = State::Finished;
-  }
-
   /*!
    * Enum indicating whether a server side game state is being stored or a client side game state
    */
@@ -78,7 +70,7 @@ public:
   bool addPlayer(Player player);
 
   /*!
-   * Creates a new playerGrid from a full ship placement //TODO rename function to createGrid?
+   * Creates a new playerGrid from a full ship placement
    * @param playerId id of the player who placed the ships and owns the board
    * @param shipPlacement a vector containing all ships
    * @return true if grid was created successfully, false if a problem occurred.
@@ -114,17 +106,27 @@ public:
   Ship &getShip(std::vector<Ship> &ships, uuid shipId);
 
   /*!
+   * returns the name of the player with the specified id
+   */
+  const Player &getPlayer(uuid playerId) const;
+
+  /*!
    * returns the id of the player who has NOT the id specified as parameter
    * @param playerId
    * @return id of the other player. "Error" if no other player found.
    */
   const Player &getOtherPlayer(uuid playerId);
 
-  // TODO change to getPlayer
-  /*
-   * returns the name of the player with the specified id
+  /*!
+   * returns the current state of the game (starting, playing, finished)
    */
-  const Player &getPlayer(uuid playerId) const;
+  const State &getState() const;
+
+  /*!
+   * returns an array of bool which indicates which opponent ships were already sunk.
+   * used for crossing out ships at the bottom of the UI
+   */
+  std::array<bool, 5> &getOppShipSunk();
 
   /*!
    * checks if a called shot is a legal move
@@ -164,17 +166,16 @@ public:
    * @return true if game is over. false if game is not over
    */
   bool gameOver();
-
   /*!
    * Returns the winner if the game is over. Should only be called after gameOver() returned true.
    * @return id of winner. null-uuid if game is not over
    */
   uuid getWinner();
-  // bool wrapUpRound();
 
-  std::array<bool, 5> &getOppShipSunk() {
-    return _oppShipSunk;
-  }
+  /*!
+   * sets gamestate to Finished. For a next game, a new gamestate should be created. Thus this does not reset everything. 
+   */
+  void finish();
 
 private:
   State                   _state; // currently unused. will be needed later

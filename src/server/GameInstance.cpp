@@ -95,7 +95,7 @@ bool GameInstance::quitGame(QuitGame quitGameRequest) {
   // Recreate GameState (which loses player information)
   LOG("Recreating GameState in a GameInstance");
   _gameState = GameState(GameState::Type::ServerState);
-  _gameState.setStateFinished();
+  _gameState.finish();
   _isReady.clear();
   return _gameState.getPlayers().empty(); // checks that _players attribute is an empty vec
 }

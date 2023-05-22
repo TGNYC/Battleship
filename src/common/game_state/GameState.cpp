@@ -116,6 +116,14 @@ const std::vector<Player> &GameState::getPlayers() const {
   return _players;
 }
 
+const GameState::State GameState::getState() const {
+  return _state;
+}
+
+std::array<bool, 5> &GameState::getOppShipSunk() {
+  return _oppShipSunk;
+}
+
 bool GameState::shotIsLegal(uuid playerId, Coordinate position) {
   if (position.x < 0 || position.x >= 10) {
     return false;
@@ -262,4 +270,8 @@ uuid GameState::getWinner() {
     LOG("Asked for _winner but game not finished");
     return uuid();
   }
+}
+
+void GameState::finish() {
+  _state = State::Finished;
 }
