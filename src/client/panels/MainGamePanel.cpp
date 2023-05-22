@@ -30,14 +30,14 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   wxBoxSizer* leftTitleSizer = new wxBoxSizer(wxVERTICAL);
   wxStaticText* leftTitle = new wxStaticText(this, wxID_ANY, "Your Ships");
   leftTitleSizer->Add(leftTitle, 1, wxALIGN_CENTER_HORIZONTAL);
-  leftSide->Add(leftTitleSizer, 0, wxEXPAND | wxALL, 10);
+  leftSide->Add(leftTitleSizer, 0, wxEXPAND | wxTOP, 10);
   leftSide->Add(_ownViewGrid, 1, wxEXPAND | wxALL, 10);
   leftSide->Add(_ownShipPanel, 1, wxEXPAND | wxALL, 10);
 
   wxBoxSizer* rightTitleSizer = new wxBoxSizer(wxVERTICAL);
   wxStaticText* rightTitle = new wxStaticText(this, wxID_ANY, "Opponent's Ships");
   rightTitleSizer->Add(rightTitle, 1, wxALIGN_CENTER_HORIZONTAL);
-  rightSide->Add(rightTitleSizer, 0, wxEXPAND | wxALL, 10);
+  rightSide->Add(rightTitleSizer, 0, wxEXPAND | wxTOP, 10);
   rightSide->Add(_oppViewGrid, 1, wxEXPAND | wxALL, 10);
   rightSide->Add(_oppShipPanel, 1, wxEXPAND | wxALL, 10);
 
@@ -45,10 +45,10 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   grids->Add(rightSide, 1, wxEXPAND | wxALL, 10);
 
   _turnText = new wxStaticText(this, wxID_ANY, "[TURN INDICATOR]");
-  turnIndicator->Add(_turnText, 0, wxALIGN_CENTER_HORIZONTAL, 10);
+  turnIndicator->Add(_turnText, 0, wxALIGN_CENTER_HORIZONTAL, 0);
 
-  gameWindow->Add(turnIndicator, 0, wxEXPAND | wxALL, 10);
-  gameWindow->Add(grids, 1, wxEXPAND | wxALL, 10);
+  gameWindow->Add(turnIndicator, 0, wxEXPAND | wxTOP, 10);
+  gameWindow->Add(grids, 1, wxEXPAND | wxLEFT | wxBOTTOM | wxRIGHT, 10);
 
   _emotePanel = new EmotePanel(this, wxPoint(10, 10));
   _emoteWindow->Add(_emotePanel, 1, wxEXPAND | wxALL, 10);
