@@ -16,6 +16,7 @@ MainGamePanel   *GameController::_mainGamePanel   = nullptr;
 SetupManager    *GameController::_setupManager    = nullptr;
 Player          *GameController::_me              = nullptr;
 GameState       *GameController::_gameState       = nullptr;
+std::chrono::time_point<std::chrono::system_clock> GameController::_lastClick;
 
 
 /**
@@ -38,6 +39,8 @@ void GameController::init(GameWindow *gameWindow) {
   // start of game: show connection panel
   GameController::_gameWindow->showPanel(GameController::_connectionPanel);
   //GameController::startGame(); // TODO: should be the function to be called @nico: no? startGame is called when receiving startGameSuccess from server
+
+  _lastClick = std::chrono::system_clock::now();
 }
 
 
@@ -128,6 +131,25 @@ void GameController::handleGameEvent(const GameEvent &event) {
 
 void GameController::callShot(Coordinate position) {
   LOG("Calling shot on position " + std::to_string(position.x) + "," + std::to_string(position.y));
+  // TODO: Call ShotIsLegal & limit shot frequency
+  // only current player can shoot
+  if (_gameState->getCurrentPlayerId() != _me->getId()) {
+    LOG("not your turn");
+    return;
+  }
+  // limit shot frequency
+  auto now = std::chrono::system_clock::now();
+  if (now - _lastClick < std::chrono::milliseconds(100)) { // 57
+    LOG("too fast");
+    return;
+  }
+  _lastClick = now;
+  // make sure shot is legal
+  if (!_gameState->shotIsLegal(_me->getId(), position)) {
+    LOG("illegal shot");
+    return;
+  }
+  // shot is ok, send to server
   CallShot request = CallShot(_me->getId(), position);
   ClientNetworkManager::sendRequest(request);
 }

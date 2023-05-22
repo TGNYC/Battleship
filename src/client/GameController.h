@@ -13,6 +13,7 @@
 #include "panels/MainGamePanel.h"
 #include "panels/SetupPanel.h"
 #include <wx/wx.h>
+#include <chrono>
 
 class GameController {
 public:
@@ -81,6 +82,7 @@ private:
 
     static GameState * _gameState;
     static Player *_me;
+    static std::chrono::system_clock::time_point _lastClick;
 };
 
 #endif // GAMECONTROLLER_H
