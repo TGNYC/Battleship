@@ -4,6 +4,7 @@
 #include "GameController.h"
 #include "Logger.h"
 #include "network/responses/ErrorResponse.h"
+#include "network/responses/GameOverEvent.h"
 #include <sstream>
 
 ResponseListenerThread::ResponseListenerThread(sockpp::tcp_connector *connection) {
@@ -99,6 +100,15 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
               GameController::quitGame();
             });
           } break;
+          case ResponseType::GameOverEvent: {
+            LOG("received a GameOverEvent");
+            const GameOverEvent &gameOverEvent = static_cast<const GameOverEvent &>(*response);
+            uuid winnerId = gameOverEvent.winnerPlayerId;
+            LOG("Player " + winnerId.ToString() + " won the game");
+            GameController::getMainThreadEventHandler()->CallAfter([winnerId] {
+              GameController::gameOver(winnerId);
+            });
+          }
           }
         } else {
           this->outputError("Network error", "Could not read entire message. TCP stream ended early. Difference is " +
