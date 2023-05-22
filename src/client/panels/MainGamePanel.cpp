@@ -10,7 +10,7 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   // For some reason, the ShipPanels take up way too much space after this->SetSizer(_mainWindow) on line 61 is called. 
   // Before, they have a size of 400x100, afterwards it's 400x400. 
   // This limits the maximum size of the window, but it's not a good fix.
-  parent->SetMaxSize(wxSize(1200, 850));
+  parent->SetMaxSize(wxSize(1200, 800));
 
   _mainWindow = new wxBoxSizer(wxHORIZONTAL);
   _emoteWindow = new wxBoxSizer(wxVERTICAL);
@@ -130,6 +130,7 @@ void MainGamePanel::displayEmote(EmoteType emote) {
   // for some reason the image is shown and removed at the next panel update
   _currentEmote = nullptr;
 }
+
 /*
 void MainGamePanel::onMouseClick(wxMouseEvent &event) {
   LOG("registered click in Maingamepanel");
