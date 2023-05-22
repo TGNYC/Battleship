@@ -56,7 +56,7 @@ public:
     /**
      * @brief Displays dialog box when game is finished. 
     */
-    static void showGameOverMessage();
+    static void gameOver(uuid winnerId);
 
     static SetupPanel* getSetupPanel() {
       return _setupPanel;
