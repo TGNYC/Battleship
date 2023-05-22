@@ -117,12 +117,14 @@ void PlacementGrid::highlightTiles(int CellX, int CellY) {
   if (orientation == Ship::Orientation::Horizontal) {
     for (int i = 0; i < l; i++) {
       int idx = (CellX + i) * 10 + CellY; // column-major order
+      if (idx < 0 || idx > 99) continue;
       if (CellX + i < 10 && CellY < 10)
         _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
     }
   } else if (orientation == Ship::Orientation::Vertical) {
     for (int i = 0; i < l; i++) {
       int idx = CellX * 10 + CellY + i;
+      if (idx < 0 || idx > 99) continue;
       if (CellX < 10 && CellY + i < 10)
         _grid[idx]->SetBitmap(wxBitmap(wxImage("../assets/ship_tile.png")));
     }
