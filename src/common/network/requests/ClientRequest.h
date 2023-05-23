@@ -18,8 +18,6 @@ public:
   [[nodiscard]] auto getRequestType() const -> RequestType;
   [[nodiscard]] auto getPlayerId() const -> uuid;
 
-  auto operator<=>(const ClientRequest &) const = default;
-
   virtual ~ClientRequest() = default;
 
 protected:

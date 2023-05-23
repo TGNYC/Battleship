@@ -12,8 +12,6 @@ public:
 
   [[nodiscard]] auto getShips() const -> std::vector<Ship>;
 
-  auto operator<=>(const StartGame &) const = default;
-
 private:
   std::vector<Ship> _ships;
 };

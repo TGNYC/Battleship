@@ -12,8 +12,6 @@ public:
 
   [[nodiscard]] auto getPlayerName() const -> std::string;
 
-  auto operator<=>(const JoinGame &) const = default;
-
 private:
   std::string _playerName;
 };
