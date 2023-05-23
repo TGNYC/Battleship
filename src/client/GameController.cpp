@@ -172,7 +172,7 @@ void GameController::showError(const std::string &title, const std::string &mess
 
 void GameController::gameOver(uuid winnerId) {
   _gameState->finish();
-  std::string message = "Game Over!\n";
+  std::string message = "\n";
   if (winnerId == _me->getId()) {
     message += "You won!";
     // AudioPlayer::play(AudioPlayer::Victory);
