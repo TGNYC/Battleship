@@ -182,7 +182,7 @@ void GameController::gameOver(uuid winnerId) {
   }
   wxMessageBox(message, "Game Over", wxOK | wxICON_INFORMATION);
   // Send player back to connection panel
-  // TODO: Fix memory leaks
+  // TODO: Fix memory leaks, shut down listenerThread
   GameController::init(_gameWindow);
 }
 
@@ -222,9 +222,18 @@ void GameController::playerReady() {
 wxEvtHandler *GameController::getMainThreadEventHandler() {
   return GameController::_gameWindow->GetEventHandler();
 }
+
 void GameController::quitGame() {
   // send quit game request
   LOG("Sending quit game request");
   QuitGame request = QuitGame(_me->getId());
   ClientNetworkManager::sendRequest(request);
+}
+
+void GameController::handleQuitGameEvent(uuid quitterId) {
+  if (quitterId != _me->getId()) {
+        std::string message = "Your opponent left the game\n";
+        wxMessageBox(message, "Opponent left", wxOK | wxICON_INFORMATION);
+        GameController::init(_gameWindow);
+  }
 }

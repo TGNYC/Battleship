@@ -58,6 +58,13 @@ public:
     */
     static void gameOver(uuid winnerId);
 
+    /*!
+     * shows popup saying that the other player left.
+     * closing the popup brings you back to the connection panel.
+     * @param leaverId id of the player who quit
+     */
+    static void handleQuitGameEvent(uuid quitterId);
+
     static SetupPanel* getSetupPanel() {
       return _setupPanel;
     }
@@ -70,6 +77,10 @@ public:
     */
     static void playerReady();
 
+    /*!
+     * sends a QuitGame request to the server
+     * is being called upon closing the main window
+     */
     static void quitGame();
 
 private:

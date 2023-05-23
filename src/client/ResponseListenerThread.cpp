@@ -95,9 +95,9 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
           case ResponseType::QuitGameEvent: {
             LOG("received a QuitGameEvent");
             const QuitGameEvent &quitGameEvent = static_cast<const QuitGameEvent &>(*response);
-            LOG("Player " + quitGameEvent.quitPlayerId.ToString() + " quit the game");
-            GameController::getMainThreadEventHandler()->CallAfter([] {
-              GameController::quitGame();
+            LOG("player " + quitGameEvent.quitPlayerId.ToString() + " quit the game");
+            GameController::getMainThreadEventHandler()->CallAfter([quitGameEvent] {
+              GameController::handleQuitGameEvent(quitGameEvent.quitPlayerId);
             });
           } break;
           case ResponseType::GameOverEvent: {
