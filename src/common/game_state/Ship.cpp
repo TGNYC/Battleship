@@ -2,7 +2,7 @@
 
 Ship::Ship(int length, Coordinate position, Orientation orientation, uuid id)
     : m_length(length), m_position(position), m_orientation(orientation), m_id(id), m_sunk(false),
-      m_hits(length, false) {}
+      m_hits(static_cast<size_t>(length), false) {}
 
 auto Ship::getLength() const -> int {
   return m_length;
@@ -27,7 +27,7 @@ bool Ship::hit(Coordinate shot) {
   if (m_orientation == Orientation::Horizontal) {
     if (m_position.y == shot.y) {                                       // same row
       if (m_position.x <= shot.x && m_position.x + m_length > shot.x) { // is hit
-        m_hits.at(shot.x - m_position.x) = true;
+        m_hits.at(static_cast<size_t>(shot.x - m_position.x)) = true;
         if (hasSunken()) {
           m_sunk = true;
         }
@@ -37,7 +37,7 @@ bool Ship::hit(Coordinate shot) {
   } else if (m_orientation == Orientation::Vertical) {
     if (m_position.x == shot.x) {                                       // same column
       if (m_position.y <= shot.y && m_position.y + m_length > shot.y) { // is hit
-        m_hits.at(shot.y - m_position.y) = true;
+        m_hits.at(static_cast<size_t>(shot.y - m_position.y)) = true;
         if (hasSunken()) {
           m_sunk = true;
         }
