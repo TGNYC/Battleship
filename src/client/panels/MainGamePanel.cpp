@@ -50,7 +50,7 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   gameWindow->Add(turnIndicator, 0, wxEXPAND | wxTOP, 10);
   gameWindow->Add(grids, 1, wxEXPAND | wxLEFT | wxBOTTOM | wxRIGHT, 10);
 
-  _emotePanel = new EmotePanel(this, wxPoint(10, 10));
+  _emotePanel = new EmotePanel(this, wxDefaultPosition);
   _emoteWindow->Add(_emotePanel, 1, wxEXPAND | wxALL, 10);
 
   _mainWindow->Add(_emoteWindow, 0, wxEXPAND | wxALL, 10);
@@ -107,6 +107,12 @@ void MainGamePanel::buildGameState(GameState * gameState, uuid ownId) {
 }
 
 void MainGamePanel::displayEmote(EmoteType emote) {
+  _currentEmote = new EmotePopup(this, wxDefaultPosition, emote);
+  // _currentEmote->CenterOnParent();
+  _currentEmote->SetPosition(wxPoint(400, 200));
+  _currentEmote->Show();
+  this->Layout();
+  /*
   int emoteId = static_cast<int>(emote);
   LOG("emote id: " + std::to_string(emoteId));
   if (emoteId < 0 || emoteId > 2) {
@@ -126,9 +132,12 @@ void MainGamePanel::displayEmote(EmoteType emote) {
     image = wxImage("../assets/emotes/large_mocking.png");
     break;
   }
-  _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(120, 56), wxSize(400, 400), 0);
-  // for some reason the image is shown and removed at the next panel update
-  _currentEmote = nullptr;
+  _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(180, 86), wxSize(400, 400), 0);
+  _currentEmote->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &event) {
+    LOG("Hide current emote");
+    this->_currentEmote->Destroy();
+  });
+  */
 }
 
 /*

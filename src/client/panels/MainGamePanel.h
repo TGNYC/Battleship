@@ -4,6 +4,7 @@
 #include "../../common/game_state/Player.h"
 #include "../../common/network/responses/EmoteEvent.h"
 #include "../uiElements/EmotePanel.h"
+#include "../uiElements/EmotePopup.h"
 #include "../uiElements/ShipPanel.h"
 #include "../uiElements/ViewGrid.h"
 #include "game_state/GameState.h"
@@ -66,7 +67,7 @@ private:
   ShipPanel* _oppShipPanel;
   EmotePanel* _emotePanel;
   wxStaticText *_turnText;
-  wxStaticBitmap* _currentEmote = nullptr;
+  EmotePopup* _currentEmote = nullptr;
   std::chrono::system_clock::time_point _lastClick; // std::chrono::_V2::system_clock::time_point _lastShot;
         wxTimer* _timer;
 };
