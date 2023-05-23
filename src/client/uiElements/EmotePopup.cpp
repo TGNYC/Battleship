@@ -5,7 +5,7 @@ EmotePopup::EmotePopup(wxWindow *parent, wxPoint pos, EmoteType emote) : wxPopup
     wxColor backgroundColor = wxColor(255, 0, 255);
     this->SetBackgroundColour(backgroundColor);
     int emoteId = static_cast<int>(emote);
-    if (emoteId < 0 || emoteId > 2) {
+    if (emoteId < 0 || emoteId > 3) {
         LOG("invalid emote id");
         return;
     }
@@ -20,6 +20,9 @@ EmotePopup::EmotePopup(wxWindow *parent, wxPoint pos, EmoteType emote) : wxPopup
         break;
     case 2:
         image = wxImage("../assets/emotes/large_mocking.png");
+        break;
+    case 3:
+        image = wxImage("../assets/emotes/large_bestpirate.png");
         break;
     }
     _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(0, 0), wxSize(400, 400), 0);

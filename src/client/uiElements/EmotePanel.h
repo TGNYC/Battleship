@@ -11,7 +11,7 @@ public:
     EmotePanel(wxWindow *parent, wxPoint pos);
 private:
     wxWindow* _parent;
-    wxStaticBitmap* _emoteBitmaps[3];
+    wxStaticBitmap* _emoteBitmaps[4];
     std::chrono::system_clock::time_point _lastClick;
 };
 

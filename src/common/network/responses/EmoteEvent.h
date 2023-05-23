@@ -8,7 +8,8 @@
 enum class EmoteType {
   MiddleFinger, // value 0
   RussianWarshipGoFuckYourself, // 1
-  Mocking // 2
+  Mocking, // 2
+  BestPirate // 3
 };
 
 class EmoteEvent : public ServerResponse {
