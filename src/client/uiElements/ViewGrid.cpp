@@ -13,8 +13,8 @@ ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::gridtype type)
   wxColor backgroundColor = wxColor(255, 255, 0);
   this->SetBackgroundColour(backgroundColor);
 
-  size_t x = _pos.x;
-  size_t y = _pos.y;
+  int x = _pos.x;
+  int y = _pos.y;
 
   wxBoxSizer   *gridTitle = new wxBoxSizer(wxHORIZONTAL);
   wxStaticText *gridTitleText;

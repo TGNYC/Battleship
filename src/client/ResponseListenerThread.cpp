@@ -103,7 +103,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
           case ResponseType::GameOverEvent: {
             LOG("received a GameOverEvent");
             const GameOverEvent &gameOverEvent = static_cast<const GameOverEvent &>(*response);
-            uuid winnerId = gameOverEvent.winnerPlayerId;
+            uuid                 winnerId      = gameOverEvent.winnerPlayerId;
             LOG("Player " + winnerId.ToString() + " won the game");
             GameController::getMainThreadEventHandler()->CallAfter([winnerId] {
               GameController::gameOver(winnerId);
@@ -117,7 +117,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
 
       } catch (std::exception &e) {
         // Make sure the connection isn't terminated only because of a read error
-        this->outputError("Network error", "Error while reading message: " + (std::string)e.what());
+        this->outputError("Network error", "Error while reading message: " + std::string(e.what()));
       }
     }
 
@@ -127,12 +127,12 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
     }
 
   } catch (const std::exception &e) {
-    this->outputError("Network error", "Error in listener thread: " + (std::string)e.what());
+    this->outputError("Network error", "Error in listener thread: " + std::string(e.what()));
   }
 
   this->_connection->shutdown();
 
-  return (wxThread::ExitCode)0; // everything okay
+  return static_cast<wxThread::ExitCode>(0); // everything okay
 }
 
 void ResponseListenerThread::outputError(std::string title, std::string message) {
