@@ -18,7 +18,8 @@
 class GameController {
 public:
     /**
-     * @brief Initializes all panels, displays the connection panel. 
+     * @brief Initializes all panels, displays the connection panel.
+     * Is also used to reset everything on GameOver or QuitGameEvent
     */
     static void init(GameWindow* gameWindow);
     /**

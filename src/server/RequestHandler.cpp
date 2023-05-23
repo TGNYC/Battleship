@@ -109,12 +109,9 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
         std::make_unique<QuitGameEvent>(playerId);
     LOG("Sending QuitGameEvent to clients");
     ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), &player);
-    LOG("removing both players from server");
-    ServerNetworkManager::on_player_left(playerId);
-    ServerNetworkManager::on_player_left(gameInstance.getGameState().getOtherPlayer(playerId).getId());
 
     LOG("resetting the gameInstance...");
-    if (gameInstance.quitGame(quitGameRequest)) {
+    if (gameInstance.reset()) {
       LOG("gameInstance reset");
       return nullptr;
     } else { // TODO: what to do if gameInstance doesn't clear the gameState?

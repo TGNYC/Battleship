@@ -90,13 +90,16 @@ bool GameInstance::executeShot(CallShot shotRequest) {
   return success;
 }
 
-bool GameInstance::quitGame(QuitGame quitGameRequest) {
+bool GameInstance::reset() {
   // Set Mutex Lock
   std::lock_guard<std::mutex> lock(_modification_lock);
-  // Recreate GameState (which loses player information)
-  LOG("Recreating GameState in GameInstance. Ready for 2 new players to connect");
   _gameState.finish();
-  _gameState = GameState(GameState::Type::ServerState);
+  LOG("removing both players from server");
+  for (const Player &p : _gameState.getPlayers()) {
+    ServerNetworkManager::on_player_left(p.getId());
+  }
+  LOG("Recreating GameState in GameInstance. Ready for 2 new players to connect");
+  _gameState = GameState(GameState::Type::ServerState); // Recreate GameState (which loses player information)
   _isReady.clear();
   return _gameState.getPlayers().empty(); // checks that _players attribute is an empty vec
 }

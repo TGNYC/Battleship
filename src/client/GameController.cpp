@@ -24,6 +24,7 @@ std::chrono::time_point<std::chrono::system_clock> GameController::_lastClick;
  * @param gameWindow
  */
 void GameController::init(GameWindow *gameWindow) {
+  LOG("initializing controller");
   GameController::_gameWindow = gameWindow;
 
   // setup panels
@@ -85,6 +86,7 @@ void GameController::connectToServer() {
   ClientNetworkManager::init(host, port);
 
   // send request to join game
+  LOG("sending join request");
   GameController::_me = new Player(uuid::generateRandomUuid(), playerName);
   JoinGame request    = JoinGame(GameController::_me->getId(), GameController::_me->getName());
 
@@ -234,6 +236,7 @@ void GameController::handleQuitGameEvent(uuid quitterId) {
   if (quitterId != _me->getId()) {
         std::string message = "Your opponent left the game\n";
         wxMessageBox(message, "Opponent left", wxOK | wxICON_INFORMATION);
+        LOG("resetting client...");
         GameController::init(_gameWindow);
   }
 }

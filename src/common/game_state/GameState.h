@@ -114,6 +114,7 @@ public:
    * returns the id of the player who has NOT the id specified as parameter
    * @param playerId
    * @return id of the other player. "Error" if no other player found.
+   * @pre there are exactly 2 players added to the gameState
    */
   const Player &getOtherPlayer(uuid playerId);
 
@@ -166,6 +167,7 @@ public:
    * @return true if game is over. false if game is not over
    */
   bool gameOver();
+
   /*!
    * Returns the winner if the game is over. Should only be called after gameOver() returned true.
    * @return id of winner. null-uuid if game is not over

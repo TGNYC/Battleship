@@ -41,12 +41,13 @@ public:
   bool executeShot(CallShot shotRequest);
 
   /*!
-   * Function to handle a QuitGame request. Recreates a new GameState to be ready for next Game.
+   * Function to handle reset after QuitGame or GameOver. Recreates a new GameState to be ready for next Game.
+   * Also removes current players network information from the ServerNetworkManager
    * <>
    * @param QuitGame
    * @return True if all _gameState attributes are reset. Else, false.
    */
-  bool quitGame(QuitGame quitGameRequest);
+  bool reset();
 
   // TODO: playAgain
 
