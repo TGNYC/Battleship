@@ -27,14 +27,7 @@ EmotePopup::EmotePopup(wxWindow *parent, wxPoint pos, EmoteType emote) : wxPopup
         LOG("Hide current emote");
         // one of these ought to do the trick
         this->_currentEmote->Hide();
-        LOG("Line 30");
         this->Hide();
-        LOG("Line 32");
         this->Destroy();
-        LOG("Line 34");
-        // this->Close();
-        LOG("Line 36");
-        // delete this;
-        LOG("Line 38");
     });
 }
