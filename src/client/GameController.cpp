@@ -1,23 +1,22 @@
 #include "GameController.h"
+#include "AudioPlayer.h"
 #include "ClientNetworkManager.h"
 #include "Logger.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
+#include "network/requests/QuitGame.h"
 #include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
-#include "network/requests/QuitGame.h"
-#include "AudioPlayer.h"
 
 // initialize static variables
-GameWindow      *GameController::_gameWindow      = nullptr;
-ConnectionPanel *GameController::_connectionPanel = nullptr;
-SetupPanel      *GameController::_setupPanel      = nullptr;
-MainGamePanel   *GameController::_mainGamePanel   = nullptr;
-SetupManager    *GameController::_setupManager    = nullptr;
-Player          *GameController::_me              = nullptr;
-GameState       *GameController::_gameState       = nullptr;
+GameWindow                                        *GameController::_gameWindow      = nullptr;
+ConnectionPanel                                   *GameController::_connectionPanel = nullptr;
+SetupPanel                                        *GameController::_setupPanel      = nullptr;
+MainGamePanel                                     *GameController::_mainGamePanel   = nullptr;
+SetupManager                                      *GameController::_setupManager    = nullptr;
+Player                                            *GameController::_me              = nullptr;
+GameState                                         *GameController::_gameState       = nullptr;
 std::chrono::time_point<std::chrono::system_clock> GameController::_lastClick;
-
 
 /**
  * @brief Constructor for GameController. Initializes different panels
@@ -39,11 +38,11 @@ void GameController::init(GameWindow *gameWindow) {
 
   // start of game: show connection panel
   GameController::_gameWindow->showPanel(GameController::_connectionPanel);
-  //GameController::startGame(); // TODO: should be the function to be called @nico: no? startGame is called when receiving startGameSuccess from server
+  // GameController::startGame(); // TODO: should be the function to be called @nico: no? startGame is called when
+  // receiving startGameSuccess from server
 
   _lastClick = std::chrono::system_clock::now();
 }
-
 
 /**
  * @brief Function that is called when connect button on ConnectionPanel is clicked. Will try to connect to the server
@@ -77,7 +76,7 @@ void GameController::connectToServer() {
     GameController::showError("Connection error", "Invalid port", true);
     return;
   }
-  uint16_t port = (uint16_t)portAsLong;
+  uint16_t port = static_cast<uint16_t>(portAsLong);
 
   // convert player name from wxString to std::string
   std::string playerName = inputPlayerName.ToStdString();
@@ -101,7 +100,6 @@ void GameController::enterSetupPhase() {
   GameController::_setupManager = new SetupManager();
   GameController::_gameWindow->showPanel(GameController::_setupPanel);
 }
-
 
 /**
  * @brief Function that is called when server responds with StartGameSuccess. Will show main game panel.
@@ -162,14 +160,15 @@ void GameController::sendEmote(EmoteType emote) {
 }
 
 void GameController::showEmote(EmoteEvent emoteEvent) {
-  EmoteType emote = emoteEvent.emote;
-  std::string file = EmoteHandler::getImage(emote);
+  EmoteType   emote = emoteEvent.emote;
+  std::string file  = EmoteHandler::getImage(emote);
   _mainGamePanel->displayEmote(emote);
 }
 
 void GameController::showError(const std::string &title, const std::string &message, bool popup) {
   std::cout << "ERROR [" << title << "] " << message << std::endl;
-  if (popup) wxMessageBox(message, title, wxOK | wxICON_ERROR);
+  if (popup)
+    wxMessageBox(message, title, wxOK | wxICON_ERROR);
 }
 
 void GameController::gameOver(uuid winnerId) {
@@ -188,11 +187,10 @@ void GameController::gameOver(uuid winnerId) {
   GameController::init(_gameWindow);
 }
 
-
 void GameController::playerReady() {
-  if(!_setupManager->placedAllShips()) {
-        GameController::showError("Setup error", "Please place all ships before clicking ready", true);
-        return;
+  if (!_setupManager->placedAllShips()) {
+    GameController::showError("Setup error", "Please place all ships before clicking ready", true);
+    return;
   }
 
   // generate GameState
@@ -202,7 +200,7 @@ void GameController::playerReady() {
   _gameState->addShips(_me->getId(), _setupManager->_ships_placed);
   LOG("Printing ship ids...");
   for (auto ship : _gameState->getPlayerGrid(_me->getId()).shipsPlaced) {
-        LOG(ship.getId().ToString());
+    LOG(ship.getId().ToString());
   }
 
   // todo: maybe display some waiting for other player information
@@ -220,7 +218,6 @@ void GameController::playerReady() {
   GameController::_setupPanel->Layout();
 }
 
-
 wxEvtHandler *GameController::getMainThreadEventHandler() {
   return GameController::_gameWindow->GetEventHandler();
 }
@@ -234,9 +231,9 @@ void GameController::quitGame() {
 
 void GameController::handleQuitGameEvent(uuid quitterId) {
   if (quitterId != _me->getId()) {
-        std::string message = "Your opponent left the game\n";
-        wxMessageBox(message, "Opponent left", wxOK | wxICON_INFORMATION);
-        LOG("resetting client...");
-        GameController::init(_gameWindow);
+    std::string message = "Your opponent left the game\n";
+    wxMessageBox(message, "Opponent left", wxOK | wxICON_INFORMATION);
+    LOG("resetting client...");
+    GameController::init(_gameWindow);
   }
 }
