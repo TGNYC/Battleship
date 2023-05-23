@@ -23,7 +23,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPo
 
   // add the placement grid to the left side of the horizontal sizer
   this->_placementGrid = new PlacementGrid(this);
-  horizontalLayout->Add(this->_placementGrid, 1, wxDEFAULT, 0);
+  horizontalLayout->Add(this->_placementGrid, 1, wxDEFAULT | wxLEFT, 10);
 
   // create a vertical sizer to contain the instruction text and ship images
   wxBoxSizer *verticalLayout = new wxBoxSizer(wxVERTICAL);
