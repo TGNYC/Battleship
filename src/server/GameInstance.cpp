@@ -93,17 +93,10 @@ bool GameInstance::executeShot(CallShot shotRequest) {
 bool GameInstance::quitGame(QuitGame quitGameRequest) {
   // Set Mutex Lock
   std::lock_guard<std::mutex> lock(_modification_lock);
-  // Broadcast to all users QuitGameEvent
-  QuitGameEvent *gameQuitEvent = new QuitGameEvent(quitGameRequest.getPlayerId());
-  ServerResponse *msg_string = gameQuitEvent;
-  LOG("Player " + quitGameRequest.getPlayerId().ToString() + " quit the game.");
-  LOG("Sending QuitGameEvent to clients");
-  ServerNetworkManager::broadcastMessage(*msg_string, _gameState.getPlayers());
-
   // Recreate GameState (which loses player information)
   LOG("Recreating GameState in GameInstance. Ready for 2 new players to connect");
-  _gameState = GameState(GameState::Type::ServerState);
   _gameState.finish();
+  _gameState = GameState(GameState::Type::ServerState);
   _isReady.clear();
   return _gameState.getPlayers().empty(); // checks that _players attribute is an empty vec
 }

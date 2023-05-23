@@ -33,12 +33,8 @@ void ServerNetworkManager::connect(const uint16_t port) {
     std::cerr << "Error creating the acceptor: " << _acc.last_error_str() << std::endl;
     return;
   }
-
-  // Print a message indicating that the server is awaiting connections on the specified port
+  // Print a message indicating that the server is awaiting connections on the specified port // TODO also print ip
   LOG("Awaiting connections on port " + std::to_string(port) + "...");
-
-  // Start an endless loop that listens for incoming connections and reads incoming messages
-  // this->listener_loop();
 }
 
 // Endless loop that listens for incoming connections and reads incoming messages
@@ -104,7 +100,6 @@ void ServerNetworkManager::readMessage(
         msg_bytes_read += count;
         ss_msg.write(buffer, count);
       }
-
       if (msg_bytes_read == msg_length) {
         // sanity check that really all bytes got read (possibility that count was <= 0, indicating a read error)
         std::string msg = ss_msg.str();
@@ -118,13 +113,10 @@ void ServerNetworkManager::readMessage(
       std::cerr << "Error while reading message from " << socket.peer_address() << std::endl << e.what() << std::endl;
     }
   }
-  LOG("Value of count: " + std::to_string(count));
-
   if (count <= 0) {
     LOG("Didn't get to read anything from the buffer");
     LOG("Read error [" + std::to_string(socket.last_error()) + "]: " + socket.last_error_str());
   }
-
   LOG("Closing connection to " + socket.peer_address().to_string());
   socket.shutdown();
 }
@@ -132,7 +124,7 @@ void ServerNetworkManager::readMessage(
 void ServerNetworkManager::handleMessage(const std::string                &msg,
                                                      const sockpp::tcp_socket::addr_t &peer_address) {
   try {
-    LOG("Handling the incoming message");
+    LOG("handling incoming message");
     // try to parse a json from the 'msg'
     nlohmann::json                       req_json = nlohmann::json::parse(msg);
     const std::unique_ptr<ClientRequest> req      = req_json;
@@ -143,16 +135,14 @@ void ServerNetworkManager::handleMessage(const std::string                &msg,
     if (_playerIdToAddress.find(player_id) == _playerIdToAddress.end()) {
       // save connection to this client
       _rwLock.unlock_shared();
-      LOG("New client with id " + player_id.ToString());
+      LOG("new client with id " + player_id.ToString());
       _rwLock.lock();
       _playerIdToAddress.emplace(player_id, peer_address.to_string());
       _rwLock.unlock();
     } else {
       _rwLock.unlock_shared();
     }
-#ifdef PRINT_NETWORK_MESSAGES
-    LOG("Received valid request : " + msg);
-#endif
+
     // -- handle client request and create response
     const std::unique_ptr<ServerResponse> res = RequestHandler::handleRequest(_gameInstance, req.get());
 

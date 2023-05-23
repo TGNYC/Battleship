@@ -9,13 +9,14 @@
 #include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
 #include "network/requests/PlayAgain.h"
+#include "network/requests/QuitGame.h"
 #include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
 #include "network/responses/ErrorResponse.h"
 #include "network/responses/JoinGameSuccess.h"
+#include "network/responses/QuitGameEvent.h"
 #include "network/responses/ServerResponse.h"
 #include "network/responses/StartGameSuccess.h"
-#include "network/requests/QuitGame.h"
 #include <iostream>
 #include <memory>
 
@@ -28,7 +29,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
 
   // Get common properties of requests
   RequestType type      = req->getRequestType();
-  uuid        player_id = req->getPlayerId();
+  uuid        playerId  = req->getPlayerId();
 
   // Switch behavior according to request type
   switch (type) {
@@ -49,10 +50,10 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   case RequestType::StartGame: {
     LOG("handle StartGame request");
     const StartGame startGameRequest = static_cast<const StartGame &>(*req);
-    const Player    player           = gameInstance.getGameState().getPlayer(player_id);
+    const Player    player           = gameInstance.getGameState().getPlayer(playerId);
     LOG("adding ships of " + player.getName());
     gameInstance.getGameState().addShips(
-        player_id, startGameRequest.getShips()); // TODO move this line to gameInstance.startGame()
+        playerId, startGameRequest.getShips()); // TODO move this line to gameInstance.startGame()
     // trying to start the gameInstance
     const bool result = gameInstance.startGame(&player, err); // this function does a lot of checks
 
@@ -63,12 +64,12 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
       // send StartGameSuccess update to the already-ready player
       LOG("Sending StartGameSuccess to the already-ready player");
       std::unique_ptr<ServerResponse> resp =
-          std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(), player_id);
+          std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(), playerId);
       ServerNetworkManager::broadcastMessage(*resp, gameInstance.getGameState().getPlayers(), &player);
       // send StartGameSuccess update to the newly-ready player
       LOG("Sending StartGameSuccess to the newly-ready player");
       return std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(),
-                                                player_id); // TODO can you pass here the resp pointer from above?
+                                                playerId); // TODO can you pass here the resp pointer from above?
     }
     LOG("Set player " + player.getName() + " ready. But opponent is not ready yet");
     return nullptr;
@@ -88,7 +89,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   // ##################### SEND EMOTE ##################### //
   case RequestType::SendEmote: {
     LOG("Handle SendEmote request");
-    const Player                    player           = gameInstance.getGameState().getPlayer(player_id);
+    const Player                    player           = gameInstance.getGameState().getPlayer(playerId);
     const SendEmote                 sendEmoteRequest = static_cast<const SendEmote &>(*req);
     std::unique_ptr<ServerResponse> response =
         std::make_unique<EmoteEvent>(sendEmoteRequest.getEmote(), sendEmoteRequest.getPlayerId());
@@ -101,20 +102,23 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   case RequestType::QuitGame: {
     LOG("handle Quit Game request");
     const QuitGame quitGameRequest = static_cast<const QuitGame &>(*req);
-    // gameInstance should have an empty vector of players now
-    // the QuitGameEvent should have been broadcasted in the .quitGame() function
-    // therefore, the return type should nullptr
+    const Player player = gameInstance.getGameState().getPlayer(playerId);
+    LOG("Player " + playerId.ToString() + " quit the game.");
+    // create event
+    std::unique_ptr<ServerResponse> response =
+        std::make_unique<QuitGameEvent>(playerId);
+    LOG("Sending QuitGameEvent to clients");
+    ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), &player);
+    LOG("removing both players from server");
+    ServerNetworkManager::on_player_left(playerId);
+    ServerNetworkManager::on_player_left(gameInstance.getGameState().getOtherPlayer(playerId).getId());
 
-    // Not sure, but since the QuitGameEvent calls the QuitGame request
-    // gameInstance.quitGame() might be redundant
-    // if gameState already finished, then no need to reset gameInstance and broadcast QuitGameEvent
-    if (gameInstance.getGameState().getState() == GameState::State::Finished) {
-      return nullptr;
-    }
-
+    LOG("resetting the gameInstance...");
     if (gameInstance.quitGame(quitGameRequest)) {
+      LOG("gameInstance reset");
       return nullptr;
     } else { // TODO: what to do if gameInstance doesn't clear the gameState?
+      LOG("problem while resetting the gameInstance");
       return nullptr;
     }
   }
