@@ -22,18 +22,20 @@ add_library(Battleship_Common)
 target_link_libraries(Battleship_Common PRIVATE project_options)
 target_link_libraries(Battleship_Common PUBLIC nlohmann_json::nlohmann_json)
 
-
 add_executable(Battleship_Server)
 target_link_libraries(Battleship_Server PRIVATE project_options)
 target_link_libraries(Battleship_Server PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Server PRIVATE sockpp)
 target_link_libraries(Battleship_Server PRIVATE pthread) # Fix for WSL2 with Ubuntu 20.04
 
+find_package(wxWidgets REQUIRED COMPONENTS net core base)
+include(${wxWidgets_USE_FILE})
+
 add_executable(Battleship_Client)
 target_link_libraries(Battleship_Client PRIVATE project_options)
 target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Client PRIVATE sockpp)
-target_link_libraries(Battleship_Client PRIVATE wx::net wx::core wx::base)
+target_link_libraries(Battleship_Client PRIVATE ${wxWidgets_LIBRARIES})
 
 option(ENABLE_TESTING "Enableing Testing" ON)
 if(ENABLE_TESTING)
@@ -101,22 +103,13 @@ FetchContent_Declare(json
     GIT_TAG        v3.11.2
     # SYSTEM
     )
-FetchContent_Declare(wxWidgets
-    GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
-    GIT_TAG        v3.2.2.1
-    # SYSTEM
-    )
 
-FetchContent_MakeAvailable(sockpp googletest json wxWidgets)
+FetchContent_MakeAvailable(sockpp googletest json)
 
 # Set the includes for the expern libarays as systme to disabel the warnings
 # https://stackoverflow.com/questions/56707123/how-to-suppress-clang-warnings-in-third-party-library-header-file-in-cmakelists
 set_target_properties(gtest PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:gtest,INTERFACE_INCLUDE_DIRECTORIES>)
 set_target_properties(gtest_main PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:gtest_main,INTERFACE_INCLUDE_DIRECTORIES>)
-
-set_target_properties(wxnet PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxnet,INTERFACE_INCLUDE_DIRECTORIES>)
-set_target_properties(wxcore PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxcore,INTERFACE_INCLUDE_DIRECTORIES>)
-set_target_properties(wxbase PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxbase,INTERFACE_INCLUDE_DIRECTORIES>)
 
 set_target_properties(nlohmann_json PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:nlohmann_json,INTERFACE_INCLUDE_DIRECTORIES>)
 
