@@ -163,6 +163,7 @@ void GameController::showEmote(EmoteEvent emoteEvent) {
   EmoteType   emote = emoteEvent.emote;
   std::string file  = EmoteHandler::getImage(emote);
   _mainGamePanel->displayEmote(emote);
+  AudioPlayer::play(EmoteHandler::getSound(emote));
 }
 
 void GameController::showError(const std::string &title, const std::string &message, bool popup) {

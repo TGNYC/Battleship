@@ -28,7 +28,7 @@ target_link_libraries(Battleship_Server PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Server PRIVATE sockpp)
 target_link_libraries(Battleship_Server PRIVATE pthread) # Fix for WSL2 with Ubuntu 20.04
 
-find_package(wxWidgets REQUIRED COMPONENTS net core base)
+find_package(wxWidgets REQUIRED COMPONENTS net core base adv)
 include(${wxWidgets_USE_FILE})
 
 add_executable(Battleship_Client)
