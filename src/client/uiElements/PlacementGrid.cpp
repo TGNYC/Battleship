@@ -61,7 +61,7 @@ void PlacementGrid::OnMouseClick(wxMouseEvent &event) {
     return;
   }
 
-  wxPoint mousePosition = event.GetPosition() - wxPoint(10, 10);
+  wxPoint mousePosition = event.GetPosition();
   LOG("clicked at (" + std::to_string(mousePosition.x/40) + ", " + std::to_string(mousePosition.y/40) + ")");
   if (!SetupManager::placeShip(mousePosition, SetupManager::_selectedShip)) return;
   LOG("placed ship");
