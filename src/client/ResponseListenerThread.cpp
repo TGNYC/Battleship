@@ -11,9 +11,9 @@ ResponseListenerThread::ResponseListenerThread(sockpp::tcp_connector *connection
   this->_connection = connection;
 }
 
-ResponseListenerThread::~ResponseListenerThread() {
-  this->_connection->shutdown();
-}
+// ResponseListenerThread::~ResponseListenerThread() {
+//   this->_connection->shutdown();
+// }
 
 wxThread::ExitCode ResponseListenerThread::Entry() {
   try {
@@ -121,7 +121,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
       }
     }
 
-    if (count <= 0) {
+    if (count < 0) {
       this->outputError("Network error", "Read error [" + std::to_string(this->_connection->last_error()) +
                                              "]: " + this->_connection->last_error_str());
     }
@@ -130,7 +130,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
     this->outputError("Network error", "Error in listener thread: " + std::string(e.what()));
   }
 
-  this->_connection->shutdown();
+  // this->_connection->shutdown();
 
   return static_cast<wxThread::ExitCode>(0); // everything okay
 }

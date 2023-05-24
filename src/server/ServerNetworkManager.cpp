@@ -113,8 +113,7 @@ void ServerNetworkManager::readMessage(
       std::cerr << "Error while reading message from " << socket.peer_address() << std::endl << e.what() << std::endl;
     }
   }
-  if (count <= 0) {
-    LOG("Didn't get to read anything from the buffer");
+  if (count < 0) {
     LOG("Read error [" + std::to_string(socket.last_error()) + "]: " + socket.last_error_str());
   }
   LOG("Closing connection to " + socket.peer_address().to_string());

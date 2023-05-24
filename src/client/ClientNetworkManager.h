@@ -1,6 +1,7 @@
 #ifndef CLIENTNETWORKMANAGER_H
 #define CLIENTNETWORKMANAGER_H
 
+#include "ResponseListenerThread.h"
 #include "network/requests/ClientRequest.h"
 #include "network/responses/ServerResponse.h"
 #include "sockpp/tcp_connector.h"
@@ -19,7 +20,8 @@ public:
 private:
   static bool connect(const std::string &host, const uint16_t port);
 
-  static sockpp::tcp_connector *_connection;
+  static sockpp::tcp_connector  *_connection;
+  static ResponseListenerThread *_responseListenerThread;
 
   static bool _connectionSuccess;
   static bool _failedToConnect;

@@ -8,7 +8,7 @@ class ResponseListenerThread : public wxThread {
 
 public:
   ResponseListenerThread(sockpp::tcp_connector *connection);
-  ~ResponseListenerThread();
+  // ~ResponseListenerThread();
 
 protected:
   virtual ExitCode Entry();
