@@ -10,12 +10,15 @@
 #include <sstream>
 
 // initialize static members
-sockpp::tcp_connector *ClientNetworkManager::_connection = nullptr;
+sockpp::tcp_connector  *ClientNetworkManager::_connection             = nullptr;
+ResponseListenerThread *ClientNetworkManager::_responseListenerThread = nullptr;
 
 bool ClientNetworkManager::_connectionSuccess = false;
 bool ClientNetworkManager::_failedToConnect   = false;
 
 void ::ClientNetworkManager::init(const std::string &host, const uint16_t port) {
+
+  LOG("ClientNetworkManager init");
 
   // initialize sockpp framework
   sockpp::initialize();
@@ -27,6 +30,10 @@ void ::ClientNetworkManager::init(const std::string &host, const uint16_t port) 
   // delete exiting connection and create new one
   if (ClientNetworkManager::_connection != nullptr) {
     ClientNetworkManager::_connection->shutdown();
+    if (_responseListenerThread != nullptr) {
+      _responseListenerThread->Delete();
+      _responseListenerThread = nullptr;
+    }
     delete ClientNetworkManager::_connection;
   }
   ClientNetworkManager::_connection = new sockpp::tcp_connector();
@@ -38,8 +45,8 @@ void ::ClientNetworkManager::init(const std::string &host, const uint16_t port) 
     ClientNetworkManager::_connectionSuccess = true;
 
     // start network thread
-    ResponseListenerThread *responseListenerThread = new ResponseListenerThread(ClientNetworkManager::_connection);
-    if (responseListenerThread->Run() != wxTHREAD_NO_ERROR) {
+    _responseListenerThread = new ResponseListenerThread(ClientNetworkManager::_connection);
+    if (_responseListenerThread->Run() != wxTHREAD_NO_ERROR) {
       GameController::showError("Connection error", "Could not create client network thread", false);
     }
 
@@ -106,8 +113,9 @@ void ClientNetworkManager::sendRequest(const ClientRequest &request) {
 
     // if the number of bytes sent does not match the length of the message, probably something went wrong
     if (bytesSent != ssize_t(message.length())) {
-      GameController::showError("Network error", "Error writing to the TCP stream: " +
-                                                     ClientNetworkManager::_connection->last_error_str(), false);
+      GameController::showError(
+          "Network error", "Error writing to the TCP stream: " + ClientNetworkManager::_connection->last_error_str(),
+          false);
     }
 
   } else {

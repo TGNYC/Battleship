@@ -7,8 +7,6 @@ class uuid;
 class PlayAgain : public ClientRequest {
 public:
   explicit PlayAgain(uuid playerId);
-
-  auto operator<=>(const PlayAgain &) const = default;
 };
 
 #endif // PLAYAGAIN_H

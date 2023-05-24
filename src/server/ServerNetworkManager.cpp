@@ -55,7 +55,7 @@ void ServerNetworkManager::listenerLoop() {
       LOG("Socket created successfully");
       // Add the socket to a map, and create a new thread to handle incoming messages
       _rwLock.lock();
-      _addressToSocket.emplace(sock.peer_address().to_string(), std::move(sock.clone()));
+      _addressToSocket.emplace(sock.peer_address().to_string(), sock.clone());
       _rwLock.unlock();
       std::thread listener(readMessage, std::move(sock),
                            [this](const std::string &message, const sockpp::tcp_socket::addr_t &address) {
@@ -69,7 +69,7 @@ void ServerNetworkManager::listenerLoop() {
 // Runs in a thread and reads anything coming in on the 'socket'.
 // Once a message is fully received, the string is passed on to the 'handle_message()' function
 void ServerNetworkManager::readMessage(
-    sockpp::tcp_socket socket,
+    sockpp::tcp_socket                                                                  socket,
     const std::function<void(const std::string &, const sockpp::tcp_socket::addr_t &)> &message_handler) {
   // sockpp::socket_initializer sockInit; // initializes socket framework underneath
   LOG("Reading message");
@@ -113,16 +113,14 @@ void ServerNetworkManager::readMessage(
       std::cerr << "Error while reading message from " << socket.peer_address() << std::endl << e.what() << std::endl;
     }
   }
-  if (count <= 0) {
-    LOG("Didn't get to read anything from the buffer");
+  if (count < 0) {
     LOG("Read error [" + std::to_string(socket.last_error()) + "]: " + socket.last_error_str());
   }
   LOG("Closing connection to " + socket.peer_address().to_string());
   socket.shutdown();
 }
 
-void ServerNetworkManager::handleMessage(const std::string                &msg,
-                                                     const sockpp::tcp_socket::addr_t &peer_address) {
+void ServerNetworkManager::handleMessage(const std::string &msg, const sockpp::tcp_socket::addr_t &peer_address) {
   try {
     LOG("handling incoming message");
     // try to parse a json from the 'msg'
@@ -178,7 +176,7 @@ ssize_t ServerNetworkManager::sendMessage(const std::string &msg, const std::str
 }
 
 void ServerNetworkManager::broadcastMessage(ServerResponse &msg, const std::vector<Player> &players,
-                                               const Player *exclude) {
+                                            const Player *exclude) {
   nlohmann::json msg_json   = msg;             // write to JSON format
   std::string    msg_string = msg_json.dump(); // convert to string
 

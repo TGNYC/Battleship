@@ -8,7 +8,7 @@
 
 GameState::GameState(GameState::Type type) : _state(State::Starting), _type(type), _currentPlayerId(), _turnNumber(0) {
 
-  _players    = std::vector<Player>();
+  _players     = std::vector<Player>();
   _playerGrids = std::vector<PlayerGrid>();
   LOG("Created GameState");
 }
@@ -188,7 +188,7 @@ bool GameState::registerShot(uuid playerId, Coordinate position, bool *hit, Ship
   // determine next player
   *nextPlayerId =
       *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
-  _currentPlayerId = *nextPlayerId;      // update current player
+  _currentPlayerId = *nextPlayerId;     // update current player
   LOG("next player: " + nextPlayerId->ToString());
   _turnNumber++;
   return true;
@@ -236,9 +236,8 @@ bool GameState::updateBoards(const GameEvent &event) {
     }
   }
 
-  LOG("" + std::to_string((int)_oppShipSunk[0]) + " " + std::to_string((int)_oppShipSunk[1]) + " " +
-      std::to_string((int)_oppShipSunk[2]) + " " + std::to_string((int)_oppShipSunk[3]) + " " +
-      std::to_string((int)_oppShipSunk[4]));
+  LOG("" + std::to_string(_oppShipSunk[0]) + " " + std::to_string(_oppShipSunk[1]) + " " +
+      std::to_string(_oppShipSunk[2]) + " " + std::to_string(_oppShipSunk[3]) + " " + std::to_string(_oppShipSunk[4]));
 
   // update current player
   _currentPlayerId = event.nextPlayerId;
@@ -260,7 +259,7 @@ bool GameState::gameOver() {
     }
     if (lost) {
       _winner = getOtherPlayer(grid.playerId).getId(); // this player lost, so the other player is the _winner
-      _state = State::Finished;
+      _state  = State::Finished;
       return true;
     }
   }

@@ -22,8 +22,6 @@ public:
   auto setOrientation(Orientation orientation) -> void;
   auto setPosition(Coordinate position) -> void;
 
-  auto operator<=>(const Ship &) const = default;
-
   /*!
    * Hit detection. Processes a shot for an individual ship. Will update m_sunk and m_hits
    * @param shot coordinates of the shot called

@@ -11,8 +11,6 @@ public:
 
   [[nodiscard]] auto getPosition() const -> Coordinate;
 
-  auto operator<=>(const CallShot &) const = default;
-
 private:
   Coordinate _position;
 };
