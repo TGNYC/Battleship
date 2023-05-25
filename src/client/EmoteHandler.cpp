@@ -1,25 +1,32 @@
 #include "EmoteHandler.h"
 
+const std::string EmoteHandler::imagePath = "../assets/emotes/";
+const std::string EmoteHandler::audioPath = "../assets/audio/";
+
 const std::map<EmoteType, std::string> EmoteHandler::_images = {
-    {EmoteType::MiddleFinger, "../assets/emotes/middlefinger.png"},
-    {EmoteType::RussianWarshipGoFuckYourself, "../assets/emotes/gofuckyourself.png"},
-    {EmoteType::Mocking, "../assets/emotes/mocking.png"},
-    {EmoteType::BestPirate, "../assets/emotes/bestpirate.png"},
-    {EmoteType::Panic, "../assets/emotes/panic.png"}  
+    {EmoteType::MiddleFinger, "middlefinger.png"},
+    {EmoteType::RussianWarshipGoFuckYourself, "gofuckyourself.png"},
+    {EmoteType::Mocking, "mocking.png"},
+    {EmoteType::BestPirate, "bestpirate.png"},
+    {EmoteType::Panic, "panic.png"}
 };
 
 const std::map<EmoteType, std::string> EmoteHandler::_sounds = {
-    {EmoteType::MiddleFinger, "../assets/audio/popup.wav"},
-    {EmoteType::RussianWarshipGoFuckYourself, "../assets/audio/russianwarship.wav"},
-    {EmoteType::Mocking, "../assets/audio/popup.wav"},
-    {EmoteType::BestPirate, "../assets/audio/bestpirate.wav"},
-    {EmoteType::Panic, "../assets/audio/popup.wav"}
+    {EmoteType::MiddleFinger, "popup.wav"},
+    {EmoteType::RussianWarshipGoFuckYourself, "russianwarship.wav"},
+    {EmoteType::Mocking, "popup.wav"},
+    {EmoteType::BestPirate, "bestpirate.wav"},
+    {EmoteType::Panic, "popup.wav"}
 };
 
 std::string EmoteHandler::getImage(EmoteType emote) {
-  return _images.at(emote);
+  return imagePath + _images.at(emote);
+}
+
+std::string EmoteHandler::getImageLarge(EmoteType emote) {
+    return imagePath + "large_" + _images.at(emote);
 }
 
 std::string EmoteHandler::getSound(EmoteType emote) {
-  return _sounds.at(emote);
+  return audioPath + _sounds.at(emote);
 }
