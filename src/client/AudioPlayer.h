@@ -14,7 +14,7 @@
 class AudioPlayer {
 public:
   /*!
-   * Available sound effects you are able to call with AudioPlayer::play(AudioPlayer::Clip::ButtonClick);
+   * Collection of general sound effect clips
    */
   enum Clip {
     ButtonClick,
@@ -35,16 +35,13 @@ public:
   /*!
    * Play a general audio file in .wav format.
    * Use this to play the sound of emotes:
-   * AudioPlayer::play(EmoteHandler::getAudio(EmoteHandler::Mocking));
-   * @param file filepath .wav
+   * AudioPlayer::play(EmoteHandler::getSound(emote));
+   * @param file full path to the .wav-file (Has to be specific WAV format! Default output of Audacity works)"
    */
   static void play(const std::string& file);
 
-  //static void setMediaCtrl(wxMediaCtrl* mediaCtrl);
-
 private:
-  static const std::map<Clip, std::string> _clips;
-  //static wxMediaCtrl* _mediaCtrl;
+  static const std::map<Clip, std::string> _clips;  ///< maps sound clip enums to the respective audio filepath
 };
 
 #endif // BATTLESHIP_AUDIOPLAYER_H

@@ -18,7 +18,7 @@
 /*!
  * Custom basic logging class. Use the macro LOG(msg) anywhere in the project to log whatever you need.
  */
-class Logger {  //TODO idk if this class is actually thread safe. should technically at least not crash stuff
+class Logger {
 
 public:
   /*!

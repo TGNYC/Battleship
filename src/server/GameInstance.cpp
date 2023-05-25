@@ -96,7 +96,7 @@ bool GameInstance::reset() {
   _gameState.finish();
   LOG("removing both players from server");
   for (const Player &p : _gameState.getPlayers()) {
-    ServerNetworkManager::on_player_left(p.getId());
+    ServerNetworkManager::onPlayerLeft(p.getId());
   }
   LOG("Recreating GameState in GameInstance. Ready for 2 new players to connect");
   _gameState = GameState(GameState::Type::ServerState); // Recreate GameState (which loses player information)

@@ -12,6 +12,12 @@
 
 class RequestHandler {
 public:
+  /*!
+   * Handles an incoming request from the ServerNetworkManager and generates a response.
+   * @param gameInstance
+   * @param req
+   * @return direct response to send back (only) to the sender of the request
+   */
   static std::unique_ptr<ServerResponse> handleRequest(GameInstance &gameInstance, const ClientRequest *const req);
 };
 
