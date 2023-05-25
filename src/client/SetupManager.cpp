@@ -11,6 +11,7 @@ int *SetupManager::_grid;
  */
 SetupManager::SetupManager() {
   // generate ships
+  _ships_placed.clear();
   _ships_placed.emplace_back(Ship(5, Coordinate{-1, -1}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()));
   _ships_placed.emplace_back(Ship(4, Coordinate{-1, -1}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()));
   _ships_placed.emplace_back(Ship(3, Coordinate{-1, -1}, Ship::Orientation::Horizontal, uuid::generateRandomUuid()));
