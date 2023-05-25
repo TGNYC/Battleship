@@ -161,7 +161,7 @@ void ServerNetworkManager::handleMessage(const std::string &msg, const sockpp::t
   }
 }
 
-void ServerNetworkManager::on_player_left(uuid player_id) {
+void ServerNetworkManager::onPlayerLeft(uuid player_id) {
   _rwLock.lock();
   const std::string address = _playerIdToAddress[player_id];
   _playerIdToAddress.erase(player_id);

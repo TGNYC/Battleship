@@ -11,14 +11,13 @@
 class PlayerGrid {
 
   // members of grid public so GameState can easily modify them.
-  // const getter for grid also allows UI to access members without having to call 4 different getters
 public:
   PlayerGrid(uuid playerId, std::vector<Ship> shipsPlacement);
 
   uuid              playerId;        ///< id of owner of this grid
   std::vector<Ship> shipsPlaced;     ///< vector of all ships placed on this grid
-  int shotsReceived[10][10] = {{0}}; ///< shots received by this grid. 0 = tile not shot | 1 = miss | 2 = hit
-  int shotsFired[10][10]    = {{0}}; ///< shots fired by this player. 0 = tile not shot | 1 = miss | 2 = hit
+  int shotsReceived[10][10] = {{0}}; ///< shots received by this grid. 0 = tile not shot, 1 = miss, 2 = hit
+  int shotsFired[10][10]    = {{0}}; ///< shots fired by this player. 0 = tile not shot, 1 = miss, 2 = hit
 };
 
 #endif // BATTLESHIP_PLAYERGRID_H

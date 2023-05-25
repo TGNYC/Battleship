@@ -6,13 +6,16 @@
 #include "../EmoteHandler.h"
 #include "../../common/network/responses/EmoteEvent.h"
 
+/*!
+ * Panel to display the available emotes the user can use to communicate with the opponent
+ */
 class EmotePanel : public wxPanel {
 public:
     EmotePanel(wxWindow *parent, wxPoint pos);
 private:
     wxWindow* _parent;
     wxStaticBitmap* _emoteBitmaps[6];
-    std::chrono::system_clock::time_point _lastClick;
+    std::chrono::system_clock::time_point _lastClick; ///< timestamp used to prevent emote-spamming
 };
 
 #endif // EMOTEPANEL_H

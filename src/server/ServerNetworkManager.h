@@ -22,9 +22,14 @@ public:
   ServerNetworkManager(uint16_t port);
   ~ServerNetworkManager();
   // Used to broadcast a server_response (e.g. a full_state_response) to all 'players' except 'exclude'
+  /*!
+   * Send out a ServerResponse to everyone
+   * @param msg Response to be sent
+   * @param players Vector of all players/clients to send the message to
+   * @param exclude Optional player to exclude from the broadcast
+   */
   static void broadcastMessage(ServerResponse &msg, const std::vector<Player> &players, const Player *exclude= nullptr);
-  static void on_player_left(uuid player_id);
-
+  static void onPlayerLeft(uuid player_id);
   void listenerLoop();
 
 private:
