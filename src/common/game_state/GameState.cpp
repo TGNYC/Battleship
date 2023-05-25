@@ -186,8 +186,7 @@ bool GameState::registerShot(uuid playerId, Coordinate position, bool *hit, Ship
   targetGrid.shotsReceived[position.x][position.y] = impact;
 
   // determine next player
-  *nextPlayerId =
-      *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
+  *nextPlayerId = *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
   _currentPlayerId = *nextPlayerId;     // update current player
   LOG("next player: " + nextPlayerId->ToString());
   _turnNumber++;
@@ -203,27 +202,7 @@ bool GameState::updateBoards(const GameEvent &event) {
     LOG("This was my shot");
     myGrid.shotsFired[event.position.x][event.position.y] = event.hit ? 2 : 1;
     if (event.sunk) {
-      switch (event.hitShip.getLength()) {  // TODO move this block to own function
-      case 2:
-        _oppShipSunk[4] = true;
-        break;
-      case 3:
-        if (_oppShipSunk[3]) {
-          _oppShipSunk[2] = true;
-        } else {
-          _oppShipSunk[3] = true;
-        }
-        break;
-      case 4:
-        _oppShipSunk[1] = true;
-        break;
-      case 5:
-        _oppShipSunk[0] = true;
-        break;
-      default:
-        LOG("invalid ship length");
-        break;
-      }
+      updateOppShipSunk(event.hitShip);
     }
   } else { // other player shot me
     LOG("This was the other players shot");
@@ -243,6 +222,31 @@ bool GameState::updateBoards(const GameEvent &event) {
   _currentPlayerId = event.nextPlayerId;
   LOG("finished updating board");
   return true;
+}
+
+bool GameState::updateOppShipSunk(const Ship& hitShip) {
+  switch (hitShip.getLength()) {
+  case 2:
+    _oppShipSunk[4] = true;
+    return true;
+  case 3:
+    // we have 2 ships of length 3, thus just cross them one after the other
+    if (_oppShipSunk[3]) {
+      _oppShipSunk[2] = true;
+    } else {
+      _oppShipSunk[3] = true;
+    }
+    return true;
+  case 4:
+    _oppShipSunk[1] = true;
+    return true;
+  case 5:
+    _oppShipSunk[0] = true;
+    return true;
+  default:
+    LOG("invalid ship length");
+    return false;
+  }
 }
 
 bool GameState::gameOver() {

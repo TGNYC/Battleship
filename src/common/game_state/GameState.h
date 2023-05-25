@@ -156,10 +156,17 @@ public:
   bool registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk, uuid *nextPlayerId);
 
   /*!
-   * @brief updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGrid
+   * @brief updates the CLIENT SIDE boards after a game event happened.
    * @param event
    */
   bool updateBoards(const GameEvent &event);
+
+  /*!
+   * updates the array to cross out ships on the bottom of the screen
+   * @param hitShip
+   * @return
+   */
+  bool updateOppShipSunk(const Ship& hitShip);
 
   /*!
    * Checks if the game is over meaning all ships of one player are sunk
