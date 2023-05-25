@@ -8,14 +8,9 @@ EmotePanel::EmotePanel(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY
   _parent = parent;
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);
-  wxBitmap emoteBitmaps[5] = {wxBitmap(wxImage(EmoteHandler::getImage(EmoteType::MiddleFinger))),
-                              wxBitmap(wxImage(EmoteHandler::getImage(EmoteType::RussianWarshipGoFuckYourself))),
-                              wxBitmap(wxImage(EmoteHandler::getImage(EmoteType::Mocking))),
-                              wxBitmap(wxImage(EmoteHandler::getImage(EmoteType::BestPirate))),
-                              wxBitmap(wxImage(EmoteHandler::getImage(EmoteType::Panic))),
-                              };
-  for (int i = 0; i < 5; ++i) {
-    _emoteBitmaps[i] = new wxStaticBitmap(this, wxID_ANY, emoteBitmaps[i], wxPoint(20, 90 + 90 * i), wxSize(80, 80), 0);
+
+  for (int i = 0; i < 6; ++i) {
+    _emoteBitmaps[i] = new wxStaticBitmap(this, wxID_ANY, wxBitmap(EmoteHandler::getImage(EmoteType(i))), wxPoint(20, 50 + 90 * i), wxSize(80, 80), 0);
     _emoteBitmaps[i]->Bind(wxEVT_LEFT_DOWN, [this, i](wxMouseEvent &event) {
       LOG("clicked on emote " + std::to_string(i));
       auto now = std::chrono::system_clock::now();

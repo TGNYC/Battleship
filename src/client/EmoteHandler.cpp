@@ -8,7 +8,8 @@ const std::map<EmoteType, std::string> EmoteHandler::_images = {
     {EmoteType::RussianWarshipGoFuckYourself, "gofuckyourself.png"},
     {EmoteType::Mocking, "mocking.png"},
     {EmoteType::BestPirate, "bestpirate.png"},
-    {EmoteType::Panic, "panic.png"}
+    {EmoteType::Panic, "panic.png"},
+    {EmoteType::Clown, "clown.png"}
 };
 
 const std::map<EmoteType, std::string> EmoteHandler::_sounds = {
@@ -16,7 +17,8 @@ const std::map<EmoteType, std::string> EmoteHandler::_sounds = {
     {EmoteType::RussianWarshipGoFuckYourself, "russianwarship.wav"},
     {EmoteType::Mocking, "popup.wav"},
     {EmoteType::BestPirate, "bestpirate.wav"},
-    {EmoteType::Panic, "popup.wav"}
+    {EmoteType::Panic, "popup.wav"},
+    {EmoteType::Clown, "honk.wav"}
 };
 
 std::string EmoteHandler::getImage(EmoteType emote) {

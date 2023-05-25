@@ -10,7 +10,8 @@ enum class EmoteType {
   RussianWarshipGoFuckYourself, // 1
   Mocking, // 2
   BestPirate, // 3
-  Panic // 4
+  Panic, // 4
+  Clown // 5
 };
 
 class EmoteEvent : public ServerResponse {
