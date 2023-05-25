@@ -7,11 +7,12 @@
 
 const std::map<AudioPlayer::Clip, std::string> AudioPlayer::_clips = {
     {ButtonClick, "../assets/audio/button.wav"},
-    {GameOver, "../assets/audio/popup.wav"},
+    {GameOver, "../assets/audio/popup.wav"}, // TODO game over music?
     {Hit, "../assets/audio/woodbreak.wav"},
     {Miss, "../assets/audio/watersplash2.wav"},
     {PlaceShip, "../assets/audio/placeship.wav"},
-    {Shoot, "../assets/audio/cannon1.wav"}
+    {Cannon, "../assets/audio/cannon2.wav"},
+    {PopUp, "../assets/audio/popup.wav"}
 };
 
 void AudioPlayer::play(const AudioPlayer::Clip& clip) {

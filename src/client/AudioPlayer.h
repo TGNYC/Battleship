@@ -19,10 +19,11 @@ public:
   enum Clip {
     ButtonClick,
     PlaceShip,
-    Shoot,
+    Cannon,
     Hit,
     Miss,
-    GameOver
+    GameOver,
+    PopUp
   };
 
   /*!

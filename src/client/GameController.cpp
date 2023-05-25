@@ -127,11 +127,17 @@ void GameController::handleGameEvent(const GameEvent &event) {
   _gameState->updateBoards(event);
   uuid currentPlayerId = _gameState->getCurrentPlayerId();
   _mainGamePanel->buildGameState(_gameState, _me->getId());
+  if (event.playerId == _me->getId()) { // TODO: remove this condition if playing on 2 devices. This avoids playing sound double
+    if (event.hit) {
+      AudioPlayer::play(AudioPlayer::Cannon);
+    } else {
+      AudioPlayer::play(AudioPlayer::Miss);
+    }
+  }
 }
 
 void GameController::callShot(Coordinate position) {
   LOG("Calling shot on position " + std::to_string(position.x) + "," + std::to_string(position.y));
-  // TODO: Call ShotIsLegal & limit shot frequency
   // only current player can shoot
   if (_gameState->getCurrentPlayerId() != _me->getId()) {
     LOG("not your turn");
@@ -152,6 +158,7 @@ void GameController::callShot(Coordinate position) {
   // shot is ok, send to server
   CallShot request = CallShot(_me->getId(), position);
   ClientNetworkManager::sendRequest(request);
+  //AudioPlayer::play(AudioPlayer::Cannon);
 }
 
 void GameController::sendEmote(EmoteType emote) {
