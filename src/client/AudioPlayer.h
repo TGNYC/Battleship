@@ -18,10 +18,11 @@ public:
    */
   enum Clip {
     ButtonClick,
-    GameOver,
-    ShipHit,
-    ShipMiss,
-    BestPirate
+    PlaceShip,
+    Shoot,
+    Hit,
+    Miss,
+    GameOver
   };
 
   /*!

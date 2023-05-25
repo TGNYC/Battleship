@@ -45,7 +45,7 @@ bool GameInstance::startGame(const Player *player, std::string &err) {
 
   // check if we have 2 players
   if (currentPlayers.size() != 2) {
-    LOG("Not 2 players yet. Cannot start game");
+    LOG("Not 2 players yet. Cannot start game. Number of players: " + std::to_string(currentPlayers.size()));
     return false;
   }
 

@@ -1,4 +1,5 @@
 #include "SetupManager.h"
+#include "AudioPlayer.h"
 #include "GameController.h"
 #include "Logger.h"
 #include "game_state/Coordinate.h"
@@ -95,7 +96,7 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
     }
     std::cout << std::endl;
   }
-
+  AudioPlayer::play(AudioPlayer::PlaceShip);
   return true;
 }
 

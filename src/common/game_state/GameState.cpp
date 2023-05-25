@@ -203,7 +203,7 @@ bool GameState::updateBoards(const GameEvent &event) {
     LOG("This was my shot");
     myGrid.shotsFired[event.position.x][event.position.y] = event.hit ? 2 : 1;
     if (event.sunk) {
-      switch (event.hitShip.getLength()) {
+      switch (event.hitShip.getLength()) {  // TODO move this block to own function
       case 2:
         _oppShipSunk[4] = true;
         break;

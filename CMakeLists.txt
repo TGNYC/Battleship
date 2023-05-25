@@ -10,9 +10,9 @@ option(ENABLE_IWYU "Enableing include-what-you-use" OFF)
 if(ENABLE_IWYU)
     find_program(IWYU iwyu NAMES include-what-you-use REQUIRED)
     set(IWYU_WITH_OPTIONS
-        ${IWYU}
-        -Xiwyu
-        --mapping_file=${CMAKE_CURRENT_SOURCE_DIR}/iwyu.imp)
+            ${IWYU}
+            -Xiwyu
+            --mapping_file=${CMAKE_CURRENT_SOURCE_DIR}/iwyu.imp)
     set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE ${IWYU_WITH_OPTIONS})
 endif()
 
@@ -22,20 +22,18 @@ add_library(Battleship_Common)
 target_link_libraries(Battleship_Common PRIVATE project_options)
 target_link_libraries(Battleship_Common PUBLIC nlohmann_json::nlohmann_json)
 
+
 add_executable(Battleship_Server)
 target_link_libraries(Battleship_Server PRIVATE project_options)
 target_link_libraries(Battleship_Server PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Server PRIVATE sockpp)
 target_link_libraries(Battleship_Server PRIVATE pthread) # Fix for WSL2 with Ubuntu 20.04
 
-find_package(wxWidgets REQUIRED COMPONENTS net core base adv)
-include(${wxWidgets_USE_FILE})
-
 add_executable(Battleship_Client)
 target_link_libraries(Battleship_Client PRIVATE project_options)
 target_link_libraries(Battleship_Client PRIVATE Battleship_Common)
 target_link_libraries(Battleship_Client PRIVATE sockpp)
-target_link_libraries(Battleship_Client PRIVATE ${wxWidgets_LIBRARIES})
+target_link_libraries(Battleship_Client PRIVATE wx::net wx::core wx::base wx::adv)
 
 option(ENABLE_TESTING "Enableing Testing" ON)
 if(ENABLE_TESTING)
@@ -60,24 +58,24 @@ endif()
 add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_20)
 set(WARNINGS
-    -Wall
-    -Wextra # reasonable and standard
-    -Wextra-semi # Warn about semicolon after in-class function definition.
-    -Wshadow # warn the user if a variable declaration shadows one from a parent context
-    -Wnon-virtual-dtor # warn the user if a class with virtual functions has a non-virtual destructor. This helps
-    # catch hard to track down memory errors
-    -Wold-style-cast # warn for c-style casts
-    -Wcast-align # warn for potential performance problem casts
-    -Wunused # warn on anything being unused
-    -Woverloaded-virtual # warn if you overload (not override) a virtual function
-    -Wpedantic # warn if non-standard C++ is used
-    -Wconversion # warn on type conversions that may lose data
-    -Wsign-conversion # warn on sign conversions
-    -Wnull-dereference # warn if a null dereference is detected
-    -Wdouble-promotion # warn if float is implicit promoted to double
-    -Wformat=2 # warn on security issues around functions that format output (ie printf)
-    -Wimplicit-fallthrough # warn on statements that fallthrough without an explicit annotation
-    )
+        -Wall
+        -Wextra # reasonable and standard
+        -Wextra-semi # Warn about semicolon after in-class function definition.
+        -Wshadow # warn the user if a variable declaration shadows one from a parent context
+        -Wnon-virtual-dtor # warn the user if a class with virtual functions has a non-virtual destructor. This helps
+        # catch hard to track down memory errors
+        -Wold-style-cast # warn for c-style casts
+        -Wcast-align # warn for potential performance problem casts
+        -Wunused # warn on anything being unused
+        -Woverloaded-virtual # warn if you overload (not override) a virtual function
+        -Wpedantic # warn if non-standard C++ is used
+        -Wconversion # warn on type conversions that may lose data
+        -Wsign-conversion # warn on sign conversions
+        -Wnull-dereference # warn if a null dereference is detected
+        -Wdouble-promotion # warn if float is implicit promoted to double
+        -Wformat=2 # warn on security issues around functions that format output (ie printf)
+        -Wimplicit-fallthrough # warn on statements that fallthrough without an explicit annotation
+        )
 target_compile_options(project_options INTERFACE ${WARNINGS})
 
 option(ENABLE_Sanitizers "Enableing Sanitizers" OFF)
@@ -89,27 +87,37 @@ endif()
 include(FetchContent)
 
 FetchContent_Declare(sockpp
-    GIT_REPOSITORY https://github.com/fpagliughi/sockpp.git
-    GIT_TAG        v0.8.1
-    # SYSTEM
-    )
+        GIT_REPOSITORY https://github.com/fpagliughi/sockpp.git
+        GIT_TAG        v0.8.1
+        # SYSTEM
+        )
 FetchContent_Declare(googletest
-    GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG        v1.13.0
-    # SYSTEM
-    )
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG        v1.13.0
+        # SYSTEM
+        )
 FetchContent_Declare(json
-    GIT_REPOSITORY https://github.com/nlohmann/json.git
-    GIT_TAG        v3.11.2
-    # SYSTEM
-    )
+        GIT_REPOSITORY https://github.com/nlohmann/json.git
+        GIT_TAG        v3.11.2
+        # SYSTEM
+        )
+FetchContent_Declare(wxWidgets
+        GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
+        GIT_TAG        v3.2.2.1
+        # SYSTEM
+        )
 
-FetchContent_MakeAvailable(sockpp googletest json)
+FetchContent_MakeAvailable(sockpp googletest json wxWidgets)
 
 # Set the includes for the expern libarays as systme to disabel the warnings
 # https://stackoverflow.com/questions/56707123/how-to-suppress-clang-warnings-in-third-party-library-header-file-in-cmakelists
 set_target_properties(gtest PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:gtest,INTERFACE_INCLUDE_DIRECTORIES>)
 set_target_properties(gtest_main PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:gtest_main,INTERFACE_INCLUDE_DIRECTORIES>)
+
+set_target_properties(wxnet PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxnet,INTERFACE_INCLUDE_DIRECTORIES>)
+set_target_properties(wxcore PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxcore,INTERFACE_INCLUDE_DIRECTORIES>)
+set_target_properties(wxbase PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxbase,INTERFACE_INCLUDE_DIRECTORIES>)
+set_target_properties(wxadv PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:wxadv,INTERFACE_INCLUDE_DIRECTORIES>)
 
 set_target_properties(nlohmann_json PROPERTIES INTERFACE_SYSTEM_INCLUDE_DIRECTORIES $<TARGET_PROPERTY:nlohmann_json,INTERFACE_INCLUDE_DIRECTORIES>)
 

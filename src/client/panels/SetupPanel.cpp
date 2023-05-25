@@ -1,4 +1,5 @@
 #include "SetupPanel.h"
+#include "../AudioPlayer.h"
 #include "../GameController.h"
 #include "../SetupManager.h"
 #include "Logger.h"
@@ -141,6 +142,7 @@ void SetupPanel::OnKeyDown(wxKeyEvent &event) {
  * @param event wxCommandEvent
  */
 void SetupPanel::OnReadyButtonClicked(wxCommandEvent &event) {
+  AudioPlayer::play(AudioPlayer::ButtonClick);
   GameController::playerReady();
 }
 

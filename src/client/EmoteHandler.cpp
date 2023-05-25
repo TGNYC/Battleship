@@ -9,11 +9,11 @@ const std::map<EmoteType, std::string> EmoteHandler::_images = {
 };
 
 const std::map<EmoteType, std::string> EmoteHandler::_sounds = {
-    {EmoteType::MiddleFinger, ""},
-    {EmoteType::RussianWarshipGoFuckYourself, ""},
-    {EmoteType::Mocking, ""},
-    {EmoteType::BestPirate, "../assets/audio/BestPirate.wav"},
-    {EmoteType::Panic, ""}
+    {EmoteType::MiddleFinger, "../assets/audio/popup.wav"},
+    {EmoteType::RussianWarshipGoFuckYourself, "../assets/audio/russianwarship.wav"},
+    {EmoteType::Mocking, "../assets/audio/popup.wav"},
+    {EmoteType::BestPirate, "../assets/audio/bestpirate.wav"},
+    {EmoteType::Panic, "../assets/audio/popup.wav"}
 };
 
 std::string EmoteHandler::getImage(EmoteType emote) {

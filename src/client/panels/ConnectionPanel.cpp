@@ -1,6 +1,7 @@
 #include "ConnectionPanel.h"
-#include "../uiElements/ImagePanel.h"
+#include "../AudioPlayer.h"
 #include "../GameController.h"
+#include "../uiElements/ImagePanel.h"
 
 /**
  * @brief Constructor for ConnectionPanel
@@ -44,6 +45,7 @@ ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
  * @brief Button event handler. Will trigger GameController::connectToServer() to establish a connection to the server
  */
 void ConnectionPanel::onConnectButtonClicked(wxCommandEvent &event) {
+  AudioPlayer::play(AudioPlayer::ButtonClick);
   GameController::connectToServer();
 }
 
