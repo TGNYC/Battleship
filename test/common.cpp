@@ -328,6 +328,10 @@ TEST_F(gameStateTest, getOtherPlayer) {
   ASSERT_EQ(gameState.getOtherPlayer(felix.getId()).getId(), malte.getId());
 }
 
+TEST_F(gameStateTest, removePlayer) {
+  // TOOD
+}
+
 TEST_F(gameStateTest, addShips) {
   gameState.addPlayer(felix);
   gameState.addPlayer(malte);
@@ -340,13 +344,21 @@ TEST_F(gameStateTest, registerShot) {
   // TODO
 }
 
+TEST_F(gameStateTest, updateBoards) {
+  // TODO
+}
+
 TEST_F(gameStateTest, shotIsLegal) {
   gameState.addPlayer(felix);
   gameState.addShips(felix.getId(), shipPlacement);
+  gameState.addPlayer(malte);
+  gameState.addShips(malte.getId(), shipPlacement);
+  gameState.start(felix.getId());
   Coordinate exceedsGrid{10, 0};
   Coordinate negative{0, -1};
   Coordinate fine{3, 7};
   ASSERT_EQ(gameState.shotIsLegal(felix.getId(), exceedsGrid), false);
   ASSERT_EQ(gameState.shotIsLegal(felix.getId(), negative), false);
   ASSERT_EQ(gameState.shotIsLegal(felix.getId(), fine), true);
+  ASSERT_EQ(gameState.shotIsLegal(malte.getId(), fine), false); // not his turn
 }
