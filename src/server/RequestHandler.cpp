@@ -105,7 +105,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     const Player player = gameInstance.getGameState().getPlayer(playerId);
     LOG("Player " + player.getId().ToString() + " quit the game.");
 
-    if (gameInstance.getGameState().getState() == GameState::State::Starting) {
+    if (gameInstance.getGameState().getState() == GameState::State::Starting) { // TODO: problem if player presses ready and then quits
       LOG("Player disconnected during setup phase. Just silently removing him");
       gameInstance.getGameState().removePlayer(player);
       return nullptr;
@@ -121,7 +121,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     if (gameInstance.reset()) {
       LOG("gameInstance was reset");
       return nullptr;
-    } else { // TODO: what to do if gameInstance doesn't clear the gameState?
+    } else {
       LOG("problem while resetting the gameInstance");
       return nullptr;
     }

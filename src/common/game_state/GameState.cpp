@@ -33,14 +33,14 @@ bool GameState::removePlayer(Player player) {
     LOG("cannot remove player after game started");
     return false;
   }
-  if (_players.size() == 1) {
-    _players = {}; // no players anymore
-  } else if (_players.size() == 2) {
-    _players = {getOtherPlayer(player.getId())}; // only opponent
-  } else {
-    throw BattleshipException("Unexpected number of players in game state: " + std::to_string(_players.size()));
+  for (unsigned i = 0; i < _players.size(); ++i) {
+    if (_players.at(i).getId() == player.getId()) {
+      _players.erase(_players.begin() + i);
+      return true;
+    }
   }
-  return true;
+  LOG("cannot remove non-existent player");
+  return false;
 }
 
 auto GameState::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> bool {
@@ -97,7 +97,7 @@ const PlayerGrid &GameState::getPlayerGrid(uuid playerId) const {
   throw std::runtime_error("Could not find grid for this player id");
 }
 
-Ship &GameState::getShip(std::vector<Ship> &ships, uuid shipId) {
+Ship &GameState::getShip(std::vector<Ship> &ships, uuid shipId) { // TODO rework to return pointer and nullptr if not found
   for (Ship &ship : ships) {
     if (ship.getId() == shipId) {
       return ship;
@@ -107,7 +107,7 @@ Ship &GameState::getShip(std::vector<Ship> &ships, uuid shipId) {
   throw BattleshipException("no ship with matching id found");
 }
 
-const Player &GameState::getOtherPlayer(uuid playerId) {
+const Player &GameState::getOtherPlayer(uuid playerId) { // TODO rework to return pointer and nullptr if not found
   for (const Player &player : _players) {
     if (player.getId() != playerId) {
       return player;
@@ -117,7 +117,7 @@ const Player &GameState::getOtherPlayer(uuid playerId) {
   throw BattleshipException("did not find other player");
 }
 
-const Player &GameState::getPlayer(uuid playerId) const {
+const Player &GameState::getPlayer(uuid playerId) const { // TODO rework to return pointer and nullptr if not found
   for (const Player &player : _players) {
     if (player.getId() == playerId) {
       return player;
@@ -135,13 +135,18 @@ const GameState::State &GameState::getState() const {
   return _state;
 }
 
-std::array<bool, 5> &GameState::getOppShipSunk() {
+std::array<bool, 5> &GameState::getOppShipSunk() {  // TODO make const
   return _oppShipSunk;
 }
 
 bool GameState::shotIsLegal(uuid playerId, Coordinate position) {
   if (_state != State::Playing) {
     LOG("State is not set to playing");
+    return false;
+  }
+  // check if the correct player is playing
+  if (playerId != _currentPlayerId) {
+    LOG("It is not this players turn " + playerId.ToString());
     return false;
   }
   if (position.x < 0 || position.x >= 10) {
@@ -160,13 +165,12 @@ bool GameState::shotIsLegal(uuid playerId, Coordinate position) {
 // all parameters after position are used to return info back to the caller
 bool GameState::registerShot(uuid playerId, Coordinate position, bool *hit, Ship **hitShipPtr, bool *sunk,
                              uuid *nextPlayerId) {
-
+  assert(_type == Type::ServerState && _playerGrids.size() == 2);
   LOG("Turn Number: " + std::to_string(_turnNumber));
   LOG("Current Player: " + _currentPlayerId.ToString());
 
-  // check if the correct player is playing
-  if (playerId != _currentPlayerId) {
-    LOG("It is not this players turn " + playerId.ToString());
+  if (!shotIsLegal(playerId, position)){
+    LOG("illegal shot");
     return false;
   }
 
@@ -210,7 +214,7 @@ bool GameState::registerShot(uuid playerId, Coordinate position, bool *hit, Ship
 
 bool GameState::updateBoards(const GameEvent &event) {
   LOG("updating board...");
-  assert(_playerGrids.size() == 1);
+  assert(_type == Type::ClientState && _playerGrids.size() == 1);
   auto &myGrid = _playerGrids[0];
   // update my grid
   if (event.playerId == myGrid.playerId) { // I called the shot

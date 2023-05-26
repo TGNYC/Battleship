@@ -290,13 +290,18 @@ class gameStateTest : public ::testing::Test {
 protected:
   virtual void SetUp() {
     for (int i = 0; i < 5; ++i) { // fill vector with 5 dummy ships
-      shipPlacement.push_back(Ship(3, Coordinate{0, 0}, Ship::Orientation::Vertical, uuid::generateRandomUuid()));
+      shipPlacement.emplace_back(3, Coordinate{0, 0}, Ship::Orientation::Vertical, uuid::generateRandomUuid());
     }
   }
   GameState         gameState = GameState(GameState::Type::ServerState);
   Player            felix     = Player(uuid::generateRandomUuid(), "Felix");
   Player            malte     = Player(uuid::generateRandomUuid(), "Malte");
   std::vector<Ship> shipPlacement;
+  Ship dummyShip = Ship(3, Coordinate{0,0}, Ship::Orientation::Vertical, uuid::generateRandomUuid());
+
+  Coordinate coordExceedsGrid{10, 0};
+  Coordinate coordNegative{0, -1};
+  Coordinate coordFine{3, 7};
 };
 
 TEST_F(gameStateTest, addPlayer) {
@@ -329,7 +334,11 @@ TEST_F(gameStateTest, getOtherPlayer) {
 }
 
 TEST_F(gameStateTest, removePlayer) {
-  // TOOD
+  gameState.addPlayer(felix);
+  ASSERT_FALSE(gameState.removePlayer(malte)); // player not in game
+  ASSERT_TRUE(gameState.removePlayer(felix));
+  ASSERT_EQ(gameState.getPlayers().size(), 0);
+  ASSERT_FALSE(gameState.removePlayer(felix));  // not able to remove twice
 }
 
 TEST_F(gameStateTest, addShips) {
@@ -340,12 +349,47 @@ TEST_F(gameStateTest, addShips) {
   ASSERT_TRUE(gameState.addShips(malte.getId(), shipPlacement));
 }
 
+TEST_F(gameStateTest, start) {
+    ASSERT_FALSE(gameState.start(felix.getId())); // not 2 players
+    gameState.addPlayer(felix);
+    gameState.addPlayer(malte);
+    ASSERT_FALSE(gameState.start(felix.getId())); // 0 grids
+    gameState.addShips(felix.getId(), shipPlacement);
+    ASSERT_FALSE(gameState.start(felix.getId())); // only 1 grid
+    gameState.addShips(malte.getId(), shipPlacement);
+    ASSERT_TRUE(gameState.start(felix.getId()));  // success
+    ASSERT_EQ(gameState.getState(), GameState::State::Playing);
+    ASSERT_FALSE(gameState.start(felix.getId())); // already started
+}
+
 TEST_F(gameStateTest, registerShot) {
-  // TODO
+    gameState.addPlayer(felix);
+    gameState.addShips(felix.getId(), shipPlacement);
+    gameState.addPlayer(malte);
+    gameState.addShips(malte.getId(), shipPlacement);
+    gameState.start(felix.getId());
+    bool  hit;          // indicates if the shot was a hit
+    Ship *hitShip;      // the ship that was hit (if there was a hit)
+    bool  sunk;         // indicates if a ship was sunk
+    uuid  nextPlayerId; // player who goes next
+    ASSERT_FALSE(gameState.registerShot(malte.getId(), coordFine, &hit, &hitShip, &sunk, &nextPlayerId));
+    ASSERT_TRUE(gameState.registerShot(felix.getId(), coordFine, &hit, &hitShip, &sunk, &nextPlayerId));
+    ASSERT_EQ(hit, false);
+    ASSERT_EQ(sunk, false);
+    ASSERT_EQ(nextPlayerId, malte.getId());
+    ASSERT_FALSE(gameState.registerShot(felix.getId(), coordFine, &hit, &hitShip, &sunk, &nextPlayerId)); // already shot at this tile
+    ASSERT_FALSE(gameState.gameOver());
 }
 
 TEST_F(gameStateTest, updateBoards) {
-  // TODO
+  GameState clientState(GameState::Type::ClientState);
+  clientState.addPlayer(felix);
+  clientState.addPlayer(malte);
+  clientState.addShips(felix.getId(), shipPlacement);
+  clientState.start(felix.getId());
+  GameEvent gameEvent(felix.getId(), coordFine, false, false, dummyShip, malte.getId());
+  ASSERT_TRUE(clientState.updateBoards(gameEvent));
+  ASSERT_EQ(clientState.getCurrentPlayerId(), malte.getId());
 }
 
 TEST_F(gameStateTest, shotIsLegal) {
@@ -354,11 +398,8 @@ TEST_F(gameStateTest, shotIsLegal) {
   gameState.addPlayer(malte);
   gameState.addShips(malte.getId(), shipPlacement);
   gameState.start(felix.getId());
-  Coordinate exceedsGrid{10, 0};
-  Coordinate negative{0, -1};
-  Coordinate fine{3, 7};
-  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), exceedsGrid), false);
-  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), negative), false);
-  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), fine), true);
-  ASSERT_EQ(gameState.shotIsLegal(malte.getId(), fine), false); // not his turn
+  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), coordExceedsGrid), false);
+  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), coordNegative), false);
+  ASSERT_EQ(gameState.shotIsLegal(felix.getId(), coordFine), true);
+  ASSERT_EQ(gameState.shotIsLegal(malte.getId(), coordFine), false); // not his turn
 }
