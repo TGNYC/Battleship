@@ -86,6 +86,8 @@ bool GameInstance::executeShot(CallShot shotRequest) {
     GameOverEvent *gameOverEvent = new GameOverEvent(winnerId);
     ServerNetworkManager::broadcastMessage(*gameOverEvent, _gameState.getPlayers());
     LOG("broadcasted GameOverEvent to both clients");
+    LOG("resetting GameInstance");
+    reset();
   }
   return success;
 }
@@ -107,17 +109,3 @@ bool GameInstance::reset() {
 GameState &GameInstance::getGameState() {
   return _gameState;
 }
-
-// TODO remove because never used. functionality is implemented in game_instance::joinGame
-/*bool game_instance::try_add_player(Player *new_player, std::string &err) {
-  _modification_lock.lock();
-  if (_gameState.addPlayer(*new_player)) {
-    // respond with JoinGameSuccess response
-    JoinGameSuccess *msg_string = new JoinGameSuccess();
-    server_network_manager::broadcast_message(*msg_string, _gameState.getPlayers(), new_player);
-    _modification_lock.unlock();
-    return true;
-  }
-  _modification_lock.unlock();
-  return false;
-}*/

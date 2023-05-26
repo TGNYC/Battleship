@@ -112,7 +112,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
 
     LOG("resetting the gameInstance...");
     if (gameInstance.reset()) {
-      LOG("gameInstance reset");
+      LOG("gameInstance was reset");
       return nullptr;
     } else { // TODO: what to do if gameInstance doesn't clear the gameState?
       LOG("problem while resetting the gameInstance");

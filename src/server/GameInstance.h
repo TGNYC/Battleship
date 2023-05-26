@@ -49,8 +49,6 @@ public:
    */
   bool reset();
 
-  // TODO: playAgain
-
   GameState &getGameState();
 
 private:
