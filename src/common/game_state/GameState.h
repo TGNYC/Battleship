@@ -43,9 +43,9 @@ public:
    * Enum indicating the phase of the game state. Must be switched to Playing before first move is made
    */
   enum class State {
-    Starting,
-    Playing,
-    Finished
+    Starting, // connection phase and setup phase
+    Playing, // gameplay phase
+    Finished // game over
   };
 
   /*!
@@ -68,6 +68,12 @@ public:
    * @return true if player was added successfully, false if a problem occurred.
    */
   bool addPlayer(Player player);
+
+  /*!
+   * Removes a player from the game state if state is still in setup phase.
+   * If a player leaves while playing the game ends and a new gameState has to be created.
+   */
+  bool removePlayer(Player player);
 
   /*!
    * Creates a new playerGrid from a full ship placement

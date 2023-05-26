@@ -28,6 +28,21 @@ auto GameState::addPlayer(Player player) -> bool {
   return true;
 }
 
+bool GameState::removePlayer(Player player) {
+  if (_state != State::Starting) {
+    LOG("cannot remove player after game started");
+    return false;
+  }
+  if (_players.size() == 1) {
+    _players = {}; // no players anymore
+  } else if (_players.size() == 2) {
+    _players = {getOtherPlayer(player.getId())}; // only opponent
+  } else {
+    throw BattleshipException("Unexpected number of players in game state: " + std::to_string(_players.size()));
+  }
+  return true;
+}
+
 auto GameState::addShips(uuid playerId, std::vector<Ship> shipPlacement) -> bool {
   // check for valid player id
   if (_players.empty() || (_players.at(0).getId() != playerId && _players.size() == 1) ||

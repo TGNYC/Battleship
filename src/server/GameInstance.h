@@ -31,7 +31,7 @@ public:
    * @param err
    * @return true if game was started. false if not started
    */
-  bool startGame(const Player *player, std::string &err);
+  bool startGame(const Player *player, std::string &err); // TODO make pointer reference for consistency
 
   /*!
    * handles a call shot request. registers the shot in the gamestate and sends out a corresponding gameEvent

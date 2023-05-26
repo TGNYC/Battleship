@@ -103,11 +103,18 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     LOG("handle Quit Game request");
     const QuitGame quitGameRequest = static_cast<const QuitGame &>(*req);
     const Player player = gameInstance.getGameState().getPlayer(playerId);
-    LOG("Player " + playerId.ToString() + " quit the game.");
+    LOG("Player " + player.getId().ToString() + " quit the game.");
+
+    if (gameInstance.getGameState().getState() == GameState::State::Starting) {
+      LOG("Player disconnected during setup phase. Just silently removing him");
+      gameInstance.getGameState().removePlayer(player);
+      return nullptr;
+    }
+
     // create event
     std::unique_ptr<ServerResponse> response =
         std::make_unique<QuitGameEvent>(playerId);
-    LOG("Sending QuitGameEvent to clients");
+    LOG("sending QuitGameEvent to clients");
     ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), &player);
 
     LOG("resetting the gameInstance...");
