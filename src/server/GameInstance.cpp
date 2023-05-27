@@ -31,9 +31,6 @@ bool GameInstance::joinGame(const JoinGame &joinGameRequest) {
   return _gameState.addPlayer(player); // addPlayer checks if the player was already added or game is full
 }
 
-// is called upon receiving a startGameRequest
-// first boolean returns whether start_game was successful
-// second boolean returns whether both players are ready to start the game
 bool GameInstance::startGame(const Player *player, std::string &err) {
 
   LOG("GameInstance trying to start");
@@ -60,7 +57,7 @@ bool GameInstance::startGame(const Player *player, std::string &err) {
 
   // if reached here everything is fine and we can start
   LOG("Starting game state");
-  return _gameState.start(player->getId()); // second player to press ready is first player to play for the moment
+  return _gameState.start(player->getId()); // second player to press ready is first player to play
 }
 
 bool GameInstance::executeShot(CallShot shotRequest) {

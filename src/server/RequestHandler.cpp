@@ -56,20 +56,13 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
         playerId, startGameRequest.getShips()); // TODO move this line to gameInstance.startGame()
     // trying to start the gameInstance
     const bool result = gameInstance.startGame(player, err); // this function does a lot of checks
-
-    // indicates that both players are ready to the server by sending a success response to the current player's server
-    // (the response to the other player is sent in the logic in game_instance)
     if (result) {
-      LOG("Request succeeded and both players are ready");
-      // send StartGameSuccess update to the already-ready player
-      LOG("Sending StartGameSuccess to the already-ready player");
+      LOG("request succeeded and both players are ready");
       std::unique_ptr<ServerResponse> resp =
           std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(), playerId);
-      ServerNetworkManager::broadcastMessage(*resp, gameInstance.getGameState().getPlayers(), player);
-      // send StartGameSuccess update to the newly-ready player
-      LOG("Sending StartGameSuccess to the newly-ready player");
-      return std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(),
-                                                playerId); // TODO can you pass here the resp pointer from above?
+      ServerNetworkManager::broadcastMessage(*resp, gameInstance.getGameState().getPlayers(), nullptr);
+      LOG("sent StartGameSuccess to both players");
+      return nullptr;
     }
     LOG("Set player " + player->getName() + " ready. But opponent is not ready yet");
     return nullptr;
@@ -103,6 +96,9 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     LOG("handle Quit Game request");
     const QuitGame quitGameRequest = static_cast<const QuitGame &>(*req);
     const Player *player = gameInstance.getGameState().getPlayer(playerId);
+    if (player == nullptr) {  // if the player is not part of our game, no response needed. already removed him.
+      return nullptr;
+    }
     LOG("Player " + player->getName() + " quit the game.");
 
     if (gameInstance.getGameState().getState() == GameState::State::Starting) { // TODO: problem if player presses ready and then quits
