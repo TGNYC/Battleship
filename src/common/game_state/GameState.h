@@ -109,12 +109,12 @@ public:
   /*!
    * returns a reference to the ship with the specified id from a given vector of ships
    */
-  Ship &getShip(std::vector<Ship> &ships, uuid shipId);
+  Ship *getShip(std::vector<Ship> &ships, uuid shipId);
 
   /*!
    * returns the name of the player with the specified id
    */
-  const Player &getPlayer(uuid playerId) const;
+  const Player *getPlayer(uuid playerId) const;
 
   /*!
    * returns the id of the player who has NOT the id specified as parameter
@@ -122,7 +122,7 @@ public:
    * @return id of the other player. "Error" if no other player found.
    * @pre there are exactly 2 players added to the gameState
    */
-  const Player &getOtherPlayer(uuid playerId);
+  const Player *getOtherPlayer(uuid playerId);
 
   /*!
    * returns the current state of the game (starting, playing, finished)
@@ -175,7 +175,8 @@ public:
   bool updateOppShipSunk(const Ship& hitShip);
 
   /*!
-   * Checks if the game is over meaning all ships of one player are sunk
+   * Checks if the game is over meaning all ships of one player are sunk.
+   * Only to be called by the server.
    * @param winner id of the winning player. will be "0" if game is not over.
    * @return true if game is over. false if game is not over
    */

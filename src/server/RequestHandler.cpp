@@ -50,12 +50,12 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   case RequestType::StartGame: {
     LOG("handle StartGame request");
     const StartGame startGameRequest = static_cast<const StartGame &>(*req);
-    const Player    player           = gameInstance.getGameState().getPlayer(playerId);
-    LOG("adding ships of " + player.getName());
+    const Player    *player          = gameInstance.getGameState().getPlayer(playerId);
+    LOG("adding ships of " + player->getName());
     gameInstance.getGameState().addShips(
         playerId, startGameRequest.getShips()); // TODO move this line to gameInstance.startGame()
     // trying to start the gameInstance
-    const bool result = gameInstance.startGame(&player, err); // this function does a lot of checks
+    const bool result = gameInstance.startGame(player, err); // this function does a lot of checks
 
     // indicates that both players are ready to the server by sending a success response to the current player's server
     // (the response to the other player is sent in the logic in game_instance)
@@ -65,13 +65,13 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
       LOG("Sending StartGameSuccess to the already-ready player");
       std::unique_ptr<ServerResponse> resp =
           std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(), playerId);
-      ServerNetworkManager::broadcastMessage(*resp, gameInstance.getGameState().getPlayers(), &player);
+      ServerNetworkManager::broadcastMessage(*resp, gameInstance.getGameState().getPlayers(), player);
       // send StartGameSuccess update to the newly-ready player
       LOG("Sending StartGameSuccess to the newly-ready player");
       return std::make_unique<StartGameSuccess>(gameInstance.getGameState().getPlayers(),
                                                 playerId); // TODO can you pass here the resp pointer from above?
     }
-    LOG("Set player " + player.getName() + " ready. But opponent is not ready yet");
+    LOG("Set player " + player->getName() + " ready. But opponent is not ready yet");
     return nullptr;
   } break;
 
@@ -89,12 +89,12 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   // ##################### SEND EMOTE ##################### //
   case RequestType::SendEmote: {
     LOG("Handle SendEmote request");
-    const Player                    player           = gameInstance.getGameState().getPlayer(playerId);
+    const Player                    *player          = gameInstance.getGameState().getPlayer(playerId);
     const SendEmote                 sendEmoteRequest = static_cast<const SendEmote &>(*req);
     std::unique_ptr<ServerResponse> response =
         std::make_unique<EmoteEvent>(sendEmoteRequest.getEmote(), sendEmoteRequest.getPlayerId());
     LOG("Sending EmoteEvent to the other player");
-    ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), &player);
+    ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), player);
     return nullptr; // nothing to send back to the request sender
   }
 
@@ -102,12 +102,12 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   case RequestType::QuitGame: {
     LOG("handle Quit Game request");
     const QuitGame quitGameRequest = static_cast<const QuitGame &>(*req);
-    const Player player = gameInstance.getGameState().getPlayer(playerId);
-    LOG("Player " + player.getId().ToString() + " quit the game.");
+    const Player *player = gameInstance.getGameState().getPlayer(playerId);
+    LOG("Player " + player->getName() + " quit the game.");
 
     if (gameInstance.getGameState().getState() == GameState::State::Starting) { // TODO: problem if player presses ready and then quits
       LOG("Player disconnected during setup phase. Just silently removing him");
-      gameInstance.getGameState().removePlayer(player);
+      gameInstance.getGameState().removePlayer(*player);
       return nullptr;
     }
 
@@ -115,7 +115,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     std::unique_ptr<ServerResponse> response =
         std::make_unique<QuitGameEvent>(playerId);
     LOG("sending QuitGameEvent to clients");
-    ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), &player);
+    ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), player);
 
     LOG("resetting the gameInstance...");
     if (gameInstance.reset()) {

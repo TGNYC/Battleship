@@ -97,34 +97,34 @@ const PlayerGrid &GameState::getPlayerGrid(uuid playerId) const {
   throw BattleshipException("Could not find grid for this player id");
 }
 
-Ship &GameState::getShip(std::vector<Ship> &ships, uuid shipId) { // TODO rework to return pointer and nullptr if not found
+Ship *GameState::getShip(std::vector<Ship> &ships, uuid shipId) {
   for (Ship &ship : ships) {
     if (ship.getId() == shipId) {
-      return ship;
+      return &ship;
     }
   }
   LOG("no ship with matching id found");
-  throw BattleshipException("no ship with matching id found");
+  return nullptr;
 }
 
-const Player &GameState::getOtherPlayer(uuid playerId) { // TODO rework to return pointer and nullptr if not found
+const Player *GameState::getOtherPlayer(uuid playerId) {
   for (const Player &player : _players) {
     if (player.getId() != playerId) {
-      return player;
+      return &player;
     }
   }
   LOG("did not find other player");
-  throw BattleshipException("did not find other player");
+  return nullptr;
 }
 
-const Player &GameState::getPlayer(uuid playerId) const { // TODO rework to return pointer and nullptr if not found
+const Player *GameState::getPlayer(uuid playerId) const {
   for (const Player &player : _players) {
     if (player.getId() == playerId) {
-      return player;
+      return &player;
     }
   }
   LOG("no player with matching id found");
-  throw BattleshipException("no player with matching id found");
+  return nullptr;
 }
 
 const std::vector<Player> &GameState::getPlayers() const {
@@ -229,8 +229,12 @@ bool GameState::updateBoards(const GameEvent &event) {
     myGrid.shotsReceived[event.position.x][event.position.y] = event.hit ? 2 : 1;
     // update my ships. only if there was a hit!! otherwise hitShip might be a dummy (every member 0)
     if (event.hit) {
-      Ship &hitShip = getShip(myGrid.shipsPlaced, event.hitShip.getId()); // find out which of my local ships was hit
-      hitShip.hit(event.position);
+      Ship *hitShip = getShip(myGrid.shipsPlaced, event.hitShip.getId()); // find out which of my local ships was hit
+      if (hitShip != nullptr) {
+        hitShip->hit(event.position);
+      } else {
+        LOG("invalid ship id");
+      }
     }
   }
 
@@ -269,9 +273,7 @@ bool GameState::updateOppShipSunk(const Ship& hitShip) {
 }
 
 bool GameState::gameOver() {
-
-  // assert(playerGrids.size() == 2 && "Number of grids is not 2. Cannot determine round win.");
-
+  assert(_type == Type::ServerState);
   for (const PlayerGrid &grid : _playerGrids) {
     bool lost = true;
     for (const Ship &ship : grid.shipsPlaced) {
@@ -281,7 +283,7 @@ bool GameState::gameOver() {
       }
     }
     if (lost) {
-      _winner = getOtherPlayer(grid.playerId).getId(); // this player lost, so the other player is the _winner
+      _winner = getOtherPlayer(grid.playerId)->getId(); // this player lost, so the other player is the _winner
       _state  = State::Finished;
       return true;
     }

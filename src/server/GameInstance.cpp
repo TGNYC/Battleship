@@ -11,6 +11,7 @@
 #include "network/responses/JoinGameSuccess.h"
 #include "network/responses/QuitGameEvent.h"
 #include "network/responses/ServerResponse.h"
+#include <cassert>
 
 bool GameInstance::joinGame(const JoinGame &joinGameRequest) {
   LOG("about to add player to the game state");
@@ -50,9 +51,10 @@ bool GameInstance::startGame(const Player *player, std::string &err) {
   }
 
   // check if other player is ready
-  const Player &otherPlayer = _gameState.getOtherPlayer(player->getId());
-  if (!_isReady[otherPlayer.getId()]) {
-    LOG("Other player " + otherPlayer.getId().ToString() + " not ready yet. Cannot start game");
+  const Player *otherPlayer = _gameState.getOtherPlayer(player->getId());
+  assert(otherPlayer != nullptr);
+  if (!_isReady[otherPlayer->getId()]) {
+    LOG("Other player " + otherPlayer->getId().ToString() + " not ready yet. Cannot start game");
     return false;
   }
 

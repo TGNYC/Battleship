@@ -314,9 +314,9 @@ TEST_F(gameStateTest, addPlayer) {
 
 TEST_F(gameStateTest, getPlayer) {
   gameState.addPlayer(felix);
-  Player p = gameState.getPlayer(felix.getId());
-  ASSERT_EQ(p, felix);
-  ASSERT_EQ(p.getId(), felix.getId());
+  const Player *p = gameState.getPlayer(felix.getId());
+  ASSERT_EQ(*p, felix);
+  ASSERT_EQ(p->getId(), felix.getId());
 }
 
 TEST_F(gameStateTest, getPlayers) {
@@ -329,8 +329,8 @@ TEST_F(gameStateTest, getPlayers) {
 TEST_F(gameStateTest, getOtherPlayer) {
   gameState.addPlayer(felix);
   gameState.addPlayer(malte);
-  ASSERT_EQ(gameState.getOtherPlayer(malte.getId()).getId(), felix.getId());
-  ASSERT_EQ(gameState.getOtherPlayer(felix.getId()).getId(), malte.getId());
+  ASSERT_EQ(gameState.getOtherPlayer(malte.getId())->getId(), felix.getId());
+  ASSERT_EQ(gameState.getOtherPlayer(felix.getId())->getId(), malte.getId());
 }
 
 TEST_F(gameStateTest, removePlayer) {

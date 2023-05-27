@@ -93,7 +93,7 @@ void MainGamePanel::buildGameState(GameState *gameState, uuid ownId) {
   this->_oppViewGrid->showShots(ownShots);
 
   // turn indicator
-  auto text = "It is " + gameState->getPlayer(_currentPlayer).getName() + "'s turn";
+  auto text = "It is " + gameState->getPlayer(_currentPlayer)->getName() + "'s turn";
   _turnText->SetLabelText(text);
 
   // update ship panel
