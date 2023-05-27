@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battleship: /home/nico/Desktop/battleship/src/common/GameState/Ship.h Source File</title>
+<title>Battleship: /home/nico/Desktop/battleship/src/common/game_state/Ship.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html">common</a></li><li class="navelem"><a class="el" href="dir_5ca9256e394d76a5c0874f18b1fb2558.html">GameState</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html">common</a></li><li class="navelem"><a class="el" href="dir_5ca9256e394d76a5c0874f18b1fb2558.html">game_state</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -94,21 +94,19 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  auto <a class="code" href="class_ship.html#a1a754882cdbbb50c3d99154c21ca5265">setOrientation</a>(<a class="code" href="class_ship.html#adbae96ba542c40753dcf85144303e11e">Orientation</a> orientation) -&gt; <span class="keywordtype">void</span>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  auto <a class="code" href="class_ship.html#a254b8918caeb472a717080d90a8b9ddf">setPosition</a>(<a class="code" href="struct_coordinate.html">Coordinate</a> position) -&gt; <span class="keywordtype">void</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_ship.html#aa79c4d68d95a3df2dbd67aeb06e1d564">   25</a></span>&#160;  auto operator&lt;=&gt;(const <a class="code" href="class_ship.html">Ship</a> &amp;) const = default;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_ship.html#a864b8344f70c440e555fad2cd17f4852">hit</a>(<a class="code" href="struct_coordinate.html">Coordinate</a> shot);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_ship.html#af5167f6f099a86505eed17323f048eec">hasSunken</a>() const;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;private:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">int</span>               m_length;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="struct_coordinate.html">Coordinate</a>        m_position;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_ship.html#adbae96ba542c40753dcf85144303e11e">Orientation</a>       m_orientation;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classuuid.html">uuid</a>              m_id;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">bool</span>              m_sunk;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::vector&lt;<span class="keywordtype">bool</span>&gt; m_hits; <span class="comment">// vector of size m_length storing hits</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SHIP_H</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_ship.html#a864b8344f70c440e555fad2cd17f4852">hit</a>(<a class="code" href="struct_coordinate.html">Coordinate</a> shot);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_ship.html#af5167f6f099a86505eed17323f048eec">hasSunken</a>() const;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;private:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">int</span>               m_length;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="struct_coordinate.html">Coordinate</a>        m_position;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="class_ship.html#adbae96ba542c40753dcf85144303e11e">Orientation</a>       m_orientation;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="classuuid.html">uuid</a>              m_id;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">bool</span>              m_sunk;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  std::vector&lt;<span class="keywordtype">bool</span>&gt; m_hits; <span class="comment">// vector of size m_length storing hits</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SHIP_H</span></div>
 <div class="ttc" id="a_coordinate_8h_html"><div class="ttname"><a href="_coordinate_8h.html">Coordinate.h</a></div></div>
 <div class="ttc" id="aclass_ship_html"><div class="ttname"><a href="class_ship.html">Ship</a></div><div class="ttdef"><b>Definition:</b> Ship.h:8</div></div>
 <div class="ttc" id="aclass_ship_html_a09c0c2ed07ecb05cde48d4061f063e1a"><div class="ttname"><a href="class_ship.html#a09c0c2ed07ecb05cde48d4061f063e1a">Ship::Ship</a></div><div class="ttdeci">Ship(int length, Coordinate position, Orientation orientation, uuid id)</div><div class="ttdef"><b>Definition:</b> Ship.cpp:3</div></div>
@@ -123,7 +121,7 @@ $(function() {
 <div class="ttc" id="aclass_ship_html_adbae96ba542c40753dcf85144303e11ea06ce2a25e5d12c166a36f654dbea6012"><div class="ttname"><a href="class_ship.html#adbae96ba542c40753dcf85144303e11ea06ce2a25e5d12c166a36f654dbea6012">Ship::Orientation::Vertical</a></div><div class="ttdeci">@ Vertical</div></div>
 <div class="ttc" id="aclass_ship_html_adbae96ba542c40753dcf85144303e11eac1b5fa03ecdb95d4a45dd1c40b02527f"><div class="ttname"><a href="class_ship.html#adbae96ba542c40753dcf85144303e11eac1b5fa03ecdb95d4a45dd1c40b02527f">Ship::Orientation::Horizontal</a></div><div class="ttdeci">@ Horizontal</div></div>
 <div class="ttc" id="aclass_ship_html_af5167f6f099a86505eed17323f048eec"><div class="ttname"><a href="class_ship.html#af5167f6f099a86505eed17323f048eec">Ship::hasSunken</a></div><div class="ttdeci">bool hasSunken() const</div><div class="ttdef"><b>Definition:</b> Ship.cpp:51</div></div>
-<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
+<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:9</div></div>
 <div class="ttc" id="astruct_coordinate_html"><div class="ttname"><a href="struct_coordinate.html">Coordinate</a></div><div class="ttdef"><b>Definition:</b> Coordinate.h:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

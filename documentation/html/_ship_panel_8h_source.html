@@ -73,21 +73,39 @@ $(function() {
 <a href="_ship_panel_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SHIPPANEL_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SHIPPANEL_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;wx/wx.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ship_8h.html">game_state/Ship.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../common/GameState/Ship.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;wx/wx.h&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_ship_panel.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ship_panel.html">ShipPanel</a> : <span class="keyword">public</span> wxPanel {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_ship_panel.html#a0ca44a54c0751422d2837b8a73d3851d">ShipPanel</a>(wxWindow *parent, wxPoint pos, <span class="keyword">const</span> std::vector&lt;Ship&gt;&amp; shipVector);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::vector&lt;Ship&gt; _ships;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    wxStaticBitmap* _shipBitmaps[5];</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SHIPPANEL_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <a class="code" href="class_ship_panel.html#a731baeacb8d93c999cd45ef48dc2bc67">ShipPanel</a>(wxWindow *parent, wxPoint pos, <span class="keyword">const</span> std::array&lt;bool, 5&gt; sunk);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship_panel.html#a08a5b0c84169da4b46a452b773950744">update</a>(<span class="keyword">const</span> std::array&lt;bool, 5&gt; sunk);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  wxStaticBitmap* _shipBitmaps[5];</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  std::string _filenames[5] = {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      <span class="stringliteral">&quot;../assets/ship_1.png&quot;</span>,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <span class="stringliteral">&quot;../assets/ship_2.png&quot;</span>,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      <span class="stringliteral">&quot;../assets/ship_3.png&quot;</span>,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      <span class="stringliteral">&quot;../assets/ship_4.png&quot;</span>,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      <span class="stringliteral">&quot;../assets/ship_5.png&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  };</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::string _filenamesSunk[5] = {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="stringliteral">&quot;../assets/ship_1_sunk.png&quot;</span>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="stringliteral">&quot;../assets/ship_2_sunk.png&quot;</span>,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <span class="stringliteral">&quot;../assets/ship_3_sunk.png&quot;</span>,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      <span class="stringliteral">&quot;../assets/ship_4_sunk.png&quot;</span>,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="stringliteral">&quot;../assets/ship_5_sunk.png&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  };</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SHIPPANEL_H</span></div>
+<div class="ttc" id="a_ship_8h_html"><div class="ttname"><a href="_ship_8h.html">Ship.h</a></div></div>
 <div class="ttc" id="aclass_ship_panel_html"><div class="ttname"><a href="class_ship_panel.html">ShipPanel</a></div><div class="ttdef"><b>Definition:</b> ShipPanel.h:8</div></div>
-<div class="ttc" id="aclass_ship_panel_html_a0ca44a54c0751422d2837b8a73d3851d"><div class="ttname"><a href="class_ship_panel.html#a0ca44a54c0751422d2837b8a73d3851d">ShipPanel::ShipPanel</a></div><div class="ttdeci">ShipPanel(wxWindow *parent, wxPoint pos, const std::vector&lt; Ship &gt; &amp;shipVector)</div><div class="ttdef"><b>Definition:</b> ShipPanel.cpp:4</div></div>
+<div class="ttc" id="aclass_ship_panel_html_a08a5b0c84169da4b46a452b773950744"><div class="ttname"><a href="class_ship_panel.html#a08a5b0c84169da4b46a452b773950744">ShipPanel::update</a></div><div class="ttdeci">void update(const std::array&lt; bool, 5 &gt; sunk)</div><div class="ttdef"><b>Definition:</b> ShipPanel.cpp:28</div></div>
+<div class="ttc" id="aclass_ship_panel_html_a731baeacb8d93c999cd45ef48dc2bc67"><div class="ttname"><a href="class_ship_panel.html#a731baeacb8d93c999cd45ef48dc2bc67">ShipPanel::ShipPanel</a></div><div class="ttdeci">ShipPanel(wxWindow *parent, wxPoint pos, const std::array&lt; bool, 5 &gt; sunk)</div><div class="ttdef"><b>Definition:</b> ShipPanel.cpp:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

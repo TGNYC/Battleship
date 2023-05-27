@@ -1,6 +1,10 @@
 <map id="GameController::callShot" name="GameController::callShot">
-<area shape="rect" id="node1" title="Sends a shot request to the server." alt="" coords="5,35,191,61"/>
-<area shape="rect" id="node2" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="273,5,377,32"/>
-<area shape="rect" id="node3" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="239,57,411,98"/>
-<area shape="rect" id="node4" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="459,64,657,91"/>
+<area shape="rect" id="node1" title="Sends a shot request to the server." alt="" coords="5,85,191,112"/>
+<area shape="rect" id="node2" href="$class_game_state.html#a102491d8e34e029987265830245d50c0" title=" " alt="" coords="239,5,464,32"/>
+<area shape="rect" id="node3" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="299,56,403,83"/>
+<area shape="rect" id="node4" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="265,107,437,149"/>
+<area shape="rect" id="node6" href="$class_game_state.html#a1688563990437d8de4307c373e8873b0" title=" " alt="" coords="263,173,440,200"/>
+<area shape="rect" id="node5" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="512,115,711,141"/>
+<area shape="rect" id="node7" href="$class_game_state.html#a97f685bcb11573b49fe78dac13ffe072" title=" " alt="" coords="515,169,707,196"/>
+<area shape="rect" id="node8" href="$classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="556,220,667,247"/>
 </map>

@@ -86,11 +86,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a585e5c7dbe69b8f5bc04ed502e82dc69"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_ship.html">Ship</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#a585e5c7dbe69b8f5bc04ed502e82dc69">shipsPlaced</a></td></tr>
 <tr class="memdesc:a585e5c7dbe69b8f5bc04ed502e82dc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of all ships placed on this grid  <a href="class_player_grid.html#a585e5c7dbe69b8f5bc04ed502e82dc69">More...</a><br /></td></tr>
 <tr class="separator:a585e5c7dbe69b8f5bc04ed502e82dc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea7addee9fdeda8d65598819c8c5991e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">shotsReceived</a> [10][10] = {0}</td></tr>
-<tr class="memdesc:aea7addee9fdeda8d65598819c8c5991e"><td class="mdescLeft">&#160;</td><td class="mdescRight">shots received by this grid. 0 = tile not shot | 1 = miss | 2 = hit  <a href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">More...</a><br /></td></tr>
+<tr class="memitem:aea7addee9fdeda8d65598819c8c5991e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">shotsReceived</a> [10][10] = {{0}}</td></tr>
+<tr class="memdesc:aea7addee9fdeda8d65598819c8c5991e"><td class="mdescLeft">&#160;</td><td class="mdescRight">shots received by this grid. 0 = tile not shot, 1 = miss, 2 = hit  <a href="class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e">More...</a><br /></td></tr>
 <tr class="separator:aea7addee9fdeda8d65598819c8c5991e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0ca474b64436cedfeed24f3367117eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">shotsFired</a> [10][10] = {0}</td></tr>
-<tr class="memdesc:ad0ca474b64436cedfeed24f3367117eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">shots fired by this player. 0 = tile not shot | 1 = miss | 2 = hit  <a href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">More...</a><br /></td></tr>
+<tr class="memitem:ad0ca474b64436cedfeed24f3367117eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">shotsFired</a> [10][10] = {{0}}</td></tr>
+<tr class="memdesc:ad0ca474b64436cedfeed24f3367117eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">shots fired by this player. 0 = tile not shot, 1 = miss, 2 = hit  <a href="class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb">More...</a><br /></td></tr>
 <tr class="separator:ad0ca474b64436cedfeed24f3367117eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -164,12 +164,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int PlayerGrid::shotsFired[10][10] = {0}</td>
+          <td class="memname">int PlayerGrid::shotsFired[10][10] = {{0}}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>shots fired by this player. 0 = tile not shot | 1 = miss | 2 = hit </p>
+<p>shots fired by this player. 0 = tile not shot, 1 = miss, 2 = hit </p>
 
 </div>
 </div>
@@ -180,18 +180,18 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int PlayerGrid::shotsReceived[10][10] = {0}</td>
+          <td class="memname">int PlayerGrid::shotsReceived[10][10] = {{0}}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>shots received by this grid. 0 = tile not shot | 1 = miss | 2 = hit </p>
+<p>shots received by this grid. 0 = tile not shot, 1 = miss, 2 = hit </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/nico/Desktop/battleship/src/common/GameState/<a class="el" href="_player_grid_8h_source.html">PlayerGrid.h</a></li>
-<li>/home/nico/Desktop/battleship/src/common/GameState/<a class="el" href="_player_grid_8cpp.html">PlayerGrid.cpp</a></li>
+<li>/home/nico/Desktop/battleship/src/common/game_state/<a class="el" href="_player_grid_8h_source.html">PlayerGrid.h</a></li>
+<li>/home/nico/Desktop/battleship/src/common/game_state/<a class="el" href="_player_grid_8cpp.html">PlayerGrid.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

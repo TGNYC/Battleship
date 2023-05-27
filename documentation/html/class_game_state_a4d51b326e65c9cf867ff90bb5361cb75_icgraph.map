@@ -1,0 +1,8 @@
+<map id="GameState::finish" name="GameState::finish">
+<area shape="rect" id="node1" title=" " alt="" coords="785,46,924,73"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a4ddeb7f7c76b45f18ac7ed8579c00081" title="Displays dialog box when game is finished." alt="" coords="536,17,737,43"/>
+<area shape="rect" id="node4" href="$class_game_instance.html#a1ce52e4764f31a72ae8f6369223091d6" title=" " alt="" coords="558,71,715,98"/>
+<area shape="rect" id="node3" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="295,5,477,47"/>
+<area shape="rect" id="node5" href="$class_game_instance.html#abb7bb4aeb4372058bf741473676a5015" title=" " alt="" coords="284,71,488,98"/>
+<area shape="rect" id="node6" href="$class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,97,236,123"/>
+</map>

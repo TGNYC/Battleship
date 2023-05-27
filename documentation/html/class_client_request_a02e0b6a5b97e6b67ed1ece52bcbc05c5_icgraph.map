@@ -1,6 +1,6 @@
 <map id="ClientRequest::getPlayerId" name="ClientRequest::getPlayerId">
-<area shape="rect" id="node1" title=" " alt="" coords="489,56,684,83"/>
-<area shape="rect" id="node2" href="$classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="232,5,441,32"/>
-<area shape="rect" id="node3" href="$classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="5,49,184,90"/>
-<area shape="rect" id="node4" href="$classgame__instance.html#a10cae87e19d9bde3863c672a1ad24060" title=" " alt="" coords="241,107,433,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="536,56,731,83"/>
+<area shape="rect" id="node2" href="$class_game_instance.html#abb7bb4aeb4372058bf741473676a5015" title=" " alt="" coords="284,5,488,32"/>
+<area shape="rect" id="node3" href="$class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,56,236,83"/>
+<area shape="rect" id="node4" href="$class_game_instance.html#af0e00562fe5b961cd6605dd675760493" title=" " alt="" coords="293,107,479,133"/>
 </map>

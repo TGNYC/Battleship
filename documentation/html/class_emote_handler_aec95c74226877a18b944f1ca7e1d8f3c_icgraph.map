@@ -1,8 +1,6 @@
 <map id="EmoteHandler::getImage" name="EmoteHandler::getImage">
-<area shape="rect" id="node1" title=" " alt="" coords="1011,56,1196,83"/>
-<area shape="rect" id="node2" href="$class_emote_panel.html#a760025fc8b49aeddbf41f5c2f6b5c2bd" title=" " alt="" coords="767,5,963,32"/>
-<area shape="rect" id="node4" href="$class_game_controller.html#a4319385541953201ca2e6a13ea77b2dc" title="Displays an emote to the screen." alt="" coords="236,31,445,57"/>
-<area shape="rect" id="node6" href="$class_emote_panel.html#afb5482f1d97c66199e4bd42d5c7f574d" title=" " alt="" coords="773,107,957,133"/>
-<area shape="rect" id="node3" href="$class_main_game_panel.html#a5301c840919c65bec3a6161d44610e6c" title="Displays the emote sent by the other player." alt="" coords="493,5,719,32"/>
-<area shape="rect" id="node5" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,23,188,65"/>
+<area shape="rect" id="node1" title=" " alt="" coords="493,31,679,57"/>
+<area shape="rect" id="node2" href="$class_emote_panel.html#afb5482f1d97c66199e4bd42d5c7f574d" title=" " alt="" coords="249,5,433,32"/>
+<area shape="rect" id="node3" href="$class_game_controller.html#a4319385541953201ca2e6a13ea77b2dc" title="Displays an emote to the screen." alt="" coords="236,56,445,83"/>
+<area shape="rect" id="node4" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,49,188,90"/>
 </map>

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['registershot_508',['registerShot',['../classgame__state.html#a9610b5ba928ad54837161d115b6985f1',1,'game_state']]],
-  ['remove_5fplayer_509',['remove_player',['../classplayer__manager.html#ae38577aa955998a2346a40a4b850635b',1,'player_manager']]],
-  ['responselistenerthread_510',['ResponseListenerThread',['../class_response_listener_thread.html#a74d3367112e61051efa42b1fc7f2a7a5',1,'ResponseListenerThread']]]
+  ['registershot_542',['registerShot',['../class_game_state.html#a2c1a66a9bd31f3f25ad81b1f94838c75',1,'GameState']]],
+  ['removeplayer_543',['removePlayer',['../class_game_state.html#a54349a7106646ba307b338e42ef9760d',1,'GameState']]],
+  ['reset_544',['reset',['../class_game_instance.html#a1ce52e4764f31a72ae8f6369223091d6',1,'GameInstance']]],
+  ['responselistenerthread_545',['ResponseListenerThread',['../class_response_listener_thread.html#a74d3367112e61051efa42b1fc7f2a7a5',1,'ResponseListenerThread']]]
 ];

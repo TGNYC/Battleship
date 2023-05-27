@@ -1,0 +1,4 @@
+<map id="GameController::sendEmote" name="GameController::sendEmote">
+<area shape="rect" id="node1" title="Sends an emote to the server." alt="" coords="237,5,444,32"/>
+<area shape="rect" id="node2" href="$class_emote_panel.html#afb5482f1d97c66199e4bd42d5c7f574d" title=" " alt="" coords="5,5,189,32"/>
+</map>

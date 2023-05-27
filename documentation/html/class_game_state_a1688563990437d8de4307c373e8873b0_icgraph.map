@@ -1,0 +1,8 @@
+<map id="GameState::shotIsLegal" name="GameState::shotIsLegal">
+<area shape="rect" id="node1" title=" " alt="" coords="769,31,947,57"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a8e910b739b81989267a48436e887c14f" title="Sends a shot request to the server." alt="" coords="536,5,721,32"/>
+<area shape="rect" id="node4" href="$class_game_state.html#a2c1a66a9bd31f3f25ad81b1f94838c75" title=" " alt="" coords="537,56,720,83"/>
+<area shape="rect" id="node3" href="$class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd" title=" " alt="" coords="312,5,460,32"/>
+<area shape="rect" id="node5" href="$class_game_instance.html#abb7bb4aeb4372058bf741473676a5015" title=" " alt="" coords="284,56,488,83"/>
+<area shape="rect" id="node6" href="$class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,56,236,83"/>
+</map>

@@ -74,7 +74,7 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CALLSHOT_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_client_request_8h.html">ClientRequest.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_coordinate_8h.html">GameState/Coordinate.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_coordinate_8h.html">game_state/Coordinate.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="classuuid.html">uuid</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_call_shot.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_call_shot.html">CallShot</a> : <span class="keyword">public</span> <a class="code" href="class_client_request.html">ClientRequest</a> {</div>
@@ -83,21 +83,18 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  [[nodiscard]] <span class="keyword">auto</span> <a class="code" href="class_call_shot.html#ab1ed446f7f5fa1e39c09d3d9cfb8ca91">getPosition</a>() <span class="keyword">const</span> -&gt; <a class="code" href="struct_coordinate.html">Coordinate</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_call_shot.html#a79d588901996c65fb0b6ede599a76a1c">   14</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="class_call_shot.html#a79d588901996c65fb0b6ede599a76a1c">operator&lt;=&gt;</a>(<span class="keyword">const</span> <a class="code" href="class_call_shot.html">CallShot</a> &amp;) <span class="keyword">const</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="struct_coordinate.html">Coordinate</a> m_position;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CALLSHOT_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="struct_coordinate.html">Coordinate</a> _position;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CALLSHOT_H</span></div>
 <div class="ttc" id="a_client_request_8h_html"><div class="ttname"><a href="_client_request_8h.html">ClientRequest.h</a></div></div>
 <div class="ttc" id="a_coordinate_8h_html"><div class="ttname"><a href="_coordinate_8h.html">Coordinate.h</a></div></div>
 <div class="ttc" id="aclass_call_shot_html"><div class="ttname"><a href="class_call_shot.html">CallShot</a></div><div class="ttdef"><b>Definition:</b> CallShot.h:8</div></div>
-<div class="ttc" id="aclass_call_shot_html_a79d588901996c65fb0b6ede599a76a1c"><div class="ttname"><a href="class_call_shot.html#a79d588901996c65fb0b6ede599a76a1c">CallShot::operator&lt;=&gt;</a></div><div class="ttdeci">auto operator&lt;=&gt;(const CallShot &amp;) const =default</div></div>
 <div class="ttc" id="aclass_call_shot_html_ab1ed446f7f5fa1e39c09d3d9cfb8ca91"><div class="ttname"><a href="class_call_shot.html#ab1ed446f7f5fa1e39c09d3d9cfb8ca91">CallShot::getPosition</a></div><div class="ttdeci">auto getPosition() const -&gt; Coordinate</div><div class="ttdef"><b>Definition:</b> CallShot.cpp:10</div></div>
 <div class="ttc" id="aclass_call_shot_html_abef2fa93fd517233206917d83f3d2821"><div class="ttname"><a href="class_call_shot.html#abef2fa93fd517233206917d83f3d2821">CallShot::CallShot</a></div><div class="ttdeci">CallShot(uuid playerId, Coordinate position)</div><div class="ttdef"><b>Definition:</b> CallShot.cpp:7</div></div>
 <div class="ttc" id="aclass_client_request_html"><div class="ttname"><a href="class_client_request.html">ClientRequest</a></div><div class="ttdef"><b>Definition:</b> ClientRequest.h:16</div></div>
-<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
+<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:9</div></div>
 <div class="ttc" id="astruct_coordinate_html"><div class="ttname"><a href="struct_coordinate.html">Coordinate</a></div><div class="ttdef"><b>Definition:</b> Coordinate.h:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

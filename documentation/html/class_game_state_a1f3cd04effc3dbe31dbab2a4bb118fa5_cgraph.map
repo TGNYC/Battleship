@@ -1,0 +1,9 @@
+<map id="GameState::updateBoards" name="GameState::updateBoards">
+<area shape="rect" id="node1" title="updates the CLIENT SIDE boards after a game event happened." alt="" coords="5,81,199,108"/>
+<area shape="rect" id="node2" href="$class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="319,5,409,32"/>
+<area shape="rect" id="node3" href="$class_game_state.html#a3be92441d238c180586ed5e3a625f4d4" title=" " alt="" coords="288,56,440,83"/>
+<area shape="rect" id="node4" href="$class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="327,107,401,133"/>
+<area shape="rect" id="node6" href="$class_game_state.html#a60c784e38959a303438c53f56c9112bc" title=" " alt="" coords="247,157,481,184"/>
+<area shape="rect" id="node5" href="$class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="529,107,657,133"/>
+<area shape="rect" id="node7" href="$class_ship.html#a13084d9892d12d109e83293b0f0b20b6" title=" " alt="" coords="532,157,655,184"/>
+</map>

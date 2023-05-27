@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['add_5for_5fget_5fplayer_2',['add_or_get_player',['../classplayer__manager.html#a84dfb03196aa7af48ee455bed11ebce5',1,'player_manager']]],
-  ['addplayer_3',['addPlayer',['../classgame__state.html#a5af2045269f2bf40a964f221f854b6f4',1,'game_state']]],
-  ['addships_4',['addShips',['../classgame__state.html#a8f2f09b693e4051196249542552cc7c4',1,'game_state']]],
-  ['audioplayer_5',['AudioPlayer',['../class_audio_player.html',1,'']]],
-  ['audioplayer_2ecpp_6',['AudioPlayer.cpp',['../_audio_player_8cpp.html',1,'']]],
-  ['audioplayer_2eh_7',['AudioPlayer.h',['../_audio_player_8h.html',1,'']]]
+  ['addplayer_2',['addPlayer',['../class_game_state.html#a4546c285bc3f6ca47b23b2dc792972c9',1,'GameState']]],
+  ['addships_3',['addShips',['../class_game_state.html#ab2fc67bca62af0ca8d584cc389a38aed',1,'GameState']]],
+  ['audioplayer_4',['AudioPlayer',['../class_audio_player.html',1,'']]],
+  ['audioplayer_2ecpp_5',['AudioPlayer.cpp',['../_audio_player_8cpp.html',1,'']]],
+  ['audioplayer_2eh_6',['AudioPlayer.h',['../_audio_player_8h.html',1,'']]]
 ];

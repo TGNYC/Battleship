@@ -1,6 +1,7 @@
 <map id="ConnectionPanel::onConnectButtonClicked" name="ConnectionPanel::onConnectButtonClicked">
-<area shape="rect" id="node1" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="5,166,212,207"/>
+<area shape="rect" id="node1" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="5,195,212,237"/>
 <area shape="rect" id="node2" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="260,166,459,207"/>
+<area shape="rect" id="node11" href="$class_audio_player.html#a203c088054ba74271ebabddcdb0f6ec9" title=" " alt="" coords="291,232,427,259"/>
 <area shape="rect" id="node3" href="$classuuid.html#a19c9ad8ada196326ebe7a58420c3a4fb" title=" " alt="" coords="521,5,721,32"/>
 <area shape="rect" id="node4" href="$class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064" title="Getter for the server address." alt="" coords="520,57,721,98"/>
 <area shape="rect" id="node6" href="$class_connection_panel.html#ab0dc7af0934d4184aa04d220e0bd9719" title="Getter for the server port." alt="" coords="507,123,734,149"/>
