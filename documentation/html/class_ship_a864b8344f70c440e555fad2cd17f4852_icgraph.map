@@ -1,9 +1,9 @@
 <map id="Ship::hit" name="Ship::hit">
-<area shape="rect" id="node1" title=" " alt="" coords="745,46,820,73"/>
-<area shape="rect" id="node2" href="$classgame__state.html#a9610b5ba928ad54837161d115b6985f1" title=" " alt="" coords="505,19,692,46"/>
-<area shape="rect" id="node5" href="$classgame__state.html#ae307c8a4233645f20c9a3e8cfd77635b" title="updates the CLIENT SIDE boards after a game event happened. //TODO rename to updateState or updateGri..." alt="" coords="500,71,697,98"/>
-<area shape="rect" id="node3" href="$classgame__instance.html#a7723dc3493e2bb7b93989db3229fbc1f" title=" " alt="" coords="239,15,449,42"/>
-<area shape="rect" id="node4" href="$classrequest__handler.html#aeb8d70424bad08bf0a705fd7269b8471" title=" " alt="" coords="7,5,186,47"/>
-<area shape="rect" id="node6" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="236,68,452,109"/>
-<area shape="rect" id="node7" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,71,188,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="789,35,864,61"/>
+<area shape="rect" id="node2" href="$class_game_state.html#a2c1a66a9bd31f3f25ad81b1f94838c75" title=" " alt="" coords="553,8,736,35"/>
+<area shape="rect" id="node5" href="$class_game_state.html#a1f3cd04effc3dbe31dbab2a4bb118fa5" title="updates the CLIENT SIDE boards after a game event happened." alt="" coords="548,60,741,87"/>
+<area shape="rect" id="node3" href="$class_game_instance.html#abb7bb4aeb4372058bf741473676a5015" title=" " alt="" coords="290,5,494,32"/>
+<area shape="rect" id="node4" href="$class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,5,236,32"/>
+<area shape="rect" id="node6" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="284,57,500,98"/>
+<area shape="rect" id="node7" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="29,57,212,98"/>
 </map>

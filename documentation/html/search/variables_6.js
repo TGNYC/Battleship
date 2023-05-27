@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['responsetype_558',['responseType',['../class_server_response.html#acf91761b67bba8243b11f7917079469d',1,'ServerResponse']]]
+  ['quitplayerid_594',['quitPlayerId',['../class_quit_game_event.html#a60d630410d6b417b2e0001df7fc1846f',1,'QuitGameEvent']]]
 ];

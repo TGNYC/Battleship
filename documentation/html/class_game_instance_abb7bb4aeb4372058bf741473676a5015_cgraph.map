@@ -1,0 +1,20 @@
+<map id="GameInstance::executeShot" name="GameInstance::executeShot">
+<area shape="rect" id="node1" title=" " alt="" coords="5,411,209,437"/>
+<area shape="rect" id="node2" href="$class_server_network_manager.html#a4c18e4781d900ab61d1771d8edbed737" title=" " alt="" coords="267,41,443,82"/>
+<area shape="rect" id="node3" href="$class_game_state.html#a364c6e3db8c55d84b8273982e11072dd" title=" " alt="" coords="269,107,440,133"/>
+<area shape="rect" id="node7" href="$class_client_request.html#a02e0b6a5b97e6b67ed1ece52bcbc05c5" title=" " alt="" coords="257,411,452,437"/>
+<area shape="rect" id="node8" href="$class_game_state.html#aa77e10c22e4b157f32d231f05e3ebce2" title=" " alt="" coords="515,461,687,488"/>
+<area shape="rect" id="node9" href="$class_call_shot.html#ab1ed446f7f5fa1e39c09d3d9cfb8ca91" title=" " alt="" coords="276,563,433,589"/>
+<area shape="rect" id="node10" href="$class_game_state.html#a3c93a1af7c9f908d8c353bb5e4a7ce8d" title=" " alt="" coords="269,613,440,640"/>
+<area shape="rect" id="node11" href="$class_game_state.html#a2c1a66a9bd31f3f25ad81b1f94838c75" title=" " alt="" coords="263,259,446,285"/>
+<area shape="rect" id="node15" href="$classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="790,309,901,336"/>
+<area shape="rect" id="node16" href="$class_game_instance.html#a1ce52e4764f31a72ae8f6369223091d6" title=" " alt="" coords="276,512,433,539"/>
+<area shape="rect" id="node4" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="549,5,653,32"/>
+<area shape="rect" id="node5" href="$class_game_state.html#a781da79b6ca2fa8dd6a55bd6f9b168ee" title=" " alt="" coords="500,56,701,83"/>
+<area shape="rect" id="node6" href="$class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="781,157,909,184"/>
+<area shape="rect" id="node12" href="$class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="563,208,638,235"/>
+<area shape="rect" id="node13" href="$class_game_state.html#a1688563990437d8de4307c373e8873b0" title=" " alt="" coords="512,259,689,285"/>
+<area shape="rect" id="node14" href="$class_game_state.html#a97f685bcb11573b49fe78dac13ffe072" title=" " alt="" coords="749,259,941,285"/>
+<area shape="rect" id="node17" href="$class_game_state.html#a4d51b326e65c9cf867ff90bb5361cb75" title=" " alt="" coords="531,512,670,539"/>
+<area shape="rect" id="node18" href="$class_server_network_manager.html#a56a991990fef95ce61d1a6521db0f65b" title=" " alt="" coords="513,563,689,605"/>
+</map>

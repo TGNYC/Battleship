@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['x_564',['x',['../struct_coordinate.html#ad462d671f1feb865911333e3ff5f0a5d',1,'Coordinate']]]
+  ['shipsplaced_596',['shipsPlaced',['../class_player_grid.html#a585e5c7dbe69b8f5bc04ed502e82dc69',1,'PlayerGrid']]],
+  ['shotsfired_597',['shotsFired',['../class_player_grid.html#ad0ca474b64436cedfeed24f3367117eb',1,'PlayerGrid']]],
+  ['shotsreceived_598',['shotsReceived',['../class_player_grid.html#aea7addee9fdeda8d65598819c8c5991e',1,'PlayerGrid']]],
+  ['startingplayerid_599',['startingPlayerId',['../class_start_game_success.html#a5086220bdcb6c7165f56cc20c06a2a65',1,'StartGameSuccess']]],
+  ['sunk_600',['sunk',['../class_game_event.html#aada9647f8e98a3ce1f3cdfeb8dc83708',1,'GameEvent']]]
 ];

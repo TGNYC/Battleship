@@ -4,7 +4,7 @@
 #include <wx/wx.h>
 #include "../uiElements/InputField.h"
 
-// form Lama template
+// from Lama template
 
 class ConnectionPanel : public wxPanel {
 public:

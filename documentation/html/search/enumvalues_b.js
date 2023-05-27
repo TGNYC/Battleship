@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quitgame_594',['QuitGame',['../_client_request_8h.html#ae10b07f2d0feb103db7fe4cfd192e5afac4932eb27921738ea095473272240ceb',1,'ClientRequest.h']]]
+  ['russianwarshipgofuckyourself_640',['RussianWarshipGoFuckYourself',['../_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95a1f86266d75e51c0cd4a470dcf8fb7276',1,'EmoteEvent.h']]]
 ];

@@ -73,7 +73,7 @@ $(function() {
 <a href="_start_game_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef STARTGAME_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define STARTGAME_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../../GameState/Ship.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../../game_state/Ship.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_client_request_8h.html">ClientRequest.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="classuuid.html">uuid</a>;</div>
@@ -84,20 +84,17 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  [[nodiscard]] <span class="keyword">auto</span> <a class="code" href="class_start_game.html#aa4d6709f9c11e47162dc6870e2512f97">getShips</a>() <span class="keyword">const</span> -&gt; std::vector&lt;Ship&gt;;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_start_game.html#a8d5d1b03dd578fc7d0466bfc12fbbe45">   15</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="class_start_game.html#a8d5d1b03dd578fc7d0466bfc12fbbe45">operator&lt;=&gt;</a>(<span class="keyword">const</span> <a class="code" href="class_start_game.html">StartGame</a> &amp;) <span class="keyword">const</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  std::vector&lt;Ship&gt; _ships;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// STARTGAME_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  std::vector&lt;Ship&gt; _ships;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// STARTGAME_H</span></div>
 <div class="ttc" id="a_client_request_8h_html"><div class="ttname"><a href="_client_request_8h.html">ClientRequest.h</a></div></div>
 <div class="ttc" id="aclass_client_request_html"><div class="ttname"><a href="class_client_request.html">ClientRequest</a></div><div class="ttdef"><b>Definition:</b> ClientRequest.h:16</div></div>
 <div class="ttc" id="aclass_start_game_html"><div class="ttname"><a href="class_start_game.html">StartGame</a></div><div class="ttdef"><b>Definition:</b> StartGame.h:9</div></div>
 <div class="ttc" id="aclass_start_game_html_a2bb666a66ba97997c3bf67c92568833e"><div class="ttname"><a href="class_start_game.html#a2bb666a66ba97997c3bf67c92568833e">StartGame::StartGame</a></div><div class="ttdeci">StartGame(uuid playerId, std::vector&lt; Ship &gt; ships)</div><div class="ttdef"><b>Definition:</b> StartGame.cpp:9</div></div>
-<div class="ttc" id="aclass_start_game_html_a8d5d1b03dd578fc7d0466bfc12fbbe45"><div class="ttname"><a href="class_start_game.html#a8d5d1b03dd578fc7d0466bfc12fbbe45">StartGame::operator&lt;=&gt;</a></div><div class="ttdeci">auto operator&lt;=&gt;(const StartGame &amp;) const =default</div></div>
 <div class="ttc" id="aclass_start_game_html_aa4d6709f9c11e47162dc6870e2512f97"><div class="ttname"><a href="class_start_game.html#aa4d6709f9c11e47162dc6870e2512f97">StartGame::getShips</a></div><div class="ttdeci">auto getShips() const -&gt; std::vector&lt; Ship &gt;</div><div class="ttdef"><b>Definition:</b> StartGame.cpp:12</div></div>
-<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
+<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

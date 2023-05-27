@@ -1,14 +1,14 @@
 <map id="/home/nico/Desktop/battleship/src/common" name="/home/nico/Desktop/battleship/src/common">
 <area shape="rect" id="node2" href="dir_b8154c7787844a82e404ad1105f9f634.html" title="exceptions" alt="" coords="160,255,253,303"/>
 <area shape="rect" id="edge6-headlabel" href="dir_000005_000006.html" title="2" alt="" coords="210,229,220,244"/>
-<area shape="rect" id="node3" href="dir_5ca9256e394d76a5c0874f18b1fb2558.html" title="GameState" alt="" coords="37,255,136,303"/>
+<area shape="rect" id="node3" href="dir_5ca9256e394d76a5c0874f18b1fb2558.html" title="game_state" alt="" coords="37,255,136,303"/>
 <area shape="rect" id="node4" href="dir_fe680d193281dea8f29c9bf94b4af9e2.html" title="network" alt="" coords="67,159,141,207"/>
 <area shape="rect" id="edge1-headlabel" href="dir_000007_000008.html" title="1" alt="" coords="92,217,102,231"/>
 <area shape="rect" id="edge3-headlabel" href="dir_000008_000006.html" title="1" alt="" coords="169,229,179,243"/>
 <area shape="rect" id="edge2-headlabel" href="dir_000008_000007.html" title="10" alt="" coords="85,230,102,245"/>
 <area shape="rect" id="node5" href="dir_4e6c883d8b666a44f8755f2472895d27.html" title="serialization" alt="" coords="46,63,149,111"/>
 <area shape="rect" id="edge4-headlabel" href="dir_000011_000007.html" title="2" alt="" coords="68,227,78,242"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000011_000008.html" title="13" alt="" coords="101,133,118,147"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000011_000008.html" title="15" alt="" coords="101,133,118,147"/>
 <area shape="rect" id="clust2" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html" alt="" coords="27,52,264,313"/>
 <area shape="rect" id="clust1" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="16,16,275,324"/>
 </map>

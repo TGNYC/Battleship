@@ -56,9 +56,6 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   _mainWindow->Add(_emoteWindow, 0, wxEXPAND | wxALL, 10);
   _mainWindow->Add(gameWindow, 1, wxEXPAND | wxALL, 10);
 
-  // BINDINGS
-  //_oppViewGrid->Bind(wxEVT_LEFT_DOWN, &MainGamePanel::onMouseClick);
-
   this->SetSizer(_mainWindow);
   this->Fit();
 }
@@ -77,7 +74,6 @@ void MainGamePanel::buildGameState(GameState *gameState, uuid ownId) {
 
   // get ships
   std::vector<Ship> playerShips = playerGrid.shipsPlaced;
-  // std::vector<Ship> oppShips = oppGrid.m_shipsPlaced;
 
   std::array<bool, 5> ownShipSunk;
   for (unsigned int i = 0; i < 5; ++i) {
@@ -97,7 +93,7 @@ void MainGamePanel::buildGameState(GameState *gameState, uuid ownId) {
   this->_oppViewGrid->showShots(ownShots);
 
   // turn indicator
-  auto text = "It's " + gameState->getPlayer(_currentPlayer).getName() + "'s turn";
+  auto text = "It is " + gameState->getPlayer(_currentPlayer).getName() + "'s turn";
   _turnText->SetLabelText(text);
 
   // update ship panel
@@ -107,92 +103,7 @@ void MainGamePanel::buildGameState(GameState *gameState, uuid ownId) {
 
 void MainGamePanel::displayEmote(EmoteType emote) {
   _currentEmote = new EmotePopup(this, wxDefaultPosition, emote);
-  // _currentEmote->CenterOnParent();
   _currentEmote->SetPosition(wxPoint(400, 200));
   _currentEmote->Show();
   this->Layout();
-  /*
-  int emoteId = static_cast<int>(emote);
-  LOG("emote id: " + std::to_string(emoteId));
-  if (emoteId < 0 || emoteId > 2) {
-    LOG("invalid emote id");
-    return;
-  }
-  LOG("I should display emote " + std::to_string(emoteId));
-  wxImage image;
-  switch (emoteId) {
-  case 0:
-    image = wxImage("../assets/emotes/large_middlefinger.png");
-    break;
-  case 1:
-    image = wxImage("../assets/emotes/large_gofuckyourself.png");
-    break;
-  case 2:
-    image = wxImage("../assets/emotes/large_mocking.png");
-    break;
-  }
-  _currentEmote = new wxStaticBitmap(this, wxID_ANY, wxBitmap(image), wxPoint(180, 86), wxSize(400, 400), 0);
-  _currentEmote->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent &event) {
-    LOG("Hide current emote");
-    this->_currentEmote->Destroy();
-  });
-  */
 }
-
-/*
-void MainGamePanel::onMouseClick(wxMouseEvent &event) {
-  LOG("registered click in Maingamepanel");
-  wxPoint mousePosition = event.GetPosition();
-  LOG("clicked at: " + std::to_string(mousePosition.x) + ", " + std::to_string(mousePosition.y));
-  Coordinate shot = Coordinate{mousePosition.x / 40, mousePosition.y / 40};
-
-
-  // make sure the click is on the grid
-  if (shot.x < 0 || shot.x >= 10 || shot.y < 0 || shot.y >= 10) {
-    LOG("Click is not on grid: " + std::to_string(shot.x) + " " + std::to_string(shot.y));
-    return;
-  }
-
-  // only allow clicks if it is the player's turn
-  if (_currentPlayer != _ownId) {
-    LOG("not your turn");
-    return;
-  }
-  // temp test
-  //AudioPlayer::play(AudioPlayer::BestPirate);
-  // end test
-
-  LOG("clicked on cell " + std::to_string(shot.x) + ", " + std::to_string(shot.y));
-
-  // limit shot frequency to one per second to give server time to respond
-  auto now = std::chrono::system_clock::now();
-  if (now - _lastClick < std::chrono::milliseconds(57)) {
-    LOG("too fast");
-    return;
-  }
-  _lastClick = now;
-
-  if (!_gameState->shotIsLegal(_ownId, shot)) {
-    LOG("illegal shot");
-    return;
-  }
-
-  GameController::callShot(shot); // builds callShot request and sends to server
-}
-
-
-void MainGamePanel::onEmoteClick(wxMouseEvent &event) {
-  auto now = std::chrono::system_clock::now();
-  if (now - _lastClick < std::chrono::milliseconds(57)) {
-    LOG("too fast");
-    return;
-  }
-  _lastClick = now;
-  wxPoint mousePosition = event.GetPosition();
-  mousePosition -= wxPoint(20, 90);
-  const int emote = mousePosition.y / 90;
-  if(emote < 0 || emote > 2) return;
-  LOG("clicked on emote nr " + std::to_string(emote));
-  GameController::sendEmote(EmoteType(emote));
-}
-*/

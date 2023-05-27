@@ -1,6 +1,6 @@
 <map id="Battleship::OnInit" name="Battleship::OnInit">
 <area shape="rect" id="node1" title=" " alt="" coords="5,31,140,57"/>
-<area shape="rect" id="node2" href="$class_game_controller.html#a8889bad76bc35487d3391fb8a5791616" title="Initializes all panels, displays the connection panel." alt="" coords="188,5,343,32"/>
-<area shape="rect" id="node4" href="$class_logger.html#aa483aca4befe39d1586f6f4a7048ed32" title=" " alt="" coords="218,56,313,83"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a8889bad76bc35487d3391fb8a5791616" title="Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver o..." alt="" coords="188,5,343,32"/>
+<area shape="rect" id="node4" href="$class_logger.html#a098fdd5ca3f68ff7b59e35257e22a289" title=" " alt="" coords="200,56,331,83"/>
 <area shape="rect" id="node3" href="$class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="391,5,580,32"/>
 </map>

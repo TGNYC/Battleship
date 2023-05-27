@@ -1,0 +1,7 @@
+<map id="GameState::getOtherPlayer" name="GameState::getOtherPlayer">
+<area shape="rect" id="node1" title=" " alt="" coords="755,31,956,57"/>
+<area shape="rect" id="node2" href="$class_game_state.html#a364c6e3db8c55d84b8273982e11072dd" title=" " alt="" coords="536,5,707,32"/>
+<area shape="rect" id="node5" href="$class_game_instance.html#a07ac68d243aa2819e56de915acfd0da9" title=" " alt="" coords="289,56,483,83"/>
+<area shape="rect" id="node3" href="$class_game_instance.html#abb7bb4aeb4372058bf741473676a5015" title=" " alt="" coords="284,5,488,32"/>
+<area shape="rect" id="node4" href="$class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,31,236,57"/>
+</map>
