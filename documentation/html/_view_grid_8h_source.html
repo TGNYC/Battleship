@@ -78,9 +78,9 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_view_grid.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_view_grid.html">ViewGrid</a> : <span class="keyword">public</span> wxPanel{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">    9</a></span>&#160;  <span class="keyword">enum</span> <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">gridtype</a> {<a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6">own</a>, <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31">opp</a>};</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">    9</a></span>&#160;  <span class="keyword">enum</span> <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">GridType</a> {<a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6">own</a>, <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31">opp</a>};</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd">ViewGrid</a>(wxWindow *parent, <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">gridtype</a> type);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd">ViewGrid</a>(wxWindow *parent, <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">GridType</a> type);</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_view_grid.html#a87ffca0c3604a89a2f16683e479f4797">   13</a></span>&#160;  wxPoint <a class="code" href="class_view_grid.html#a87ffca0c3604a89a2f16683e479f4797">GetPosition</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> _pos;</div>
@@ -97,7 +97,7 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  wxPoint _pos;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  wxStaticBitmap **_grid;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">gridtype</a> _type;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">GridType</a> _type;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  wxWindow *_parent;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
@@ -108,10 +108,10 @@ $(function() {
 <div class="ttc" id="aclass_view_grid_html_a87ffca0c3604a89a2f16683e479f4797"><div class="ttname"><a href="class_view_grid.html#a87ffca0c3604a89a2f16683e479f4797">ViewGrid::GetPosition</a></div><div class="ttdeci">wxPoint GetPosition() const</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:13</div></div>
 <div class="ttc" id="aclass_view_grid_html_ab6b475db0687c526eae0b16071bf8234"><div class="ttname"><a href="class_view_grid.html#ab6b475db0687c526eae0b16071bf8234">ViewGrid::onMouseClick</a></div><div class="ttdeci">void onMouseClick(wxMouseEvent &amp;event)</div></div>
 <div class="ttc" id="aclass_view_grid_html_aba998a75f23b3da1f14f4ff3cec77fa3"><div class="ttname"><a href="class_view_grid.html#aba998a75f23b3da1f14f4ff3cec77fa3">ViewGrid::getGrid</a></div><div class="ttdeci">wxStaticBitmap ** getGrid() const</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:16</div></div>
-<div class="ttc" id="aclass_view_grid_html_ac29cb12bff7493060e9968c5de516bd3"><div class="ttname"><a href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">ViewGrid::gridtype</a></div><div class="ttdeci">gridtype</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:9</div></div>
+<div class="ttc" id="aclass_view_grid_html_ac29cb12bff7493060e9968c5de516bd3"><div class="ttname"><a href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3">ViewGrid::GridType</a></div><div class="ttdeci">GridType</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:9</div></div>
 <div class="ttc" id="aclass_view_grid_html_ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31"><div class="ttname"><a href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a45ff3b89babcf9a7a298bcf4fd1d5d31">ViewGrid::opp</a></div><div class="ttdeci">@ opp</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:9</div></div>
 <div class="ttc" id="aclass_view_grid_html_ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6"><div class="ttname"><a href="class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3a76098bdefdfad511242e5def6f9638d6">ViewGrid::own</a></div><div class="ttdeci">@ own</div><div class="ttdef"><b>Definition:</b> ViewGrid.h:9</div></div>
-<div class="ttc" id="aclass_view_grid_html_afb7790f7e31df81b3a525fd5e37ac8fd"><div class="ttname"><a href="class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd">ViewGrid::ViewGrid</a></div><div class="ttdeci">ViewGrid(wxWindow *parent, gridtype type)</div><div class="ttdef"><b>Definition:</b> ViewGrid.cpp:7</div></div>
+<div class="ttc" id="aclass_view_grid_html_afb7790f7e31df81b3a525fd5e37ac8fd"><div class="ttname"><a href="class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd">ViewGrid::ViewGrid</a></div><div class="ttdeci">ViewGrid(wxWindow *parent, GridType type)</div><div class="ttdef"><b>Definition:</b> ViewGrid.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

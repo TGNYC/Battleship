@@ -9,6 +9,7 @@ class ShipPanel : public wxPanel {
 public:
   ShipPanel(wxWindow *parent, wxPoint pos, const std::array<bool, 5> sunk);
   void update(const std::array<bool, 5> sunk);
+
 private:
   wxStaticBitmap* _shipBitmaps[5];
   std::string _filenames[5] = {

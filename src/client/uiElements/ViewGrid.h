@@ -6,26 +6,21 @@
 
 class ViewGrid : public wxPanel{
 public:
-  enum gridtype {own, opp};
+  enum GridType {own, opp};
   
-  ViewGrid(wxWindow *parent, gridtype type);
+  ViewGrid(wxWindow *parent, GridType type);
 
   wxPoint GetPosition() const {
     return _pos;
-  }
-  wxStaticBitmap** getGrid() const {
-    return _grid;
   }
 
   void showShips(const std::vector<Ship>& ships);
   void showShots(const int shots[10][10]);
 
-  void onMouseClick(wxMouseEvent &event);
-
 private:
   wxPoint _pos;
   wxStaticBitmap **_grid;
-  gridtype _type;
+  GridType _type;
   wxWindow *_parent;
 };
 
