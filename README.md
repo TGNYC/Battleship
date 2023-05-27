@@ -1,5 +1,7 @@
 # Battleship
 
+![battleship-logo](./assets/battleship_logo.png?raw=true)
+
 ## Build
 
 The program is built using cmake.
