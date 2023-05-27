@@ -3,17 +3,12 @@
 
 #include <wx/wx.h>
 #include "../../common/game_state/Ship.h"
-#include "../GameController.h"
 
 class ViewGrid : public wxPanel{
 public:
   enum GridType {own, opp};
   
   ViewGrid(wxWindow *parent, GridType type);
-
-  wxPoint GetPosition() const {
-    return _pos;
-  }
 
   /**
    * @brief Displays the ships on the grid.

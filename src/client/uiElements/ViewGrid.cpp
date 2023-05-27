@@ -1,4 +1,5 @@
 #include "ViewGrid.h"
+#include "../GameController.h"
 #include "Logger.h"
 
 ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::GridType type)

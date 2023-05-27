@@ -1,4 +1,5 @@
 #include "EmotePanel.h"
+#include "../GameController.h"
 #include "Logger.h"
 
 EmotePanel::EmotePanel(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(100, 600)) {

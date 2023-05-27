@@ -1,4 +1,5 @@
 #include "MainGamePanel.h"
+#include "../GameController.h"
 #include "Logger.h"
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {

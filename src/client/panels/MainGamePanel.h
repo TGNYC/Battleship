@@ -7,7 +7,6 @@
 #include "../uiElements/EmotePopup.h"
 #include "../uiElements/ShipPanel.h"
 #include "../uiElements/ViewGrid.h"
-#include "../GameController.h"
 #include "game_state/GameState.h"
 #include <wx/wx.h>
 
