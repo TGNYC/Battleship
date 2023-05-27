@@ -2,7 +2,9 @@
 
 This is an implementation of the board game [Battleship](https://en.wikipedia.org/wiki/Battleship_(game)). It is written in c++, using wxWidgets for the GUI, [wxWidgets](https://www.wxwidgets.org/) for the GUI, [sockpp](https://github.com/fpagliughi/sockpp) for the network interface, and [googletest](https://github.com/google/googletest) for the unit tests. 
 
-![battleship-logo](./assets/battleship_logo.png?raw=true)
+<p align="center">
+  <img src="https://gitlab.ethz.ch/ship-happens/battleship/-/raw/main/assets/battleship_logo.png?raw=true" alt="Battleship Logo"/>
+</p>
 
 ## Build
 
