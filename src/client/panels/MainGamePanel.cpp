@@ -24,8 +24,8 @@ MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   this->_ownShipPanel      = new ShipPanel(this, wxDefaultPosition, init);
   this->_oppShipPanel      = new ShipPanel(this, wxDefaultPosition, init);
 
-  this->_ownViewGrid = new ViewGrid(this, ViewGrid::gridtype::own);
-  this->_oppViewGrid = new ViewGrid(this, ViewGrid::gridtype::opp);
+  this->_ownViewGrid = new ViewGrid(this, ViewGrid::GridType::own);
+  this->_oppViewGrid = new ViewGrid(this, ViewGrid::GridType::opp);
 
   wxBoxSizer   *leftTitleSizer = new wxBoxSizer(wxVERTICAL);
   wxStaticText *leftTitle      = new wxStaticText(this, wxID_ANY, "Your Ships");

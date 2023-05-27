@@ -18,10 +18,6 @@ Player                                            *GameController::_me          
 GameState                                         *GameController::_gameState       = nullptr;
 std::chrono::time_point<std::chrono::system_clock> GameController::_lastClick;
 
-/**
- * @brief Constructor for GameController. Initializes different panels
- * @param gameWindow
- */
 void GameController::init(GameWindow *gameWindow) {
   LOG("initializing controller");
   GameController::_gameWindow = gameWindow;
@@ -44,9 +40,6 @@ void GameController::init(GameWindow *gameWindow) {
   _lastClick = std::chrono::system_clock::now();
 }
 
-/**
- * @brief Function that is called when connect button on ConnectionPanel is clicked. Will try to connect to the server
- */
 void GameController::connectToServer() {
   // get values
   wxString inputServerAddress = GameController::_connectionPanel->getServerAddress().Trim();
@@ -92,18 +85,12 @@ void GameController::connectToServer() {
   ClientNetworkManager::sendRequest(request);
 }
 
-/**
- * @beief function that is called when server responds with JoinGameSuccess response. Will show setup panel.
- */
 void GameController::enterSetupPhase() {
   // show setup panel
   GameController::_setupManager = new SetupManager();
   GameController::_gameWindow->showPanel(GameController::_setupPanel);
 }
 
-/**
- * @brief Function that is called when server responds with StartGameSuccess. Will show main game panel.
- */
 void GameController::startGame(const StartGameSuccess &response) { // called by ResponseListenerThread
   LOG("Game is starting");
   // adding opponent to game state
@@ -125,9 +112,10 @@ void GameController::startGame(const StartGameSuccess &response) { // called by 
 
 void GameController::handleGameEvent(const GameEvent &event) {
   _gameState->updateBoards(event);
-  uuid currentPlayerId = _gameState->getCurrentPlayerId();
   _mainGamePanel->buildGameState(_gameState, _me->getId());
-  if (event.playerId == _me->getId()) { // TODO: remove this condition if playing on 2 devices. This avoids playing sound double
+  // remove this condition if playing on 2 devices. This for now avoids playing every sound double resulting in
+  // terrible quality. Sound is only played on the shooters end.
+  if (event.playerId == _me->getId()) {
     if (event.hit) {
       AudioPlayer::play(AudioPlayer::Cannon);
     } else {
@@ -143,7 +131,7 @@ void GameController::callShot(Coordinate position) {
     LOG("not your turn");
     return;
   }
-  // limit shot frequency
+  // limit shot frequency to avoid errors due to network delay
   auto now = std::chrono::system_clock::now();
   if (now - _lastClick < std::chrono::milliseconds(100)) { // 57
     LOG("too fast");
@@ -156,27 +144,28 @@ void GameController::callShot(Coordinate position) {
     return;
   }
   // shot is ok, send to server
-  CallShot request = CallShot(_me->getId(), position);
+  const CallShot request = CallShot(_me->getId(), position);
   ClientNetworkManager::sendRequest(request);
   //AudioPlayer::play(AudioPlayer::Cannon);
 }
 
 void GameController::sendEmote(EmoteType emote) {
-  SendEmote request = SendEmote(_me->getId(), emote);
+  const SendEmote request = SendEmote(_me->getId(), emote);
   ClientNetworkManager::sendRequest(request);
 }
 
 void GameController::showEmote(EmoteEvent emoteEvent) {
-  EmoteType   emote = emoteEvent.emote;
-  std::string file  = EmoteHandler::getImage(emote);
+  const EmoteType   emote = emoteEvent.emote;
+  const std::string file  = EmoteHandler::getImage(emote);
   _mainGamePanel->displayEmote(emote);
   AudioPlayer::play(EmoteHandler::getSound(emote));
 }
 
 void GameController::showError(const std::string &title, const std::string &message, bool popup) {
   std::cout << "ERROR [" << title << "] " << message << std::endl;
-  if (popup)
+  if (popup) {
     wxMessageBox(message, title, wxOK | wxICON_ERROR);
+  }
 }
 
 void GameController::gameOver(uuid winnerId) {
@@ -202,20 +191,19 @@ void GameController::playerReady() {
   }
 
   // generate GameState
-  LOG("Generating GameState");
+  LOG("generating GameState");
   _gameState = new GameState(GameState::Type::ClientState);
   _gameState->addPlayer(*_me);
   _gameState->addShips(_me->getId(), _setupManager->_ships_placed);
-  LOG("Printing ship ids...");
+  LOG("printing ship ids...");
   for (auto ship : _gameState->getPlayerGrid(_me->getId()).shipsPlaced) {
     LOG(ship.getId().ToString());
   }
 
-  // todo: maybe display some waiting for other player information
-  LOG("Sending request to server. You might need to wait for your opponent to be ready.");
+  LOG("sending request to server. You might need to wait for your opponent to be ready.");
 
   // send request to start game
-  StartGame request = StartGame(_me->getId(), _setupManager->_ships_placed);
+  const StartGame request = StartGame(_me->getId(), _setupManager->_ships_placed);
   ClientNetworkManager::sendRequest(request);
 
   // disable button such that player cannot click it again
@@ -233,13 +221,13 @@ wxEvtHandler *GameController::getMainThreadEventHandler() {
 void GameController::quitGame() {
   // send quit game request
   LOG("Sending quit game request");
-  QuitGame request = QuitGame(_me->getId());
+  const QuitGame request = QuitGame(_me->getId());
   ClientNetworkManager::sendRequest(request);
 }
 
 void GameController::handleQuitGameEvent(uuid quitterId) {
   if (quitterId != _me->getId()) {
-    std::string message = "Your opponent left the game\n";
+    const std::string message = "Your opponent left the game\n";
     wxMessageBox(message, "Opponent left", wxOK | wxICON_INFORMATION);
     LOG("resetting client...");
     GameController::init(_gameWindow);

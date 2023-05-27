@@ -17,8 +17,6 @@ public:
 private:
   wxStaticText* _label;
   wxTextCtrl* _field;
-
-
 };
 
 #endif // BATTLESHIP_INPUTFIELD_H

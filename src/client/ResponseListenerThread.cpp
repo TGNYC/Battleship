@@ -11,10 +11,6 @@ ResponseListenerThread::ResponseListenerThread(sockpp::tcp_connector *connection
   this->_connection = connection;
 }
 
-// ResponseListenerThread::~ResponseListenerThread() {
-//   this->_connection->shutdown();
-// }
-
 wxThread::ExitCode ResponseListenerThread::Entry() {
   try {
     char    buffer[512]; // 512 bytes
@@ -136,8 +132,7 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
 }
 
 void ResponseListenerThread::outputError(std::string title, std::string message) {
-  // TODO GameController getMainThreadEventHandler
-  //   GameController::getMainThreadEventHandler()->CallAfter([title, message] {
-  //     GameController::showError(title, message);
-  //   });
+   GameController::getMainThreadEventHandler()->CallAfter([title, message] {
+     GameController::showError(title, message, true);
+   });
 }

@@ -7,9 +7,6 @@
 // declare static variables
 int *SetupManager::_grid;
 
-/**
- * @brief constructor for SetupManager. Initializes ships and grid.
- */
 SetupManager::SetupManager() {
   // generate ships
   _ships_placed.clear();
@@ -30,12 +27,6 @@ SetupManager::SetupManager() {
   }
 }
 
-/**
- * @brief function places ship on grid and updates ship position
- * @param position of left-most or top-most cell of ship (depending on orientation)
- * @param ship pointer to ship that should be placed
- * @return true if ship was placed successfully and false if ship couldn't be placed
- */
 bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
   if (ship == nullptr)
     return false;
@@ -58,10 +49,11 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
   // check if ship would overlap with another ship
   bool overlap = false;
   for (int i = 0; i < length; ++i) {
-    if (orientation == Ship::Orientation::Horizontal)
+    if (orientation == Ship::Orientation::Horizontal) {
       overlap = overlap || _grid[(cellX + i) * 10 + cellY] != 0;
-    else
+    } else {
       overlap = overlap || _grid[(cellX)*10 + cellY + i] != 0;
+    }
   }
   if (overlap) {
     LOG("invalid placement. try again.");
@@ -86,32 +78,26 @@ bool SetupManager::placeShip(wxPoint &position, Ship *ship) {
   // remove Ship button from UI
   auto  ship_idx = _grid[cellX * 10 + cellY] - 1; // idx in [0,4]
   auto *shipBtn  = GameController::getSetupPanel()->getShipButton(ship_idx);
-  if (shipBtn != nullptr) // should never be nullptr but just in case
+  if (shipBtn != nullptr) { // should never be nullptr but just in case
     shipBtn->Disable();
+  }
 
   // print grid (debug)
-  for (int i = 0; i < 10; ++i) {
+  /*for (int i = 0; i < 10; ++i) {
     for (int j = 0; j < 10; ++j) {
       std::cout << _grid[i + j * 10] << " ";
     }
     std::cout << std::endl;
-  }
+  }*/
+
   AudioPlayer::play(AudioPlayer::PlaceShip);
   return true;
 }
 
-/**
- * @brief getter for _grid
- * @return int pointer to _grid array
- */
 int *SetupManager::getGrid() {
   return _grid;
 }
 
-/**
- * @brief checks if all ships have been placed (= no longer at initial position)
- * @return true if all ships have been placed, false otherwise
- */
 bool SetupManager::placedAllShips() {
   bool placed = true;
   for (unsigned int i = 0; i < _ships_placed.size(); ++i) {

@@ -8,7 +8,6 @@ ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, std::array<bool, 5> sunk) : 
   wxColor backgroundColor = wxColor(255, 255, 255);
   this->SetBackgroundColour(backgroundColor);
 
-  //wxGridSizer* gridSizer = new wxGridSizer(2, 3, 5, 5);
   int positions[5][2] = {
       {pos.x + 0*40, pos.y + 0*30},
       {pos.x + 6*40, pos.y + 0*30},

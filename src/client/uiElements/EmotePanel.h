@@ -13,8 +13,7 @@ class EmotePanel : public wxPanel {
 public:
     EmotePanel(wxWindow *parent, wxPoint pos);
 private:
-    wxWindow* _parent;
-    wxStaticBitmap* _emoteBitmaps[6];
+    wxStaticBitmap* _emoteBitmaps[6]; ///< contains the visuals for the 6 emotes
     std::chrono::system_clock::time_point _lastClick; ///< timestamp used to prevent emote-spamming
 };
 

@@ -7,10 +7,6 @@
 #include "Logger.h"
 #include <wx/wx.h>
 
-/**
- * @brief constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events
- * @param parent
- */
 PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400), wxWANTS_CHARS) {
   wxColor backgroundColor = wxColor(255, 255, 0); // yellow, for debugging, shouldn't be visible
   this->SetBackgroundColour(backgroundColor);
@@ -32,11 +28,6 @@ PlacementGrid::PlacementGrid(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDef
   Bind(wxEVT_LEFT_DOWN, &PlacementGrid::OnMouseClick, this);
 }
 
-
-/**
- * @brief function is called when mouse hovers over grid and highlights tiles according to mouse position and placed ships
- * @param event mouse event
- */
 void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
   this->SetFocus(); // set focus such that key events are received (for rotation)
   wxPoint mousePosition = event.GetPosition();
@@ -46,11 +37,6 @@ void PlacementGrid::OnMouseMotion(wxMouseEvent &event) {
   highlightTiles(CellX, CellY);
 }
 
-
-/**
- * @brief function is called when mouse clicks on grid and places ship if possible
- * @param event
- */
 void PlacementGrid::OnMouseClick(wxMouseEvent &event) {
   if(SetupManager::_selectedShip == nullptr) {
     LOG("no ship selected");
@@ -69,10 +55,6 @@ void PlacementGrid::OnMouseClick(wxMouseEvent &event) {
   this->displayGrid();
 }
 
-
-/**
- * @brief function displays grid according to data in SetupManager
- */
 void PlacementGrid::displayGrid() {
   auto *grid = SetupManager::getGrid();
   for(int i = 0; i < 100; ++i) {
@@ -85,12 +67,6 @@ void PlacementGrid::displayGrid() {
   }
 }
 
-
-/**
- * @brief function highlights tiles according to mouse position and placed ships
- * @param CellX x coordinate of mouse position
- * @param CellY y coordinate of mouse position
- */
 void PlacementGrid::highlightTiles(int CellX, int CellY) {
   if (SetupManager::_selectedShip == nullptr) { // no ship selected
     return;
@@ -104,11 +80,10 @@ void PlacementGrid::highlightTiles(int CellX, int CellY) {
   }
   if (SetupManager::_selectedShip->getOrientation() == Ship::Orientation::Vertical &&
       CellY + SetupManager::_selectedShip->getLength() > 10) { // ship would be out of bounds
-    // return;
     CellY = std::min(CellY, 10 - SetupManager::_selectedShip->getLength());
   }
 
-  displayGrid();
+  this->displayGrid();
 
   const int l = SetupManager::_selectedShip->getLength();
   auto orientation = SetupManager::_selectedShip->getOrientation();
@@ -132,13 +107,4 @@ void PlacementGrid::highlightTiles(int CellX, int CellY) {
 
   cellX_prev = CellX;
   cellY_prev = CellY;
-}
-
-
-/**
- * @brief getter for grid
- * @return pointer to grid (static bitmap array)
- */
-wxStaticBitmap **PlacementGrid::getGrid() const {
-  return _grid;
 }
