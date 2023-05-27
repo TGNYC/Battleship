@@ -13,7 +13,6 @@ public:
 private:
     wxBoxSizer *_mainLayout;
     wxStatusBar *_statusBar;
-
     wxPanel *_currentPanel;
 };
 

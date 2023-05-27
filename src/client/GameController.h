@@ -22,38 +22,47 @@ public:
      * Is also used to reset everything on GameOver or QuitGameEvent
     */
     static void init(GameWindow* gameWindow);
+
     /**
-     * @brief enter setup phase
-     */
-    static void enterSetupPhase();
-    /**
-     * @brief Connects to server. 
+     * @brief Connects to server. Is called when connect button on ConnectionPanel is clicked.
     */
     static void connectToServer();
+
     /**
-     * @brief Sends a start game request after setup phase. 
+     * @brief enter setup phase. Is called when server responds with JoinGameSuccess response. Will show setup panel.
+     */
+    static void enterSetupPhase();
+
+    /**
+     * @brief Function that is called when server responds with StartGameSuccess. Will show main game panel.
     */
     static void startGame(const StartGameSuccess &response);
+
     /**
-     * @brief Handes shot. 
+     * @brief Handles an incoming GameEvent
     */
     static void handleGameEvent(const GameEvent &event);
+
     /**
-        * @brief Sends a shot request to the server. 
+    * @brief Sends a shot request to the server.
     */
     static void callShot(Coordinate position);
+
     /**
      * @brief Sends an emote to the server. 
     */
     static void sendEmote(EmoteType emote);
+
     /**
      * @brief Displays an emote to the screen
      */
      static void showEmote(EmoteEvent emoteEvent);
+
     /**
      * @brief Prints an error message box in case of an invalid move. 
     */
     static void showError(const std::string& title, const std::string& message, bool popup);
+
     /**
      * @brief Displays dialog box when game is finished. 
     */

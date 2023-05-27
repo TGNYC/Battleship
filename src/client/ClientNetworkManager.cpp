@@ -40,20 +40,16 @@ void ::ClientNetworkManager::init(const std::string &host, const uint16_t port) 
 
   // try to connect to server
   if (ClientNetworkManager::connect(host, port)) {
-    // TODO showStatus in GameController
-    // GameController::showStatus("Connected to " + host + ":" + std::to_string(port));
     ClientNetworkManager::_connectionSuccess = true;
-
+    LOG("successfully connected to server");
     // start network thread
     _responseListenerThread = new ResponseListenerThread(ClientNetworkManager::_connection);
     if (_responseListenerThread->Run() != wxTHREAD_NO_ERROR) {
-      GameController::showError("Connection error", "Could not create client network thread", false);
+      GameController::showError("connection error", "Could not create client network thread", false);
     }
-
   } else {
     ClientNetworkManager::_failedToConnect = true;
-    // TODO showStatus in GameController
-    // GameController::showStatus("Not connected");
+    LOG("connection error");
   }
 }
 
@@ -102,11 +98,6 @@ void ClientNetworkManager::sendRequest(const ClientRequest &request) {
     std::stringstream messageStream;
     messageStream << std::to_string(message.size()) << ':' << message;
     message = messageStream.str();
-
-    // output message for debugging purposes
-#ifdef PRINT_NETWORK_MESSAGES
-    std::cout << "Sending request : " << message << std::endl;
-#endif
 
     // send message to server
     ssize_t bytesSent = ClientNetworkManager::_connection->write(message);

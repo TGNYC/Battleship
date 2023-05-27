@@ -4,11 +4,13 @@
 #include <sockpp/tcp_connector.h>
 #include <wx/wx.h>
 
+/*!
+ * Thread that is permanently listening for messages from the server
+ */
 class ResponseListenerThread : public wxThread {
 
 public:
   ResponseListenerThread(sockpp::tcp_connector *connection);
-  // ~ResponseListenerThread();
 
 protected:
   virtual ExitCode Entry();

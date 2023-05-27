@@ -9,12 +9,25 @@
 #include <string>
 
 class ClientNetworkManager {
-
 public:
+  /*!
+   * establishes a connection to the server specified by host address and port number
+   * @param host server ip
+   * @param port server port
+   */
   static void init(const std::string &host, const uint16_t port);
 
+  /*!
+   * serializes and sends a client request to the server
+   * @param request message to the server
+   */
   static void sendRequest(const ClientRequest &request);
 
+  /*!
+   * deserializes a server response
+   * @param message server response in json format
+   * @return response object
+   */
   static std::unique_ptr<ServerResponse> parseResponse(const std::string &message);
 
 private:
