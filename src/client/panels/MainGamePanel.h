@@ -10,7 +10,6 @@
 #include "game_state/GameState.h"
 #include <chrono>
 #include <wx/wx.h>
-//#include "../AudioPlayer.h"
 #include <wx/timer.h>
 
 class MainGamePanel : public wxPanel {
@@ -20,6 +19,7 @@ public:
    * Doesn't display anything, only the background color.
   */
   MainGamePanel(wxWindow *parent);
+
   /**
    * @brief Builds the game state.
    * @param gameState The game state.
@@ -27,33 +27,19 @@ public:
    * Displays the game state using ViewGrid and ShipPanel.
   */
   void buildGameState(GameState * gameState, uuid ownId);
+
   /**
    * @brief Displays the emote panel.
    * Not implemented yet. 
   */
   void buildEmoteList();
+
   /**
    * @brief Displays the emote sent by the other player.
    * @param emote The emote type that was sent.
    * Not implemented yet.
   */
   void displayEmote(EmoteType emote);
-  /**
-   * @brief Displays the turn indicator: It's ((playerName))'s turn
-   * @param playerName The name of the player who's turn it is.
-   * @param header The wxBoxSizer that contains the turn indicator.
-  */
-  void buildTurnIndicator(std::string playerName, wxBoxSizer *header);
-  /**
-   * @brief Function that is bound to the tiles of the opponent's view grid.
-   * @param event The mouse event.
-   * Makes sure that it's the player's turn and that the player can't shoot more than once per second.
-   * Uses the position of the mouse pointer to find out which tile was clicked.
-   * TODO: Calls the function shotIsLegal and sends callShot request to server.
-  */
-  void onMouseClick(wxMouseEvent& event);
-
-  void onEmoteClick(wxMouseEvent& event);
 
 private:
   wxBoxSizer* _mainWindow;
@@ -68,8 +54,8 @@ private:
   EmotePanel* _emotePanel;
   wxStaticText *_turnText;
   EmotePopup* _currentEmote = nullptr;
-  std::chrono::system_clock::time_point _lastClick; // std::chrono::_V2::system_clock::time_point _lastShot;
-        wxTimer* _timer;
+  std::chrono::system_clock::time_point _lastClick;
+  wxTimer* _timer;
 };
 
 #endif // MAINGAMEPANEL_H

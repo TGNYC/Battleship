@@ -7,7 +7,6 @@
  * @brief Constructor for ConnectionPanel
  * @param parent
  */
-
 ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
   wxColor white = wxColor(255, 255, 255);
   this->SetBackgroundColour(white);
