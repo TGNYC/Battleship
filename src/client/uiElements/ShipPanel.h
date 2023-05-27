@@ -8,6 +8,12 @@
 class ShipPanel : public wxPanel {
 public:
   ShipPanel(wxWindow *parent, wxPoint pos, const std::array<bool, 5> sunk);
+
+  /**
+   * @brief Updates the panel to show the ships that have been sunk.
+   * @param sunk An array of booleans, where true means that the ship has been sunk.
+   * The ships are sorted by length, the ship at index 0 is the longest one with length 5.
+  */
   void update(const std::array<bool, 5> sunk);
 
 private:
