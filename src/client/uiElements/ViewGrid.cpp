@@ -13,15 +13,6 @@ ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::GridType type)
   const int x = _pos.x;
   const int y = _pos.y;
 
-  wxBoxSizer   *gridTitle = new wxBoxSizer(wxHORIZONTAL);
-  wxStaticText *gridTitleText;
-  if (type == ViewGrid::GridType::own) {
-    gridTitleText = new wxStaticText(this, wxID_ANY, "Your grid [view grid]");
-  } else {
-    gridTitleText = new wxStaticText(this, wxID_ANY, "Opponent's grid [view grid]");
-  }
-  gridTitle->Add(gridTitleText, 0, wxALIGN_CENTER | wxALL, 0);
-
   constexpr int gridSize = 10;
 
   this->_grid = new wxStaticBitmap *[gridSize * gridSize];

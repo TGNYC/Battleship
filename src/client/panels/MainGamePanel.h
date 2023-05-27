@@ -26,13 +26,7 @@ public:
    * @param ownId The id of the player who is using this client.
    * Displays the game state using ViewGrid and ShipPanel.
   */
-  void buildGameState(GameState * gameState, uuid ownId);
-
-  /**
-   * @brief Displays the emote panel.
-   * Not implemented yet. 
-  */
-  void buildEmoteList();
+  void buildGameState(GameState *gameState, uuid ownId);
 
   /**
    * @brief Displays the emote sent by the other player.
@@ -54,8 +48,6 @@ private:
   EmotePanel* _emotePanel;
   wxStaticText *_turnText;
   EmotePopup* _currentEmote = nullptr;
-  std::chrono::system_clock::time_point _lastClick;
-  wxTimer* _timer;
 };
 
 #endif // MAINGAMEPANEL_H
