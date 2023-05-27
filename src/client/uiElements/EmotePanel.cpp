@@ -1,7 +1,5 @@
 #include "EmotePanel.h"
 #include "Logger.h"
-#include <iostream>
-#include "../GameController.h"
 
 EmotePanel::EmotePanel(wxWindow *parent, wxPoint pos) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(100, 600)) {
   wxColor backgroundColor = wxColor(255, 255, 255);

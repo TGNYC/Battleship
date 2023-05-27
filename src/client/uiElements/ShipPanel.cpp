@@ -1,5 +1,4 @@
 #include "ShipPanel.h"
-#include <iostream>
 
 ShipPanel::ShipPanel(wxWindow *parent, wxPoint pos, std::array<bool, 5> sunk) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 100)) {
   // set the minimum size of the panel to 400x100

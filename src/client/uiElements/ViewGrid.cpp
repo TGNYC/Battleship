@@ -1,5 +1,5 @@
 #include "ViewGrid.h"
-#include "../GameController.h"
+#include "Logger.h"
 
 ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::GridType type)
     : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(400, 400), wxWANTS_CHARS) {

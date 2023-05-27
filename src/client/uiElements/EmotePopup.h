@@ -4,7 +4,6 @@
 #include <wx/wx.h>
 #include <wx/popupwin.h>
 #include "../EmoteHandler.h"
-#include "Logger.h"
 
 /*!
  * Popup window to display emotes on screen.

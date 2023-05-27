@@ -1,7 +1,4 @@
 #include "MainGamePanel.h"
-
-#include "../GameController.h"
-#include "../uiElements/EmotePanel.h"
 #include "Logger.h"
 
 MainGamePanel::MainGamePanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {

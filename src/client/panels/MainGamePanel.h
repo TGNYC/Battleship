@@ -7,10 +7,9 @@
 #include "../uiElements/EmotePopup.h"
 #include "../uiElements/ShipPanel.h"
 #include "../uiElements/ViewGrid.h"
+#include "../GameController.h"
 #include "game_state/GameState.h"
-#include <chrono>
 #include <wx/wx.h>
-#include <wx/timer.h>
 
 class MainGamePanel : public wxPanel {
 public:

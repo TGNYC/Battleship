@@ -1,4 +1,5 @@
 #include "EmotePopup.h"
+#include "Logger.h"
 
 EmotePopup::EmotePopup(wxWindow *parent, wxPoint pos, EmoteType emote) : wxPopupWindow(parent) {
     this->SetSize(400, 400);

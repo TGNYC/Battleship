@@ -4,6 +4,7 @@
 #include <wx/wx.h>
 #include <chrono>
 #include "../EmoteHandler.h"
+#include "../GameController.h"
 #include "../../common/network/responses/EmoteEvent.h"
 
 /*!
