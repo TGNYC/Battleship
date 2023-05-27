@@ -21,7 +21,7 @@ make
 
 To play the game you have to start a client for each of the two players and one server. The server can only handle one game instance at once. 
 
-In the connection panel, enter the server address, the port, and choose your player name. Then click on "connect" to connect to the server. 
+In the connection panel, enter the server address, the port, and choose your username. Then click on "connect" to connect to the server. 
 
 ![connection_panel](./assets/screenshots/connection_panel.png?raw=true)
 
@@ -49,7 +49,7 @@ The turn indicator at the top of the window shows whose turn it is. If it is you
 
 ### Sending Emotes
 
-During the game, you can send your opponent emotes. To do this, click on one of the emotes on the right. The emotes are displayed in the middle of the screen, some of them will also play a sound. To hide the displayed emotes simply click on them. 
+During the game, you can send your opponent emotes. To do this, click on one of the emotes on the right. The emotes are displayed in the middle of the screen, some of them will also play a sound. To hide the displayed emotes simply click on them. In order to prevent spamming you can only send an emote every five seconds. 
 
 ![emote](./assets/screenshots/emote.png?raw=true)
 
