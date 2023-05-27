@@ -34,8 +34,6 @@ void GameController::init(GameWindow *gameWindow) {
 
   // start of game: show connection panel
   GameController::_gameWindow->showPanel(GameController::_connectionPanel);
-  // GameController::startGame(); // TODO: should be the function to be called @nico: no? startGame is called when
-  // receiving startGameSuccess from server
 
   _lastClick = std::chrono::system_clock::now();
 }

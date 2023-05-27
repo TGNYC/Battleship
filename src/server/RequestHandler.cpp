@@ -55,7 +55,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     gameInstance.getGameState().addShips(
         playerId, startGameRequest.getShips()); // TODO move this line to gameInstance.startGame()
     // trying to start the gameInstance
-    const bool result = gameInstance.startGame(player, err); // this function does a lot of checks
+    const bool result = gameInstance.startGame(*player, err); // this function does a lot of checks
     if (result) {
       LOG("request succeeded and both players are ready");
       std::unique_ptr<ServerResponse> resp =

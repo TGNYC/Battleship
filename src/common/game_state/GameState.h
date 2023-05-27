@@ -133,7 +133,7 @@ public:
    * returns an array of bool which indicates which opponent ships were already sunk.
    * used for crossing out ships at the bottom of the UI
    */
-  std::array<bool, 5> &getOppShipSunk();
+  const std::array<bool, 5> &getOppShipSunk();
 
   /*!
    * checks if a called shot is a legal move

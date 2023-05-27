@@ -31,15 +31,15 @@ bool GameInstance::joinGame(const JoinGame &joinGameRequest) {
   return _gameState.addPlayer(player); // addPlayer checks if the player was already added or game is full
 }
 
-bool GameInstance::startGame(const Player *player, std::string &err) {
+bool GameInstance::startGame(const Player &player, std::string &err) {
 
   LOG("GameInstance trying to start");
   std::lock_guard<std::mutex> lockGuard(_modification_lock);
   const std::vector<Player> currentPlayers = _gameState.getPlayers();
 
   // set this player to ready. not a problem if done more than once
-  _isReady[player->getId()] = true;
-  LOG(player->getId().ToString() + " is ready");
+  _isReady[player.getId()] = true;
+  LOG(player.getId().ToString() + " is ready");
 
   // check if we have 2 players
   if (currentPlayers.size() != 2) {
@@ -48,7 +48,7 @@ bool GameInstance::startGame(const Player *player, std::string &err) {
   }
 
   // check if other player is ready
-  const Player *otherPlayer = _gameState.getOtherPlayer(player->getId());
+  const Player *otherPlayer = _gameState.getOtherPlayer(player.getId());
   assert(otherPlayer != nullptr);
   if (!_isReady[otherPlayer->getId()]) {
     LOG("Other player " + otherPlayer->getId().ToString() + " not ready yet. Cannot start game");
@@ -57,7 +57,7 @@ bool GameInstance::startGame(const Player *player, std::string &err) {
 
   // if reached here everything is fine and we can start
   LOG("Starting game state");
-  return _gameState.start(player->getId()); // second player to press ready is first player to play
+  return _gameState.start(player.getId()); // second player to press ready is first player to play
 }
 
 bool GameInstance::executeShot(CallShot shotRequest) {

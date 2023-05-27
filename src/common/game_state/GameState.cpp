@@ -135,7 +135,7 @@ const GameState::State &GameState::getState() const {
   return _state;
 }
 
-std::array<bool, 5> &GameState::getOppShipSunk() {  // TODO make const
+const std::array<bool, 5> &GameState::getOppShipSunk() {
   return _oppShipSunk;
 }
 
