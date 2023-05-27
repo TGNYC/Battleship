@@ -133,6 +133,6 @@ wxThread::ExitCode ResponseListenerThread::Entry() {
 
 void ResponseListenerThread::outputError(std::string title, std::string message) {
    GameController::getMainThreadEventHandler()->CallAfter([title, message] {
-     GameController::showError(title, message);
+     GameController::showError(title, message, true);
    });
 }
