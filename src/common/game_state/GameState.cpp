@@ -24,7 +24,7 @@ auto GameState::addPlayer(Player player) -> bool {
     return false;
   }
   LOG("Added Player to GameState: " + player.getName() + " " + player.getId().ToString());
-  _players.push_back(std::move(player));
+  _players.push_back(player);
   return true;
 }
 
@@ -94,7 +94,7 @@ const PlayerGrid &GameState::getPlayerGrid(uuid playerId) const {
       return grid;
     }
   }
-  throw std::runtime_error("Could not find grid for this player id");
+  throw BattleshipException("Could not find grid for this player id");
 }
 
 Ship &GameState::getShip(std::vector<Ship> &ships, uuid shipId) { // TODO rework to return pointer and nullptr if not found

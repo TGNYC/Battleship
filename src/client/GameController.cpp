@@ -103,7 +103,7 @@ void GameController::startGame(const StartGameSuccess &response) { // called by 
   // set starting player
   LOG("Starting game state");
   assert(_gameState != nullptr);
-  assert(_gameState->start(response.startingPlayerId));
+  _gameState->start(response.startingPlayerId);
   // show GUI
   GameController::_gameWindow->showPanel(GameController::_mainGamePanel);
   GameController::_mainGamePanel->buildGameState(GameController::_gameState, GameController::_me->getId());
