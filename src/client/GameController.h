@@ -39,7 +39,8 @@ public:
     static void startGame(const StartGameSuccess &response);
 
     /**
-     * @brief Handles an incoming GameEvent
+     * @brief Handles an incoming GameEvent. GameEvents are sent by the server when one of the players has placed a shot. 
+     * The function will update the game state and display the new game state in the main game panel.
     */
     static void handleGameEvent(const GameEvent &event);
 
@@ -50,27 +51,30 @@ public:
 
     /**
      * @brief Sends an emote to the server. 
+     * @param emote The emote to be sent. EmoteType is an enum with 6 possible emotes.
     */
     static void sendEmote(EmoteType emote);
 
     /**
-     * @brief Displays an emote to the screen
+     * @brief Displays an emote to the screen and plays the corresponding sound.
      */
-     static void showEmote(EmoteEvent emoteEvent);
+     static void showEmote(const EmoteEvent &emoteEvent);
 
     /**
-     * @brief Prints an error message box in case of an invalid move. 
+     * @brief Prints an error message to the console. If popup is true, it will also display a popup with the error message.
+     * @param title The title of the popup.
+     * @param message The message to be displayed.
+     * @param popup Whether or not to display a popup window.
     */
     static void showError(const std::string& title, const std::string& message, bool popup);
 
     /**
-     * @brief Displays dialog box when game is finished. 
+     * @brief Displays dialog box when game is finished and resets the game so both players are back at the connection panel.
     */
     static void gameOver(uuid winnerId);
 
-    /*!
-     * shows popup saying that the other player left.
-     * closing the popup brings you back to the connection panel.
+    /**
+     * @brief Shows popup saying that the other player left, closing the popup brings you back to the connection panel.
      * @param leaverId id of the player who quit
      */
     static void handleQuitGameEvent(uuid quitterId);
@@ -88,8 +92,7 @@ public:
     static void playerReady();
 
     /*!
-     * sends a QuitGame request to the server
-     * is being called upon closing the main window
+     * @brief Sends a QuitGame request to the server, is called upon closing the main window.
      */
     static void quitGame();
 

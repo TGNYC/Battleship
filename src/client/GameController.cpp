@@ -152,7 +152,7 @@ void GameController::sendEmote(EmoteType emote) {
   ClientNetworkManager::sendRequest(request);
 }
 
-void GameController::showEmote(EmoteEvent emoteEvent) {
+void GameController::showEmote(const EmoteEvent &emoteEvent) {
   const EmoteType   emote = emoteEvent.emote;
   const std::string file  = EmoteHandler::getImage(emote);
   _mainGamePanel->displayEmote(emote);
