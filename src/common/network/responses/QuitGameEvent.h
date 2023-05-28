@@ -9,10 +9,10 @@
 #include "uuid.h"
 
 class QuitGameEvent : public ServerResponse {
-  public:
-    explicit QuitGameEvent(uuid quitPlayerId);
+public:
+  explicit QuitGameEvent(uuid quitPlayerId);
 
-    const uuid quitPlayerId; // id of the player who quit
+  const uuid quitPlayerId; // id of the player who quit
 };
 
 #endif // BATTLESHIP_QUITGAMEEVENT_H

@@ -6,20 +6,16 @@
 #include "Logger.h"
 
 const std::map<AudioPlayer::Clip, std::string> AudioPlayer::_clips = {
-    {ButtonClick, "../assets/audio/button.wav"},
-    {GameOver, "../assets/audio/popup.wav"}, // TODO game over music?
-    {Hit, "../assets/audio/woodbreak.wav"},
-    {Miss, "../assets/audio/watersplash2.wav"},
-    {PlaceShip, "../assets/audio/placeship.wav"},
-    {Cannon, "../assets/audio/cannon2.wav"},
-    {PopUp, "../assets/audio/popup.wav"}
-};
+    {ButtonClick, "../assets/audio/button.wav"},  {GameOver, "../assets/audio/popup.wav"}, // TODO game over music?
+    {Hit, "../assets/audio/woodbreak.wav"},       {Miss, "../assets/audio/watersplash2.wav"},
+    {PlaceShip, "../assets/audio/placeship.wav"}, {Cannon, "../assets/audio/cannon2.wav"},
+    {PopUp, "../assets/audio/popup.wav"}};
 
-void AudioPlayer::play(const AudioPlayer::Clip& clip) {
+void AudioPlayer::play(const AudioPlayer::Clip &clip) {
   play(AudioPlayer::_clips.at(clip));
 }
 
-void AudioPlayer::play(const std::string& file) {
+void AudioPlayer::play(const std::string &file) {
   LOG("trying to play a sound");
   wxSound sound(file);
   if (sound.IsOk()) {

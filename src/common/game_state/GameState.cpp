@@ -169,7 +169,7 @@ bool GameState::registerShot(uuid playerId, Coordinate position, bool *hit, Ship
   LOG("Turn Number: " + std::to_string(_turnNumber));
   LOG("Current Player: " + _currentPlayerId.ToString());
 
-  if (!shotIsLegal(playerId, position)){
+  if (!shotIsLegal(playerId, position)) {
     LOG("illegal shot");
     return false;
   }
@@ -205,7 +205,8 @@ bool GameState::registerShot(uuid playerId, Coordinate position, bool *hit, Ship
   targetGrid.shotsReceived[position.x][position.y] = impact;
 
   // determine next player
-  *nextPlayerId = *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
+  *nextPlayerId =
+      *hit ? playerId : targetPlayerId; // if shot was a hit, the current player goes again. otherwise switch
   _currentPlayerId = *nextPlayerId;     // update current player
   LOG("next player: " + nextPlayerId->ToString());
   _turnNumber++;
@@ -247,7 +248,7 @@ bool GameState::updateBoards(const GameEvent &event) {
   return true;
 }
 
-bool GameState::updateOppShipSunk(const Ship& hitShip) {
+bool GameState::updateOppShipSunk(const Ship &hitShip) {
   switch (hitShip.getLength()) {
   case 2:
     _oppShipSunk[4] = true;

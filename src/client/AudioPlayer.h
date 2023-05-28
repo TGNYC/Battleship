@@ -30,7 +30,7 @@ public:
    * Play the selected audio clip
    * @param clip
    */
-  static void play(const Clip& clip);
+  static void play(const Clip &clip);
 
   /*!
    * Play a general audio file in .wav format.
@@ -38,10 +38,10 @@ public:
    * AudioPlayer::play(EmoteHandler::getSound(emote));
    * @param file full path to the .wav-file (Has to be specific WAV format! Default output of Audacity works)"
    */
-  static void play(const std::string& file);
+  static void play(const std::string &file);
 
 private:
-  static const std::map<Clip, std::string> _clips;  ///< maps sound clip enums to the respective audio filepath
+  static const std::map<Clip, std::string> _clips; ///< maps sound clip enums to the respective audio filepath
 };
 
 #endif // BATTLESHIP_AUDIOPLAYER_H

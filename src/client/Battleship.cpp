@@ -1,7 +1,7 @@
 #include "Battleship.h"
 
-#include "GameWindow.h"
 #include "GameController.h"
+#include "GameWindow.h"
 #include "Logger.h"
 
 auto Battleship::OnInit() -> bool {

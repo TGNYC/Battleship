@@ -44,8 +44,8 @@ public:
    */
   enum class State {
     Starting, // connection phase and setup phase
-    Playing, // gameplay phase
-    Finished // game over
+    Playing,  // gameplay phase
+    Finished  // game over
   };
 
   /*!
@@ -172,7 +172,7 @@ public:
    * @param hitShip
    * @return
    */
-  bool updateOppShipSunk(const Ship& hitShip);
+  bool updateOppShipSunk(const Ship &hitShip);
 
   /*!
    * Checks if the game is over meaning all ships of one player are sunk.
@@ -189,16 +189,17 @@ public:
   uuid getWinner();
 
   /*!
-   * sets gamestate to Finished. For a next game, a new gamestate should be created. Thus this does not reset everything.
+   * sets gamestate to Finished. For a next game, a new gamestate should be created. Thus this does not reset
+   * everything.
    */
   void finish();
 
 private:
-  State                   _state; // currently unused. will be needed later
-  Type                    _type;  ///< indicates if this GameState is run server side or client side
-  std::vector<Player>     _players;  ///< keeps track of players (2)
-  std::vector<PlayerGrid> _playerGrids; ///< holds 1 grid on client and 2 grids on server
-  std::array<bool, 5>     _oppShipSunk{};  ///< helper for UI to cross out enemy ships
+  State                   _state;         // currently unused. will be needed later
+  Type                    _type;          ///< indicates if this GameState is run server side or client side
+  std::vector<Player>     _players;       ///< keeps track of players (2)
+  std::vector<PlayerGrid> _playerGrids;   ///< holds 1 grid on client and 2 grids on server
+  std::array<bool, 5>     _oppShipSunk{}; ///< helper for UI to cross out enemy ships
 
   uuid         _currentPlayerId; // specifies the id of the player whose turn it is
   unsigned int _turnNumber;      // specifies the current numbered turn
