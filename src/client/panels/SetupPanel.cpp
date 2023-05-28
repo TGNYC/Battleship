@@ -52,7 +52,7 @@ SetupPanel::SetupPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY, wxDefaultPo
   // ----------------- event bindings -----------------
   for (unsigned int i = 0; i < 5; i++) {
 
-    _ships[i]->Bind(wxEVT_LEFT_DOWN, [this, i](wxMouseEvent &evt) { // click binding
+    _ships[i]->Bind(wxEVT_LEFT_DOWN, [this, i](wxMouseEvent &) { // click binding
       SetupManager::_selectedShip = &SetupManager::_ships_placed[i];
       _selectedBitmap             = _ships[i];
       _selectedBitmap->SetFocus();
@@ -106,7 +106,7 @@ void SetupPanel::OnKeyDown(wxKeyEvent &event) {
   event.Skip();
 }
 
-void SetupPanel::OnReadyButtonClicked(wxCommandEvent &event) {
+void SetupPanel::OnReadyButtonClicked(wxCommandEvent &) {
   AudioPlayer::play(AudioPlayer::ButtonClick);
   GameController::playerReady();
 }

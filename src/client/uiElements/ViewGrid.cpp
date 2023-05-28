@@ -23,7 +23,7 @@ ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::GridType type)
     for (int j = 0; j < gridSize; j++) {
       _grid[i * gridSize + j] =
           new wxStaticBitmap(this, wxID_ANY, emptyTile, wxPoint(x + i * 40, y + j * 40), wxSize(40, 40), 0);
-      _grid[i * gridSize + j]->Bind(wxEVT_LEFT_DOWN, [this, i, j](wxMouseEvent &event) {
+      _grid[i * gridSize + j]->Bind(wxEVT_LEFT_DOWN, [this, i, j](wxMouseEvent &) {
         if (_type == GridType::own)
           return;
         LOG("clicked on tile " + std::to_string(i) + ", " + std::to_string(j));
@@ -32,8 +32,8 @@ ViewGrid::ViewGrid(wxWindow *parent, ViewGrid::GridType type)
     }
   }
 
-  auto *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
-  auto *gridImage = new wxStaticBitmap(this, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400), 0);
+  auto                  *gridLines = new wxBitmap(wxImage("../assets/grid_lines.png"));
+  [[maybe_unused]] auto *gridImage = new wxStaticBitmap(this, wxID_ANY, *gridLines, wxPoint(x, y), wxSize(400, 400), 0);
 
   this->SetFocus();
 }

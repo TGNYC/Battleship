@@ -13,8 +13,8 @@ ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
 
   wxBoxSizer *verticalLayout = new wxBoxSizer(wxVERTICAL);
 
-  ImagePanel *logo =
-    new ImagePanel(this, "../assets/battleship_logo.png", wxBITMAP_TYPE_PNG, wxDefaultPosition, wxSize(300, 300), 0.0);
+  ImagePanel *logo = new ImagePanel(this, "../assets/battleship_logo.png", wxBITMAP_TYPE_PNG, wxDefaultPosition,
+                                    wxSize(300, 300), 0.0);
   verticalLayout->Add(logo, 0, wxALIGN_CENTER | wxTOP, 10);
 
   const int labelWidth = 100;
@@ -43,7 +43,7 @@ ConnectionPanel::ConnectionPanel(wxWindow *parent) : wxPanel(parent, wxID_ANY) {
 /**
  * @brief Button event handler. Will trigger GameController::connectToServer() to establish a connection to the server
  */
-void ConnectionPanel::onConnectButtonClicked(wxCommandEvent &event) {
+void ConnectionPanel::onConnectButtonClicked(wxCommandEvent &) {
   AudioPlayer::play(AudioPlayer::ButtonClick);
   GameController::connectToServer();
 }

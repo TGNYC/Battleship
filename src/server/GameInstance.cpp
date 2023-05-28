@@ -31,11 +31,11 @@ bool GameInstance::joinGame(const JoinGame &joinGameRequest) {
   return _gameState.addPlayer(player); // addPlayer checks if the player was already added or game is full
 }
 
-bool GameInstance::startGame(const Player &player, std::string &err) {
+bool GameInstance::startGame(const Player &player, [[maybe_unused]] std::string &err) {
 
   LOG("GameInstance trying to start");
   std::lock_guard<std::mutex> lockGuard(_modification_lock);
-  const std::vector<Player> currentPlayers = _gameState.getPlayers();
+  const std::vector<Player>   currentPlayers = _gameState.getPlayers();
 
   // set this player to ready. not a problem if done more than once
   _isReady[player.getId()] = true;
@@ -69,9 +69,11 @@ bool GameInstance::executeShot(CallShot shotRequest) {
   uuid  nextPlayerId; // player who goes next
 
   // register shot and get results
-  bool success = _gameState.registerShot(shotRequest.getPlayerId(), shotRequest.getPosition(), &hit, &hitShip, &sunk, &nextPlayerId);
+  bool success = _gameState.registerShot(shotRequest.getPlayerId(), shotRequest.getPosition(), &hit, &hitShip, &sunk,
+                                         &nextPlayerId);
   // build game event
-  GameEvent *shotCalled = new GameEvent(shotRequest.getPlayerId(), shotRequest.getPosition(), hit, sunk, *hitShip, nextPlayerId);
+  GameEvent *shotCalled =
+      new GameEvent(shotRequest.getPlayerId(), shotRequest.getPosition(), hit, sunk, *hitShip, nextPlayerId);
   ServerResponse *msg_string = shotCalled;
   // broadcast to clients
   LOG("Sending GameEvent to clients");
