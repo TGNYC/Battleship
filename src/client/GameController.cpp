@@ -178,7 +178,6 @@ void GameController::gameOver(uuid winnerId) {
   }
   wxMessageBox(message, "Game Over", wxOK | wxICON_INFORMATION);
   // Send player back to connection panel
-  // TODO: Fix memory leaks, shut down listenerThread
   GameController::init(_gameWindow);
 }
 

@@ -5,7 +5,6 @@
 #include <cstdint>
 #include <string>
 
-// TODO documentation
 class uuid {
 public:
   uuid() = default;

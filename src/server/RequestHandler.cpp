@@ -53,7 +53,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     const Player    *player          = gameInstance.getGameState().getPlayer(playerId);
     LOG("adding ships of " + player->getName());
     gameInstance.getGameState().addShips(
-        playerId, startGameRequest.getShips()); // TODO move this line to gameInstance.startGame()
+        playerId, startGameRequest.getShips());
     // trying to start the gameInstance
     const bool result = gameInstance.startGame(*player, err); // this function does a lot of checks
     if (result) {
@@ -96,21 +96,22 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
     LOG("handle Quit Game request");
     const QuitGame quitGameRequest = static_cast<const QuitGame &>(*req);
     const Player *player = gameInstance.getGameState().getPlayer(playerId);
+
     if (player == nullptr) {  // if the player is not part of our game, no response needed. already removed him.
       return nullptr;
     }
+
     LOG("Player " + player->getName() + " quit the game.");
 
-    if (gameInstance.getGameState().getState() == GameState::State::Starting) { // TODO: problem if player presses ready and then quits
+    if (gameInstance.getGameState().getState() == GameState::State::Starting && !gameInstance.isReady(*player)) {
       LOG("Player disconnected during setup phase. Just silently removing him");
       gameInstance.getGameState().removePlayer(*player);
       return nullptr;
     }
 
-    // create event
-    std::unique_ptr<ServerResponse> response =
-        std::make_unique<QuitGameEvent>(playerId);
+    // if a player quit during the game, the game ends
     LOG("sending QuitGameEvent to clients");
+    std::unique_ptr<ServerResponse> response = std::make_unique<QuitGameEvent>(playerId);
     ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), player);
 
     LOG("resetting the gameInstance...");

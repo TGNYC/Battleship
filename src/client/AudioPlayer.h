@@ -18,6 +18,7 @@ public:
    */
   enum Clip {
     ButtonClick,
+    SelectShip,
     PlaceShip,
     Cannon,
     Hit,

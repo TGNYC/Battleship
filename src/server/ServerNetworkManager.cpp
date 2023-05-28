@@ -33,7 +33,7 @@ void ServerNetworkManager::connect(const uint16_t port) {
     std::cerr << "Error creating the acceptor: " << _acc.last_error_str() << std::endl;
     return;
   }
-  // Print a message indicating that the server is awaiting connections on the specified port // TODO also print ip
+  // Print a message indicating that the server is awaiting connections on the specified port
   LOG("Awaiting connections on port " + std::to_string(port) + "...");
 }
 

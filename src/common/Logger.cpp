@@ -20,7 +20,7 @@ std::string Logger::getCurrentDateTime() {
 void Logger::log(const std::string &message, const std::string &func) {
   std::stringstream output;
   const std::string function = "[" + func + "]"; // format function name
-  output << _prefix << _tab << std::left << std::setw(18) << function << message; // build message
+  output << _prefix << _tab << std::left << std::setw(20) << function << message; // build message
   std::cout << output.str() << std::endl; // write to console
   std::ofstream out; // write to log file
   try {

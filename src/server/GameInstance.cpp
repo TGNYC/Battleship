@@ -60,7 +60,7 @@ bool GameInstance::startGame(const Player &player, [[maybe_unused]] std::string 
   return _gameState.start(player.getId()); // second player to press ready is first player to play
 }
 
-bool GameInstance::executeShot(CallShot shotRequest) {
+bool GameInstance::executeShot(const CallShot& shotRequest) {
   LOG("Executing shot...");
   // variables to be determined by GameState
   bool  hit;          // indicates if the shot was a hit
@@ -109,4 +109,8 @@ bool GameInstance::reset() {
 
 GameState &GameInstance::getGameState() {
   return _gameState;
+}
+
+bool GameInstance::isReady(const Player &player) {
+  return _isReady[player.getId()];
 }

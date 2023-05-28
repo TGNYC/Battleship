@@ -31,14 +31,14 @@ public:
    * @param err
    * @return true if game was started. false if not started
    */
-  bool startGame(const Player &player, std::string &err); // TODO make pointer reference for consistency
+  bool startGame(const Player &player, std::string &err);
 
   /*!
    * handles a call shot request. registers the shot in the gamestate and sends out a corresponding gameEvent
    * @param shotRequest
    * @return
    */
-  bool executeShot(CallShot shotRequest);
+  bool executeShot(const CallShot& shotRequest);
 
   /*!
    * Function to handle reset after QuitGame or GameOver. Recreates a new GameState to be ready for next Game.
@@ -50,6 +50,8 @@ public:
   bool reset();
 
   GameState &getGameState();
+
+  bool isReady(const Player& player);
 
 private:
   GameState                      _gameState = GameState(GameState::Type::ServerState);
