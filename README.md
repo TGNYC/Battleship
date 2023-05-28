@@ -1,10 +1,19 @@
 # Battleship
 
-This is an implementation of the board game [Battleship](https://en.wikipedia.org/wiki/Battleship_(game)). It is written in C++, using [wxWidgets](https://www.wxwidgets.org/) for the GUI, [sockpp](https://github.com/fpagliughi/sockpp) for the network interface, and [googletest](https://github.com/google/googletest) for the unit tests. 
+This is an implementation of the board game [Battleship](https://en.wikipedia.org/wiki/Battleship_(game)). It is written in C++, using [wxWidgets](https://www.wxwidgets.org/) for the GUI, [sockpp](https://github.com/fpagliughi/sockpp) for the network interface, [JSON for C++ (nlohmann)](https://github.com/nlohmann/json) for serialization, and [googletest](https://github.com/google/googletest) for the unit tests. The project was created as part of the course "Software Engineering" at ETH Zurich. 
 
 <p align="center">
   <img src="assets/battleship_logo.png" alt="Battleship Logo"/>
 </p>
+
+## Ship Happens
+The team members are:
+* Tejas Gupta
+* Marina Mancoridis
+* Nico Müller
+* Armin Riess
+* Mike Schmid
+* Robin Sieber
 
 ## Build
 
@@ -21,7 +30,7 @@ make
 ## How to play
 ### Connecting to the server
 
-To play the game you have to start a client for each of the two players and one server. The server can only handle one game instance at once. 
+To play the game you have to start a client (`./Battleship_Client`) for each of the two players and one server (`./Battleship_Server`). The server can only handle one game instance at once. 
 
 In the connection panel, enter the server address, the port, and choose your username. Then click on "connect" to connect to the server. 
 
@@ -63,15 +72,9 @@ Once a player has sunk all of their opponent's ships, the game ends. A popup sho
 
 If one of the players disconnects mid-game, for example because they have closed their client, the game ends as well and both players will have to reconnect.
 
-## Ship Happens
-The team members are:
-* Tejas Gupta
-* Marina Mancoridis
-* Nico Müller
-* Armin Riess
-* Mike Schmid
-* Robin Sieber
-
+## Tests and Documentation
+* To run the unit tests, run `./Battleship_Test` from the build directory.
+* The documentation can be found in the `documentation` folder. 
 
 ## Known Issues
 
@@ -84,3 +87,5 @@ The team members are:
     ```
   
 * The game is not playable on macOS.
+
+* UI text is not visible on dark mode. Change your system settings to light mode to fix this.
