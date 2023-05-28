@@ -5,12 +5,12 @@
 #ifndef BATTLESHIP_LOGGER_H
 #define BATTLESHIP_LOGGER_H
 
-#include <iostream>
-#include <string>
+#include "exceptions/BattleshipException.h"
+#include <ctime>
 #include <fstream>
 #include <iomanip>
-#include <ctime>
-#include "exceptions/BattleshipException.h"
+#include <iostream>
+#include <string>
 
 // Macro to include function name in log message
 #define LOG(message) Logger::log(message, __func__)
@@ -27,7 +27,7 @@ public:
    * @param message text to be logged
    * @param function name of the function where this log was called. automatically filled in by the macro
    */
-  static void log(const std::string& message, const std::string &function = "-");
+  static void log(const std::string &message, const std::string &function = "-");
 
   /*!
    * overloading of Logger::log to output BattleshipExceptions directly
@@ -51,8 +51,8 @@ private:
   static std::string getCurrentDateTime();
 
   static std::string       _prefix;  ///< prefix for logging messages. intended to be "client" or "server"
-  static const char* const _logFile; ///< file path for the log file
-  static const char* const _tab;   ///< defines a tabulator for formatting
+  static const char *const _logFile; ///< file path for the log file
+  static const char *const _tab;     ///< defines a tabulator for formatting
 };
 
 #endif // BATTLESHIP_LOGGER_H

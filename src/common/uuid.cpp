@@ -14,11 +14,11 @@ uuid::uuid(const std::string &uuidString) {
   unsigned long input = 0;
   stream >> std::hex >> input;
   _octets[3] = input & 0xff;
-  input       >>= 8;
+  input      >>= 8;
   _octets[2] = input & 0xff;
-  input       >>= 8;
+  input      >>= 8;
   _octets[1] = input & 0xff;
-  input       >>= 8;
+  input      >>= 8;
   _octets[0] = input & 0xff;
 
   char character = 0;
@@ -27,7 +27,7 @@ uuid::uuid(const std::string &uuidString) {
 
   stream >> std::hex >> input;
   _octets[5] = input & 0xff;
-  input       >>= 8;
+  input      >>= 8;
   _octets[4] = input & 0xff;
 
   stream >> character;
@@ -35,7 +35,7 @@ uuid::uuid(const std::string &uuidString) {
 
   stream >> std::hex >> input;
   _octets[7] = input & 0xff;
-  input       >>= 8;
+  input      >>= 8;
   _octets[6] = input & 0xff;
 
   stream >> character;
@@ -43,7 +43,7 @@ uuid::uuid(const std::string &uuidString) {
 
   stream >> std::hex >> input;
   _octets[9] = input & 0xff;
-  input       >>= 8;
+  input      >>= 8;
   _octets[8] = input & 0xff;
 
   stream >> character;
@@ -51,15 +51,15 @@ uuid::uuid(const std::string &uuidString) {
 
   stream >> std::hex >> input;
   _octets[15] = input & 0xff;
-  input        >>= 8;
+  input       >>= 8;
   _octets[14] = input & 0xff;
-  input        >>= 8;
+  input       >>= 8;
   _octets[13] = input & 0xff;
-  input        >>= 8;
+  input       >>= 8;
   _octets[12] = input & 0xff;
-  input        >>= 8;
+  input       >>= 8;
   _octets[11] = input & 0xff;
-  input        >>= 8;
+  input       >>= 8;
   _octets[10] = input & 0xff;
 }
 

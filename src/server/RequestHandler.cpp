@@ -8,7 +8,6 @@
 #include "ServerNetworkManager.h"
 #include "network/requests/CallShot.h"
 #include "network/requests/JoinGame.h"
-#include "network/requests/PlayAgain.h"
 #include "network/requests/QuitGame.h"
 #include "network/requests/SendEmote.h"
 #include "network/requests/StartGame.h"
@@ -17,19 +16,17 @@
 #include "network/responses/QuitGameEvent.h"
 #include "network/responses/ServerResponse.h"
 #include "network/responses/StartGameSuccess.h"
-#include <iostream>
-#include <memory>
 
 std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance              &gameInstance,
-                                                                const ClientRequest *const req) {
+                                                              const ClientRequest *const req) {
   LOG("handling request");
 
   // Prepare variables that are used by every request type
   std::string err;
 
   // Get common properties of requests
-  RequestType type      = req->getRequestType();
-  uuid        playerId  = req->getPlayerId();
+  RequestType type     = req->getRequestType();
+  uuid        playerId = req->getPlayerId();
 
   // Switch behavior according to request type
   switch (type) {
@@ -50,7 +47,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   case RequestType::StartGame: {
     LOG("handle StartGame request");
     const StartGame startGameRequest = static_cast<const StartGame &>(*req);
-    const Player    *player          = gameInstance.getGameState().getPlayer(playerId);
+    const Player   *player           = gameInstance.getGameState().getPlayer(playerId);
     LOG("adding ships of " + player->getName());
     gameInstance.getGameState().addShips(
         playerId, startGameRequest.getShips());
@@ -82,7 +79,7 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   // ##################### SEND EMOTE ##################### //
   case RequestType::SendEmote: {
     LOG("Handle SendEmote request");
-    const Player                    *player          = gameInstance.getGameState().getPlayer(playerId);
+    const Player                   *player           = gameInstance.getGameState().getPlayer(playerId);
     const SendEmote                 sendEmoteRequest = static_cast<const SendEmote &>(*req);
     std::unique_ptr<ServerResponse> response =
         std::make_unique<EmoteEvent>(sendEmoteRequest.getEmote(), sendEmoteRequest.getPlayerId());
@@ -95,9 +92,8 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
   case RequestType::QuitGame: {
     LOG("handle Quit Game request");
     const QuitGame quitGameRequest = static_cast<const QuitGame &>(*req);
-    const Player *player = gameInstance.getGameState().getPlayer(playerId);
-
-    if (player == nullptr) {  // if the player is not part of our game, no response needed. already removed him.
+    const Player  *player          = gameInstance.getGameState().getPlayer(playerId);
+    if (player == nullptr) { // if the player is not part of our game, no response needed. already removed him.
       return nullptr;
     }
 
@@ -109,7 +105,6 @@ std::unique_ptr<ServerResponse> RequestHandler::handleRequest(GameInstance      
       return nullptr;
     }
 
-    // if a player quit during the game, the game ends
     LOG("sending QuitGameEvent to clients");
     std::unique_ptr<ServerResponse> response = std::make_unique<QuitGameEvent>(playerId);
     ServerNetworkManager::broadcastMessage(*response, gameInstance.getGameState().getPlayers(), player);

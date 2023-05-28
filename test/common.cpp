@@ -297,7 +297,7 @@ protected:
   Player            felix     = Player(uuid::generateRandomUuid(), "Felix");
   Player            malte     = Player(uuid::generateRandomUuid(), "Malte");
   std::vector<Ship> shipPlacement;
-  Ship dummyShip = Ship(3, Coordinate{0,0}, Ship::Orientation::Vertical, uuid::generateRandomUuid());
+  Ship              dummyShip = Ship(3, Coordinate{0, 0}, Ship::Orientation::Vertical, uuid::generateRandomUuid());
 
   Coordinate coordExceedsGrid{10, 0};
   Coordinate coordNegative{0, -1};
@@ -338,7 +338,7 @@ TEST_F(gameStateTest, removePlayer) {
   ASSERT_FALSE(gameState.removePlayer(malte)); // player not in game
   ASSERT_TRUE(gameState.removePlayer(felix));
   ASSERT_EQ(gameState.getPlayers().size(), 0);
-  ASSERT_FALSE(gameState.removePlayer(felix));  // not able to remove twice
+  ASSERT_FALSE(gameState.removePlayer(felix)); // not able to remove twice
 }
 
 TEST_F(gameStateTest, addShips) {
@@ -350,35 +350,36 @@ TEST_F(gameStateTest, addShips) {
 }
 
 TEST_F(gameStateTest, start) {
-    ASSERT_FALSE(gameState.start(felix.getId())); // not 2 players
-    gameState.addPlayer(felix);
-    gameState.addPlayer(malte);
-    ASSERT_FALSE(gameState.start(felix.getId())); // 0 grids
-    gameState.addShips(felix.getId(), shipPlacement);
-    ASSERT_FALSE(gameState.start(felix.getId())); // only 1 grid
-    gameState.addShips(malte.getId(), shipPlacement);
-    ASSERT_TRUE(gameState.start(felix.getId()));  // success
-    ASSERT_EQ(gameState.getState(), GameState::State::Playing);
-    ASSERT_FALSE(gameState.start(felix.getId())); // already started
+  ASSERT_FALSE(gameState.start(felix.getId())); // not 2 players
+  gameState.addPlayer(felix);
+  gameState.addPlayer(malte);
+  ASSERT_FALSE(gameState.start(felix.getId())); // 0 grids
+  gameState.addShips(felix.getId(), shipPlacement);
+  ASSERT_FALSE(gameState.start(felix.getId())); // only 1 grid
+  gameState.addShips(malte.getId(), shipPlacement);
+  ASSERT_TRUE(gameState.start(felix.getId())); // success
+  ASSERT_EQ(gameState.getState(), GameState::State::Playing);
+  ASSERT_FALSE(gameState.start(felix.getId())); // already started
 }
 
 TEST_F(gameStateTest, registerShot) {
-    gameState.addPlayer(felix);
-    gameState.addShips(felix.getId(), shipPlacement);
-    gameState.addPlayer(malte);
-    gameState.addShips(malte.getId(), shipPlacement);
-    gameState.start(felix.getId());
-    bool  hit;          // indicates if the shot was a hit
-    Ship *hitShip;      // the ship that was hit (if there was a hit)
-    bool  sunk;         // indicates if a ship was sunk
-    uuid  nextPlayerId; // player who goes next
-    ASSERT_FALSE(gameState.registerShot(malte.getId(), coordFine, &hit, &hitShip, &sunk, &nextPlayerId));
-    ASSERT_TRUE(gameState.registerShot(felix.getId(), coordFine, &hit, &hitShip, &sunk, &nextPlayerId));
-    ASSERT_EQ(hit, false);
-    ASSERT_EQ(sunk, false);
-    ASSERT_EQ(nextPlayerId, malte.getId());
-    ASSERT_FALSE(gameState.registerShot(felix.getId(), coordFine, &hit, &hitShip, &sunk, &nextPlayerId)); // already shot at this tile
-    ASSERT_FALSE(gameState.gameOver());
+  gameState.addPlayer(felix);
+  gameState.addShips(felix.getId(), shipPlacement);
+  gameState.addPlayer(malte);
+  gameState.addShips(malte.getId(), shipPlacement);
+  gameState.start(felix.getId());
+  bool  hit;          // indicates if the shot was a hit
+  Ship *hitShip;      // the ship that was hit (if there was a hit)
+  bool  sunk;         // indicates if a ship was sunk
+  uuid  nextPlayerId; // player who goes next
+  ASSERT_FALSE(gameState.registerShot(malte.getId(), coordFine, &hit, &hitShip, &sunk, &nextPlayerId));
+  ASSERT_TRUE(gameState.registerShot(felix.getId(), coordFine, &hit, &hitShip, &sunk, &nextPlayerId));
+  ASSERT_EQ(hit, false);
+  ASSERT_EQ(sunk, false);
+  ASSERT_EQ(nextPlayerId, malte.getId());
+  ASSERT_FALSE(gameState.registerShot(felix.getId(), coordFine, &hit, &hitShip, &sunk,
+                                      &nextPlayerId)); // already shot at this tile
+  ASSERT_FALSE(gameState.gameOver());
 }
 
 TEST_F(gameStateTest, updateBoards) {

@@ -18,7 +18,6 @@
 
 class ServerNetworkManager {
 public:
-
   ServerNetworkManager(uint16_t port);
   ~ServerNetworkManager();
   // Used to broadcast a server_response (e.g. a full_state_response) to all 'players' except 'exclude'
@@ -28,25 +27,27 @@ public:
    * @param players Vector of all players/clients to send the message to
    * @param exclude Optional player to exclude from the broadcast
    */
-  static void broadcastMessage(ServerResponse &msg, const std::vector<Player> &players, const Player *exclude= nullptr);
+  static void broadcastMessage(ServerResponse &msg, const std::vector<Player> &players,
+                               const Player *exclude = nullptr);
   static void onPlayerLeft(uuid player_id);
-  void listenerLoop();
+  void        listenerLoop();
 
 private:
-  inline static std::shared_mutex    _rwLock;
-  inline static sockpp::tcp_acceptor _acc;
+  inline static std::shared_mutex                                   _rwLock;
+  inline static sockpp::tcp_acceptor                                _acc;
   inline static std::unordered_map<std::string, sockpp::tcp_socket> _addressToSocket;
-  inline static std::unordered_map<uuid, std::string> _playerIdToAddress;
+  inline static std::unordered_map<uuid, std::string>               _playerIdToAddress;
 
   static ssize_t sendMessage(const std::string &msg, const std::string &address);
-  static void readMessage(sockpp::tcp_socket socket,
-                          const std::function<void(const std::string &, const sockpp::tcp_socket::addr_t &)> &message_handler);
+  static void
+  readMessage(sockpp::tcp_socket                                                                  socket,
+              const std::function<void(const std::string &, const sockpp::tcp_socket::addr_t &)> &message_handler);
 
   void connect(uint16_t port);
   void handleMessage(const std::string &msg, const sockpp::tcp_socket::addr_t &peer_address);
 
   GameInstance _gameInstance;
-  uint16_t _port;
+  uint16_t     _port;
 };
 
 #endif // BATTLESHIP_SERVERNETWORKMANAGER_H

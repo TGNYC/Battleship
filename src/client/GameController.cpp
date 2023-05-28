@@ -144,7 +144,7 @@ void GameController::callShot(Coordinate position) {
   // shot is ok, send to server
   const CallShot request = CallShot(_me->getId(), position);
   ClientNetworkManager::sendRequest(request);
-  //AudioPlayer::play(AudioPlayer::Cannon);
+  // AudioPlayer::play(AudioPlayer::Cannon);
 }
 
 void GameController::sendEmote(EmoteType emote) {
