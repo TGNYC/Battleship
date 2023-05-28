@@ -76,18 +76,20 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af0e00562fe5b961cd6605dd675760493"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_instance.html#af0e00562fe5b961cd6605dd675760493">joinGame</a> (const <a class="el" href="class_join_game.html">JoinGame</a> &amp;joinGameRequest)</td></tr>
 <tr class="separator:af0e00562fe5b961cd6605dd675760493"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07ac68d243aa2819e56de915acfd0da9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_instance.html#a07ac68d243aa2819e56de915acfd0da9">startGame</a> (const <a class="el" href="class_player.html">Player</a> *player, std::string &amp;err)</td></tr>
-<tr class="separator:a07ac68d243aa2819e56de915acfd0da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb7bb4aeb4372058bf741473676a5015"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_instance.html#abb7bb4aeb4372058bf741473676a5015">executeShot</a> (<a class="el" href="class_call_shot.html">CallShot</a> shotRequest)</td></tr>
-<tr class="separator:abb7bb4aeb4372058bf741473676a5015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ab94bbf73c5afe5075dd57a365a41c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_instance.html#ab0ab94bbf73c5afe5075dd57a365a41c">startGame</a> (const <a class="el" href="class_player.html">Player</a> &amp;player, std::string &amp;err)</td></tr>
+<tr class="separator:ab0ab94bbf73c5afe5075dd57a365a41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347ba3a215dc6e589031085055f89ab3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_instance.html#a347ba3a215dc6e589031085055f89ab3">executeShot</a> (const <a class="el" href="class_call_shot.html">CallShot</a> &amp;shotRequest)</td></tr>
+<tr class="separator:a347ba3a215dc6e589031085055f89ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ce52e4764f31a72ae8f6369223091d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_instance.html#a1ce52e4764f31a72ae8f6369223091d6">reset</a> ()</td></tr>
 <tr class="separator:a1ce52e4764f31a72ae8f6369223091d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4c7e8a1e8f6c22c70e95dede08d83e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_state.html">GameState</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_instance.html#aa4c7e8a1e8f6c22c70e95dede08d83e0">getGameState</a> ()</td></tr>
 <tr class="separator:aa4c7e8a1e8f6c22c70e95dede08d83e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19978753f89579e5457adb279de03b9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_instance.html#a19978753f89579e5457adb279de03b9d">isReady</a> (const <a class="el" href="class_player.html">Player</a> &amp;player)</td></tr>
+<tr class="separator:a19978753f89579e5457adb279de03b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abb7bb4aeb4372058bf741473676a5015"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb7bb4aeb4372058bf741473676a5015">&#9670;&nbsp;</a></span>executeShot()</h2>
+<a id="a347ba3a215dc6e589031085055f89ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a347ba3a215dc6e589031085055f89ab3">&#9670;&nbsp;</a></span>executeShot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -95,7 +97,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool GameInstance::executeShot </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_call_shot.html">CallShot</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_call_shot.html">CallShot</a> &amp;&#160;</td>
           <td class="paramname"><em>shotRequest</em></td><td>)</td>
           <td></td>
         </tr>
@@ -111,8 +113,8 @@ Public Member Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_game_instance_abb7bb4aeb4372058bf741473676a5015_cgraph.png" border="0" usemap="#aclass_game_instance_abb7bb4aeb4372058bf741473676a5015_cgraph" alt=""/></div>
-<map name="aclass_game_instance_abb7bb4aeb4372058bf741473676a5015_cgraph" id="aclass_game_instance_abb7bb4aeb4372058bf741473676a5015_cgraph">
+<div class="center"><img src="class_game_instance_a347ba3a215dc6e589031085055f89ab3_cgraph.png" border="0" usemap="#aclass_game_instance_a347ba3a215dc6e589031085055f89ab3_cgraph" alt=""/></div>
+<map name="aclass_game_instance_a347ba3a215dc6e589031085055f89ab3_cgraph" id="aclass_game_instance_a347ba3a215dc6e589031085055f89ab3_cgraph">
 <area shape="rect" title=" " alt="" coords="5,411,209,437"/>
 <area shape="rect" href="class_server_network_manager.html#a4c18e4781d900ab61d1771d8edbed737" title=" " alt="" coords="267,41,443,82"/>
 <area shape="rect" href="class_game_state.html#a364c6e3db8c55d84b8273982e11072dd" title=" " alt="" coords="269,107,440,133"/>
@@ -124,7 +126,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="790,309,901,336"/>
 <area shape="rect" href="class_game_instance.html#a1ce52e4764f31a72ae8f6369223091d6" title=" " alt="" coords="276,512,433,539"/>
 <area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="549,5,653,32"/>
-<area shape="rect" href="class_game_state.html#a781da79b6ca2fa8dd6a55bd6f9b168ee" title=" " alt="" coords="500,56,701,83"/>
+<area shape="rect" href="class_game_state.html#aa005a79d88388b8cfd2335660951e8ab" title=" " alt="" coords="500,56,701,83"/>
 <area shape="rect" href="class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="781,157,909,184"/>
 <area shape="rect" href="class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="563,208,638,235"/>
 <area shape="rect" href="class_game_state.html#a1688563990437d8de4307c373e8873b0" title=" " alt="" coords="512,259,689,285"/>
@@ -136,8 +138,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_game_instance_abb7bb4aeb4372058bf741473676a5015_icgraph.png" border="0" usemap="#aclass_game_instance_abb7bb4aeb4372058bf741473676a5015_icgraph" alt=""/></div>
-<map name="aclass_game_instance_abb7bb4aeb4372058bf741473676a5015_icgraph" id="aclass_game_instance_abb7bb4aeb4372058bf741473676a5015_icgraph">
+<div class="center"><img src="class_game_instance_a347ba3a215dc6e589031085055f89ab3_icgraph.png" border="0" usemap="#aclass_game_instance_a347ba3a215dc6e589031085055f89ab3_icgraph" alt=""/></div>
+<map name="aclass_game_instance_a347ba3a215dc6e589031085055f89ab3_icgraph" id="aclass_game_instance_a347ba3a215dc6e589031085055f89ab3_icgraph">
 <area shape="rect" title=" " alt="" coords="284,5,488,32"/>
 <area shape="rect" href="class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,5,236,32"/>
 </map>
@@ -165,6 +167,42 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_game_instance_aa4c7e8a1e8f6c22c70e95dede08d83e0_icgraph.png" border="0" usemap="#aclass_game_instance_aa4c7e8a1e8f6c22c70e95dede08d83e0_icgraph" alt=""/></div>
 <map name="aclass_game_instance_aa4c7e8a1e8f6c22c70e95dede08d83e0_icgraph" id="aclass_game_instance_aa4c7e8a1e8f6c22c70e95dede08d83e0_icgraph">
 <area shape="rect" title=" " alt="" coords="284,5,503,32"/>
+<area shape="rect" href="class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,5,236,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a19978753f89579e5457adb279de03b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19978753f89579e5457adb279de03b9d">&#9670;&nbsp;</a></span>isReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameInstance::isReady </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_player.html">Player</a> &amp;&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_instance_a19978753f89579e5457adb279de03b9d_cgraph.png" border="0" usemap="#aclass_game_instance_a19978753f89579e5457adb279de03b9d_cgraph" alt=""/></div>
+<map name="aclass_game_instance_a19978753f89579e5457adb279de03b9d_cgraph" id="aclass_game_instance_a19978753f89579e5457adb279de03b9d_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,181,32"/>
+<area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="229,5,333,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_instance_a19978753f89579e5457adb279de03b9d_icgraph.png" border="0" usemap="#aclass_game_instance_a19978753f89579e5457adb279de03b9d_icgraph" alt=""/></div>
+<map name="aclass_game_instance_a19978753f89579e5457adb279de03b9d_icgraph" id="aclass_game_instance_a19978753f89579e5457adb279de03b9d_icgraph">
+<area shape="rect" title=" " alt="" coords="284,5,460,32"/>
 <area shape="rect" href="class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,5,236,32"/>
 </map>
 </div>
@@ -254,15 +292,15 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_game_instance_a1ce52e4764f31a72ae8f6369223091d6_icgraph.png" border="0" usemap="#aclass_game_instance_a1ce52e4764f31a72ae8f6369223091d6_icgraph" alt=""/></div>
 <map name="aclass_game_instance_a1ce52e4764f31a72ae8f6369223091d6_icgraph" id="aclass_game_instance_a1ce52e4764f31a72ae8f6369223091d6_icgraph">
 <area shape="rect" title=" " alt="" coords="536,31,693,57"/>
-<area shape="rect" href="class_game_instance.html#abb7bb4aeb4372058bf741473676a5015" title=" " alt="" coords="284,5,488,32"/>
+<area shape="rect" href="class_game_instance.html#a347ba3a215dc6e589031085055f89ab3" title=" " alt="" coords="284,5,488,32"/>
 <area shape="rect" href="class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,31,236,57"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a07ac68d243aa2819e56de915acfd0da9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07ac68d243aa2819e56de915acfd0da9">&#9670;&nbsp;</a></span>startGame()</h2>
+<a id="ab0ab94bbf73c5afe5075dd57a365a41c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ab94bbf73c5afe5075dd57a365a41c">&#9670;&nbsp;</a></span>startGame()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,7 +308,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">bool GameInstance::startGame </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_player.html">Player</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_player.html">Player</a> &amp;&#160;</td>
           <td class="paramname"><em>player</em>, </td>
         </tr>
         <tr>
@@ -297,11 +335,11 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_game_instance_a07ac68d243aa2819e56de915acfd0da9_cgraph.png" border="0" usemap="#aclass_game_instance_a07ac68d243aa2819e56de915acfd0da9_cgraph" alt=""/></div>
-<map name="aclass_game_instance_a07ac68d243aa2819e56de915acfd0da9_cgraph" id="aclass_game_instance_a07ac68d243aa2819e56de915acfd0da9_cgraph">
+<div class="center"><img src="class_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_cgraph.png" border="0" usemap="#aclass_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_cgraph" alt=""/></div>
+<map name="aclass_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_cgraph" id="aclass_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_cgraph">
 <area shape="rect" title=" " alt="" coords="5,81,199,108"/>
 <area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="295,5,399,32"/>
-<area shape="rect" href="class_game_state.html#a781da79b6ca2fa8dd6a55bd6f9b168ee" title=" " alt="" coords="247,56,448,83"/>
+<area shape="rect" href="class_game_state.html#aa005a79d88388b8cfd2335660951e8ab" title=" " alt="" coords="247,56,448,83"/>
 <area shape="rect" href="class_game_state.html#aa77e10c22e4b157f32d231f05e3ebce2" title=" " alt="" coords="261,107,433,133"/>
 <area shape="rect" href="class_game_state.html#ac8284a948f0db3ba7f9eb3ce329760aa" title=" " alt="" coords="281,157,414,184"/>
 <area shape="rect" href="classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="496,157,607,184"/>
@@ -310,8 +348,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_game_instance_a07ac68d243aa2819e56de915acfd0da9_icgraph.png" border="0" usemap="#aclass_game_instance_a07ac68d243aa2819e56de915acfd0da9_icgraph" alt=""/></div>
-<map name="aclass_game_instance_a07ac68d243aa2819e56de915acfd0da9_icgraph" id="aclass_game_instance_a07ac68d243aa2819e56de915acfd0da9_icgraph">
+<div class="center"><img src="class_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_icgraph.png" border="0" usemap="#aclass_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_icgraph" alt=""/></div>
+<map name="aclass_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_icgraph" id="aclass_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_icgraph">
 <area shape="rect" title=" " alt="" coords="284,5,477,32"/>
 <area shape="rect" href="class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,5,236,32"/>
 </map>

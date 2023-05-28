@@ -81,34 +81,33 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_client_network_manager.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_client_network_manager.html">ClientNetworkManager</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969">   14</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969">init</a>(<span class="keyword">const</span> std::string &amp;host, <span class="keyword">const</span> uint16_t port);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870">sendRequest</a>(<span class="keyword">const</span> <a class="code" href="class_client_request.html">ClientRequest</a> &amp;request);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">static</span> std::unique_ptr&lt;ServerResponse&gt; <a class="code" href="class_client_network_manager.html#a2ea0181d99330eb6caf36c5d5641bff9">parseResponse</a>(<span class="keyword">const</span> std::string &amp;message);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969">   18</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969">init</a>(<span class="keyword">const</span> std::string &amp;host, <span class="keyword">const</span> uint16_t port);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> connect(<span class="keyword">const</span> std::string &amp;host, <span class="keyword">const</span> uint16_t port);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">static</span> sockpp::tcp_connector  *_connection;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">static</span> <a class="code" href="class_response_listener_thread.html">ResponseListenerThread</a> *_responseListenerThread;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870">sendRequest</a>(<span class="keyword">const</span> <a class="code" href="class_client_request.html">ClientRequest</a> &amp;request);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> _connectionSuccess;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> _failedToConnect;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CLIENTNETWORKMANAGER_H</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">static</span> std::unique_ptr&lt;ServerResponse&gt; <a class="code" href="class_client_network_manager.html#a2ea0181d99330eb6caf36c5d5641bff9">parseResponse</a>(<span class="keyword">const</span> std::string &amp;message);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> connect(<span class="keyword">const</span> std::string &amp;host, <span class="keyword">const</span> uint16_t port);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">static</span> sockpp::tcp_connector  *_connection;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">static</span> <a class="code" href="class_response_listener_thread.html">ResponseListenerThread</a> *_responseListenerThread;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> _connectionSuccess;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> _failedToConnect;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CLIENTNETWORKMANAGER_H</span></div>
 <div class="ttc" id="a_client_request_8h_html"><div class="ttname"><a href="_client_request_8h.html">ClientRequest.h</a></div></div>
 <div class="ttc" id="a_response_listener_thread_8h_html"><div class="ttname"><a href="_response_listener_thread_8h.html">ResponseListenerThread.h</a></div></div>
 <div class="ttc" id="a_server_response_8h_html"><div class="ttname"><a href="_server_response_8h.html">ServerResponse.h</a></div></div>
 <div class="ttc" id="aclass_client_network_manager_html"><div class="ttname"><a href="class_client_network_manager.html">ClientNetworkManager</a></div><div class="ttdef"><b>Definition:</b> ClientNetworkManager.h:11</div></div>
 <div class="ttc" id="aclass_client_network_manager_html_a06cadb3e1070d0a3156b87f52771e969"><div class="ttname"><a href="class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969">ClientNetworkManager::init</a></div><div class="ttdeci">static void init(const std::string &amp;host, const uint16_t port)</div></div>
-<div class="ttc" id="aclass_client_network_manager_html_a2ea0181d99330eb6caf36c5d5641bff9"><div class="ttname"><a href="class_client_network_manager.html#a2ea0181d99330eb6caf36c5d5641bff9">ClientNetworkManager::parseResponse</a></div><div class="ttdeci">static std::unique_ptr&lt; ServerResponse &gt; parseResponse(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> ClientNetworkManager.cpp:126</div></div>
-<div class="ttc" id="aclass_client_network_manager_html_a8903a6751bb4a9ef7398e25e1a8b5870"><div class="ttname"><a href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870">ClientNetworkManager::sendRequest</a></div><div class="ttdeci">static void sendRequest(const ClientRequest &amp;request)</div><div class="ttdef"><b>Definition:</b> ClientNetworkManager.cpp:80</div></div>
+<div class="ttc" id="aclass_client_network_manager_html_a2ea0181d99330eb6caf36c5d5641bff9"><div class="ttname"><a href="class_client_network_manager.html#a2ea0181d99330eb6caf36c5d5641bff9">ClientNetworkManager::parseResponse</a></div><div class="ttdeci">static std::unique_ptr&lt; ServerResponse &gt; parseResponse(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> ClientNetworkManager.cpp:117</div></div>
+<div class="ttc" id="aclass_client_network_manager_html_a8903a6751bb4a9ef7398e25e1a8b5870"><div class="ttname"><a href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870">ClientNetworkManager::sendRequest</a></div><div class="ttdeci">static void sendRequest(const ClientRequest &amp;request)</div><div class="ttdef"><b>Definition:</b> ClientNetworkManager.cpp:76</div></div>
 <div class="ttc" id="aclass_client_request_html"><div class="ttname"><a href="class_client_request.html">ClientRequest</a></div><div class="ttdef"><b>Definition:</b> ClientRequest.h:16</div></div>
-<div class="ttc" id="aclass_response_listener_thread_html"><div class="ttname"><a href="class_response_listener_thread.html">ResponseListenerThread</a></div><div class="ttdef"><b>Definition:</b> ResponseListenerThread.h:7</div></div>
+<div class="ttc" id="aclass_response_listener_thread_html"><div class="ttname"><a href="class_response_listener_thread.html">ResponseListenerThread</a></div><div class="ttdef"><b>Definition:</b> ResponseListenerThread.h:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

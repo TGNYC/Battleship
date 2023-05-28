@@ -18,5 +18,5 @@
 <area shape="rect" id="node17" href="$class_setup_panel.html#a3f20a36437998d93efba974b0585b652" title=" " alt="" coords="757,583,947,609"/>
 <area shape="rect" id="node18" href="$class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083" title="checks if all ships have been placed (= no longer at initial position)" alt="" coords="743,161,961,188"/>
 <area shape="rect" id="node19" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="766,213,938,254"/>
-<area shape="rect" id="node20" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="1009,249,1208,276"/>
+<area shape="rect" id="node20" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="1009,249,1208,276"/>
 </map>

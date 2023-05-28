@@ -1,0 +1,11 @@
+<map id="ViewGrid::ViewGrid" name="ViewGrid::ViewGrid">
+<area shape="rect" id="node1" title=" " alt="" coords="5,85,153,112"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a8e910b739b81989267a48436e887c14f" title="Sends a shot request to the server." alt="" coords="201,85,387,112"/>
+<area shape="rect" id="node3" href="$class_game_state.html#a102491d8e34e029987265830245d50c0" title=" " alt="" coords="435,5,660,32"/>
+<area shape="rect" id="node4" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="495,56,599,83"/>
+<area shape="rect" id="node5" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="461,107,633,149"/>
+<area shape="rect" id="node7" href="$class_game_state.html#a1688563990437d8de4307c373e8873b0" title=" " alt="" coords="459,173,636,200"/>
+<area shape="rect" id="node6" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="708,115,907,141"/>
+<area shape="rect" id="node8" href="$class_game_state.html#a97f685bcb11573b49fe78dac13ffe072" title=" " alt="" coords="711,169,903,196"/>
+<area shape="rect" id="node9" href="$classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="752,220,863,247"/>
+</map>

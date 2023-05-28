@@ -1,5 +1,5 @@
 <map id="GameController::startGame" name="GameController::startGame">
-<area shape="rect" id="node1" title="Sends a start game request after setup phase." alt="" coords="5,267,208,293"/>
+<area shape="rect" id="node1" title="Function that is called when server responds with StartGameSuccess. Will show main game panel." alt="" coords="5,267,208,293"/>
 <area shape="rect" id="node2" href="$class_game_state.html#a4546c285bc3f6ca47b23b2dc792972c9" title=" " alt="" coords="275,149,443,176"/>
 <area shape="rect" id="node3" href="$class_main_game_panel.html#a93b04a993814b432bd16233627a2fce9" title="Builds the game state." alt="" coords="256,201,463,242"/>
 <area shape="rect" id="node12" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="307,267,411,293"/>
@@ -7,11 +7,11 @@
 <area shape="rect" id="node14" href="$class_game_state.html#ac8284a948f0db3ba7f9eb3ce329760aa" title=" " alt="" coords="293,389,426,416"/>
 <area shape="rect" id="node4" href="$class_game_state.html#a102491d8e34e029987265830245d50c0" title=" " alt="" coords="511,5,736,32"/>
 <area shape="rect" id="node5" href="$class_player.html#a8750e6a68f0829cd242b57a0309712fe" title=" " alt="" coords="558,56,689,83"/>
-<area shape="rect" id="node6" href="$class_game_state.html#a671ff7398c47976ac4e8c32a99f9b975" title=" " alt="" coords="518,107,729,133"/>
-<area shape="rect" id="node7" href="$class_game_state.html#a68782b04bdf0170345f08e0bc727c3aa" title=" " alt="" coords="541,157,706,184"/>
+<area shape="rect" id="node6" href="$class_game_state.html#a9cc777cd1cc316adb3007fc3793d5016" title=" " alt="" coords="518,107,729,133"/>
+<area shape="rect" id="node7" href="$class_game_state.html#a88e258a1067f90546aa3e605ecc3698d" title=" " alt="" coords="541,157,706,184"/>
 <area shape="rect" id="node8" href="$class_game_state.html#a97f685bcb11573b49fe78dac13ffe072" title=" " alt="" coords="527,208,719,235"/>
-<area shape="rect" id="node9" href="$class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title=" " alt="" coords="544,259,703,285"/>
-<area shape="rect" id="node10" href="$class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title=" " alt="" coords="544,309,703,336"/>
-<area shape="rect" id="node11" href="$class_ship_panel.html#a08a5b0c84169da4b46a452b773950744" title=" " alt="" coords="554,360,693,387"/>
+<area shape="rect" id="node9" href="$class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title="Displays the ships on the grid." alt="" coords="544,259,703,285"/>
+<area shape="rect" id="node10" href="$class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title="Displays the shots on the grid." alt="" coords="544,309,703,336"/>
+<area shape="rect" id="node11" href="$class_ship_panel.html#a08a5b0c84169da4b46a452b773950744" title="Updates the panel to show the ships that have been sunk." alt="" coords="554,360,693,387"/>
 <area shape="rect" id="node15" href="$classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="568,411,679,437"/>
 </map>

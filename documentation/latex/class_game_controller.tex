@@ -1,0 +1,425 @@
+\hypertarget{class_game_controller}{}\doxysection{Game\+Controller Class Reference}
+\label{class_game_controller}\index{GameController@{GameController}}
+
+
+{\ttfamily \#include $<$Game\+Controller.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_game_controller_a8889bad76bc35487d3391fb8a5791616}{init}} (\mbox{\hyperlink{class_game_window}{Game\+Window}} $\ast$game\+Window)
+\begin{DoxyCompactList}\small\item\em Initializes all panels, displays the connection panel. Is also used to reset everything on Game\+Over or \mbox{\hyperlink{class_quit_game_event}{Quit\+Game\+Event}}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_a023da21da545374ee46fb873149976c4}{connect\+To\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Connects to server. Is called when connect button on \mbox{\hyperlink{class_connection_panel}{Connection\+Panel}} is clicked. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf}{enter\+Setup\+Phase}} ()
+\begin{DoxyCompactList}\small\item\em enter setup phase. Is called when server responds with \mbox{\hyperlink{class_join_game_success}{Join\+Game\+Success}} response. Will show setup panel. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_abe316a64b2b8bd612b380cea4c806aa8}{start\+Game}} (const \mbox{\hyperlink{class_start_game_success}{Start\+Game\+Success}} \&response)
+\begin{DoxyCompactList}\small\item\em Function that is called when server responds with \mbox{\hyperlink{class_start_game_success}{Start\+Game\+Success}}. Will show main game panel. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_a6401e33ba364bc0c9237b31d712a6d95}{handle\+Game\+Event}} (const \mbox{\hyperlink{class_game_event}{Game\+Event}} \&event)
+\begin{DoxyCompactList}\small\item\em Handles an incoming \mbox{\hyperlink{class_game_event}{Game\+Event}}. Game\+Events are sent by the server when one of the players has placed a shot. The function will update the game state and display the new game state in the main game panel. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_a8e910b739b81989267a48436e887c14f}{call\+Shot}} (\mbox{\hyperlink{struct_coordinate}{Coordinate}} position)
+\begin{DoxyCompactList}\small\item\em Sends a shot request to the server. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_aa39680d70f5f952dc43e291ffcba505d}{send\+Emote}} (\mbox{\hyperlink{_emote_event_8h_a2e3a48cf37b9e80a34755a3632ac9c95}{Emote\+Type}} emote)
+\begin{DoxyCompactList}\small\item\em Sends an emote to the server. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_a3d93f67fb0a4007da7d7960482b8d63e}{show\+Emote}} (const \mbox{\hyperlink{class_emote_event}{Emote\+Event}} \&emote\+Event)
+\begin{DoxyCompactList}\small\item\em Displays an emote to the screen and plays the corresponding sound. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_a2efe71ed65a1f44376567d0a8f5d2818}{show\+Error}} (const std\+::string \&title, const std\+::string \&message, bool popup)
+\begin{DoxyCompactList}\small\item\em Prints an error message to the console. If popup is true, it will also display a popup with the error message. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081}{game\+Over}} (\mbox{\hyperlink{classuuid}{uuid}} winner\+Id)
+\begin{DoxyCompactList}\small\item\em Displays dialog box when game is finished and resets the game so both players are back at the connection panel. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_a8ce9484efc87046130542b134c68ed9e}{handle\+Quit\+Game\+Event}} (\mbox{\hyperlink{classuuid}{uuid}} quitter\+Id)
+\begin{DoxyCompactList}\small\item\em Shows popup saying that the other player left, closing the popup brings you back to the connection panel. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_setup_panel}{Setup\+Panel}} $\ast$ \mbox{\hyperlink{class_game_controller_a5ea6d7c2b11e338a3389dd3689fde9fb}{get\+Setup\+Panel}} ()
+\item 
+static wx\+Evt\+Handler $\ast$ \mbox{\hyperlink{class_game_controller_abec8c73ea01e4b7e01b2ca1d932e0c16}{get\+Main\+Thread\+Event\+Handler}} ()
+\item 
+static void \mbox{\hyperlink{class_game_controller_a86c48907cab2eae5871453c599ade0eb}{player\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em function that is called when ready button in \mbox{\hyperlink{class_setup_panel}{Setup\+Panel}} is clicked. Will send request to server to start game and creates \mbox{\hyperlink{class_game_state}{Game\+State}} used on client side. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9}{quit\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Sends a \mbox{\hyperlink{class_quit_game}{Quit\+Game}} request to the server, is called upon closing the main window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_controller_a8e910b739b81989267a48436e887c14f}\label{class_game_controller_a8e910b739b81989267a48436e887c14f}} 
+\index{GameController@{GameController}!callShot@{callShot}}
+\index{callShot@{callShot}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{callShot()}{callShot()}}
+{\footnotesize\ttfamily void Game\+Controller\+::call\+Shot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_coordinate}{Coordinate}}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sends a shot request to the server. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a8e910b739b81989267a48436e887c14f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a8e910b739b81989267a48436e887c14f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a023da21da545374ee46fb873149976c4}\label{class_game_controller_a023da21da545374ee46fb873149976c4}} 
+\index{GameController@{GameController}!connectToServer@{connectToServer}}
+\index{connectToServer@{connectToServer}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{connectToServer()}{connectToServer()}}
+{\footnotesize\ttfamily void Game\+Controller\+::connect\+To\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Connects to server. Is called when connect button on \mbox{\hyperlink{class_connection_panel}{Connection\+Panel}} is clicked. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a023da21da545374ee46fb873149976c4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a023da21da545374ee46fb873149976c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf}\label{class_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf}} 
+\index{GameController@{GameController}!enterSetupPhase@{enterSetupPhase}}
+\index{enterSetupPhase@{enterSetupPhase}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{enterSetupPhase()}{enterSetupPhase()}}
+{\footnotesize\ttfamily void Game\+Controller\+::enter\+Setup\+Phase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+enter setup phase. Is called when server responds with \mbox{\hyperlink{class_join_game_success}{Join\+Game\+Success}} response. Will show setup panel. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081}\label{class_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081}} 
+\index{GameController@{GameController}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily void Game\+Controller\+::game\+Over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{winner\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Displays dialog box when game is finished and resets the game so both players are back at the connection panel. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_abec8c73ea01e4b7e01b2ca1d932e0c16}\label{class_game_controller_abec8c73ea01e4b7e01b2ca1d932e0c16}} 
+\index{GameController@{GameController}!getMainThreadEventHandler@{getMainThreadEventHandler}}
+\index{getMainThreadEventHandler@{getMainThreadEventHandler}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{getMainThreadEventHandler()}{getMainThreadEventHandler()}}
+{\footnotesize\ttfamily wx\+Evt\+Handler $\ast$ Game\+Controller\+::get\+Main\+Thread\+Event\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_abec8c73ea01e4b7e01b2ca1d932e0c16_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a5ea6d7c2b11e338a3389dd3689fde9fb}\label{class_game_controller_a5ea6d7c2b11e338a3389dd3689fde9fb}} 
+\index{GameController@{GameController}!getSetupPanel@{getSetupPanel}}
+\index{getSetupPanel@{getSetupPanel}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{getSetupPanel()}{getSetupPanel()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_setup_panel}{Setup\+Panel}}$\ast$ Game\+Controller\+::get\+Setup\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a5ea6d7c2b11e338a3389dd3689fde9fb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a6401e33ba364bc0c9237b31d712a6d95}\label{class_game_controller_a6401e33ba364bc0c9237b31d712a6d95}} 
+\index{GameController@{GameController}!handleGameEvent@{handleGameEvent}}
+\index{handleGameEvent@{handleGameEvent}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{handleGameEvent()}{handleGameEvent()}}
+{\footnotesize\ttfamily void Game\+Controller\+::handle\+Game\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_event}{Game\+Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Handles an incoming \mbox{\hyperlink{class_game_event}{Game\+Event}}. Game\+Events are sent by the server when one of the players has placed a shot. The function will update the game state and display the new game state in the main game panel. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a6401e33ba364bc0c9237b31d712a6d95_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a6401e33ba364bc0c9237b31d712a6d95_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a8ce9484efc87046130542b134c68ed9e}\label{class_game_controller_a8ce9484efc87046130542b134c68ed9e}} 
+\index{GameController@{GameController}!handleQuitGameEvent@{handleQuitGameEvent}}
+\index{handleQuitGameEvent@{handleQuitGameEvent}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{handleQuitGameEvent()}{handleQuitGameEvent()}}
+{\footnotesize\ttfamily void Game\+Controller\+::handle\+Quit\+Game\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{quitter\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Shows popup saying that the other player left, closing the popup brings you back to the connection panel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em leaver\+Id} & id of the player who quit \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a8ce9484efc87046130542b134c68ed9e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a8ce9484efc87046130542b134c68ed9e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a8889bad76bc35487d3391fb8a5791616}\label{class_game_controller_a8889bad76bc35487d3391fb8a5791616}} 
+\index{GameController@{GameController}!init@{init}}
+\index{init@{init}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Game\+Controller\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_window}{Game\+Window}} $\ast$}]{game\+Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initializes all panels, displays the connection panel. Is also used to reset everything on Game\+Over or \mbox{\hyperlink{class_quit_game_event}{Quit\+Game\+Event}}. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a8889bad76bc35487d3391fb8a5791616_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a8889bad76bc35487d3391fb8a5791616_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a86c48907cab2eae5871453c599ade0eb}\label{class_game_controller_a86c48907cab2eae5871453c599ade0eb}} 
+\index{GameController@{GameController}!playerReady@{playerReady}}
+\index{playerReady@{playerReady}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{playerReady()}{playerReady()}}
+{\footnotesize\ttfamily void Game\+Controller\+::player\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+function that is called when ready button in \mbox{\hyperlink{class_setup_panel}{Setup\+Panel}} is clicked. Will send request to server to start game and creates \mbox{\hyperlink{class_game_state}{Game\+State}} used on client side. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a86c48907cab2eae5871453c599ade0eb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a86c48907cab2eae5871453c599ade0eb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9}\label{class_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9}} 
+\index{GameController@{GameController}!quitGame@{quitGame}}
+\index{quitGame@{quitGame}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{quitGame()}{quitGame()}}
+{\footnotesize\ttfamily void Game\+Controller\+::quit\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sends a \mbox{\hyperlink{class_quit_game}{Quit\+Game}} request to the server, is called upon closing the main window. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_aa39680d70f5f952dc43e291ffcba505d}\label{class_game_controller_aa39680d70f5f952dc43e291ffcba505d}} 
+\index{GameController@{GameController}!sendEmote@{sendEmote}}
+\index{sendEmote@{sendEmote}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{sendEmote()}{sendEmote()}}
+{\footnotesize\ttfamily void Game\+Controller\+::send\+Emote (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_emote_event_8h_a2e3a48cf37b9e80a34755a3632ac9c95}{Emote\+Type}}}]{emote }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sends an emote to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em emote} & The emote to be sent. Emote\+Type is an enum with 6 possible emotes. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_aa39680d70f5f952dc43e291ffcba505d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_aa39680d70f5f952dc43e291ffcba505d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a3d93f67fb0a4007da7d7960482b8d63e}\label{class_game_controller_a3d93f67fb0a4007da7d7960482b8d63e}} 
+\index{GameController@{GameController}!showEmote@{showEmote}}
+\index{showEmote@{showEmote}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{showEmote()}{showEmote()}}
+{\footnotesize\ttfamily void Game\+Controller\+::show\+Emote (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_emote_event}{Emote\+Event}} \&}]{emote\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Displays an emote to the screen and plays the corresponding sound. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_a2efe71ed65a1f44376567d0a8f5d2818}\label{class_game_controller_a2efe71ed65a1f44376567d0a8f5d2818}} 
+\index{GameController@{GameController}!showError@{showError}}
+\index{showError@{showError}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{showError()}{showError()}}
+{\footnotesize\ttfamily void Game\+Controller\+::show\+Error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{const std\+::string \&}]{message,  }\item[{bool}]{popup }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints an error message to the console. If popup is true, it will also display a popup with the error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title of the popup. \\
+\hline
+{\em message} & The message to be displayed. \\
+\hline
+{\em popup} & Whether or not to display a popup window. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_a2efe71ed65a1f44376567d0a8f5d2818_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_controller_abe316a64b2b8bd612b380cea4c806aa8}\label{class_game_controller_abe316a64b2b8bd612b380cea4c806aa8}} 
+\index{GameController@{GameController}!startGame@{startGame}}
+\index{startGame@{startGame}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{startGame()}{startGame()}}
+{\footnotesize\ttfamily void Game\+Controller\+::start\+Game (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_start_game_success}{Start\+Game\+Success}} \&}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function that is called when server responds with \mbox{\hyperlink{class_start_game_success}{Start\+Game\+Success}}. Will show main game panel. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_abe316a64b2b8bd612b380cea4c806aa8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_controller_abe316a64b2b8bd612b380cea4c806aa8_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/client/\mbox{\hyperlink{_game_controller_8h}{Game\+Controller.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/client/\mbox{\hyperlink{_game_controller_8cpp}{Game\+Controller.\+cpp}}\end{DoxyCompactItemize}

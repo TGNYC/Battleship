@@ -1,0 +1,44 @@
+\hypertarget{class_request_handler}{}\doxysection{Request\+Handler Class Reference}
+\label{class_request_handler}\index{RequestHandler@{RequestHandler}}
+
+
+{\ttfamily \#include $<$Request\+Handler.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_server_response}{Server\+Response}} $>$ \mbox{\hyperlink{class_request_handler_acdd825a58be029e03a777f0932d9e621}{handle\+Request}} (\mbox{\hyperlink{class_game_instance}{Game\+Instance}} \&game\+Instance, const \mbox{\hyperlink{class_client_request}{Client\+Request}} $\ast$const req)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_request_handler_acdd825a58be029e03a777f0932d9e621}\label{class_request_handler_acdd825a58be029e03a777f0932d9e621}} 
+\index{RequestHandler@{RequestHandler}!handleRequest@{handleRequest}}
+\index{handleRequest@{handleRequest}!RequestHandler@{RequestHandler}}
+\doxysubsubsection{\texorpdfstring{handleRequest()}{handleRequest()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_server_response}{Server\+Response}} $>$ Request\+Handler\+::handle\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_instance}{Game\+Instance}} \&}]{game\+Instance,  }\item[{const \mbox{\hyperlink{class_client_request}{Client\+Request}} $\ast$const}]{req }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Handles an incoming request from the \mbox{\hyperlink{class_server_network_manager}{Server\+Network\+Manager}} and generates a response. 
+\begin{DoxyParams}{Parameters}
+{\em game\+Instance} & \\
+\hline
+{\em req} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+direct response to send back (only) to the sender of the request 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_request_handler_acdd825a58be029e03a777f0932d9e621_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/server/\mbox{\hyperlink{_request_handler_8h}{Request\+Handler.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/server/\mbox{\hyperlink{_request_handler_8cpp}{Request\+Handler.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+<map id="GameState::getShip" name="GameState::getShip">
+<area shape="rect" id="node1" title=" " alt="" coords="741,13,893,39"/>
+<area shape="rect" id="node2" href="$class_game_state.html#a1f3cd04effc3dbe31dbab2a4bb118fa5" title="updates the CLIENT SIDE boards after a game event happened." alt="" coords="500,13,693,39"/>
+<area shape="rect" id="node3" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handles an incoming GameEvent. GameEvents are sent by the server when one of the players has placed a..." alt="" coords="236,5,452,47"/>
+<area shape="rect" id="node4" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
+</map>

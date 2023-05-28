@@ -1,0 +1,103 @@
+\hypertarget{class_main_game_panel}{}\doxysection{Main\+Game\+Panel Class Reference}
+\label{class_main_game_panel}\index{MainGamePanel@{MainGamePanel}}
+
+
+{\ttfamily \#include $<$Main\+Game\+Panel.\+h$>$}
+
+
+
+Inheritance diagram for Main\+Game\+Panel\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{class_main_game_panel__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_game_panel_a32f9a20804c9262f462f823825d5d5d3}{Main\+Game\+Panel}} (wx\+Window $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Constructor for the main game panel. Doesn\textquotesingle{}t display anything, only the background color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_game_panel_a93b04a993814b432bd16233627a2fce9}{build\+Game\+State}} (\mbox{\hyperlink{class_game_state}{Game\+State}} $\ast$game\+State, \mbox{\hyperlink{classuuid}{uuid}} own\+Id)
+\begin{DoxyCompactList}\small\item\em Builds the game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_game_panel_a5301c840919c65bec3a6161d44610e6c}{display\+Emote}} (\mbox{\hyperlink{_emote_event_8h_a2e3a48cf37b9e80a34755a3632ac9c95}{Emote\+Type}} emote)
+\begin{DoxyCompactList}\small\item\em Displays the emote sent by the other player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_main_game_panel_a32f9a20804c9262f462f823825d5d5d3}\label{class_main_game_panel_a32f9a20804c9262f462f823825d5d5d3}} 
+\index{MainGamePanel@{MainGamePanel}!MainGamePanel@{MainGamePanel}}
+\index{MainGamePanel@{MainGamePanel}!MainGamePanel@{MainGamePanel}}
+\doxysubsubsection{\texorpdfstring{MainGamePanel()}{MainGamePanel()}}
+{\footnotesize\ttfamily Main\+Game\+Panel\+::\+Main\+Game\+Panel (\begin{DoxyParamCaption}\item[{wx\+Window $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Constructor for the main game panel. Doesn\textquotesingle{}t display anything, only the background color. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_game_panel_a93b04a993814b432bd16233627a2fce9}\label{class_main_game_panel_a93b04a993814b432bd16233627a2fce9}} 
+\index{MainGamePanel@{MainGamePanel}!buildGameState@{buildGameState}}
+\index{buildGameState@{buildGameState}!MainGamePanel@{MainGamePanel}}
+\doxysubsubsection{\texorpdfstring{buildGameState()}{buildGameState()}}
+{\footnotesize\ttfamily void Main\+Game\+Panel\+::build\+Game\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_state}{Game\+State}} $\ast$}]{game\+State,  }\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{own\+Id }\end{DoxyParamCaption})}
+
+
+
+Builds the game state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+State} & The game state. \\
+\hline
+{\em own\+Id} & The id of the player who is using this client. Displays the game state using \mbox{\hyperlink{class_view_grid}{View\+Grid}} and \mbox{\hyperlink{class_ship_panel}{Ship\+Panel}}. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_main_game_panel_a93b04a993814b432bd16233627a2fce9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_main_game_panel_a93b04a993814b432bd16233627a2fce9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_main_game_panel_a5301c840919c65bec3a6161d44610e6c}\label{class_main_game_panel_a5301c840919c65bec3a6161d44610e6c}} 
+\index{MainGamePanel@{MainGamePanel}!displayEmote@{displayEmote}}
+\index{displayEmote@{displayEmote}!MainGamePanel@{MainGamePanel}}
+\doxysubsubsection{\texorpdfstring{displayEmote()}{displayEmote()}}
+{\footnotesize\ttfamily void Main\+Game\+Panel\+::display\+Emote (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_emote_event_8h_a2e3a48cf37b9e80a34755a3632ac9c95}{Emote\+Type}}}]{emote }\end{DoxyParamCaption})}
+
+
+
+Displays the emote sent by the other player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em emote} & The emote type that was sent. Not implemented yet. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_main_game_panel_a5301c840919c65bec3a6161d44610e6c_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/client/panels/\mbox{\hyperlink{_main_game_panel_8h}{Main\+Game\+Panel.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/client/panels/\mbox{\hyperlink{_main_game_panel_8cpp}{Main\+Game\+Panel.\+cpp}}\end{DoxyCompactItemize}

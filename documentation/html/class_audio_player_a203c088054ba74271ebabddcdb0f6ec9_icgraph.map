@@ -1,10 +1,10 @@
 <map id="AudioPlayer::play" name="AudioPlayer::play">
 <area shape="rect" id="node1" title=" " alt="" coords="807,130,943,157"/>
-<area shape="rect" id="node2" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="543,5,759,47"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handles an incoming GameEvent. GameEvents are sent by the server when one of the players has placed a..." alt="" coords="543,5,759,47"/>
 <area shape="rect" id="node4" href="$class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="547,123,754,164"/>
 <area shape="rect" id="node6" href="$class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="549,188,753,229"/>
 <area shape="rect" id="node8" href="$class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8" title="function places ship on grid and updates ship position" alt="" coords="557,254,744,281"/>
-<area shape="rect" id="node11" href="$class_game_controller.html#a4319385541953201ca2e6a13ea77b2dc" title="Displays an emote to the screen." alt="" coords="546,71,755,98"/>
+<area shape="rect" id="node11" href="$class_game_controller.html#a3d93f67fb0a4007da7d7960482b8d63e" title="Displays an emote to the screen and plays the corresponding sound." alt="" coords="546,71,755,98"/>
 <area shape="rect" id="node3" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="294,32,477,73"/>
 <area shape="rect" id="node5" href="$class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="280,123,491,164"/>
 <area shape="rect" id="node7" href="$class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="298,195,473,222"/>

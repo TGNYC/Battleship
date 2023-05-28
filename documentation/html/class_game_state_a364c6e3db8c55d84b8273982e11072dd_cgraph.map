@@ -1,6 +1,6 @@
 <map id="GameState::gameOver" name="GameState::gameOver">
 <area shape="rect" id="node1" title=" " alt="" coords="5,56,176,83"/>
 <area shape="rect" id="node2" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="273,5,377,32"/>
-<area shape="rect" id="node3" href="$class_game_state.html#a781da79b6ca2fa8dd6a55bd6f9b168ee" title=" " alt="" coords="224,56,425,83"/>
+<area shape="rect" id="node3" href="$class_game_state.html#aa005a79d88388b8cfd2335660951e8ab" title=" " alt="" coords="224,56,425,83"/>
 <area shape="rect" id="node4" href="$class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="261,107,389,133"/>
 </map>

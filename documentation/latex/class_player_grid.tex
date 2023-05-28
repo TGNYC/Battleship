@@ -1,0 +1,83 @@
+\hypertarget{class_player_grid}{}\doxysection{Player\+Grid Class Reference}
+\label{class_player_grid}\index{PlayerGrid@{PlayerGrid}}
+
+
+{\ttfamily \#include $<$Player\+Grid.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_grid_a766274083ee323fbc8452ff08fed7df5}{Player\+Grid}} (\mbox{\hyperlink{classuuid}{uuid}} \mbox{\hyperlink{class_player_grid_ac907399aa056c936c10c9d7a38d252c1}{player\+Id}}, std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ ships\+Placement)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classuuid}{uuid}} \mbox{\hyperlink{class_player_grid_ac907399aa056c936c10c9d7a38d252c1}{player\+Id}}
+\begin{DoxyCompactList}\small\item\em id of owner of this grid \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ \mbox{\hyperlink{class_player_grid_a585e5c7dbe69b8f5bc04ed502e82dc69}{ships\+Placed}}
+\begin{DoxyCompactList}\small\item\em vector of all ships placed on this grid \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_grid_aea7addee9fdeda8d65598819c8c5991e}{shots\+Received}} \mbox{[}10\mbox{]}\mbox{[}10\mbox{]} = \{\{0\}\}
+\begin{DoxyCompactList}\small\item\em shots received by this grid. 0 = tile not shot, 1 = miss, 2 = hit \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_grid_ad0ca474b64436cedfeed24f3367117eb}{shots\+Fired}} \mbox{[}10\mbox{]}\mbox{[}10\mbox{]} = \{\{0\}\}
+\begin{DoxyCompactList}\small\item\em shots fired by this player. 0 = tile not shot, 1 = miss, 2 = hit \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Data container to store ocean grid info. A grid always belongs to one player (the one who has his ships on this grid) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_player_grid_a766274083ee323fbc8452ff08fed7df5}\label{class_player_grid_a766274083ee323fbc8452ff08fed7df5}} 
+\index{PlayerGrid@{PlayerGrid}!PlayerGrid@{PlayerGrid}}
+\index{PlayerGrid@{PlayerGrid}!PlayerGrid@{PlayerGrid}}
+\doxysubsubsection{\texorpdfstring{PlayerGrid()}{PlayerGrid()}}
+{\footnotesize\ttfamily Player\+Grid\+::\+Player\+Grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+Id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$}]{ships\+Placement }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_player_grid_ac907399aa056c936c10c9d7a38d252c1}\label{class_player_grid_ac907399aa056c936c10c9d7a38d252c1}} 
+\index{PlayerGrid@{PlayerGrid}!playerId@{playerId}}
+\index{playerId@{playerId}!PlayerGrid@{PlayerGrid}}
+\doxysubsubsection{\texorpdfstring{playerId}{playerId}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classuuid}{uuid}} Player\+Grid\+::player\+Id}
+
+
+
+id of owner of this grid 
+
+\mbox{\Hypertarget{class_player_grid_a585e5c7dbe69b8f5bc04ed502e82dc69}\label{class_player_grid_a585e5c7dbe69b8f5bc04ed502e82dc69}} 
+\index{PlayerGrid@{PlayerGrid}!shipsPlaced@{shipsPlaced}}
+\index{shipsPlaced@{shipsPlaced}!PlayerGrid@{PlayerGrid}}
+\doxysubsubsection{\texorpdfstring{shipsPlaced}{shipsPlaced}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_ship}{Ship}}$>$ Player\+Grid\+::ships\+Placed}
+
+
+
+vector of all ships placed on this grid 
+
+\mbox{\Hypertarget{class_player_grid_ad0ca474b64436cedfeed24f3367117eb}\label{class_player_grid_ad0ca474b64436cedfeed24f3367117eb}} 
+\index{PlayerGrid@{PlayerGrid}!shotsFired@{shotsFired}}
+\index{shotsFired@{shotsFired}!PlayerGrid@{PlayerGrid}}
+\doxysubsubsection{\texorpdfstring{shotsFired}{shotsFired}}
+{\footnotesize\ttfamily int Player\+Grid\+::shots\+Fired\mbox{[}10\mbox{]}\mbox{[}10\mbox{]} = \{\{0\}\}}
+
+
+
+shots fired by this player. 0 = tile not shot, 1 = miss, 2 = hit 
+
+\mbox{\Hypertarget{class_player_grid_aea7addee9fdeda8d65598819c8c5991e}\label{class_player_grid_aea7addee9fdeda8d65598819c8c5991e}} 
+\index{PlayerGrid@{PlayerGrid}!shotsReceived@{shotsReceived}}
+\index{shotsReceived@{shotsReceived}!PlayerGrid@{PlayerGrid}}
+\doxysubsubsection{\texorpdfstring{shotsReceived}{shotsReceived}}
+{\footnotesize\ttfamily int Player\+Grid\+::shots\+Received\mbox{[}10\mbox{]}\mbox{[}10\mbox{]} = \{\{0\}\}}
+
+
+
+shots received by this grid. 0 = tile not shot, 1 = miss, 2 = hit 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/common/game\+\_\+state/\mbox{\hyperlink{_player_grid_8h}{Player\+Grid.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/common/game\+\_\+state/\mbox{\hyperlink{_player_grid_8cpp}{Player\+Grid.\+cpp}}\end{DoxyCompactItemize}

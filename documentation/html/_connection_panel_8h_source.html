@@ -73,35 +73,33 @@ $(function() {
 <a href="_connection_panel_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CONNECTIONPANEL_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CONNECTIONPANEL_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;wx/wx.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../uiElements/InputField.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../uiElements/InputField.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;wx/wx.h&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// form Lama template</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// from Lama template</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_connection_panel.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_connection_panel.html">ConnectionPanel</a> : <span class="keyword">public</span> wxPanel {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_connection_panel.html#abc032283798f168176fc9af6fab9cbca">ConnectionPanel</a>(wxWindow *parent);</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d">onConnectButtonClicked</a>(wxCommandEvent &amp;event);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  wxString <a class="code" href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064">getServerAddress</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  wxString <a class="code" href="class_connection_panel.html#ab0dc7af0934d4184aa04d220e0bd9719">getServerPort</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  wxString <a class="code" href="class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408">getUserName</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_input_field.html">InputField</a> *_serverAddressField;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_input_field.html">InputField</a> *_serverPortField;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="class_input_field.html">InputField</a> *_userNameField;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  wxString <a class="code" href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064">getServerAddress</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  wxString <a class="code" href="class_connection_panel.html#ab0dc7af0934d4184aa04d220e0bd9719">getServerPort</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  wxString <a class="code" href="class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408">getUserName</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="class_input_field.html">InputField</a> *_serverAddressField;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_input_field.html">InputField</a> *_serverPortField;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_input_field.html">InputField</a> *_userNameField;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONNECTIONPANEL_H</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONNECTIONPANEL_H</span></div>
 <div class="ttc" id="aclass_connection_panel_html"><div class="ttname"><a href="class_connection_panel.html">ConnectionPanel</a></div><div class="ttdef"><b>Definition:</b> ConnectionPanel.h:9</div></div>
-<div class="ttc" id="aclass_connection_panel_html_a1fa98d5897d11136e8c1c9d98124b408"><div class="ttname"><a href="class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408">ConnectionPanel::getUserName</a></div><div class="ttdeci">wxString getUserName()</div><div class="ttdoc">Getter for the username.</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:72</div></div>
-<div class="ttc" id="aclass_connection_panel_html_a8d9a9d15af3ddb3e5671e5b81c7efa7d"><div class="ttname"><a href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d">ConnectionPanel::onConnectButtonClicked</a></div><div class="ttdeci">void onConnectButtonClicked(wxCommandEvent &amp;event)</div><div class="ttdoc">Button event handler. Will trigger GameController::connectToServer() to establish a connection to the...</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:47</div></div>
-<div class="ttc" id="aclass_connection_panel_html_aae98ee379bc9ba0ad2b41793658b8064"><div class="ttname"><a href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064">ConnectionPanel::getServerAddress</a></div><div class="ttdeci">wxString getServerAddress()</div><div class="ttdoc">Getter for the server address.</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:56</div></div>
-<div class="ttc" id="aclass_connection_panel_html_ab0dc7af0934d4184aa04d220e0bd9719"><div class="ttname"><a href="class_connection_panel.html#ab0dc7af0934d4184aa04d220e0bd9719">ConnectionPanel::getServerPort</a></div><div class="ttdeci">wxString getServerPort()</div><div class="ttdoc">Getter for the server port.</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:64</div></div>
-<div class="ttc" id="aclass_connection_panel_html_abc032283798f168176fc9af6fab9cbca"><div class="ttname"><a href="class_connection_panel.html#abc032283798f168176fc9af6fab9cbca">ConnectionPanel::ConnectionPanel</a></div><div class="ttdeci">ConnectionPanel(wxWindow *parent)</div><div class="ttdoc">Constructor for ConnectionPanel.</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:11</div></div>
+<div class="ttc" id="aclass_connection_panel_html_a1fa98d5897d11136e8c1c9d98124b408"><div class="ttname"><a href="class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408">ConnectionPanel::getUserName</a></div><div class="ttdeci">wxString getUserName()</div><div class="ttdoc">Getter for the username.</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:71</div></div>
+<div class="ttc" id="aclass_connection_panel_html_a8d9a9d15af3ddb3e5671e5b81c7efa7d"><div class="ttname"><a href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d">ConnectionPanel::onConnectButtonClicked</a></div><div class="ttdeci">void onConnectButtonClicked(wxCommandEvent &amp;event)</div><div class="ttdoc">Button event handler. Will trigger GameController::connectToServer() to establish a connection to the...</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:46</div></div>
+<div class="ttc" id="aclass_connection_panel_html_aae98ee379bc9ba0ad2b41793658b8064"><div class="ttname"><a href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064">ConnectionPanel::getServerAddress</a></div><div class="ttdeci">wxString getServerAddress()</div><div class="ttdoc">Getter for the server address.</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:55</div></div>
+<div class="ttc" id="aclass_connection_panel_html_ab0dc7af0934d4184aa04d220e0bd9719"><div class="ttname"><a href="class_connection_panel.html#ab0dc7af0934d4184aa04d220e0bd9719">ConnectionPanel::getServerPort</a></div><div class="ttdeci">wxString getServerPort()</div><div class="ttdoc">Getter for the server port.</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:63</div></div>
+<div class="ttc" id="aclass_connection_panel_html_abc032283798f168176fc9af6fab9cbca"><div class="ttname"><a href="class_connection_panel.html#abc032283798f168176fc9af6fab9cbca">ConnectionPanel::ConnectionPanel</a></div><div class="ttdeci">ConnectionPanel(wxWindow *parent)</div><div class="ttdoc">Constructor for ConnectionPanel.</div><div class="ttdef"><b>Definition:</b> ConnectionPanel.cpp:10</div></div>
 <div class="ttc" id="aclass_input_field_html"><div class="ttname"><a href="class_input_field.html">InputField</a></div><div class="ttdef"><b>Definition:</b> InputField.h:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

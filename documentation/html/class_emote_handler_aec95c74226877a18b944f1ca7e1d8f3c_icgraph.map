@@ -1,6 +1,6 @@
 <map id="EmoteHandler::getImage" name="EmoteHandler::getImage">
 <area shape="rect" id="node1" title=" " alt="" coords="493,31,679,57"/>
 <area shape="rect" id="node2" href="$class_emote_panel.html#afb5482f1d97c66199e4bd42d5c7f574d" title=" " alt="" coords="249,5,433,32"/>
-<area shape="rect" id="node3" href="$class_game_controller.html#a4319385541953201ca2e6a13ea77b2dc" title="Displays an emote to the screen." alt="" coords="236,56,445,83"/>
+<area shape="rect" id="node3" href="$class_game_controller.html#a3d93f67fb0a4007da7d7960482b8d63e" title="Displays an emote to the screen and plays the corresponding sound." alt="" coords="236,56,445,83"/>
 <area shape="rect" id="node4" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,49,188,90"/>
 </map>

@@ -1,0 +1,545 @@
+\hypertarget{class_game_state}{}\doxysection{Game\+State Class Reference}
+\label{class_game_state}\index{GameState@{GameState}}
+
+
+{\ttfamily \#include $<$Game\+State.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157}{State}} \{ \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157ac2efe4bbd13e6cb0db293e72884273c0}{Starting}}
+, \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157ac9dbb2b7c84159b632d71e512eba8428}{Playing}}
+, \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157a8f3d10eb21bd36347c258679eba9e92b}{Finished}}
+ \}
+\item 
+enum class \mbox{\hyperlink{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6}{Type}} \{ \mbox{\hyperlink{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6a59be725d3407ec71e2c18cce2090eeb4}{Server\+State}}
+, \mbox{\hyperlink{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6af82b89eac7e586a150926615b0fa1a55}{Client\+State}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_state_ab52d75a4b2ecfe167020478829ca3e94}{Game\+State}} (\mbox{\hyperlink{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6}{Game\+State\+::\+Type}} type)
+\item 
+bool \mbox{\hyperlink{class_game_state_a4546c285bc3f6ca47b23b2dc792972c9}{add\+Player}} (\mbox{\hyperlink{class_player}{Player}} player)
+\item 
+bool \mbox{\hyperlink{class_game_state_a54349a7106646ba307b338e42ef9760d}{remove\+Player}} (\mbox{\hyperlink{class_player}{Player}} player)
+\item 
+bool \mbox{\hyperlink{class_game_state_ab2fc67bca62af0ca8d584cc389a38aed}{add\+Ships}} (\mbox{\hyperlink{classuuid}{uuid}} player\+Id, std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ ship\+Placement)
+\item 
+bool \mbox{\hyperlink{class_game_state_ac8284a948f0db3ba7f9eb3ce329760aa}{start}} (\mbox{\hyperlink{classuuid}{uuid}} current\+Player\+Id)
+\item 
+\mbox{\hyperlink{classuuid}{uuid}} \mbox{\hyperlink{class_game_state_a102491d8e34e029987265830245d50c0}{get\+Current\+Player\+Id}} ()
+\item 
+const \mbox{\hyperlink{class_player_grid}{Player\+Grid}} \& \mbox{\hyperlink{class_game_state_a97f685bcb11573b49fe78dac13ffe072}{get\+Player\+Grid}} (\mbox{\hyperlink{classuuid}{uuid}} player\+Id) const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \& \mbox{\hyperlink{class_game_state_aa77e10c22e4b157f32d231f05e3ebce2}{get\+Players}} () const
+\item 
+\mbox{\hyperlink{class_ship}{Ship}} $\ast$ \mbox{\hyperlink{class_game_state_a372afaaf78015c1177724ae6e00d130a}{get\+Ship}} (std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ \&ships, \mbox{\hyperlink{classuuid}{uuid}} ship\+Id)
+\item 
+const \mbox{\hyperlink{class_player}{Player}} $\ast$ \mbox{\hyperlink{class_game_state_a88e258a1067f90546aa3e605ecc3698d}{get\+Player}} (\mbox{\hyperlink{classuuid}{uuid}} player\+Id) const
+\item 
+const \mbox{\hyperlink{class_player}{Player}} $\ast$ \mbox{\hyperlink{class_game_state_aa005a79d88388b8cfd2335660951e8ab}{get\+Other\+Player}} (\mbox{\hyperlink{classuuid}{uuid}} player\+Id)
+\item 
+const \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157}{State}} \& \mbox{\hyperlink{class_game_state_a8f764a33fae79251f92cc39c130498b7}{get\+State}} () const
+\item 
+const std\+::array$<$ bool, 5 $>$ \& \mbox{\hyperlink{class_game_state_a9cc777cd1cc316adb3007fc3793d5016}{get\+Opp\+Ship\+Sunk}} ()
+\item 
+bool \mbox{\hyperlink{class_game_state_a1688563990437d8de4307c373e8873b0}{shot\+Is\+Legal}} (\mbox{\hyperlink{classuuid}{uuid}} player\+Id, \mbox{\hyperlink{struct_coordinate}{Coordinate}} position)
+\item 
+bool \mbox{\hyperlink{class_game_state_a2c1a66a9bd31f3f25ad81b1f94838c75}{register\+Shot}} (\mbox{\hyperlink{classuuid}{uuid}} player\+Id, \mbox{\hyperlink{struct_coordinate}{Coordinate}} position, bool $\ast$hit, \mbox{\hyperlink{class_ship}{Ship}} $\ast$$\ast$hit\+Ship\+Ptr, bool $\ast$sunk, \mbox{\hyperlink{classuuid}{uuid}} $\ast$next\+Player\+Id)
+\item 
+bool \mbox{\hyperlink{class_game_state_a1f3cd04effc3dbe31dbab2a4bb118fa5}{update\+Boards}} (const \mbox{\hyperlink{class_game_event}{Game\+Event}} \&event)
+\begin{DoxyCompactList}\small\item\em updates the CLIENT SIDE boards after a game event happened. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_state_a60c784e38959a303438c53f56c9112bc}{update\+Opp\+Ship\+Sunk}} (const \mbox{\hyperlink{class_ship}{Ship}} \&hit\+Ship)
+\item 
+bool \mbox{\hyperlink{class_game_state_a364c6e3db8c55d84b8273982e11072dd}{game\+Over}} ()
+\item 
+\mbox{\hyperlink{classuuid}{uuid}} \mbox{\hyperlink{class_game_state_a3c93a1af7c9f908d8c353bb5e4a7ce8d}{get\+Winner}} ()
+\item 
+void \mbox{\hyperlink{class_game_state_a4d51b326e65c9cf867ff90bb5361cb75}{finish}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157}\label{class_game_state_a81618e0403319d48e9f25347111f8157}} 
+\index{GameState@{GameState}!State@{State}}
+\index{State@{State}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157}{Game\+State\+::\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+Enum indicating the phase of the game state. Must be switched to Playing before first move is made \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Starting@{Starting}!GameState@{GameState}}\index{GameState@{GameState}!Starting@{Starting}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157ac2efe4bbd13e6cb0db293e72884273c0}\label{class_game_state_a81618e0403319d48e9f25347111f8157ac2efe4bbd13e6cb0db293e72884273c0}} 
+Starting&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Playing@{Playing}!GameState@{GameState}}\index{GameState@{GameState}!Playing@{Playing}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157ac9dbb2b7c84159b632d71e512eba8428}\label{class_game_state_a81618e0403319d48e9f25347111f8157ac9dbb2b7c84159b632d71e512eba8428}} 
+Playing&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Finished@{Finished}!GameState@{GameState}}\index{GameState@{GameState}!Finished@{Finished}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157a8f3d10eb21bd36347c258679eba9e92b}\label{class_game_state_a81618e0403319d48e9f25347111f8157a8f3d10eb21bd36347c258679eba9e92b}} 
+Finished&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6}\label{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6}} 
+\index{GameState@{GameState}!Type@{Type}}
+\index{Type@{Type}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6}{Game\+State\+::\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+Enum indicating whether a server side game state is being stored or a client side game state \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ServerState@{ServerState}!GameState@{GameState}}\index{GameState@{GameState}!ServerState@{ServerState}}}\mbox{\Hypertarget{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6a59be725d3407ec71e2c18cce2090eeb4}\label{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6a59be725d3407ec71e2c18cce2090eeb4}} 
+Server\+State&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ClientState@{ClientState}!GameState@{GameState}}\index{GameState@{GameState}!ClientState@{ClientState}}}\mbox{\Hypertarget{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6af82b89eac7e586a150926615b0fa1a55}\label{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6af82b89eac7e586a150926615b0fa1a55}} 
+Client\+State&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_state_ab52d75a4b2ecfe167020478829ca3e94}\label{class_game_state_ab52d75a4b2ecfe167020478829ca3e94}} 
+\index{GameState@{GameState}!GameState@{GameState}}
+\index{GameState@{GameState}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{GameState()}{GameState()}}
+{\footnotesize\ttfamily Game\+State\+::\+Game\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_state_aa2df68fe63beaaf10d3154d8eb490fe6}{Game\+State\+::\+Type}}}]{type }\end{DoxyParamCaption})}
+
+Constructor setting initial values 
+\begin{DoxyParams}{Parameters}
+{\em type} & defines if this is a server side or client side state \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_state_a4546c285bc3f6ca47b23b2dc792972c9}\label{class_game_state_a4546c285bc3f6ca47b23b2dc792972c9}} 
+\index{GameState@{GameState}!addPlayer@{addPlayer}}
+\index{addPlayer@{addPlayer}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{addPlayer()}{addPlayer()}}
+{\footnotesize\ttfamily auto Game\+State\+::add\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}}}]{player }\end{DoxyParamCaption})}
+
+Adds a player to the game state 
+\begin{DoxyParams}{Parameters}
+{\em player} & the player object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if player was added successfully, false if a problem occurred. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a4546c285bc3f6ca47b23b2dc792972c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_ab2fc67bca62af0ca8d584cc389a38aed}\label{class_game_state_ab2fc67bca62af0ca8d584cc389a38aed}} 
+\index{GameState@{GameState}!addShips@{addShips}}
+\index{addShips@{addShips}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{addShips()}{addShips()}}
+{\footnotesize\ttfamily auto Game\+State\+::add\+Ships (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+Id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$}]{ship\+Placement }\end{DoxyParamCaption})}
+
+Creates a new player\+Grid from a full ship placement 
+\begin{DoxyParams}{Parameters}
+{\em player\+Id} & id of the player who placed the ships and owns the board \\
+\hline
+{\em ship\+Placement} & a vector containing all ships \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if grid was created successfully, false if a problem occurred. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_ab2fc67bca62af0ca8d584cc389a38aed_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a4d51b326e65c9cf867ff90bb5361cb75}\label{class_game_state_a4d51b326e65c9cf867ff90bb5361cb75}} 
+\index{GameState@{GameState}!finish@{finish}}
+\index{finish@{finish}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{finish()}{finish()}}
+{\footnotesize\ttfamily void Game\+State\+::finish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+sets gamestate to Finished. For a next game, a new gamestate should be created. Thus this does not reset everything. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a4d51b326e65c9cf867ff90bb5361cb75_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a364c6e3db8c55d84b8273982e11072dd}\label{class_game_state_a364c6e3db8c55d84b8273982e11072dd}} 
+\index{GameState@{GameState}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily bool Game\+State\+::game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks if the game is over meaning all ships of one player are sunk. Only to be called by the server. 
+\begin{DoxyParams}{Parameters}
+{\em winner} & id of the winning player. will be \char`\"{}0\char`\"{} if game is not over. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if game is over. false if game is not over 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a364c6e3db8c55d84b8273982e11072dd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a364c6e3db8c55d84b8273982e11072dd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a102491d8e34e029987265830245d50c0}\label{class_game_state_a102491d8e34e029987265830245d50c0}} 
+\index{GameState@{GameState}!getCurrentPlayerId@{getCurrentPlayerId}}
+\index{getCurrentPlayerId@{getCurrentPlayerId}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayerId()}{getCurrentPlayerId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classuuid}{uuid}} Game\+State\+::get\+Current\+Player\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+getter for the id of the player whose turn it currently is Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a102491d8e34e029987265830245d50c0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a9cc777cd1cc316adb3007fc3793d5016}\label{class_game_state_a9cc777cd1cc316adb3007fc3793d5016}} 
+\index{GameState@{GameState}!getOppShipSunk@{getOppShipSunk}}
+\index{getOppShipSunk@{getOppShipSunk}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getOppShipSunk()}{getOppShipSunk()}}
+{\footnotesize\ttfamily const std\+::array$<$ bool, 5 $>$ \& Game\+State\+::get\+Opp\+Ship\+Sunk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+returns an array of bool which indicates which opponent ships were already sunk. used for crossing out ships at the bottom of the UI Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a9cc777cd1cc316adb3007fc3793d5016_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_aa005a79d88388b8cfd2335660951e8ab}\label{class_game_state_aa005a79d88388b8cfd2335660951e8ab}} 
+\index{GameState@{GameState}!getOtherPlayer@{getOtherPlayer}}
+\index{getOtherPlayer@{getOtherPlayer}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getOtherPlayer()}{getOtherPlayer()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_player}{Player}} $\ast$ Game\+State\+::get\+Other\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+Id }\end{DoxyParamCaption})}
+
+returns the id of the player who has NOT the id specified as parameter 
+\begin{DoxyParams}{Parameters}
+{\em player\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+id of the other player. \char`\"{}\+Error\char`\"{} if no other player found. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+there are exactly 2 players added to the game\+State 
+\end{DoxyPrecond}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_aa005a79d88388b8cfd2335660951e8ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a88e258a1067f90546aa3e605ecc3698d}\label{class_game_state_a88e258a1067f90546aa3e605ecc3698d}} 
+\index{GameState@{GameState}!getPlayer@{getPlayer}}
+\index{getPlayer@{getPlayer}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getPlayer()}{getPlayer()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_player}{Player}} $\ast$ Game\+State\+::get\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+Id }\end{DoxyParamCaption}) const}
+
+returns the name of the player with the specified id Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a88e258a1067f90546aa3e605ecc3698d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a97f685bcb11573b49fe78dac13ffe072}\label{class_game_state_a97f685bcb11573b49fe78dac13ffe072}} 
+\index{GameState@{GameState}!getPlayerGrid@{getPlayerGrid}}
+\index{getPlayerGrid@{getPlayerGrid}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getPlayerGrid()}{getPlayerGrid()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_player_grid}{Player\+Grid}} \& Game\+State\+::get\+Player\+Grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+Id }\end{DoxyParamCaption}) const}
+
+returns a const reference of the grid for e.\+g. display through UI Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a97f685bcb11573b49fe78dac13ffe072_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_aa77e10c22e4b157f32d231f05e3ebce2}\label{class_game_state_aa77e10c22e4b157f32d231f05e3ebce2}} 
+\index{GameState@{GameState}!getPlayers@{getPlayers}}
+\index{getPlayers@{getPlayers}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getPlayers()}{getPlayers()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \& Game\+State\+::get\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+returns a vector of all the players (2) Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_aa77e10c22e4b157f32d231f05e3ebce2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a372afaaf78015c1177724ae6e00d130a}\label{class_game_state_a372afaaf78015c1177724ae6e00d130a}} 
+\index{GameState@{GameState}!getShip@{getShip}}
+\index{getShip@{getShip}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getShip()}{getShip()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ship}{Ship}} $\ast$ Game\+State\+::get\+Ship (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ \&}]{ships,  }\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{ship\+Id }\end{DoxyParamCaption})}
+
+returns a reference to the ship with the specified id from a given vector of ships Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a372afaaf78015c1177724ae6e00d130a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a8f764a33fae79251f92cc39c130498b7}\label{class_game_state_a8f764a33fae79251f92cc39c130498b7}} 
+\index{GameState@{GameState}!getState@{getState}}
+\index{getState@{getState}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157}{Game\+State\+::\+State}} \& Game\+State\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+returns the current state of the game (starting, playing, finished) Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a8f764a33fae79251f92cc39c130498b7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a3c93a1af7c9f908d8c353bb5e4a7ce8d}\label{class_game_state_a3c93a1af7c9f908d8c353bb5e4a7ce8d}} 
+\index{GameState@{GameState}!getWinner@{getWinner}}
+\index{getWinner@{getWinner}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{getWinner()}{getWinner()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classuuid}{uuid}} Game\+State\+::get\+Winner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the winner if the game is over. Should only be called after \mbox{\hyperlink{class_game_state_a364c6e3db8c55d84b8273982e11072dd}{game\+Over()}} returned true. \begin{DoxyReturn}{Returns}
+id of winner. null-\/uuid if game is not over 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a3c93a1af7c9f908d8c353bb5e4a7ce8d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a2c1a66a9bd31f3f25ad81b1f94838c75}\label{class_game_state_a2c1a66a9bd31f3f25ad81b1f94838c75}} 
+\index{GameState@{GameState}!registerShot@{registerShot}}
+\index{registerShot@{registerShot}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{registerShot()}{registerShot()}}
+{\footnotesize\ttfamily bool Game\+State\+::register\+Shot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+Id,  }\item[{\mbox{\hyperlink{struct_coordinate}{Coordinate}}}]{position,  }\item[{bool $\ast$}]{hit,  }\item[{\mbox{\hyperlink{class_ship}{Ship}} $\ast$$\ast$}]{hit\+Ship\+Ptr,  }\item[{bool $\ast$}]{sunk,  }\item[{\mbox{\hyperlink{classuuid}{uuid}} $\ast$}]{next\+Player\+Id }\end{DoxyParamCaption})}
+
+Function to register a shot ON THE SERVER SIDE and process the results
+
+All arguments from $\ast$hit on are to used to return info back to the caller (in this case to game\+Instance) Warning\+: The double pointer for the ship is intentional. Don\textquotesingle{}t change please!
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Id} & ID of the player who called the shot \\
+\hline
+{\em position} & location of the shot\\
+\hline
+{\em hit} & holds info on whether the shot was a hit \\
+\hline
+{\em hit\+Ship} & holds info on the (potentially) hit ship for the caller to extract (and emit a \mbox{\hyperlink{class_game_event}{Game\+Event}}) Turns the pointer to nullptr if no hit is false. \\
+\hline
+{\em sunk} & holds info on whether the hit ship has sunk \\
+\hline
+{\em next\+Player\+Id} & holds id of the player who has to play next \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the shot was registered properly, false if a problem occured 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a2c1a66a9bd31f3f25ad81b1f94838c75_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a2c1a66a9bd31f3f25ad81b1f94838c75_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a54349a7106646ba307b338e42ef9760d}\label{class_game_state_a54349a7106646ba307b338e42ef9760d}} 
+\index{GameState@{GameState}!removePlayer@{removePlayer}}
+\index{removePlayer@{removePlayer}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{removePlayer()}{removePlayer()}}
+{\footnotesize\ttfamily bool Game\+State\+::remove\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}}}]{player }\end{DoxyParamCaption})}
+
+Removes a player from the game state if state is still in setup phase. If a player leaves while playing the game ends and a new game\+State has to be created. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_game_state_a54349a7106646ba307b338e42ef9760d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a54349a7106646ba307b338e42ef9760d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a1688563990437d8de4307c373e8873b0}\label{class_game_state_a1688563990437d8de4307c373e8873b0}} 
+\index{GameState@{GameState}!shotIsLegal@{shotIsLegal}}
+\index{shotIsLegal@{shotIsLegal}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{shotIsLegal()}{shotIsLegal()}}
+{\footnotesize\ttfamily bool Game\+State\+::shot\+Is\+Legal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+Id,  }\item[{\mbox{\hyperlink{struct_coordinate}{Coordinate}}}]{position }\end{DoxyParamCaption})}
+
+checks if a called shot is a legal move 
+\begin{DoxyParams}{Parameters}
+{\em player\+Id} & ID of the player calling the shot \\
+\hline
+{\em position} & location of the shot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a1688563990437d8de4307c373e8873b0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a1688563990437d8de4307c373e8873b0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_ac8284a948f0db3ba7f9eb3ce329760aa}\label{class_game_state_ac8284a948f0db3ba7f9eb3ce329760aa}} 
+\index{GameState@{GameState}!start@{start}}
+\index{start@{start}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Game\+State\+::start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{current\+Player\+Id }\end{DoxyParamCaption})}
+
+Switches the game state from \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157ac2efe4bbd13e6cb0db293e72884273c0}{State\+::\+Starting}} to \mbox{\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157ac9dbb2b7c84159b632d71e512eba8428}{State\+::\+Playing}} \begin{DoxyPrecond}{Precondition}
+Two players were added to the state. Grids were added (1 for clients, 2 for servers). 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Player\+Id} & id of the player who will go first \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the game was started, false if a problem occurred. Check log file for details. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{class_game_state_ac8284a948f0db3ba7f9eb3ce329760aa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_ac8284a948f0db3ba7f9eb3ce329760aa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a1f3cd04effc3dbe31dbab2a4bb118fa5}\label{class_game_state_a1f3cd04effc3dbe31dbab2a4bb118fa5}} 
+\index{GameState@{GameState}!updateBoards@{updateBoards}}
+\index{updateBoards@{updateBoards}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{updateBoards()}{updateBoards()}}
+{\footnotesize\ttfamily bool Game\+State\+::update\+Boards (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_event}{Game\+Event}} \&}]{event }\end{DoxyParamCaption})}
+
+
+
+updates the CLIENT SIDE boards after a game event happened. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a1f3cd04effc3dbe31dbab2a4bb118fa5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a1f3cd04effc3dbe31dbab2a4bb118fa5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_state_a60c784e38959a303438c53f56c9112bc}\label{class_game_state_a60c784e38959a303438c53f56c9112bc}} 
+\index{GameState@{GameState}!updateOppShipSunk@{updateOppShipSunk}}
+\index{updateOppShipSunk@{updateOppShipSunk}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{updateOppShipSunk()}{updateOppShipSunk()}}
+{\footnotesize\ttfamily bool Game\+State\+::update\+Opp\+Ship\+Sunk (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ship}{Ship}} \&}]{hit\+Ship }\end{DoxyParamCaption})}
+
+updates the array to cross out ships on the bottom of the screen 
+\begin{DoxyParams}{Parameters}
+{\em hit\+Ship} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a60c784e38959a303438c53f56c9112bc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_state_a60c784e38959a303438c53f56c9112bc_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/common/game\+\_\+state/\mbox{\hyperlink{_game_state_8h}{Game\+State.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/common/game\+\_\+state/\mbox{\hyperlink{_game_state_8cpp}{Game\+State.\+cpp}}\end{DoxyCompactItemize}

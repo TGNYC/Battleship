@@ -1,0 +1,183 @@
+\hypertarget{class_ship}{}\doxysection{Ship Class Reference}
+\label{class_ship}\index{Ship@{Ship}}
+
+
+{\ttfamily \#include $<$Ship.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Orientation}} \{ \mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11ea06ce2a25e5d12c166a36f654dbea6012}{Vertical}}
+, \mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11eac1b5fa03ecdb95d4a45dd1c40b02527f}{Horizontal}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ship_a09c0c2ed07ecb05cde48d4061f063e1a}{Ship}} (int length, \mbox{\hyperlink{struct_coordinate}{Coordinate}} position, \mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Orientation}} orientation, \mbox{\hyperlink{classuuid}{uuid}} id)
+\item 
+auto \mbox{\hyperlink{class_ship_a13084d9892d12d109e83293b0f0b20b6}{get\+Length}} () const -\/$>$ int
+\item 
+auto \mbox{\hyperlink{class_ship_ab4cb04f14e5ab7cc84968468d2277b25}{get\+Position}} () const -\/$>$ \mbox{\hyperlink{struct_coordinate}{Coordinate}}
+\item 
+auto \mbox{\hyperlink{class_ship_a10673d9e8e8a17dfc6e962a4ef7c6c57}{get\+Orientation}} () const -\/$>$ \mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Orientation}}
+\item 
+auto \mbox{\hyperlink{class_ship_a287e92cf547e828d1e2f7eb96294a4cc}{get\+Id}} () const -\/$>$ \mbox{\hyperlink{classuuid}{uuid}}
+\item 
+auto \mbox{\hyperlink{class_ship_a1a754882cdbbb50c3d99154c21ca5265}{set\+Orientation}} (\mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Orientation}} orientation) -\/$>$ void
+\item 
+auto \mbox{\hyperlink{class_ship_a254b8918caeb472a717080d90a8b9ddf}{set\+Position}} (\mbox{\hyperlink{struct_coordinate}{Coordinate}} position) -\/$>$ void
+\item 
+bool \mbox{\hyperlink{class_ship_a864b8344f70c440e555fad2cd17f4852}{hit}} (\mbox{\hyperlink{struct_coordinate}{Coordinate}} shot)
+\item 
+bool \mbox{\hyperlink{class_ship_af5167f6f099a86505eed17323f048eec}{has\+Sunken}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_ship_adbae96ba542c40753dcf85144303e11e}\label{class_ship_adbae96ba542c40753dcf85144303e11e}} 
+\index{Ship@{Ship}!Orientation@{Orientation}}
+\index{Orientation@{Orientation}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Orientation}{Orientation}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Ship\+::\+Orientation}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vertical@{Vertical}!Ship@{Ship}}\index{Ship@{Ship}!Vertical@{Vertical}}}\mbox{\Hypertarget{class_ship_adbae96ba542c40753dcf85144303e11ea06ce2a25e5d12c166a36f654dbea6012}\label{class_ship_adbae96ba542c40753dcf85144303e11ea06ce2a25e5d12c166a36f654dbea6012}} 
+Vertical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Horizontal@{Horizontal}!Ship@{Ship}}\index{Ship@{Ship}!Horizontal@{Horizontal}}}\mbox{\Hypertarget{class_ship_adbae96ba542c40753dcf85144303e11eac1b5fa03ecdb95d4a45dd1c40b02527f}\label{class_ship_adbae96ba542c40753dcf85144303e11eac1b5fa03ecdb95d4a45dd1c40b02527f}} 
+Horizontal&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ship_a09c0c2ed07ecb05cde48d4061f063e1a}\label{class_ship_a09c0c2ed07ecb05cde48d4061f063e1a}} 
+\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Ship()}{Ship()}}
+{\footnotesize\ttfamily Ship\+::\+Ship (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{\mbox{\hyperlink{struct_coordinate}{Coordinate}}}]{position,  }\item[{\mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Orientation}}}]{orientation,  }\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{id }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ship_a287e92cf547e828d1e2f7eb96294a4cc}\label{class_ship_a287e92cf547e828d1e2f7eb96294a4cc}} 
+\index{Ship@{Ship}!getId@{getId}}
+\index{getId@{getId}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily auto Ship\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ \mbox{\hyperlink{classuuid}{uuid}}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ship_a287e92cf547e828d1e2f7eb96294a4cc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ship_a13084d9892d12d109e83293b0f0b20b6}\label{class_ship_a13084d9892d12d109e83293b0f0b20b6}} 
+\index{Ship@{Ship}!getLength@{getLength}}
+\index{getLength@{getLength}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
+{\footnotesize\ttfamily auto Ship\+::get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ int}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ship_a13084d9892d12d109e83293b0f0b20b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ship_a10673d9e8e8a17dfc6e962a4ef7c6c57}\label{class_ship_a10673d9e8e8a17dfc6e962a4ef7c6c57}} 
+\index{Ship@{Ship}!getOrientation@{getOrientation}}
+\index{getOrientation@{getOrientation}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getOrientation()}{getOrientation()}}
+{\footnotesize\ttfamily auto Ship\+::get\+Orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ \mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Orientation}}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ship_a10673d9e8e8a17dfc6e962a4ef7c6c57_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ship_ab4cb04f14e5ab7cc84968468d2277b25}\label{class_ship_ab4cb04f14e5ab7cc84968468d2277b25}} 
+\index{Ship@{Ship}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily auto Ship\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ \mbox{\hyperlink{struct_coordinate}{Coordinate}}}
+
+\mbox{\Hypertarget{class_ship_af5167f6f099a86505eed17323f048eec}\label{class_ship_af5167f6f099a86505eed17323f048eec}} 
+\index{Ship@{Ship}!hasSunken@{hasSunken}}
+\index{hasSunken@{hasSunken}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{hasSunken()}{hasSunken()}}
+{\footnotesize\ttfamily bool Ship\+::has\+Sunken (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ship_af5167f6f099a86505eed17323f048eec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ship_a864b8344f70c440e555fad2cd17f4852}\label{class_ship_a864b8344f70c440e555fad2cd17f4852}} 
+\index{Ship@{Ship}!hit@{hit}}
+\index{hit@{hit}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily bool Ship\+::hit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_coordinate}{Coordinate}}}]{shot }\end{DoxyParamCaption})}
+
+Hit detection. Processes a shot for an individual ship. Will update m\+\_\+sunk and m\+\_\+hits 
+\begin{DoxyParams}{Parameters}
+{\em shot} & coordinates of the shot called \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ship was hit, false otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{class_ship_a864b8344f70c440e555fad2cd17f4852_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ship_a864b8344f70c440e555fad2cd17f4852_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ship_a1a754882cdbbb50c3d99154c21ca5265}\label{class_ship_a1a754882cdbbb50c3d99154c21ca5265}} 
+\index{Ship@{Ship}!setOrientation@{setOrientation}}
+\index{setOrientation@{setOrientation}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{setOrientation()}{setOrientation()}}
+{\footnotesize\ttfamily auto Ship\+::set\+Orientation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Ship\+::\+Orientation}}}]{orientation }\end{DoxyParamCaption}) -\/$>$ void}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ship_a1a754882cdbbb50c3d99154c21ca5265_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ship_a254b8918caeb472a717080d90a8b9ddf}\label{class_ship_a254b8918caeb472a717080d90a8b9ddf}} 
+\index{Ship@{Ship}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily auto Ship\+::set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_coordinate}{Coordinate}}}]{position }\end{DoxyParamCaption}) -\/$>$ void}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/common/game\+\_\+state/\mbox{\hyperlink{_ship_8h}{Ship.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/common/game\+\_\+state/\mbox{\hyperlink{_ship_8cpp}{Ship.\+cpp}}\end{DoxyCompactItemize}

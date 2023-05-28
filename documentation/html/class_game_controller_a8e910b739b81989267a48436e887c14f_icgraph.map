@@ -1,4 +1,4 @@
 <map id="GameController::callShot" name="GameController::callShot">
 <area shape="rect" id="node1" title="Sends a shot request to the server." alt="" coords="201,5,387,32"/>
-<area shape="rect" id="node2" href="$class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd" title=" " alt="" coords="5,5,153,32"/>
+<area shape="rect" id="node2" href="$class_view_grid.html#afab81f4c16c55819ac983060560844e2" title=" " alt="" coords="5,5,153,32"/>
 </map>

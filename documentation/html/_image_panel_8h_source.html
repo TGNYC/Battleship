@@ -73,34 +73,30 @@ $(function() {
 <a href="_image_panel_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef IMAGEPANEL_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define IMAGEPANEL_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;wx/wx.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;wx/sizer.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;wx/sizer.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;wx/wx.h&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// form Lama template</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// This class can be used to display an image. It can be scaled with parameter &lt;size&gt; and rotated with &lt;rotation&gt; (in radian)</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_image_panel.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_image_panel.html">ImagePanel</a> : <span class="keyword">public</span> wxPanel</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    wxImage _image;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    wxBitmap _bitmap;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">double</span> _rotation;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">int</span> _width;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> _height;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_image_panel.html#a0b2ab55c6f87b1a457999ae86618367f">ImagePanel</a>(wxWindow* parent, wxString file, wxBitmapType format, wxPoint position = wxDefaultPosition, wxSize size = wxDefaultSize, <span class="keywordtype">double</span> rotation = 0.0);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_image_panel.html#a3038249eebb45db8164cf757d21b61c6">paintEvent</a>(wxPaintEvent&amp; event);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_image_panel.html#a7431e66f7110a5890e69789047e1b935">onSize</a>(wxSizeEvent&amp; event);</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_image_panel.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_image_panel.html">ImagePanel</a> : <span class="keyword">public</span> wxPanel {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="class_image_panel.html#a0b2ab55c6f87b1a457999ae86618367f">ImagePanel</a>(wxWindow *parent, wxString file, wxBitmapType format, wxPoint position = wxDefaultPosition,</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;             wxSize size = wxDefaultSize, <span class="keywordtype">double</span> rotation = 0.0);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_image_panel.html#a3038249eebb45db8164cf757d21b61c6">paintEvent</a>(wxPaintEvent &amp;event);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_image_panel.html#a7431e66f7110a5890e69789047e1b935">onSize</a>(wxSizeEvent &amp;event);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  wxImage  _image;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  wxBitmap _bitmap;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">double</span>   _rotation;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">int</span>      _width;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">int</span>      _height;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// IMAGEPANEL_H</span></div>
 <div class="ttc" id="aclass_image_panel_html"><div class="ttname"><a href="class_image_panel.html">ImagePanel</a></div><div class="ttdef"><b>Definition:</b> ImagePanel.h:11</div></div>
-<div class="ttc" id="aclass_image_panel_html_a0b2ab55c6f87b1a457999ae86618367f"><div class="ttname"><a href="class_image_panel.html#a0b2ab55c6f87b1a457999ae86618367f">ImagePanel::ImagePanel</a></div><div class="ttdeci">ImagePanel(wxWindow *parent, wxString file, wxBitmapType format, wxPoint position=wxDefaultPosition, wxSize size=wxDefaultSize, double rotation=0.0)</div><div class="ttdef"><b>Definition:</b> ImagePanel.cpp:4</div></div>
-<div class="ttc" id="aclass_image_panel_html_a3038249eebb45db8164cf757d21b61c6"><div class="ttname"><a href="class_image_panel.html#a3038249eebb45db8164cf757d21b61c6">ImagePanel::paintEvent</a></div><div class="ttdeci">void paintEvent(wxPaintEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> ImagePanel.cpp:27</div></div>
-<div class="ttc" id="aclass_image_panel_html_a7431e66f7110a5890e69789047e1b935"><div class="ttname"><a href="class_image_panel.html#a7431e66f7110a5890e69789047e1b935">ImagePanel::onSize</a></div><div class="ttdeci">void onSize(wxSizeEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> ImagePanel.cpp:63</div></div>
+<div class="ttc" id="aclass_image_panel_html_a0b2ab55c6f87b1a457999ae86618367f"><div class="ttname"><a href="class_image_panel.html#a0b2ab55c6f87b1a457999ae86618367f">ImagePanel::ImagePanel</a></div><div class="ttdeci">ImagePanel(wxWindow *parent, wxString file, wxBitmapType format, wxPoint position=wxDefaultPosition, wxSize size=wxDefaultSize, double rotation=0.0)</div><div class="ttdef"><b>Definition:</b> ImagePanel.cpp:3</div></div>
+<div class="ttc" id="aclass_image_panel_html_a3038249eebb45db8164cf757d21b61c6"><div class="ttname"><a href="class_image_panel.html#a3038249eebb45db8164cf757d21b61c6">ImagePanel::paintEvent</a></div><div class="ttdeci">void paintEvent(wxPaintEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> ImagePanel.cpp:26</div></div>
+<div class="ttc" id="aclass_image_panel_html_a7431e66f7110a5890e69789047e1b935"><div class="ttname"><a href="class_image_panel.html#a7431e66f7110a5890e69789047e1b935">ImagePanel::onSize</a></div><div class="ttdeci">void onSize(wxSizeEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> ImagePanel.cpp:61</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

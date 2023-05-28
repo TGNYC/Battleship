@@ -1,8 +1,8 @@
 <map id="GameWindow::GameWindow" name="GameWindow::GameWindow">
 <area shape="rect" id="node1" title=" " alt="" coords="5,35,216,61"/>
 <area shape="rect" id="node2" href="$class_game_window.html#aafc4bcbd97bd945e3777f0452f69fee9" title=" " alt="" coords="264,35,436,61"/>
-<area shape="rect" id="node3" href="$class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9" title=" " alt="" coords="484,35,681,61"/>
+<area shape="rect" id="node3" href="$class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9" title="Sends a QuitGame request to the server, is called upon closing the main window." alt="" coords="484,35,681,61"/>
 <area shape="rect" id="node4" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="763,5,867,32"/>
 <area shape="rect" id="node5" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="729,57,901,98"/>
-<area shape="rect" id="node6" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="949,64,1148,91"/>
+<area shape="rect" id="node6" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="949,64,1148,91"/>
 </map>

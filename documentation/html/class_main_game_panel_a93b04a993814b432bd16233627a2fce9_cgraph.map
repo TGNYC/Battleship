@@ -2,10 +2,10 @@
 <area shape="rect" id="node1" title="Builds the game state." alt="" coords="5,175,212,217"/>
 <area shape="rect" id="node2" href="$class_game_state.html#a102491d8e34e029987265830245d50c0" title=" " alt="" coords="260,5,485,32"/>
 <area shape="rect" id="node3" href="$class_player.html#a8750e6a68f0829cd242b57a0309712fe" title=" " alt="" coords="307,56,438,83"/>
-<area shape="rect" id="node4" href="$class_game_state.html#a671ff7398c47976ac4e8c32a99f9b975" title=" " alt="" coords="267,107,478,133"/>
-<area shape="rect" id="node5" href="$class_game_state.html#a68782b04bdf0170345f08e0bc727c3aa" title=" " alt="" coords="290,157,455,184"/>
+<area shape="rect" id="node4" href="$class_game_state.html#a9cc777cd1cc316adb3007fc3793d5016" title=" " alt="" coords="267,107,478,133"/>
+<area shape="rect" id="node5" href="$class_game_state.html#a88e258a1067f90546aa3e605ecc3698d" title=" " alt="" coords="290,157,455,184"/>
 <area shape="rect" id="node6" href="$class_game_state.html#a97f685bcb11573b49fe78dac13ffe072" title=" " alt="" coords="277,208,469,235"/>
-<area shape="rect" id="node7" href="$class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title=" " alt="" coords="293,259,452,285"/>
-<area shape="rect" id="node8" href="$class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title=" " alt="" coords="293,309,452,336"/>
-<area shape="rect" id="node9" href="$class_ship_panel.html#a08a5b0c84169da4b46a452b773950744" title=" " alt="" coords="303,360,442,387"/>
+<area shape="rect" id="node7" href="$class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title="Displays the ships on the grid." alt="" coords="293,259,452,285"/>
+<area shape="rect" id="node8" href="$class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title="Displays the shots on the grid." alt="" coords="293,309,452,336"/>
+<area shape="rect" id="node9" href="$class_ship_panel.html#a08a5b0c84169da4b46a452b773950744" title="Updates the panel to show the ships that have been sunk." alt="" coords="303,360,442,387"/>
 </map>

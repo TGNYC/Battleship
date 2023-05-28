@@ -1,4 +1,4 @@
 <map id="GameController::gameOver" name="GameController::gameOver">
-<area shape="rect" id="node1" title="Displays dialog box when game is finished." alt="" coords="236,13,437,39"/>
+<area shape="rect" id="node1" title="Displays dialog box when game is finished and resets the game so both players are back at the connect..." alt="" coords="236,13,437,39"/>
 <area shape="rect" id="node2" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
 </map>

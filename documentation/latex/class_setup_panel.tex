@@ -1,0 +1,189 @@
+\hypertarget{class_setup_panel}{}\doxysection{Setup\+Panel Class Reference}
+\label{class_setup_panel}\index{SetupPanel@{SetupPanel}}
+
+
+{\ttfamily \#include $<$Setup\+Panel.\+h$>$}
+
+
+
+Inheritance diagram for Setup\+Panel\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_setup_panel__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_setup_panel_ac64823d178d62110548fb760ed1cc360}{Setup\+Panel}} (wx\+Window $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{class_setup_panel}{Setup\+Panel}}. Creates the panel and all its components. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_setup_panel_a7f63d5f1d5c49d57f70ffa10cb341a02}{On\+Ready\+Button\+Clicked}} (wx\+Command\+Event \&event)
+\begin{DoxyCompactList}\small\item\em event handler for when the \char`\"{}\+Ready\char`\"{} button is clicked. Checks if all ships have been placed, and if so, notifies the \mbox{\hyperlink{class_game_controller}{Game\+Controller}} that the player is ready. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_setup_panel_a1f2c07616298122fbf3f3b98863341b6}{On\+Key\+Down}} (wx\+Key\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Key Event handler for rotating ship. Rotates selected ship if \textquotesingle{}R\textquotesingle{} is pressed. \end{DoxyCompactList}\item 
+wx\+Static\+Bitmap $\ast$ \mbox{\hyperlink{class_setup_panel_af74edcf19b0a67d7e0d74ba1c638a261}{get\+Ship\+Button}} (int idx)
+\begin{DoxyCompactList}\small\item\em helper function used in \mbox{\hyperlink{class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8}{Setup\+Manager\+::place\+Ship()}} to disable ship button after it has been placed \end{DoxyCompactList}\item 
+wx\+Button $\ast$ \mbox{\hyperlink{class_setup_panel_ace6ea6c2941e2f1bf5df1fcc4f38d620}{get\+Ready\+Button}} () const
+\begin{DoxyCompactList}\small\item\em getter for the ready button (for \mbox{\hyperlink{class_game_controller}{Game\+Controller}} to disable after it has been clicked) \end{DoxyCompactList}\item 
+wx\+Static\+Text $\ast$ \mbox{\hyperlink{class_setup_panel_a3f20a36437998d93efba974b0585b652}{get\+Ready\+Text}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_setup_panel_ac64823d178d62110548fb760ed1cc360}\label{class_setup_panel_ac64823d178d62110548fb760ed1cc360}} 
+\index{SetupPanel@{SetupPanel}!SetupPanel@{SetupPanel}}
+\index{SetupPanel@{SetupPanel}!SetupPanel@{SetupPanel}}
+\doxysubsubsection{\texorpdfstring{SetupPanel()}{SetupPanel()}}
+{\footnotesize\ttfamily Setup\+Panel\+::\+Setup\+Panel (\begin{DoxyParamCaption}\item[{wx\+Window $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{class_setup_panel}{Setup\+Panel}}. Creates the panel and all its components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_panel_ac64823d178d62110548fb760ed1cc360_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_setup_panel_ace6ea6c2941e2f1bf5df1fcc4f38d620}\label{class_setup_panel_ace6ea6c2941e2f1bf5df1fcc4f38d620}} 
+\index{SetupPanel@{SetupPanel}!getReadyButton@{getReadyButton}}
+\index{getReadyButton@{getReadyButton}!SetupPanel@{SetupPanel}}
+\doxysubsubsection{\texorpdfstring{getReadyButton()}{getReadyButton()}}
+{\footnotesize\ttfamily wx\+Button $\ast$ Setup\+Panel\+::get\+Ready\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for the ready button (for \mbox{\hyperlink{class_game_controller}{Game\+Controller}} to disable after it has been clicked) 
+
+\begin{DoxyReturn}{Returns}
+wx\+Button$\ast$ pointing to the ready button 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_panel_ace6ea6c2941e2f1bf5df1fcc4f38d620_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_setup_panel_a3f20a36437998d93efba974b0585b652}\label{class_setup_panel_a3f20a36437998d93efba974b0585b652}} 
+\index{SetupPanel@{SetupPanel}!getReadyText@{getReadyText}}
+\index{getReadyText@{getReadyText}!SetupPanel@{SetupPanel}}
+\doxysubsubsection{\texorpdfstring{getReadyText()}{getReadyText()}}
+{\footnotesize\ttfamily wx\+Static\+Text $\ast$ Setup\+Panel\+::get\+Ready\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_panel_a3f20a36437998d93efba974b0585b652_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_setup_panel_af74edcf19b0a67d7e0d74ba1c638a261}\label{class_setup_panel_af74edcf19b0a67d7e0d74ba1c638a261}} 
+\index{SetupPanel@{SetupPanel}!getShipButton@{getShipButton}}
+\index{getShipButton@{getShipButton}!SetupPanel@{SetupPanel}}
+\doxysubsubsection{\texorpdfstring{getShipButton()}{getShipButton()}}
+{\footnotesize\ttfamily wx\+Static\+Bitmap $\ast$ Setup\+Panel\+::get\+Ship\+Button (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+helper function used in \mbox{\hyperlink{class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8}{Setup\+Manager\+::place\+Ship()}} to disable ship button after it has been placed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & int in \mbox{[}0, 4\mbox{]} representing the index of the ship button to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+Static\+Bitmap$\ast$ representing the ship button that should be disabled. Returns NULL if idx is invalid. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_panel_af74edcf19b0a67d7e0d74ba1c638a261_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_setup_panel_a1f2c07616298122fbf3f3b98863341b6}\label{class_setup_panel_a1f2c07616298122fbf3f3b98863341b6}} 
+\index{SetupPanel@{SetupPanel}!OnKeyDown@{OnKeyDown}}
+\index{OnKeyDown@{OnKeyDown}!SetupPanel@{SetupPanel}}
+\doxysubsubsection{\texorpdfstring{OnKeyDown()}{OnKeyDown()}}
+{\footnotesize\ttfamily void Setup\+Panel\+::\+On\+Key\+Down (\begin{DoxyParamCaption}\item[{wx\+Key\+Event \&}]{event }\end{DoxyParamCaption})}
+
+
+
+Key Event handler for rotating ship. Rotates selected ship if \textquotesingle{}R\textquotesingle{} is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_panel_a1f2c07616298122fbf3f3b98863341b6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_panel_a1f2c07616298122fbf3f3b98863341b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_setup_panel_a7f63d5f1d5c49d57f70ffa10cb341a02}\label{class_setup_panel_a7f63d5f1d5c49d57f70ffa10cb341a02}} 
+\index{SetupPanel@{SetupPanel}!OnReadyButtonClicked@{OnReadyButtonClicked}}
+\index{OnReadyButtonClicked@{OnReadyButtonClicked}!SetupPanel@{SetupPanel}}
+\doxysubsubsection{\texorpdfstring{OnReadyButtonClicked()}{OnReadyButtonClicked()}}
+{\footnotesize\ttfamily void Setup\+Panel\+::\+On\+Ready\+Button\+Clicked (\begin{DoxyParamCaption}\item[{wx\+Command\+Event \&}]{event }\end{DoxyParamCaption})}
+
+
+
+event handler for when the \char`\"{}\+Ready\char`\"{} button is clicked. Checks if all ships have been placed, and if so, notifies the \mbox{\hyperlink{class_game_controller}{Game\+Controller}} that the player is ready. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & wx\+Command\+Event \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_panel_a7f63d5f1d5c49d57f70ffa10cb341a02_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_panel_a7f63d5f1d5c49d57f70ffa10cb341a02_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/client/panels/\mbox{\hyperlink{_setup_panel_8h}{Setup\+Panel.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/client/panels/\mbox{\hyperlink{_setup_panel_8cpp}{Setup\+Panel.\+cpp}}\end{DoxyCompactItemize}

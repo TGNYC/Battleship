@@ -1,6 +1,6 @@
 <map id="GameController::quitGame" name="GameController::quitGame">
-<area shape="rect" id="node1" title=" " alt="" coords="5,35,203,61"/>
+<area shape="rect" id="node1" title="Sends a QuitGame request to the server, is called upon closing the main window." alt="" coords="5,35,203,61"/>
 <area shape="rect" id="node2" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="285,5,389,32"/>
 <area shape="rect" id="node3" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="251,57,423,98"/>
-<area shape="rect" id="node4" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="471,64,669,91"/>
+<area shape="rect" id="node4" href="$class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="471,64,669,91"/>
 </map>

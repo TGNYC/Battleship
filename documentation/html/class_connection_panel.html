@@ -87,7 +87,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:abc032283798f168176fc9af6fab9cbca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_connection_panel.html">ConnectionPanel</a>.  <a href="class_connection_panel.html#abc032283798f168176fc9af6fab9cbca">More...</a><br /></td></tr>
 <tr class="separator:abc032283798f168176fc9af6fab9cbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d9a9d15af3ddb3e5671e5b81c7efa7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d">onConnectButtonClicked</a> (wxCommandEvent &amp;event)</td></tr>
-<tr class="memdesc:a8d9a9d15af3ddb3e5671e5b81c7efa7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button event handler. Will trigger <a class="el" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server.">GameController::connectToServer()</a> to establish a connection to the server.  <a href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d">More...</a><br /></td></tr>
+<tr class="memdesc:a8d9a9d15af3ddb3e5671e5b81c7efa7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button event handler. Will trigger <a class="el" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked.">GameController::connectToServer()</a> to establish a connection to the server.  <a href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d">More...</a><br /></td></tr>
 <tr class="separator:a8d9a9d15af3ddb3e5671e5b81c7efa7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae98ee379bc9ba0ad2b41793658b8064"><td class="memItemLeft" align="right" valign="top">wxString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064">getServerAddress</a> ()</td></tr>
 <tr class="memdesc:aae98ee379bc9ba0ad2b41793658b8064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the server address.  <a href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064">More...</a><br /></td></tr>
@@ -130,7 +130,7 @@ Here is the call graph for this function:</div>
 <map name="aclass_connection_panel_abc032283798f168176fc9af6fab9cbca_cgraph" id="aclass_connection_panel_abc032283798f168176fc9af6fab9cbca_cgraph">
 <area shape="rect" title="Constructor for ConnectionPanel." alt="" coords="5,195,216,237"/>
 <area shape="rect" href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,195,471,237"/>
-<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="519,166,717,207"/>
+<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="519,166,717,207"/>
 <area shape="rect" href="class_audio_player.html#a203c088054ba74271ebabddcdb0f6ec9" title=" " alt="" coords="550,232,686,259"/>
 <area shape="rect" href="classuuid.html#a19c9ad8ada196326ebe7a58420c3a4fb" title=" " alt="" coords="779,5,979,32"/>
 <area shape="rect" href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064" title="Getter for the server address." alt="" coords="779,57,980,98"/>
@@ -138,7 +138,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408" title="Getter for the username." alt="" coords="765,173,993,200"/>
 <area shape="rect" href="class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969" title=" " alt="" coords="793,225,965,266"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="793,290,965,331"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="1041,327,1240,353"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="1041,327,1240,353"/>
 <area shape="rect" href="class_input_field.html#abf8772b4331e10f7d8f236556f24948d" title=" " alt="" coords="1065,123,1216,149"/>
 </map>
 </div>
@@ -178,7 +178,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_connection_panel_aae98ee379bc9ba0ad2b41793658b8064_icgraph.png" border="0" usemap="#aclass_connection_panel_aae98ee379bc9ba0ad2b41793658b8064_icgraph" alt=""/></div>
 <map name="aclass_connection_panel_aae98ee379bc9ba0ad2b41793658b8064_icgraph" id="aclass_connection_panel_aae98ee379bc9ba0ad2b41793658b8064_icgraph">
 <area shape="rect" title="Getter for the server address." alt="" coords="765,5,967,47"/>
-<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="519,5,717,47"/>
+<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="519,5,717,47"/>
 <area shape="rect" href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,5,471,47"/>
 <area shape="rect" href="class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="5,5,216,47"/>
 </map>
@@ -218,7 +218,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_connection_panel_ab0dc7af0934d4184aa04d220e0bd9719_icgraph.png" border="0" usemap="#aclass_connection_panel_ab0dc7af0934d4184aa04d220e0bd9719_icgraph" alt=""/></div>
 <map name="aclass_connection_panel_ab0dc7af0934d4184aa04d220e0bd9719_icgraph" id="aclass_connection_panel_ab0dc7af0934d4184aa04d220e0bd9719_icgraph">
 <area shape="rect" title="Getter for the server port." alt="" coords="765,13,992,39"/>
-<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="519,5,717,47"/>
+<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="519,5,717,47"/>
 <area shape="rect" href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,5,471,47"/>
 <area shape="rect" href="class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="5,5,216,47"/>
 </map>
@@ -258,7 +258,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_connection_panel_a1fa98d5897d11136e8c1c9d98124b408_icgraph.png" border="0" usemap="#aclass_connection_panel_a1fa98d5897d11136e8c1c9d98124b408_icgraph" alt=""/></div>
 <map name="aclass_connection_panel_a1fa98d5897d11136e8c1c9d98124b408_icgraph" id="aclass_connection_panel_a1fa98d5897d11136e8c1c9d98124b408_icgraph">
 <area shape="rect" title="Getter for the username." alt="" coords="765,13,993,39"/>
-<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="519,5,717,47"/>
+<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="519,5,717,47"/>
 <area shape="rect" href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,5,471,47"/>
 <area shape="rect" href="class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="5,5,216,47"/>
 </map>
@@ -282,14 +282,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Button event handler. Will trigger <a class="el" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server.">GameController::connectToServer()</a> to establish a connection to the server. </p>
+<p>Button event handler. Will trigger <a class="el" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked.">GameController::connectToServer()</a> to establish a connection to the server. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_connection_panel_a8d9a9d15af3ddb3e5671e5b81c7efa7d_cgraph.png" border="0" usemap="#aclass_connection_panel_a8d9a9d15af3ddb3e5671e5b81c7efa7d_cgraph" alt=""/></div>
 <map name="aclass_connection_panel_a8d9a9d15af3ddb3e5671e5b81c7efa7d_cgraph" id="aclass_connection_panel_a8d9a9d15af3ddb3e5671e5b81c7efa7d_cgraph">
 <area shape="rect" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="5,195,212,237"/>
-<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="260,166,459,207"/>
+<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="260,166,459,207"/>
 <area shape="rect" href="class_audio_player.html#a203c088054ba74271ebabddcdb0f6ec9" title=" " alt="" coords="291,232,427,259"/>
 <area shape="rect" href="classuuid.html#a19c9ad8ada196326ebe7a58420c3a4fb" title=" " alt="" coords="521,5,721,32"/>
 <area shape="rect" href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064" title="Getter for the server address." alt="" coords="520,57,721,98"/>
@@ -297,7 +297,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408" title="Getter for the username." alt="" coords="507,173,735,200"/>
 <area shape="rect" href="class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969" title=" " alt="" coords="535,225,707,266"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="535,290,707,331"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="783,327,981,353"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="783,327,981,353"/>
 <area shape="rect" href="class_input_field.html#abf8772b4331e10f7d8f236556f24948d" title=" " alt="" coords="807,123,957,149"/>
 </map>
 </div>

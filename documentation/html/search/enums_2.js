@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gridtype_606',['gridtype',['../class_view_grid.html#ac29cb12bff7493060e9968c5de516bd3',1,'ViewGrid']]]
+  ['gridtype_597',['GridType',['../class_view_grid.html#a2eac7c2b9dfb66871440ad1e14ba4747',1,'ViewGrid']]]
 ];

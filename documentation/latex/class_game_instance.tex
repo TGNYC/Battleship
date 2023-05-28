@@ -1,0 +1,188 @@
+\hypertarget{class_game_instance}{}\doxysection{Game\+Instance Class Reference}
+\label{class_game_instance}\index{GameInstance@{GameInstance}}
+
+
+{\ttfamily \#include $<$Game\+Instance.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_game_instance_af0e00562fe5b961cd6605dd675760493}{join\+Game}} (const \mbox{\hyperlink{class_join_game}{Join\+Game}} \&join\+Game\+Request)
+\item 
+bool \mbox{\hyperlink{class_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c}{start\+Game}} (const \mbox{\hyperlink{class_player}{Player}} \&player, std\+::string \&err)
+\item 
+bool \mbox{\hyperlink{class_game_instance_a347ba3a215dc6e589031085055f89ab3}{execute\+Shot}} (const \mbox{\hyperlink{class_call_shot}{Call\+Shot}} \&shot\+Request)
+\item 
+bool \mbox{\hyperlink{class_game_instance_a1ce52e4764f31a72ae8f6369223091d6}{reset}} ()
+\item 
+\mbox{\hyperlink{class_game_state}{Game\+State}} \& \mbox{\hyperlink{class_game_instance_aa4c7e8a1e8f6c22c70e95dede08d83e0}{get\+Game\+State}} ()
+\item 
+bool \mbox{\hyperlink{class_game_instance_a19978753f89579e5457adb279de03b9d}{is\+Ready}} (const \mbox{\hyperlink{class_player}{Player}} \&player)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_instance_a347ba3a215dc6e589031085055f89ab3}\label{class_game_instance_a347ba3a215dc6e589031085055f89ab3}} 
+\index{GameInstance@{GameInstance}!executeShot@{executeShot}}
+\index{executeShot@{executeShot}!GameInstance@{GameInstance}}
+\doxysubsubsection{\texorpdfstring{executeShot()}{executeShot()}}
+{\footnotesize\ttfamily bool Game\+Instance\+::execute\+Shot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_call_shot}{Call\+Shot}} \&}]{shot\+Request }\end{DoxyParamCaption})}
+
+handles a call shot request. registers the shot in the gamestate and sends out a corresponding game\+Event 
+\begin{DoxyParams}{Parameters}
+{\em shot\+Request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_a347ba3a215dc6e589031085055f89ab3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_a347ba3a215dc6e589031085055f89ab3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_instance_aa4c7e8a1e8f6c22c70e95dede08d83e0}\label{class_game_instance_aa4c7e8a1e8f6c22c70e95dede08d83e0}} 
+\index{GameInstance@{GameInstance}!getGameState@{getGameState}}
+\index{getGameState@{getGameState}!GameInstance@{GameInstance}}
+\doxysubsubsection{\texorpdfstring{getGameState()}{getGameState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_state}{Game\+State}} \& Game\+Instance\+::get\+Game\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_aa4c7e8a1e8f6c22c70e95dede08d83e0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_instance_a19978753f89579e5457adb279de03b9d}\label{class_game_instance_a19978753f89579e5457adb279de03b9d}} 
+\index{GameInstance@{GameInstance}!isReady@{isReady}}
+\index{isReady@{isReady}!GameInstance@{GameInstance}}
+\doxysubsubsection{\texorpdfstring{isReady()}{isReady()}}
+{\footnotesize\ttfamily bool Game\+Instance\+::is\+Ready (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_player}{Player}} \&}]{player }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{class_game_instance_a19978753f89579e5457adb279de03b9d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_a19978753f89579e5457adb279de03b9d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_instance_af0e00562fe5b961cd6605dd675760493}\label{class_game_instance_af0e00562fe5b961cd6605dd675760493}} 
+\index{GameInstance@{GameInstance}!joinGame@{joinGame}}
+\index{joinGame@{joinGame}!GameInstance@{GameInstance}}
+\doxysubsubsection{\texorpdfstring{joinGame()}{joinGame()}}
+{\footnotesize\ttfamily bool Game\+Instance\+::join\+Game (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_join_game}{Join\+Game}} \&}]{join\+Game\+Request }\end{DoxyParamCaption})}
+
+handles a client request to join the game. adds player to the \mbox{\hyperlink{class_game_state}{Game\+State}} 
+\begin{DoxyParams}{Parameters}
+{\em join\+Game\+Request} & contains player name and id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if player was added successfully, false otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_af0e00562fe5b961cd6605dd675760493_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_af0e00562fe5b961cd6605dd675760493_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_instance_a1ce52e4764f31a72ae8f6369223091d6}\label{class_game_instance_a1ce52e4764f31a72ae8f6369223091d6}} 
+\index{GameInstance@{GameInstance}!reset@{reset}}
+\index{reset@{reset}!GameInstance@{GameInstance}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily bool Game\+Instance\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function to handle reset after \mbox{\hyperlink{class_quit_game}{Quit\+Game}} or Game\+Over. Recreates a new \mbox{\hyperlink{class_game_state}{Game\+State}} to be ready for next Game. Also removes current players network information from the \mbox{\hyperlink{class_server_network_manager}{Server\+Network\+Manager}} $<$$>$ 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_quit_game}{Quit\+Game}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all \+\_\+game\+State attributes are reset. Else, false. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_a1ce52e4764f31a72ae8f6369223091d6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_a1ce52e4764f31a72ae8f6369223091d6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c}\label{class_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c}} 
+\index{GameInstance@{GameInstance}!startGame@{startGame}}
+\index{startGame@{startGame}!GameInstance@{GameInstance}}
+\doxysubsubsection{\texorpdfstring{startGame()}{startGame()}}
+{\footnotesize\ttfamily bool Game\+Instance\+::start\+Game (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_player}{Player}} \&}]{player,  }\item[{std\+::string \&}]{err }\end{DoxyParamCaption})}
+
+starts the game as soon as both players are ready 
+\begin{DoxyParams}{Parameters}
+{\em player} & the player who pressed ready \\
+\hline
+{\em err} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if game was started. false if not started 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_instance_ab0ab94bbf73c5afe5075dd57a365a41c_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/server/\mbox{\hyperlink{_game_instance_8h}{Game\+Instance.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/server/\mbox{\hyperlink{_game_instance_8cpp}{Game\+Instance.\+cpp}}\end{DoxyCompactItemize}

@@ -90,32 +90,33 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_server_network_manager.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_server_network_manager.html">ServerNetworkManager</a> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="class_server_network_manager.html#a245a99179aa3b38c0760e8537d75c4ad">ServerNetworkManager</a>(uint16_t port);</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_server_network_manager.html#a1c862de1249156f1a37e5c2e44ee9297">   23</a></span>&#160;  <a class="code" href="class_server_network_manager.html#a1c862de1249156f1a37e5c2e44ee9297">~ServerNetworkManager</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">// Used to broadcast a server_response (e.g. a full_state_response) to all &#39;players&#39; except &#39;exclude&#39;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span>  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_server_network_manager.html#a4c18e4781d900ab61d1771d8edbed737">broadcastMessage</a>(<a class="code" href="class_server_response.html">ServerResponse</a> &amp;msg, <span class="keyword">const</span> std::vector&lt;Player&gt; &amp;players, <span class="keyword">const</span> <a class="code" href="class_player.html">Player</a> *exclude= <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_server_network_manager.html#a245a99179aa3b38c0760e8537d75c4ad">ServerNetworkManager</a>(uint16_t port);</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_server_network_manager.html#a1c862de1249156f1a37e5c2e44ee9297">   22</a></span>&#160;  <a class="code" href="class_server_network_manager.html#a1c862de1249156f1a37e5c2e44ee9297">~ServerNetworkManager</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">// Used to broadcast a server_response (e.g. a full_state_response) to all &#39;players&#39; except &#39;exclude&#39;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span>  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_server_network_manager.html#a4c18e4781d900ab61d1771d8edbed737">broadcastMessage</a>(<a class="code" href="class_server_response.html">ServerResponse</a> &amp;msg, <span class="keyword">const</span> std::vector&lt;Player&gt; &amp;players,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                               <span class="keyword">const</span> <a class="code" href="class_player.html">Player</a> *exclude = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_server_network_manager.html#a56a991990fef95ce61d1a6521db0f65b">onPlayerLeft</a>(<a class="code" href="classuuid.html">uuid</a> player_id);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_server_network_manager.html#abec13fe1d18ea161e5d22c8459c9ddc5">listenerLoop</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">void</span>        <a class="code" href="class_server_network_manager.html#abec13fe1d18ea161e5d22c8459c9ddc5">listenerLoop</a>();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> std::shared_mutex    _rwLock;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> sockpp::tcp_acceptor _acc;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> std::shared_mutex                                   _rwLock;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> sockpp::tcp_acceptor                                _acc;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> std::unordered_map&lt;std::string, sockpp::tcp_socket&gt; _addressToSocket;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> std::unordered_map&lt;uuid, std::string&gt; _playerIdToAddress;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> std::unordered_map&lt;uuid, std::string&gt;               _playerIdToAddress;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">static</span> ssize_t sendMessage(<span class="keyword">const</span> std::string &amp;msg, <span class="keyword">const</span> std::string &amp;address);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> readMessage(sockpp::tcp_socket socket,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                          <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> std::string &amp;, <span class="keyword">const</span> sockpp::tcp_socket::addr_t &amp;)&gt; &amp;message_handler);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> connect(uint16_t port);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">void</span> handleMessage(<span class="keyword">const</span> std::string &amp;msg, <span class="keyword">const</span> sockpp::tcp_socket::addr_t &amp;peer_address);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="class_game_instance.html">GameInstance</a> _gameInstance;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  uint16_t _port;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_SERVERNETWORKMANAGER_H</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  readMessage(sockpp::tcp_socket                                                                  socket,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;              <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> std::string &amp;, <span class="keyword">const</span> sockpp::tcp_socket::addr_t &amp;)&gt; &amp;message_handler);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">void</span> connect(uint16_t port);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">void</span> handleMessage(<span class="keyword">const</span> std::string &amp;msg, <span class="keyword">const</span> sockpp::tcp_socket::addr_t &amp;peer_address);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="class_game_instance.html">GameInstance</a> _gameInstance;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  uint16_t     _port;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BATTLESHIP_SERVERNETWORKMANAGER_H</span></div>
 <div class="ttc" id="a_game_instance_8h_html"><div class="ttname"><a href="_game_instance_8h.html">GameInstance.h</a></div></div>
 <div class="ttc" id="a_player_8h_html"><div class="ttname"><a href="_player_8h.html">Player.h</a></div></div>
 <div class="ttc" id="a_server_response_8h_html"><div class="ttname"><a href="_server_response_8h.html">ServerResponse.h</a></div></div>
@@ -128,7 +129,7 @@ $(function() {
 <div class="ttc" id="aclass_server_network_manager_html_a56a991990fef95ce61d1a6521db0f65b"><div class="ttname"><a href="class_server_network_manager.html#a56a991990fef95ce61d1a6521db0f65b">ServerNetworkManager::onPlayerLeft</a></div><div class="ttdeci">static void onPlayerLeft(uuid player_id)</div><div class="ttdef"><b>Definition:</b> ServerNetworkManager.cpp:164</div></div>
 <div class="ttc" id="aclass_server_network_manager_html_abec13fe1d18ea161e5d22c8459c9ddc5"><div class="ttname"><a href="class_server_network_manager.html#abec13fe1d18ea161e5d22c8459c9ddc5">ServerNetworkManager::listenerLoop</a></div><div class="ttdeci">void listenerLoop()</div><div class="ttdef"><b>Definition:</b> ServerNetworkManager.cpp:41</div></div>
 <div class="ttc" id="aclass_server_response_html"><div class="ttname"><a href="class_server_response.html">ServerResponse</a></div><div class="ttdef"><b>Definition:</b> ServerResponse.h:20</div></div>
-<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:9</div></div>
+<div class="ttc" id="aclassuuid_html"><div class="ttname"><a href="classuuid.html">uuid</a></div><div class="ttdef"><b>Definition:</b> uuid.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

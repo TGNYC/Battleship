@@ -1,5 +1,5 @@
 <map id="GameController::gameOver" name="GameController::gameOver">
-<area shape="rect" id="node1" title="Displays dialog box when game is finished." alt="" coords="5,56,207,83"/>
+<area shape="rect" id="node1" title="Displays dialog box when game is finished and resets the game so both players are back at the connect..." alt="" coords="5,56,207,83"/>
 <area shape="rect" id="node2" href="$class_game_state.html#a4d51b326e65c9cf867ff90bb5361cb75" title=" " alt="" coords="263,5,401,32"/>
 <area shape="rect" id="node3" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="280,56,384,83"/>
 <area shape="rect" id="node4" href="$class_game_controller.html#a8889bad76bc35487d3391fb8a5791616" title="Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver o..." alt="" coords="255,107,409,133"/>

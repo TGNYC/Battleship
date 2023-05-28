@@ -1,0 +1,151 @@
+\hypertarget{class_setup_manager}{}\doxysection{Setup\+Manager Class Reference}
+\label{class_setup_manager}\index{SetupManager@{SetupManager}}
+
+
+{\ttfamily \#include $<$Setup\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_setup_manager_af4f1553c6b916ee7b0efabb6bb683058}{Setup\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em constructor for \mbox{\hyperlink{class_setup_manager}{Setup\+Manager}}. Initializes ships and grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8}{place\+Ship}} (wx\+Point \&position, \mbox{\hyperlink{class_ship}{Ship}} $\ast$ship)
+\begin{DoxyCompactList}\small\item\em function places ship on grid and updates ship position \end{DoxyCompactList}\item 
+static int $\ast$ \mbox{\hyperlink{class_setup_manager_ac4d9c14419aa377be6ddc2ee07f48b30}{get\+Grid}} ()
+\begin{DoxyCompactList}\small\item\em getter for \+\_\+grid \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_setup_manager_afae76f256a7ca05b2c58b0b3f46e5083}{placed\+All\+Ships}} ()
+\begin{DoxyCompactList}\small\item\em checks if all ships have been placed (= no longer at initial position) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ \mbox{\hyperlink{class_setup_manager_a7a10e597cb06521a305aaf5c41db4e2a}{\+\_\+ships\+\_\+placed}}
+\item 
+static \mbox{\hyperlink{class_ship}{Ship}} $\ast$ \mbox{\hyperlink{class_setup_manager_a85e28d309bf54d88180c9111a90167f3}{\+\_\+selected\+Ship}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_setup_manager_af4f1553c6b916ee7b0efabb6bb683058}\label{class_setup_manager_af4f1553c6b916ee7b0efabb6bb683058}} 
+\index{SetupManager@{SetupManager}!SetupManager@{SetupManager}}
+\index{SetupManager@{SetupManager}!SetupManager@{SetupManager}}
+\doxysubsubsection{\texorpdfstring{SetupManager()}{SetupManager()}}
+{\footnotesize\ttfamily Setup\+Manager\+::\+Setup\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+constructor for \mbox{\hyperlink{class_setup_manager}{Setup\+Manager}}. Initializes ships and grid. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_manager_af4f1553c6b916ee7b0efabb6bb683058_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_setup_manager_ac4d9c14419aa377be6ddc2ee07f48b30}\label{class_setup_manager_ac4d9c14419aa377be6ddc2ee07f48b30}} 
+\index{SetupManager@{SetupManager}!getGrid@{getGrid}}
+\index{getGrid@{getGrid}!SetupManager@{SetupManager}}
+\doxysubsubsection{\texorpdfstring{getGrid()}{getGrid()}}
+{\footnotesize\ttfamily int $\ast$ Setup\+Manager\+::get\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+getter for \+\_\+grid 
+
+\begin{DoxyReturn}{Returns}
+int pointer to \+\_\+grid array 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_manager_ac4d9c14419aa377be6ddc2ee07f48b30_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_setup_manager_afae76f256a7ca05b2c58b0b3f46e5083}\label{class_setup_manager_afae76f256a7ca05b2c58b0b3f46e5083}} 
+\index{SetupManager@{SetupManager}!placedAllShips@{placedAllShips}}
+\index{placedAllShips@{placedAllShips}!SetupManager@{SetupManager}}
+\doxysubsubsection{\texorpdfstring{placedAllShips()}{placedAllShips()}}
+{\footnotesize\ttfamily bool Setup\+Manager\+::placed\+All\+Ships (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+checks if all ships have been placed (= no longer at initial position) 
+
+\begin{DoxyReturn}{Returns}
+true if all ships have been placed, false otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_manager_afae76f256a7ca05b2c58b0b3f46e5083_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8}\label{class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8}} 
+\index{SetupManager@{SetupManager}!placeShip@{placeShip}}
+\index{placeShip@{placeShip}!SetupManager@{SetupManager}}
+\doxysubsubsection{\texorpdfstring{placeShip()}{placeShip()}}
+{\footnotesize\ttfamily bool Setup\+Manager\+::place\+Ship (\begin{DoxyParamCaption}\item[{wx\+Point \&}]{position,  }\item[{\mbox{\hyperlink{class_ship}{Ship}} $\ast$}]{ship }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+function places ship on grid and updates ship position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & of left-\/most or top-\/most cell of ship (depending on orientation) \\
+\hline
+{\em ship} & pointer to ship that should be placed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ship was placed successfully and false if ship couldn\textquotesingle{}t be placed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_setup_manager_a5bd00c5838cd7400391aebff10bf18b8_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_setup_manager_a85e28d309bf54d88180c9111a90167f3}\label{class_setup_manager_a85e28d309bf54d88180c9111a90167f3}} 
+\index{SetupManager@{SetupManager}!\_selectedShip@{\_selectedShip}}
+\index{\_selectedShip@{\_selectedShip}!SetupManager@{SetupManager}}
+\doxysubsubsection{\texorpdfstring{\_selectedShip}{\_selectedShip}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ship}{Ship}} $\ast$ Setup\+Manager\+::\+\_\+selected\+Ship\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_setup_manager_a7a10e597cb06521a305aaf5c41db4e2a}\label{class_setup_manager_a7a10e597cb06521a305aaf5c41db4e2a}} 
+\index{SetupManager@{SetupManager}!\_ships\_placed@{\_ships\_placed}}
+\index{\_ships\_placed@{\_ships\_placed}!SetupManager@{SetupManager}}
+\doxysubsubsection{\texorpdfstring{\_ships\_placed}{\_ships\_placed}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ Setup\+Manager\+::\+\_\+ships\+\_\+placed\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/client/\mbox{\hyperlink{_setup_manager_8h}{Setup\+Manager.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/client/panels/\mbox{\hyperlink{_setup_panel_8cpp}{Setup\+Panel.\+cpp}}\item 
+/home/nico/\+Desktop/battleship/src/client/\mbox{\hyperlink{_setup_manager_8cpp}{Setup\+Manager.\+cpp}}\end{DoxyCompactItemize}

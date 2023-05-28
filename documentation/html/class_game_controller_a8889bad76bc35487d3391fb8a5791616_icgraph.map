@@ -1,7 +1,7 @@
 <map id="GameController::init" name="GameController::init">
 <area shape="rect" id="node1" title="Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver o..." alt="" coords="488,64,643,91"/>
-<area shape="rect" id="node2" href="$class_game_controller.html#a4ddeb7f7c76b45f18ac7ed8579c00081" title="Displays dialog box when game is finished." alt="" coords="237,5,439,32"/>
-<area shape="rect" id="node4" href="$class_game_controller.html#a8ce9484efc87046130542b134c68ed9e" title=" " alt="" coords="236,57,440,98"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a4ddeb7f7c76b45f18ac7ed8579c00081" title="Displays dialog box when game is finished and resets the game so both players are back at the connect..." alt="" coords="237,5,439,32"/>
+<area shape="rect" id="node4" href="$class_game_controller.html#a8ce9484efc87046130542b134c68ed9e" title="Shows popup saying that the other player left, closing the popup brings you back to the connection pa..." alt="" coords="236,57,440,98"/>
 <area shape="rect" id="node5" href="$class_battleship.html#a07e673975dfed4f8252e1c3be538db44" title=" " alt="" coords="271,123,405,149"/>
 <area shape="rect" id="node3" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,27,188,69"/>
 </map>

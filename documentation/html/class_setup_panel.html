@@ -92,9 +92,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1f2c07616298122fbf3f3b98863341b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_setup_panel.html#a1f2c07616298122fbf3f3b98863341b6">OnKeyDown</a> (wxKeyEvent &amp;event)</td></tr>
 <tr class="memdesc:a1f2c07616298122fbf3f3b98863341b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key Event handler for rotating ship. Rotates selected ship if 'R' is pressed.  <a href="class_setup_panel.html#a1f2c07616298122fbf3f3b98863341b6">More...</a><br /></td></tr>
 <tr class="separator:a1f2c07616298122fbf3f3b98863341b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addf4ff11b7c4fb171da4f636c3bd9ce5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_placement_grid.html">PlacementGrid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_setup_panel.html#addf4ff11b7c4fb171da4f636c3bd9ce5">getPlacementGrid</a> () const</td></tr>
-<tr class="memdesc:addf4ff11b7c4fb171da4f636c3bd9ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the placement grid  <a href="class_setup_panel.html#addf4ff11b7c4fb171da4f636c3bd9ce5">More...</a><br /></td></tr>
-<tr class="separator:addf4ff11b7c4fb171da4f636c3bd9ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af74edcf19b0a67d7e0d74ba1c638a261"><td class="memItemLeft" align="right" valign="top">wxStaticBitmap *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_setup_panel.html#af74edcf19b0a67d7e0d74ba1c638a261">getShipButton</a> (int idx)</td></tr>
 <tr class="memdesc:af74edcf19b0a67d7e0d74ba1c638a261"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper function used in <a class="el" href="class_setup_manager.html#a5bd00c5838cd7400391aebff10bf18b8" title="function places ship on grid and updates ship position">SetupManager::placeShip()</a> to disable ship button after it has been placed  <a href="class_setup_panel.html#af74edcf19b0a67d7e0d74ba1c638a261">More...</a><br /></td></tr>
 <tr class="separator:af74edcf19b0a67d7e0d74ba1c638a261"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,33 +149,13 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="class_setup_panel.html#a3f20a36437998d93efba974b0585b652" title=" " alt="" coords="757,583,947,609"/>
 <area shape="rect" href="class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083" title="checks if all ships have been placed (= no longer at initial position)" alt="" coords="743,161,961,188"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="766,213,938,254"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="1009,249,1208,276"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="1009,249,1208,276"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="addf4ff11b7c4fb171da4f636c3bd9ce5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addf4ff11b7c4fb171da4f636c3bd9ce5">&#9670;&nbsp;</a></span>getPlacementGrid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_placement_grid.html">PlacementGrid</a> * SetupPanel::getPlacementGrid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>getter for the placement grid </p>
-<dl class="section return"><dt>Returns</dt><dd>PlacementGrid* representing the placement grid </dd></dl>
-
-</div>
-</div>
 <a id="ace6ea6c2941e2f1bf5df1fcc4f38d620"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ace6ea6c2941e2f1bf5df1fcc4f38d620">&#9670;&nbsp;</a></span>getReadyButton()</h2>
 
@@ -364,7 +341,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="class_setup_panel.html#a3f20a36437998d93efba974b0585b652" title=" " alt="" coords="534,259,725,285"/>
 <area shape="rect" href="class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083" title="checks if all ships have been placed (= no longer at initial position)" alt="" coords="520,309,739,336"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="543,361,715,402"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="787,397,985,424"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="787,397,985,424"/>
 </map>
 </div>
 <div class="dynheader">

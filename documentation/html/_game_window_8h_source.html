@@ -77,24 +77,23 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_game_window.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_window.html">GameWindow</a> : <span class="keyword">public</span> wxFrame {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_game_window.html#a5ad45eb351feed827c62865601d0e299">GameWindow</a>(<span class="keyword">const</span> wxString &amp;title, <span class="keyword">const</span> wxPoint &amp;pos, <span class="keyword">const</span> wxSize &amp;size);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_window.html#a38ba4c455f0a985cde1421193ede3bea">showPanel</a>(wxPanel *panel);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_window.html#a02bb94c0f4c54c8725c6acf1615736be">setStatus</a>(<span class="keyword">const</span> std::string &amp;message);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_window.html#aafc4bcbd97bd945e3777f0452f69fee9">onClose</a>(wxCloseEvent &amp;event);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <a class="code" href="class_game_window.html#a5ad45eb351feed827c62865601d0e299">GameWindow</a>(<span class="keyword">const</span> wxString &amp;title, <span class="keyword">const</span> wxPoint &amp;pos, <span class="keyword">const</span> wxSize &amp;size);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_window.html#a38ba4c455f0a985cde1421193ede3bea">showPanel</a>(wxPanel *panel);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_window.html#a02bb94c0f4c54c8725c6acf1615736be">setStatus</a>(<span class="keyword">const</span> std::string &amp;message);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_window.html#aafc4bcbd97bd945e3777f0452f69fee9">onClose</a>(wxCloseEvent &amp;event);</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    wxBoxSizer *_mainLayout;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    wxStatusBar *_statusBar;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    wxPanel *_currentPanel;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// GAMEWINDOW_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  wxBoxSizer  *_mainLayout;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  wxStatusBar *_statusBar;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  wxPanel     *_currentPanel;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// GAMEWINDOW_H</span></div>
 <div class="ttc" id="aclass_game_window_html"><div class="ttname"><a href="class_game_window.html">GameWindow</a></div><div class="ttdef"><b>Definition:</b> GameWindow.h:6</div></div>
-<div class="ttc" id="aclass_game_window_html_a02bb94c0f4c54c8725c6acf1615736be"><div class="ttname"><a href="class_game_window.html#a02bb94c0f4c54c8725c6acf1615736be">GameWindow::setStatus</a></div><div class="ttdeci">void setStatus(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> GameWindow.cpp:60</div></div>
-<div class="ttc" id="aclass_game_window_html_a38ba4c455f0a985cde1421193ede3bea"><div class="ttname"><a href="class_game_window.html#a38ba4c455f0a985cde1421193ede3bea">GameWindow::showPanel</a></div><div class="ttdeci">void showPanel(wxPanel *panel)</div><div class="ttdef"><b>Definition:</b> GameWindow.cpp:36</div></div>
+<div class="ttc" id="aclass_game_window_html_a02bb94c0f4c54c8725c6acf1615736be"><div class="ttname"><a href="class_game_window.html#a02bb94c0f4c54c8725c6acf1615736be">GameWindow::setStatus</a></div><div class="ttdeci">void setStatus(const std::string &amp;message)</div><div class="ttdef"><b>Definition:</b> GameWindow.cpp:59</div></div>
+<div class="ttc" id="aclass_game_window_html_a38ba4c455f0a985cde1421193ede3bea"><div class="ttname"><a href="class_game_window.html#a38ba4c455f0a985cde1421193ede3bea">GameWindow::showPanel</a></div><div class="ttdeci">void showPanel(wxPanel *panel)</div><div class="ttdef"><b>Definition:</b> GameWindow.cpp:35</div></div>
 <div class="ttc" id="aclass_game_window_html_a5ad45eb351feed827c62865601d0e299"><div class="ttname"><a href="class_game_window.html#a5ad45eb351feed827c62865601d0e299">GameWindow::GameWindow</a></div><div class="ttdeci">GameWindow(const wxString &amp;title, const wxPoint &amp;pos, const wxSize &amp;size)</div><div class="ttdef"><b>Definition:</b> GameWindow.cpp:7</div></div>
-<div class="ttc" id="aclass_game_window_html_aafc4bcbd97bd945e3777f0452f69fee9"><div class="ttname"><a href="class_game_window.html#aafc4bcbd97bd945e3777f0452f69fee9">GameWindow::onClose</a></div><div class="ttdeci">void onClose(wxCloseEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> GameWindow.cpp:64</div></div>
+<div class="ttc" id="aclass_game_window_html_aafc4bcbd97bd945e3777f0452f69fee9"><div class="ttname"><a href="class_game_window.html#aafc4bcbd97bd945e3777f0452f69fee9">GameWindow::onClose</a></div><div class="ttdeci">void onClose(wxCloseEvent &amp;event)</div><div class="ttdef"><b>Definition:</b> GameWindow.cpp:63</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,0 +1,123 @@
+\hypertarget{class_view_grid}{}\doxysection{View\+Grid Class Reference}
+\label{class_view_grid}\index{ViewGrid@{ViewGrid}}
+
+
+{\ttfamily \#include $<$View\+Grid.\+h$>$}
+
+
+
+Inheritance diagram for View\+Grid\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{class_view_grid__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747}{Grid\+Type}} \{ \mbox{\hyperlink{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747a76098bdefdfad511242e5def6f9638d6}{own}}
+, \mbox{\hyperlink{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747a45ff3b89babcf9a7a298bcf4fd1d5d31}{opp}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_view_grid_afab81f4c16c55819ac983060560844e2}{View\+Grid}} (wx\+Window $\ast$parent, \mbox{\hyperlink{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747}{Grid\+Type}} type)
+\item 
+void \mbox{\hyperlink{class_view_grid_a430feba553ffa25ee9e9f5f7048d78e2}{show\+Ships}} (const std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ \&ships)
+\begin{DoxyCompactList}\small\item\em Displays the ships on the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_view_grid_a31781b19eeb822bf529c9adf60c0045b}{show\+Shots}} (const int shots\mbox{[}10\mbox{]}\mbox{[}10\mbox{]})
+\begin{DoxyCompactList}\small\item\em Displays the shots on the grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747}\label{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747}} 
+\index{ViewGrid@{ViewGrid}!GridType@{GridType}}
+\index{GridType@{GridType}!ViewGrid@{ViewGrid}}
+\doxysubsubsection{\texorpdfstring{GridType}{GridType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747}{View\+Grid\+::\+Grid\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{own@{own}!ViewGrid@{ViewGrid}}\index{ViewGrid@{ViewGrid}!own@{own}}}\mbox{\Hypertarget{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747a76098bdefdfad511242e5def6f9638d6}\label{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747a76098bdefdfad511242e5def6f9638d6}} 
+own&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{opp@{opp}!ViewGrid@{ViewGrid}}\index{ViewGrid@{ViewGrid}!opp@{opp}}}\mbox{\Hypertarget{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747a45ff3b89babcf9a7a298bcf4fd1d5d31}\label{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747a45ff3b89babcf9a7a298bcf4fd1d5d31}} 
+opp&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_view_grid_afab81f4c16c55819ac983060560844e2}\label{class_view_grid_afab81f4c16c55819ac983060560844e2}} 
+\index{ViewGrid@{ViewGrid}!ViewGrid@{ViewGrid}}
+\index{ViewGrid@{ViewGrid}!ViewGrid@{ViewGrid}}
+\doxysubsubsection{\texorpdfstring{ViewGrid()}{ViewGrid()}}
+{\footnotesize\ttfamily View\+Grid\+::\+View\+Grid (\begin{DoxyParamCaption}\item[{wx\+Window $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_view_grid_a2eac7c2b9dfb66871440ad1e14ba4747}{View\+Grid\+::\+Grid\+Type}}}]{type }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_view_grid_afab81f4c16c55819ac983060560844e2_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_view_grid_a430feba553ffa25ee9e9f5f7048d78e2}\label{class_view_grid_a430feba553ffa25ee9e9f5f7048d78e2}} 
+\index{ViewGrid@{ViewGrid}!showShips@{showShips}}
+\index{showShips@{showShips}!ViewGrid@{ViewGrid}}
+\doxysubsubsection{\texorpdfstring{showShips()}{showShips()}}
+{\footnotesize\ttfamily void View\+Grid\+::show\+Ships (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $>$ \&}]{ships }\end{DoxyParamCaption})}
+
+
+
+Displays the ships on the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ships} & A vector of ships that will be displayed. Displays the ships on the grid using the ship\textquotesingle{}s position and orientation. This function should only be called for the own grid. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_view_grid_a430feba553ffa25ee9e9f5f7048d78e2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_view_grid_a31781b19eeb822bf529c9adf60c0045b}\label{class_view_grid_a31781b19eeb822bf529c9adf60c0045b}} 
+\index{ViewGrid@{ViewGrid}!showShots@{showShots}}
+\index{showShots@{showShots}!ViewGrid@{ViewGrid}}
+\doxysubsubsection{\texorpdfstring{showShots()}{showShots()}}
+{\footnotesize\ttfamily void View\+Grid\+::show\+Shots (\begin{DoxyParamCaption}\item[{const int}]{shots\mbox{[}10\mbox{]}\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Displays the shots on the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shots} & A 2D array of integers, where 0 means no shot, 1 means a miss and 2 means a hit. A miss is marked with a white dot and a hit is marked with a red dot. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_view_grid_a31781b19eeb822bf529c9adf60c0045b_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/client/ui\+Elements/\mbox{\hyperlink{_view_grid_8h}{View\+Grid.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/client/ui\+Elements/\mbox{\hyperlink{_view_grid_8cpp}{View\+Grid.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,86 @@
+\hypertarget{class_logger}{}\doxysection{Logger Class Reference}
+\label{class_logger}\index{Logger@{Logger}}
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_logger_a561ed3c50b13afb3f113c6d5e11d3b7d}{log}} (const std\+::string \&message, const std\+::string \&function=\char`\"{}-\/\char`\"{})
+\item 
+static void \mbox{\hyperlink{class_logger_aac41c5bcc6dec05ffb1a2acbcce721d7}{log}} (const \mbox{\hyperlink{class_battleship_exception}{Battleship\+Exception}} \&exception)
+\item 
+static void \mbox{\hyperlink{class_logger_a098fdd5ca3f68ff7b59e35257e22a289}{set\+Prefix}} (const std\+::string \&s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Custom basic logging class. Use the macro \mbox{\hyperlink{_logger_8h_a04a117a4d31fa8b12a406b1aa66864f3}{LOG(msg)}} anywhere in the project to log whatever you need. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_logger_aac41c5bcc6dec05ffb1a2acbcce721d7}\label{class_logger_aac41c5bcc6dec05ffb1a2acbcce721d7}} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Logger\+::log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_battleship_exception}{Battleship\+Exception}} \&}]{exception }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+overloading of \mbox{\hyperlink{class_logger_a561ed3c50b13afb3f113c6d5e11d3b7d}{Logger\+::log}} to output Battleship\+Exceptions directly 
+\begin{DoxyParams}{Parameters}
+{\em exception} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{class_logger_aac41c5bcc6dec05ffb1a2acbcce721d7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_logger_aac41c5bcc6dec05ffb1a2acbcce721d7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_logger_a561ed3c50b13afb3f113c6d5e11d3b7d}\label{class_logger_a561ed3c50b13afb3f113c6d5e11d3b7d}} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Logger\+::log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{function = {\ttfamily \char`\"{}-\/\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+outputs a message to std\+::cout and to the logfile. Use the \mbox{\hyperlink{_logger_8h_a04a117a4d31fa8b12a406b1aa66864f3}{LOG(msg)}} macro instead of this function whenever possible 
+\begin{DoxyParams}{Parameters}
+{\em message} & text to be logged \\
+\hline
+{\em function} & name of the function where this log was called. automatically filled in by the macro \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_a098fdd5ca3f68ff7b59e35257e22a289}\label{class_logger_a098fdd5ca3f68ff7b59e35257e22a289}} 
+\index{Logger@{Logger}!setPrefix@{setPrefix}}
+\index{setPrefix@{setPrefix}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{setPrefix()}{setPrefix()}}
+{\footnotesize\ttfamily void Logger\+::set\+Prefix (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+changes the prefix used at the very beginning of a log message. use this if you run multiple instances (servers and clients) on the same machine to identify more easily where the message came from 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_logger_a098fdd5ca3f68ff7b59e35257e22a289_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/common/\mbox{\hyperlink{_logger_8h}{Logger.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/common/\mbox{\hyperlink{_logger_8cpp}{Logger.\+cpp}}\end{DoxyCompactItemize}

@@ -1,5 +1,5 @@
 <map id="GameController::handleQuitGameEvent" name="GameController::handleQuitGameEvent">
-<area shape="rect" id="node1" title=" " alt="" coords="5,23,209,65"/>
+<area shape="rect" id="node1" title="Shows popup saying that the other player left, closing the popup brings you back to the connection pa..." alt="" coords="5,23,209,65"/>
 <area shape="rect" id="node2" href="$class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="283,5,387,32"/>
 <area shape="rect" id="node3" href="$class_game_controller.html#a8889bad76bc35487d3391fb8a5791616" title="Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver o..." alt="" coords="257,56,412,83"/>
 <area shape="rect" id="node4" href="$class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="460,56,649,83"/>

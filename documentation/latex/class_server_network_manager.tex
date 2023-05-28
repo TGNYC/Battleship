@@ -1,0 +1,97 @@
+\hypertarget{class_server_network_manager}{}\doxysection{Server\+Network\+Manager Class Reference}
+\label{class_server_network_manager}\index{ServerNetworkManager@{ServerNetworkManager}}
+
+
+{\ttfamily \#include $<$Server\+Network\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_server_network_manager_a245a99179aa3b38c0760e8537d75c4ad}{Server\+Network\+Manager}} (uint16\+\_\+t port)
+\item 
+\mbox{\hyperlink{class_server_network_manager_a1c862de1249156f1a37e5c2e44ee9297}{$\sim$\+Server\+Network\+Manager}} ()
+\item 
+void \mbox{\hyperlink{class_server_network_manager_abec13fe1d18ea161e5d22c8459c9ddc5}{listener\+Loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_server_network_manager_a4c18e4781d900ab61d1771d8edbed737}{broadcast\+Message}} (\mbox{\hyperlink{class_server_response}{Server\+Response}} \&msg, const std\+::vector$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \&players, const \mbox{\hyperlink{class_player}{Player}} $\ast$exclude=nullptr)
+\item 
+static void \mbox{\hyperlink{class_server_network_manager_a56a991990fef95ce61d1a6521db0f65b}{on\+Player\+Left}} (\mbox{\hyperlink{classuuid}{uuid}} player\+\_\+id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_server_network_manager_a245a99179aa3b38c0760e8537d75c4ad}\label{class_server_network_manager_a245a99179aa3b38c0760e8537d75c4ad}} 
+\index{ServerNetworkManager@{ServerNetworkManager}!ServerNetworkManager@{ServerNetworkManager}}
+\index{ServerNetworkManager@{ServerNetworkManager}!ServerNetworkManager@{ServerNetworkManager}}
+\doxysubsubsection{\texorpdfstring{ServerNetworkManager()}{ServerNetworkManager()}}
+{\footnotesize\ttfamily Server\+Network\+Manager\+::\+Server\+Network\+Manager (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_server_network_manager_a1c862de1249156f1a37e5c2e44ee9297}\label{class_server_network_manager_a1c862de1249156f1a37e5c2e44ee9297}} 
+\index{ServerNetworkManager@{ServerNetworkManager}!````~ServerNetworkManager@{$\sim$ServerNetworkManager}}
+\index{````~ServerNetworkManager@{$\sim$ServerNetworkManager}!ServerNetworkManager@{ServerNetworkManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$ServerNetworkManager()}{~ServerNetworkManager()}}
+{\footnotesize\ttfamily Server\+Network\+Manager\+::$\sim$\+Server\+Network\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_server_network_manager_a4c18e4781d900ab61d1771d8edbed737}\label{class_server_network_manager_a4c18e4781d900ab61d1771d8edbed737}} 
+\index{ServerNetworkManager@{ServerNetworkManager}!broadcastMessage@{broadcastMessage}}
+\index{broadcastMessage@{broadcastMessage}!ServerNetworkManager@{ServerNetworkManager}}
+\doxysubsubsection{\texorpdfstring{broadcastMessage()}{broadcastMessage()}}
+{\footnotesize\ttfamily void Server\+Network\+Manager\+::broadcast\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_server_response}{Server\+Response}} \&}]{msg,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \&}]{players,  }\item[{const \mbox{\hyperlink{class_player}{Player}} $\ast$}]{exclude = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Send out a \mbox{\hyperlink{class_server_response}{Server\+Response}} to everyone 
+\begin{DoxyParams}{Parameters}
+{\em msg} & Response to be sent \\
+\hline
+{\em players} & Vector of all players/clients to send the message to \\
+\hline
+{\em exclude} & Optional player to exclude from the broadcast \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_network_manager_a4c18e4781d900ab61d1771d8edbed737_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_network_manager_abec13fe1d18ea161e5d22c8459c9ddc5}\label{class_server_network_manager_abec13fe1d18ea161e5d22c8459c9ddc5}} 
+\index{ServerNetworkManager@{ServerNetworkManager}!listenerLoop@{listenerLoop}}
+\index{listenerLoop@{listenerLoop}!ServerNetworkManager@{ServerNetworkManager}}
+\doxysubsubsection{\texorpdfstring{listenerLoop()}{listenerLoop()}}
+{\footnotesize\ttfamily void Server\+Network\+Manager\+::listener\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{class_server_network_manager_abec13fe1d18ea161e5d22c8459c9ddc5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_server_network_manager_a56a991990fef95ce61d1a6521db0f65b}\label{class_server_network_manager_a56a991990fef95ce61d1a6521db0f65b}} 
+\index{ServerNetworkManager@{ServerNetworkManager}!onPlayerLeft@{onPlayerLeft}}
+\index{onPlayerLeft@{onPlayerLeft}!ServerNetworkManager@{ServerNetworkManager}}
+\doxysubsubsection{\texorpdfstring{onPlayerLeft()}{onPlayerLeft()}}
+{\footnotesize\ttfamily void Server\+Network\+Manager\+::on\+Player\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_server_network_manager_a56a991990fef95ce61d1a6521db0f65b_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/server/\mbox{\hyperlink{_server_network_manager_8h}{Server\+Network\+Manager.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/server/\mbox{\hyperlink{_server_network_manager_8cpp}{Server\+Network\+Manager.\+cpp}}\end{DoxyCompactItemize}

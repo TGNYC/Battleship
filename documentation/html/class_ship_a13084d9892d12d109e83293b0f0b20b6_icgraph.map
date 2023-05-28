@@ -9,6 +9,6 @@
 <area shape="rect" id="node6" href="$class_placement_grid.html#a47e094ae9f065ea84606ce176f874507" title="constructor for PlacementGrid. Creates grid of 10x10 tiles and binds mouse events" alt="" coords="236,77,459,104"/>
 <area shape="rect" id="node8" href="$class_placement_grid.html#a1cef8e1ffd4e7bed11847b206d5acaef" title="function is called when mouse clicks on grid and places ship if possible" alt="" coords="513,107,732,133"/>
 <area shape="rect" id="node10" href="$class_game_state.html#a1f3cd04effc3dbe31dbab2a4bb118fa5" title="updates the CLIENT SIDE boards after a game event happened." alt="" coords="526,157,719,184"/>
-<area shape="rect" id="node11" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="239,150,455,191"/>
+<area shape="rect" id="node11" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handles an incoming GameEvent. GameEvents are sent by the server when one of the players has placed a..." alt="" coords="239,150,455,191"/>
 <area shape="rect" id="node12" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,150,188,191"/>
 </map>

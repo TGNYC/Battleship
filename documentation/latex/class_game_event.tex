@@ -1,0 +1,94 @@
+\hypertarget{class_game_event}{}\doxysection{Game\+Event Class Reference}
+\label{class_game_event}\index{GameEvent@{GameEvent}}
+
+
+{\ttfamily \#include $<$Game\+Event.\+h$>$}
+
+
+
+Inheritance diagram for Game\+Event\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_game_event__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_event_a891284c4303b0170a2d9213af897c648}{Game\+Event}} (\mbox{\hyperlink{classuuid}{uuid}} \mbox{\hyperlink{class_game_event_aca33517ba213b3868963476239a8f61a}{player\+Id}}, \mbox{\hyperlink{struct_coordinate}{Coordinate}} \mbox{\hyperlink{class_game_event_aa8ec1b87976ae70ff793f9a815e222b9}{position}}, bool \mbox{\hyperlink{class_game_event_abe0df8f86de9de14da6313fe1a00a1ef}{hit}}, bool \mbox{\hyperlink{class_game_event_aada9647f8e98a3ce1f3cdfeb8dc83708}{sunk}}, \mbox{\hyperlink{class_ship}{Ship}} \mbox{\hyperlink{class_game_event_a4770ad211ce65ea239c65daa9a4abe1a}{hit\+Ship}}, \mbox{\hyperlink{classuuid}{uuid}} \mbox{\hyperlink{class_game_event_a405b6a92fb874f762d18d1e36caf80a2}{next\+Player\+Id}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classuuid}{uuid}} \mbox{\hyperlink{class_game_event_aca33517ba213b3868963476239a8f61a}{player\+Id}}
+\item 
+const \mbox{\hyperlink{struct_coordinate}{Coordinate}} \mbox{\hyperlink{class_game_event_aa8ec1b87976ae70ff793f9a815e222b9}{position}}
+\item 
+const bool \mbox{\hyperlink{class_game_event_abe0df8f86de9de14da6313fe1a00a1ef}{hit}} = false
+\item 
+const bool \mbox{\hyperlink{class_game_event_aada9647f8e98a3ce1f3cdfeb8dc83708}{sunk}} = false
+\item 
+const \mbox{\hyperlink{class_ship}{Ship}} \mbox{\hyperlink{class_game_event_a4770ad211ce65ea239c65daa9a4abe1a}{hit\+Ship}}
+\item 
+const \mbox{\hyperlink{classuuid}{uuid}} \mbox{\hyperlink{class_game_event_a405b6a92fb874f762d18d1e36caf80a2}{next\+Player\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A Game Event is emitted by the server if and only if a new shot was registered 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_event_a891284c4303b0170a2d9213af897c648}\label{class_game_event_a891284c4303b0170a2d9213af897c648}} 
+\index{GameEvent@{GameEvent}!GameEvent@{GameEvent}}
+\index{GameEvent@{GameEvent}!GameEvent@{GameEvent}}
+\doxysubsubsection{\texorpdfstring{GameEvent()}{GameEvent()}}
+{\footnotesize\ttfamily Game\+Event\+::\+Game\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{player\+Id,  }\item[{\mbox{\hyperlink{struct_coordinate}{Coordinate}}}]{position,  }\item[{bool}]{hit,  }\item[{bool}]{sunk,  }\item[{\mbox{\hyperlink{class_ship}{Ship}}}]{hit\+Ship,  }\item[{\mbox{\hyperlink{classuuid}{uuid}}}]{next\+Player\+Id }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_event_abe0df8f86de9de14da6313fe1a00a1ef}\label{class_game_event_abe0df8f86de9de14da6313fe1a00a1ef}} 
+\index{GameEvent@{GameEvent}!hit@{hit}}
+\index{hit@{hit}!GameEvent@{GameEvent}}
+\doxysubsubsection{\texorpdfstring{hit}{hit}}
+{\footnotesize\ttfamily const bool Game\+Event\+::hit = false}
+
+\mbox{\Hypertarget{class_game_event_a4770ad211ce65ea239c65daa9a4abe1a}\label{class_game_event_a4770ad211ce65ea239c65daa9a4abe1a}} 
+\index{GameEvent@{GameEvent}!hitShip@{hitShip}}
+\index{hitShip@{hitShip}!GameEvent@{GameEvent}}
+\doxysubsubsection{\texorpdfstring{hitShip}{hitShip}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_ship}{Ship}} Game\+Event\+::hit\+Ship}
+
+\mbox{\Hypertarget{class_game_event_a405b6a92fb874f762d18d1e36caf80a2}\label{class_game_event_a405b6a92fb874f762d18d1e36caf80a2}} 
+\index{GameEvent@{GameEvent}!nextPlayerId@{nextPlayerId}}
+\index{nextPlayerId@{nextPlayerId}!GameEvent@{GameEvent}}
+\doxysubsubsection{\texorpdfstring{nextPlayerId}{nextPlayerId}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classuuid}{uuid}} Game\+Event\+::next\+Player\+Id}
+
+\mbox{\Hypertarget{class_game_event_aca33517ba213b3868963476239a8f61a}\label{class_game_event_aca33517ba213b3868963476239a8f61a}} 
+\index{GameEvent@{GameEvent}!playerId@{playerId}}
+\index{playerId@{playerId}!GameEvent@{GameEvent}}
+\doxysubsubsection{\texorpdfstring{playerId}{playerId}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classuuid}{uuid}} Game\+Event\+::player\+Id}
+
+\mbox{\Hypertarget{class_game_event_aa8ec1b87976ae70ff793f9a815e222b9}\label{class_game_event_aa8ec1b87976ae70ff793f9a815e222b9}} 
+\index{GameEvent@{GameEvent}!position@{position}}
+\index{position@{position}!GameEvent@{GameEvent}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_coordinate}{Coordinate}} Game\+Event\+::position}
+
+\mbox{\Hypertarget{class_game_event_aada9647f8e98a3ce1f3cdfeb8dc83708}\label{class_game_event_aada9647f8e98a3ce1f3cdfeb8dc83708}} 
+\index{GameEvent@{GameEvent}!sunk@{sunk}}
+\index{sunk@{sunk}!GameEvent@{GameEvent}}
+\doxysubsubsection{\texorpdfstring{sunk}{sunk}}
+{\footnotesize\ttfamily const bool Game\+Event\+::sunk = false}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/common/network/responses/\mbox{\hyperlink{_game_event_8h}{Game\+Event.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/common/network/responses/\mbox{\hyperlink{_game_event_8cpp}{Game\+Event.\+cpp}}\end{DoxyCompactItemize}

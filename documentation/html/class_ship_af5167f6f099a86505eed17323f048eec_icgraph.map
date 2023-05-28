@@ -3,9 +3,9 @@
 <area shape="rect" id="node2" href="$class_game_state.html#a364c6e3db8c55d84b8273982e11072dd" title=" " alt="" coords="789,5,960,32"/>
 <area shape="rect" id="node5" href="$class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="837,107,912,133"/>
 <area shape="rect" id="node6" href="$class_game_state.html#a2c1a66a9bd31f3f25ad81b1f94838c75" title=" " alt="" coords="553,56,736,83"/>
-<area shape="rect" id="node3" href="$class_game_instance.html#abb7bb4aeb4372058bf741473676a5015" title=" " alt="" coords="290,27,494,53"/>
+<area shape="rect" id="node3" href="$class_game_instance.html#a347ba3a215dc6e589031085055f89ab3" title=" " alt="" coords="290,27,494,53"/>
 <area shape="rect" id="node4" href="$class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,27,236,53"/>
 <area shape="rect" id="node7" href="$class_game_state.html#a1f3cd04effc3dbe31dbab2a4bb118fa5" title="updates the CLIENT SIDE boards after a game event happened." alt="" coords="548,107,741,133"/>
-<area shape="rect" id="node8" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handes shot." alt="" coords="284,99,500,141"/>
+<area shape="rect" id="node8" href="$class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95" title="Handles an incoming GameEvent. GameEvents are sent by the server when one of the players has placed a..." alt="" coords="284,99,500,141"/>
 <area shape="rect" id="node9" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="29,99,212,141"/>
 </map>

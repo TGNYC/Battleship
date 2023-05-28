@@ -1,0 +1,75 @@
+\hypertarget{serialization_8h}{}\doxysection{/home/nico/\+Desktop/battleship/src/common/serialization/serialization.h File Reference}
+\label{serialization_8h}\index{/home/nico/Desktop/battleship/src/common/serialization/serialization.h@{/home/nico/Desktop/battleship/src/common/serialization/serialization.h}}
+{\ttfamily \#include \char`\"{}game\+\_\+state/\+Coordinate.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game\+\_\+state/\+Ship.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/requests/\+Call\+Shot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/requests/\+Client\+Request.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/requests/\+Join\+Game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/requests/\+Play\+Again.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/requests/\+Quit\+Game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/requests/\+Send\+Emote.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/requests/\+Start\+Game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/responses/\+Emote\+Event.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/responses/\+Error\+Response.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/responses/\+Game\+Event.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/responses/\+Game\+Over\+Event.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/responses/\+Join\+Game\+Success.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/responses/\+Quit\+Game\+Event.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/responses/\+Server\+Response.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}network/responses/\+Start\+Game\+Success.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{serialization_8h_a84ecc7f64a043cc206166b6cf667032b}{to\+\_\+json}} (nlohmann\+::json \&json, const \mbox{\hyperlink{struct_coordinate}{Coordinate}} \&position)
+\item 
+void \mbox{\hyperlink{serialization_8h_a52cff083ee9e7113794c783c54200197}{from\+\_\+json}} (const nlohmann\+::json \&json, \mbox{\hyperlink{struct_coordinate}{Coordinate}} \&position)
+\item 
+void \mbox{\hyperlink{serialization_8h_a1f4c411913e4f419cbfcb8c3a2be46aa}{to\+\_\+json}} (nlohmann\+::json \&json, const \mbox{\hyperlink{classuuid}{uuid}} \&\mbox{\hyperlink{classuuid}{uuid}})
+\item 
+void \mbox{\hyperlink{serialization_8h_a04abe0bd5801c5437ead3634c8e43749}{from\+\_\+json}} (const nlohmann\+::json \&json, \mbox{\hyperlink{classuuid}{uuid}} \&uuid\+\_\+v)
+\item 
+\mbox{\hyperlink{serialization_8h_a150539d7cb383a50fd719f1b84d22117}{NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM}} (\mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Ship\+::\+Orientation}}, \{\{\mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11ea06ce2a25e5d12c166a36f654dbea6012}{Ship\+::\+Orientation\+::\+Vertical}}, \char`\"{}v\char`\"{}\}, \{Ship\+::\+Orientation\+::\+Horizontal, \char`\"{}h\char`\"{}\}\}) NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM(\mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5af}{Request\+Type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{serialization_8h_a52cff083ee9e7113794c783c54200197}\label{serialization_8h_a52cff083ee9e7113794c783c54200197}} 
+\index{serialization.h@{serialization.h}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void from\+\_\+json (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{json,  }\item[{\mbox{\hyperlink{struct_coordinate}{Coordinate}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{serialization_8h_a04abe0bd5801c5437ead3634c8e43749}\label{serialization_8h_a04abe0bd5801c5437ead3634c8e43749}} 
+\index{serialization.h@{serialization.h}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void from\+\_\+json (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{json,  }\item[{\mbox{\hyperlink{classuuid}{uuid}} \&}]{uuid\+\_\+v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{serialization_8h_a150539d7cb383a50fd719f1b84d22117}\label{serialization_8h_a150539d7cb383a50fd719f1b84d22117}} 
+\index{serialization.h@{serialization.h}!NLOHMANN\_JSON\_SERIALIZE\_ENUM@{NLOHMANN\_JSON\_SERIALIZE\_ENUM}}
+\index{NLOHMANN\_JSON\_SERIALIZE\_ENUM@{NLOHMANN\_JSON\_SERIALIZE\_ENUM}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{NLOHMANN\_JSON\_SERIALIZE\_ENUM()}{NLOHMANN\_JSON\_SERIALIZE\_ENUM()}}
+{\footnotesize\ttfamily NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11e}{Ship\+::\+Orientation}}}]{,  }\item[{\{\{\mbox{\hyperlink{class_ship_adbae96ba542c40753dcf85144303e11ea06ce2a25e5d12c166a36f654dbea6012}{Ship\+::\+Orientation\+::\+Vertical}}, \char`\"{}v\char`\"{}\}, \{Ship\+::\+Orientation\+::\+Horizontal, \char`\"{}h\char`\"{}\}\}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{serialization_8h_a84ecc7f64a043cc206166b6cf667032b}\label{serialization_8h_a84ecc7f64a043cc206166b6cf667032b}} 
+\index{serialization.h@{serialization.h}!to\_json@{to\_json}}
+\index{to\_json@{to\_json}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{to\_json()}{to\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void to\+\_\+json (\begin{DoxyParamCaption}\item[{nlohmann\+::json \&}]{json,  }\item[{const \mbox{\hyperlink{struct_coordinate}{Coordinate}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{serialization_8h_a1f4c411913e4f419cbfcb8c3a2be46aa}\label{serialization_8h_a1f4c411913e4f419cbfcb8c3a2be46aa}} 
+\index{serialization.h@{serialization.h}!to\_json@{to\_json}}
+\index{to\_json@{to\_json}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{to\_json()}{to\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void to\+\_\+json (\begin{DoxyParamCaption}\item[{nlohmann\+::json \&}]{json,  }\item[{const \mbox{\hyperlink{classuuid}{uuid}} \&}]{uuid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{serialization_8h_a1f4c411913e4f419cbfcb8c3a2be46aa_cgraph}
+\end{center}
+\end{figure}

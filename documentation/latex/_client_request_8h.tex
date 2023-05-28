@@ -1,0 +1,57 @@
+\hypertarget{_client_request_8h}{}\doxysection{/home/nico/\+Desktop/battleship/src/common/network/requests/\+Client\+Request.h File Reference}
+\label{_client_request_8h}\index{/home/nico/Desktop/battleship/src/common/network/requests/ClientRequest.h@{/home/nico/Desktop/battleship/src/common/network/requests/ClientRequest.h}}
+{\ttfamily \#include \char`\"{}uuid.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$compare$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_client_request}{Client\+Request}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5af}{Request\+Type}} \{ \newline
+\mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa18a6c2f10d6ea5bf747a280849e36456}{Join\+Game}}
+, \mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa8a7b88cd602849e993a8ba3cdef39462}{Start\+Game}}
+, \mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa1b55f3b3a65ad9364c80581cd166f9bf}{Call\+Shot}}
+, \mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa1072c12cc06d0cd0a4c3904bd114b892}{Send\+Emote}}
+, \newline
+\mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afac4932eb27921738ea095473272240ceb}{Quit\+Game}}
+, \mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa4051077f07265546a8caf71dca1a4d3b}{Play\+Again}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5af}\label{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5af}} 
+\index{ClientRequest.h@{ClientRequest.h}!RequestType@{RequestType}}
+\index{RequestType@{RequestType}!ClientRequest.h@{ClientRequest.h}}
+\doxysubsubsection{\texorpdfstring{RequestType}{RequestType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5af}{Request\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JoinGame@{JoinGame}!ClientRequest.h@{ClientRequest.h}}\index{ClientRequest.h@{ClientRequest.h}!JoinGame@{JoinGame}}}\mbox{\Hypertarget{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa18a6c2f10d6ea5bf747a280849e36456}\label{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa18a6c2f10d6ea5bf747a280849e36456}} 
+Join\+Game&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StartGame@{StartGame}!ClientRequest.h@{ClientRequest.h}}\index{ClientRequest.h@{ClientRequest.h}!StartGame@{StartGame}}}\mbox{\Hypertarget{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa8a7b88cd602849e993a8ba3cdef39462}\label{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa8a7b88cd602849e993a8ba3cdef39462}} 
+Start\+Game&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CallShot@{CallShot}!ClientRequest.h@{ClientRequest.h}}\index{ClientRequest.h@{ClientRequest.h}!CallShot@{CallShot}}}\mbox{\Hypertarget{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa1b55f3b3a65ad9364c80581cd166f9bf}\label{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa1b55f3b3a65ad9364c80581cd166f9bf}} 
+Call\+Shot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SendEmote@{SendEmote}!ClientRequest.h@{ClientRequest.h}}\index{ClientRequest.h@{ClientRequest.h}!SendEmote@{SendEmote}}}\mbox{\Hypertarget{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa1072c12cc06d0cd0a4c3904bd114b892}\label{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa1072c12cc06d0cd0a4c3904bd114b892}} 
+Send\+Emote&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QuitGame@{QuitGame}!ClientRequest.h@{ClientRequest.h}}\index{ClientRequest.h@{ClientRequest.h}!QuitGame@{QuitGame}}}\mbox{\Hypertarget{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afac4932eb27921738ea095473272240ceb}\label{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afac4932eb27921738ea095473272240ceb}} 
+Quit\+Game&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PlayAgain@{PlayAgain}!ClientRequest.h@{ClientRequest.h}}\index{ClientRequest.h@{ClientRequest.h}!PlayAgain@{PlayAgain}}}\mbox{\Hypertarget{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa4051077f07265546a8caf71dca1a4d3b}\label{_client_request_8h_ae10b07f2d0feb103db7fe4cfd192e5afa4051077f07265546a8caf71dca1a4d3b}} 
+Play\+Again&\\
+\hline
+
+\end{DoxyEnumFields}

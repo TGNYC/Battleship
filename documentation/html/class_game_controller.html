@@ -77,17 +77,17 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8889bad76bc35487d3391fb8a5791616"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a8889bad76bc35487d3391fb8a5791616">init</a> (<a class="el" href="class_game_window.html">GameWindow</a> *gameWindow)</td></tr>
 <tr class="memdesc:a8889bad76bc35487d3391fb8a5791616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver or <a class="el" href="class_quit_game_event.html">QuitGameEvent</a>.  <a href="class_game_controller.html#a8889bad76bc35487d3391fb8a5791616">More...</a><br /></td></tr>
 <tr class="separator:a8889bad76bc35487d3391fb8a5791616"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7c4ac1ea6f08d01d3ddd629fba4e3bf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf">enterSetupPhase</a> ()</td></tr>
-<tr class="memdesc:aa7c4ac1ea6f08d01d3ddd629fba4e3bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">enter setup phase  <a href="class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf">More...</a><br /></td></tr>
-<tr class="separator:aa7c4ac1ea6f08d01d3ddd629fba4e3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a023da21da545374ee46fb873149976c4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a023da21da545374ee46fb873149976c4">connectToServer</a> ()</td></tr>
-<tr class="memdesc:a023da21da545374ee46fb873149976c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects to server.  <a href="class_game_controller.html#a023da21da545374ee46fb873149976c4">More...</a><br /></td></tr>
+<tr class="memdesc:a023da21da545374ee46fb873149976c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connects to server. Is called when connect button on <a class="el" href="class_connection_panel.html">ConnectionPanel</a> is clicked.  <a href="class_game_controller.html#a023da21da545374ee46fb873149976c4">More...</a><br /></td></tr>
 <tr class="separator:a023da21da545374ee46fb873149976c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7c4ac1ea6f08d01d3ddd629fba4e3bf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf">enterSetupPhase</a> ()</td></tr>
+<tr class="memdesc:aa7c4ac1ea6f08d01d3ddd629fba4e3bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">enter setup phase. Is called when server responds with <a class="el" href="class_join_game_success.html">JoinGameSuccess</a> response. Will show setup panel.  <a href="class_game_controller.html#aa7c4ac1ea6f08d01d3ddd629fba4e3bf">More...</a><br /></td></tr>
+<tr class="separator:aa7c4ac1ea6f08d01d3ddd629fba4e3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe316a64b2b8bd612b380cea4c806aa8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8">startGame</a> (const <a class="el" href="class_start_game_success.html">StartGameSuccess</a> &amp;response)</td></tr>
-<tr class="memdesc:abe316a64b2b8bd612b380cea4c806aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a start game request after setup phase.  <a href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8">More...</a><br /></td></tr>
+<tr class="memdesc:abe316a64b2b8bd612b380cea4c806aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that is called when server responds with <a class="el" href="class_start_game_success.html">StartGameSuccess</a>. Will show main game panel.  <a href="class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8">More...</a><br /></td></tr>
 <tr class="separator:abe316a64b2b8bd612b380cea4c806aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6401e33ba364bc0c9237b31d712a6d95"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95">handleGameEvent</a> (const <a class="el" href="class_game_event.html">GameEvent</a> &amp;event)</td></tr>
-<tr class="memdesc:a6401e33ba364bc0c9237b31d712a6d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handes shot.  <a href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95">More...</a><br /></td></tr>
+<tr class="memdesc:a6401e33ba364bc0c9237b31d712a6d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles an incoming <a class="el" href="class_game_event.html">GameEvent</a>. GameEvents are sent by the server when one of the players has placed a shot. The function will update the game state and display the new game state in the main game panel.  <a href="class_game_controller.html#a6401e33ba364bc0c9237b31d712a6d95">More...</a><br /></td></tr>
 <tr class="separator:a6401e33ba364bc0c9237b31d712a6d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e910b739b81989267a48436e887c14f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a8e910b739b81989267a48436e887c14f">callShot</a> (<a class="el" href="struct_coordinate.html">Coordinate</a> position)</td></tr>
 <tr class="memdesc:a8e910b739b81989267a48436e887c14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a shot request to the server.  <a href="class_game_controller.html#a8e910b739b81989267a48436e887c14f">More...</a><br /></td></tr>
@@ -95,16 +95,17 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa39680d70f5f952dc43e291ffcba505d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#aa39680d70f5f952dc43e291ffcba505d">sendEmote</a> (<a class="el" href="_emote_event_8h.html#a2e3a48cf37b9e80a34755a3632ac9c95">EmoteType</a> emote)</td></tr>
 <tr class="memdesc:aa39680d70f5f952dc43e291ffcba505d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an emote to the server.  <a href="class_game_controller.html#aa39680d70f5f952dc43e291ffcba505d">More...</a><br /></td></tr>
 <tr class="separator:aa39680d70f5f952dc43e291ffcba505d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4319385541953201ca2e6a13ea77b2dc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a4319385541953201ca2e6a13ea77b2dc">showEmote</a> (<a class="el" href="class_emote_event.html">EmoteEvent</a> emoteEvent)</td></tr>
-<tr class="memdesc:a4319385541953201ca2e6a13ea77b2dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays an emote to the screen.  <a href="class_game_controller.html#a4319385541953201ca2e6a13ea77b2dc">More...</a><br /></td></tr>
-<tr class="separator:a4319385541953201ca2e6a13ea77b2dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d93f67fb0a4007da7d7960482b8d63e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a3d93f67fb0a4007da7d7960482b8d63e">showEmote</a> (const <a class="el" href="class_emote_event.html">EmoteEvent</a> &amp;emoteEvent)</td></tr>
+<tr class="memdesc:a3d93f67fb0a4007da7d7960482b8d63e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays an emote to the screen and plays the corresponding sound.  <a href="class_game_controller.html#a3d93f67fb0a4007da7d7960482b8d63e">More...</a><br /></td></tr>
+<tr class="separator:a3d93f67fb0a4007da7d7960482b8d63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2efe71ed65a1f44376567d0a8f5d2818"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818">showError</a> (const std::string &amp;title, const std::string &amp;message, bool popup)</td></tr>
-<tr class="memdesc:a2efe71ed65a1f44376567d0a8f5d2818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an error message box in case of an invalid move.  <a href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818">More...</a><br /></td></tr>
+<tr class="memdesc:a2efe71ed65a1f44376567d0a8f5d2818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an error message to the console. If popup is true, it will also display a popup with the error message.  <a href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818">More...</a><br /></td></tr>
 <tr class="separator:a2efe71ed65a1f44376567d0a8f5d2818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ddeb7f7c76b45f18ac7ed8579c00081"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a4ddeb7f7c76b45f18ac7ed8579c00081">gameOver</a> (<a class="el" href="classuuid.html">uuid</a> winnerId)</td></tr>
-<tr class="memdesc:a4ddeb7f7c76b45f18ac7ed8579c00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays dialog box when game is finished.  <a href="class_game_controller.html#a4ddeb7f7c76b45f18ac7ed8579c00081">More...</a><br /></td></tr>
+<tr class="memdesc:a4ddeb7f7c76b45f18ac7ed8579c00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays dialog box when game is finished and resets the game so both players are back at the connection panel.  <a href="class_game_controller.html#a4ddeb7f7c76b45f18ac7ed8579c00081">More...</a><br /></td></tr>
 <tr class="separator:a4ddeb7f7c76b45f18ac7ed8579c00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ce9484efc87046130542b134c68ed9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a8ce9484efc87046130542b134c68ed9e">handleQuitGameEvent</a> (<a class="el" href="classuuid.html">uuid</a> quitterId)</td></tr>
+<tr class="memdesc:a8ce9484efc87046130542b134c68ed9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows popup saying that the other player left, closing the popup brings you back to the connection panel.  <a href="class_game_controller.html#a8ce9484efc87046130542b134c68ed9e">More...</a><br /></td></tr>
 <tr class="separator:a8ce9484efc87046130542b134c68ed9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ea6d7c2b11e338a3389dd3689fde9fb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_setup_panel.html">SetupPanel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a5ea6d7c2b11e338a3389dd3689fde9fb">getSetupPanel</a> ()</td></tr>
 <tr class="separator:a5ea6d7c2b11e338a3389dd3689fde9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +115,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a86c48907cab2eae5871453c599ade0eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that is called when ready button in <a class="el" href="class_setup_panel.html">SetupPanel</a> is clicked. Will send request to server to start game and creates <a class="el" href="class_game_state.html">GameState</a> used on client side.  <a href="class_game_controller.html#a86c48907cab2eae5871453c599ade0eb">More...</a><br /></td></tr>
 <tr class="separator:a86c48907cab2eae5871453c599ade0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c4adb2ffddea2b368939ef560f9a8f9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9">quitGame</a> ()</td></tr>
+<tr class="memdesc:a3c4adb2ffddea2b368939ef560f9a8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a <a class="el" href="class_quit_game.html">QuitGame</a> request to the server, is called upon closing the main window.  <a href="class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9">More...</a><br /></td></tr>
 <tr class="separator:a3c4adb2ffddea2b368939ef560f9a8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -152,7 +154,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="299,56,403,83"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="265,107,437,149"/>
 <area shape="rect" href="class_game_state.html#a1688563990437d8de4307c373e8873b0" title=" " alt="" coords="263,173,440,200"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="512,115,711,141"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="512,115,711,141"/>
 <area shape="rect" href="class_game_state.html#a97f685bcb11573b49fe78dac13ffe072" title=" " alt="" coords="515,169,707,196"/>
 <area shape="rect" href="classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="556,220,667,247"/>
 </map>
@@ -163,7 +165,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_game_controller_a8e910b739b81989267a48436e887c14f_icgraph.png" border="0" usemap="#aclass_game_controller_a8e910b739b81989267a48436e887c14f_icgraph" alt=""/></div>
 <map name="aclass_game_controller_a8e910b739b81989267a48436e887c14f_icgraph" id="aclass_game_controller_a8e910b739b81989267a48436e887c14f_icgraph">
 <area shape="rect" title="Sends a shot request to the server." alt="" coords="201,5,387,32"/>
-<area shape="rect" href="class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd" title=" " alt="" coords="5,5,153,32"/>
+<area shape="rect" href="class_view_grid.html#afab81f4c16c55819ac983060560844e2" title=" " alt="" coords="5,5,153,32"/>
 </map>
 </div>
 
@@ -192,21 +194,20 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Connects to server. </p>
-<p>Function that is called when connect button on <a class="el" href="class_connection_panel.html">ConnectionPanel</a> is clicked. Will try to connect to the server. </p>
+<p>Connects to server. Is called when connect button on <a class="el" href="class_connection_panel.html">ConnectionPanel</a> is clicked. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a023da21da545374ee46fb873149976c4_cgraph.png" border="0" usemap="#aclass_game_controller_a023da21da545374ee46fb873149976c4_cgraph" alt=""/></div>
 <map name="aclass_game_controller_a023da21da545374ee46fb873149976c4_cgraph" id="aclass_game_controller_a023da21da545374ee46fb873149976c4_cgraph">
-<area shape="rect" title="Connects to server." alt="" coords="5,166,204,207"/>
+<area shape="rect" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="5,166,204,207"/>
 <area shape="rect" href="classuuid.html#a19c9ad8ada196326ebe7a58420c3a4fb" title=" " alt="" coords="266,5,466,32"/>
 <area shape="rect" href="class_connection_panel.html#aae98ee379bc9ba0ad2b41793658b8064" title="Getter for the server address." alt="" coords="265,57,467,98"/>
 <area shape="rect" href="class_connection_panel.html#ab0dc7af0934d4184aa04d220e0bd9719" title="Getter for the server port." alt="" coords="253,123,479,149"/>
 <area shape="rect" href="class_connection_panel.html#a1fa98d5897d11136e8c1c9d98124b408" title="Getter for the username." alt="" coords="252,173,480,200"/>
 <area shape="rect" href="class_client_network_manager.html#a06cadb3e1070d0a3156b87f52771e969" title=" " alt="" coords="280,225,452,266"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="280,290,452,331"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="528,327,727,353"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="528,327,727,353"/>
 <area shape="rect" href="class_input_field.html#abf8772b4331e10f7d8f236556f24948d" title=" " alt="" coords="552,123,703,149"/>
 </map>
 </div>
@@ -215,7 +216,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a023da21da545374ee46fb873149976c4_icgraph.png" border="0" usemap="#aclass_game_controller_a023da21da545374ee46fb873149976c4_icgraph" alt=""/></div>
 <map name="aclass_game_controller_a023da21da545374ee46fb873149976c4_icgraph" id="aclass_game_controller_a023da21da545374ee46fb873149976c4_icgraph">
-<area shape="rect" title="Connects to server." alt="" coords="519,5,717,47"/>
+<area shape="rect" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="519,5,717,47"/>
 <area shape="rect" href="class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,5,471,47"/>
 <area shape="rect" href="class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="5,5,216,47"/>
 </map>
@@ -246,14 +247,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>enter setup phase </p>
-<p>@beief function that is called when server responds with <a class="el" href="class_join_game_success.html">JoinGameSuccess</a> response. Will show setup panel. </p>
+<p>enter setup phase. Is called when server responds with <a class="el" href="class_join_game_success.html">JoinGameSuccess</a> response. Will show setup panel. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_cgraph.png" border="0" usemap="#aclass_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_cgraph" alt=""/></div>
 <map name="aclass_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_cgraph" id="aclass_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_cgraph">
-<area shape="rect" title="enter setup phase" alt="" coords="5,5,209,47"/>
+<area shape="rect" title="enter setup phase. Is called when server responds with JoinGameSuccess response. Will show setup pane..." alt="" coords="5,5,209,47"/>
 <area shape="rect" href="class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="257,13,447,39"/>
 </map>
 </div>
@@ -262,7 +262,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_icgraph.png" border="0" usemap="#aclass_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_icgraph" alt=""/></div>
 <map name="aclass_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_icgraph" id="aclass_game_controller_aa7c4ac1ea6f08d01d3ddd629fba4e3bf_icgraph">
-<area shape="rect" title="enter setup phase" alt="" coords="236,5,440,47"/>
+<area shape="rect" title="enter setup phase. Is called when server responds with JoinGameSuccess response. Will show setup pane..." alt="" coords="236,5,440,47"/>
 <area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -293,13 +293,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Displays dialog box when game is finished. </p>
+<p>Displays dialog box when game is finished and resets the game so both players are back at the connection panel. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_cgraph.png" border="0" usemap="#aclass_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_cgraph" alt=""/></div>
 <map name="aclass_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_cgraph" id="aclass_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_cgraph">
-<area shape="rect" title="Displays dialog box when game is finished." alt="" coords="5,56,207,83"/>
+<area shape="rect" title="Displays dialog box when game is finished and resets the game so both players are back at the connect..." alt="" coords="5,56,207,83"/>
 <area shape="rect" href="class_game_state.html#a4d51b326e65c9cf867ff90bb5361cb75" title=" " alt="" coords="263,5,401,32"/>
 <area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="280,56,384,83"/>
 <area shape="rect" href="class_game_controller.html#a8889bad76bc35487d3391fb8a5791616" title="Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver o..." alt="" coords="255,107,409,133"/>
@@ -311,7 +311,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_icgraph.png" border="0" usemap="#aclass_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_icgraph" alt=""/></div>
 <map name="aclass_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_icgraph" id="aclass_game_controller_a4ddeb7f7c76b45f18ac7ed8579c00081_icgraph">
-<area shape="rect" title="Displays dialog box when game is finished." alt="" coords="236,13,437,39"/>
+<area shape="rect" title="Displays dialog box when game is finished and resets the game so both players are back at the connect..." alt="" coords="236,13,437,39"/>
 <area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -412,27 +412,27 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Handes shot. </p>
+<p>Handles an incoming <a class="el" href="class_game_event.html">GameEvent</a>. GameEvents are sent by the server when one of the players has placed a shot. The function will update the game state and display the new game state in the main game panel. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a6401e33ba364bc0c9237b31d712a6d95_cgraph.png" border="0" usemap="#aclass_game_controller_a6401e33ba364bc0c9237b31d712a6d95_cgraph" alt=""/></div>
 <map name="aclass_game_controller_a6401e33ba364bc0c9237b31d712a6d95_cgraph" id="aclass_game_controller_a6401e33ba364bc0c9237b31d712a6d95_cgraph">
-<area shape="rect" title="Handes shot." alt="" coords="5,234,221,275"/>
-<area shape="rect" href="class_main_game_panel.html#a93b04a993814b432bd16233627a2fce9" title="Builds the game state." alt="" coords="269,175,476,217"/>
-<area shape="rect" href="class_game_state.html#a102491d8e34e029987265830245d50c0" title=" " alt="" coords="529,5,754,32"/>
-<area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="321,241,425,268"/>
-<area shape="rect" href="class_audio_player.html#a203c088054ba74271ebabddcdb0f6ec9" title=" " alt="" coords="305,292,441,319"/>
+<area shape="rect" title="Handles an incoming GameEvent. GameEvents are sent by the server when one of the players has placed a..." alt="" coords="5,331,221,373"/>
+<area shape="rect" href="class_main_game_panel.html#a93b04a993814b432bd16233627a2fce9" title="Builds the game state." alt="" coords="269,201,476,242"/>
+<area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="321,313,425,340"/>
+<area shape="rect" href="class_audio_player.html#a203c088054ba74271ebabddcdb0f6ec9" title=" " alt="" coords="305,364,441,391"/>
 <area shape="rect" href="class_game_state.html#a1f3cd04effc3dbe31dbab2a4bb118fa5" title="updates the CLIENT SIDE boards after a game event happened." alt="" coords="276,461,469,488"/>
+<area shape="rect" href="class_game_state.html#a102491d8e34e029987265830245d50c0" title=" " alt="" coords="529,5,754,32"/>
 <area shape="rect" href="class_player.html#a8750e6a68f0829cd242b57a0309712fe" title=" " alt="" coords="576,56,707,83"/>
-<area shape="rect" href="class_game_state.html#a671ff7398c47976ac4e8c32a99f9b975" title=" " alt="" coords="536,107,747,133"/>
-<area shape="rect" href="class_game_state.html#a68782b04bdf0170345f08e0bc727c3aa" title=" " alt="" coords="559,157,724,184"/>
+<area shape="rect" href="class_game_state.html#a9cc777cd1cc316adb3007fc3793d5016" title=" " alt="" coords="536,107,747,133"/>
+<area shape="rect" href="class_game_state.html#a88e258a1067f90546aa3e605ecc3698d" title=" " alt="" coords="559,157,724,184"/>
 <area shape="rect" href="class_game_state.html#a97f685bcb11573b49fe78dac13ffe072" title=" " alt="" coords="545,208,737,235"/>
-<area shape="rect" href="class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title=" " alt="" coords="562,259,721,285"/>
-<area shape="rect" href="class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title=" " alt="" coords="562,309,721,336"/>
-<area shape="rect" href="class_ship_panel.html#a08a5b0c84169da4b46a452b773950744" title=" " alt="" coords="572,360,711,387"/>
+<area shape="rect" href="class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title="Displays the ships on the grid." alt="" coords="562,259,721,285"/>
+<area shape="rect" href="class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title="Displays the shots on the grid." alt="" coords="562,309,721,336"/>
+<area shape="rect" href="class_ship_panel.html#a08a5b0c84169da4b46a452b773950744" title="Updates the panel to show the ships that have been sunk." alt="" coords="572,360,711,387"/>
 <area shape="rect" href="class_ship.html#a287e92cf547e828d1e2f7eb96294a4cc" title=" " alt="" coords="596,411,687,437"/>
-<area shape="rect" href="class_game_state.html#a3be92441d238c180586ed5e3a625f4d4" title=" " alt="" coords="565,461,717,488"/>
+<area shape="rect" href="class_game_state.html#a372afaaf78015c1177724ae6e00d130a" title=" " alt="" coords="565,461,717,488"/>
 <area shape="rect" href="class_ship.html#a864b8344f70c440e555fad2cd17f4852" title=" " alt="" coords="604,512,679,539"/>
 <area shape="rect" href="class_game_state.html#a60c784e38959a303438c53f56c9112bc" title=" " alt="" coords="524,563,759,589"/>
 <area shape="rect" href="class_ship.html#af5167f6f099a86505eed17323f048eec" title=" " alt="" coords="807,512,935,539"/>
@@ -444,7 +444,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a6401e33ba364bc0c9237b31d712a6d95_icgraph.png" border="0" usemap="#aclass_game_controller_a6401e33ba364bc0c9237b31d712a6d95_icgraph" alt=""/></div>
 <map name="aclass_game_controller_a6401e33ba364bc0c9237b31d712a6d95_icgraph" id="aclass_game_controller_a6401e33ba364bc0c9237b31d712a6d95_icgraph">
-<area shape="rect" title="Handes shot." alt="" coords="236,5,452,47"/>
+<area shape="rect" title="Handles an incoming GameEvent. GameEvents are sent by the server when one of the players has placed a..." alt="" coords="236,5,452,47"/>
 <area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -474,7 +474,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>shows popup saying that the other player left. closing the popup brings you back to the connection panel. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Shows popup saying that the other player left, closing the popup brings you back to the connection panel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">leaverId</td><td>id of the player who quit </td></tr>
   </table>
@@ -485,7 +487,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a8ce9484efc87046130542b134c68ed9e_cgraph.png" border="0" usemap="#aclass_game_controller_a8ce9484efc87046130542b134c68ed9e_cgraph" alt=""/></div>
 <map name="aclass_game_controller_a8ce9484efc87046130542b134c68ed9e_cgraph" id="aclass_game_controller_a8ce9484efc87046130542b134c68ed9e_cgraph">
-<area shape="rect" title=" " alt="" coords="5,23,209,65"/>
+<area shape="rect" title="Shows popup saying that the other player left, closing the popup brings you back to the connection pa..." alt="" coords="5,23,209,65"/>
 <area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="283,5,387,32"/>
 <area shape="rect" href="class_game_controller.html#a8889bad76bc35487d3391fb8a5791616" title="Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver o..." alt="" coords="257,56,412,83"/>
 <area shape="rect" href="class_game_window.html#a38ba4c455f0a985cde1421193ede3bea" title=" " alt="" coords="460,56,649,83"/>
@@ -496,7 +498,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a8ce9484efc87046130542b134c68ed9e_icgraph.png" border="0" usemap="#aclass_game_controller_a8ce9484efc87046130542b134c68ed9e_icgraph" alt=""/></div>
 <map name="aclass_game_controller_a8ce9484efc87046130542b134c68ed9e_icgraph" id="aclass_game_controller_a8ce9484efc87046130542b134c68ed9e_icgraph">
-<area shape="rect" title=" " alt="" coords="236,5,440,47"/>
+<area shape="rect" title="Shows popup saying that the other player left, closing the popup brings you back to the connection pa..." alt="" coords="236,5,440,47"/>
 <area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -528,13 +530,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver or <a class="el" href="class_quit_game_event.html">QuitGameEvent</a>. </p>
-<p>Constructor for <a class="el" href="class_game_controller.html">GameController</a>. Initializes different panels.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">gameWindow</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -550,8 +545,8 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_game_controller_a8889bad76bc35487d3391fb8a5791616_icgraph.png" border="0" usemap="#aclass_game_controller_a8889bad76bc35487d3391fb8a5791616_icgraph" alt=""/></div>
 <map name="aclass_game_controller_a8889bad76bc35487d3391fb8a5791616_icgraph" id="aclass_game_controller_a8889bad76bc35487d3391fb8a5791616_icgraph">
 <area shape="rect" title="Initializes all panels, displays the connection panel. Is also used to reset everything on GameOver o..." alt="" coords="488,64,643,91"/>
-<area shape="rect" href="class_game_controller.html#a4ddeb7f7c76b45f18ac7ed8579c00081" title="Displays dialog box when game is finished." alt="" coords="237,5,439,32"/>
-<area shape="rect" href="class_game_controller.html#a8ce9484efc87046130542b134c68ed9e" title=" " alt="" coords="236,57,440,98"/>
+<area shape="rect" href="class_game_controller.html#a4ddeb7f7c76b45f18ac7ed8579c00081" title="Displays dialog box when game is finished and resets the game so both players are back at the connect..." alt="" coords="237,5,439,32"/>
+<area shape="rect" href="class_game_controller.html#a8ce9484efc87046130542b134c68ed9e" title="Shows popup saying that the other player left, closing the popup brings you back to the connection pa..." alt="" coords="236,57,440,98"/>
 <area shape="rect" href="class_battleship.html#a07e673975dfed4f8252e1c3be538db44" title=" " alt="" coords="271,123,405,149"/>
 <area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,27,188,69"/>
 </map>
@@ -597,7 +592,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="class_setup_panel.html#a3f20a36437998d93efba974b0585b652" title=" " alt="" coords="282,259,473,285"/>
 <area shape="rect" href="class_setup_manager.html#afae76f256a7ca05b2c58b0b3f46e5083" title="checks if all ships have been placed (= no longer at initial position)" alt="" coords="268,309,487,336"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="291,361,463,402"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="535,397,733,424"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="535,397,733,424"/>
 </map>
 </div>
 <div class="dynheader">
@@ -635,16 +630,17 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>sends a <a class="el" href="class_quit_game.html">QuitGame</a> request to the server is being called upon closing the main window </p>
+
+<p>Sends a <a class="el" href="class_quit_game.html">QuitGame</a> request to the server, is called upon closing the main window. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_cgraph.png" border="0" usemap="#aclass_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_cgraph" alt=""/></div>
 <map name="aclass_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_cgraph" id="aclass_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,35,203,61"/>
+<area shape="rect" title="Sends a QuitGame request to the server, is called upon closing the main window." alt="" coords="5,35,203,61"/>
 <area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="285,5,389,32"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="251,57,423,98"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="471,64,669,91"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="471,64,669,91"/>
 </map>
 </div>
 <div class="dynheader">
@@ -652,7 +648,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_icgraph.png" border="0" usemap="#aclass_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_icgraph" alt=""/></div>
 <map name="aclass_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_icgraph" id="aclass_game_controller_a3c4adb2ffddea2b368939ef560f9a8f9_icgraph">
-<area shape="rect" title=" " alt="" coords="484,5,681,32"/>
+<area shape="rect" title="Sends a QuitGame request to the server, is called upon closing the main window." alt="" coords="484,5,681,32"/>
 <area shape="rect" href="class_game_window.html#aafc4bcbd97bd945e3777f0452f69fee9" title=" " alt="" coords="264,5,436,32"/>
 <area shape="rect" href="class_game_window.html#a5ad45eb351feed827c62865601d0e299" title=" " alt="" coords="5,5,216,32"/>
 </map>
@@ -685,6 +681,12 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Sends an emote to the server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">emote</td><td>The emote to be sent. EmoteType is an enum with 6 possible emotes. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -693,7 +695,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Sends an emote to the server." alt="" coords="5,35,212,61"/>
 <area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="294,5,398,32"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="260,57,432,98"/>
-<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message box in case of an invalid move." alt="" coords="480,64,679,91"/>
+<area shape="rect" href="class_game_controller.html#a2efe71ed65a1f44376567d0a8f5d2818" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="480,64,679,91"/>
 </map>
 </div>
 <div class="dynheader">
@@ -708,8 +710,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a4319385541953201ca2e6a13ea77b2dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4319385541953201ca2e6a13ea77b2dc">&#9670;&nbsp;</a></span>showEmote()</h2>
+<a id="a3d93f67fb0a4007da7d7960482b8d63e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d93f67fb0a4007da7d7960482b8d63e">&#9670;&nbsp;</a></span>showEmote()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -720,7 +722,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void GameController::showEmote </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_emote_event.html">EmoteEvent</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_emote_event.html">EmoteEvent</a> &amp;&#160;</td>
           <td class="paramname"><em>emoteEvent</em></td><td>)</td>
           <td></td>
         </tr>
@@ -732,13 +734,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Displays an emote to the screen. </p>
+<p>Displays an emote to the screen and plays the corresponding sound. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_game_controller_a4319385541953201ca2e6a13ea77b2dc_cgraph.png" border="0" usemap="#aclass_game_controller_a4319385541953201ca2e6a13ea77b2dc_cgraph" alt=""/></div>
-<map name="aclass_game_controller_a4319385541953201ca2e6a13ea77b2dc_cgraph" id="aclass_game_controller_a4319385541953201ca2e6a13ea77b2dc_cgraph">
-<area shape="rect" title="Displays an emote to the screen." alt="" coords="5,81,215,108"/>
+<div class="center"><img src="class_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_cgraph.png" border="0" usemap="#aclass_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_cgraph" alt=""/></div>
+<map name="aclass_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_cgraph" id="aclass_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_cgraph">
+<area shape="rect" title="Displays an emote to the screen and plays the corresponding sound." alt="" coords="5,81,215,108"/>
 <area shape="rect" href="class_main_game_panel.html#a5301c840919c65bec3a6161d44610e6c" title="Displays the emote sent by the other player." alt="" coords="263,5,488,32"/>
 <area shape="rect" href="class_emote_handler.html#aec95c74226877a18b944f1ca7e1d8f3c" title=" " alt="" coords="283,56,468,83"/>
 <area shape="rect" href="class_emote_handler.html#a904515f611d0e49dcd4ac67f1fddf860" title=" " alt="" coords="283,107,467,133"/>
@@ -748,9 +750,9 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_game_controller_a4319385541953201ca2e6a13ea77b2dc_icgraph.png" border="0" usemap="#aclass_game_controller_a4319385541953201ca2e6a13ea77b2dc_icgraph" alt=""/></div>
-<map name="aclass_game_controller_a4319385541953201ca2e6a13ea77b2dc_icgraph" id="aclass_game_controller_a4319385541953201ca2e6a13ea77b2dc_icgraph">
-<area shape="rect" title="Displays an emote to the screen." alt="" coords="236,13,445,39"/>
+<div class="center"><img src="class_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_icgraph.png" border="0" usemap="#aclass_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_icgraph" alt=""/></div>
+<map name="aclass_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_icgraph" id="aclass_game_controller_a3d93f67fb0a4007da7d7960482b8d63e_icgraph">
+<area shape="rect" title="Displays an emote to the screen and plays the corresponding sound." alt="" coords="236,13,445,39"/>
 <area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
 </map>
 </div>
@@ -797,14 +799,22 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Prints an error message box in case of an invalid move. </p>
+<p>Prints an error message to the console. If popup is true, it will also display a popup with the error message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>The title of the popup. </td></tr>
+    <tr><td class="paramname">message</td><td>The message to be displayed. </td></tr>
+    <tr><td class="paramname">popup</td><td>Whether or not to display a popup window. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_a2efe71ed65a1f44376567d0a8f5d2818_icgraph.png" border="0" usemap="#aclass_game_controller_a2efe71ed65a1f44376567d0a8f5d2818_icgraph" alt=""/></div>
 <map name="aclass_game_controller_a2efe71ed65a1f44376567d0a8f5d2818_icgraph" id="aclass_game_controller_a2efe71ed65a1f44376567d0a8f5d2818_icgraph">
-<area shape="rect" title="Prints an error message box in case of an invalid move." alt="" coords="1012,107,1211,134"/>
-<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="527,16,725,57"/>
+<area shape="rect" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="1012,107,1211,134"/>
+<area shape="rect" href="class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="527,16,725,57"/>
 <area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="781,195,964,236"/>
 <area shape="rect" href="class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="519,82,733,109"/>
 <area shape="rect" href="class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="787,129,959,171"/>
@@ -813,9 +823,9 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="265,71,469,112"/>
 <area shape="rect" href="class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="23,78,198,105"/>
 <area shape="rect" href="class_game_controller.html#a8e910b739b81989267a48436e887c14f" title="Sends a shot request to the server." alt="" coords="533,137,719,163"/>
-<area shape="rect" href="class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9" title=" " alt="" coords="527,187,725,214"/>
+<area shape="rect" href="class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9" title="Sends a QuitGame request to the server, is called upon closing the main window." alt="" coords="527,187,725,214"/>
 <area shape="rect" href="class_game_controller.html#aa39680d70f5f952dc43e291ffcba505d" title="Sends an emote to the server." alt="" coords="523,238,729,265"/>
-<area shape="rect" href="class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd" title=" " alt="" coords="293,137,441,163"/>
+<area shape="rect" href="class_view_grid.html#afab81f4c16c55819ac983060560844e2" title=" " alt="" coords="293,137,441,163"/>
 <area shape="rect" href="class_game_window.html#aafc4bcbd97bd945e3777f0452f69fee9" title=" " alt="" coords="281,187,453,214"/>
 <area shape="rect" href="class_game_window.html#a5ad45eb351feed827c62865601d0e299" title=" " alt="" coords="5,187,216,214"/>
 <area shape="rect" href="class_emote_panel.html#afb5482f1d97c66199e4bd42d5c7f574d" title=" " alt="" coords="275,238,459,265"/>
@@ -848,14 +858,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Sends a start game request after setup phase. </p>
 <p>Function that is called when server responds with <a class="el" href="class_start_game_success.html">StartGameSuccess</a>. Will show main game panel. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_abe316a64b2b8bd612b380cea4c806aa8_cgraph.png" border="0" usemap="#aclass_game_controller_abe316a64b2b8bd612b380cea4c806aa8_cgraph" alt=""/></div>
 <map name="aclass_game_controller_abe316a64b2b8bd612b380cea4c806aa8_cgraph" id="aclass_game_controller_abe316a64b2b8bd612b380cea4c806aa8_cgraph">
-<area shape="rect" title="Sends a start game request after setup phase." alt="" coords="5,267,208,293"/>
+<area shape="rect" title="Function that is called when server responds with StartGameSuccess. Will show main game panel." alt="" coords="5,267,208,293"/>
 <area shape="rect" href="class_game_state.html#a4546c285bc3f6ca47b23b2dc792972c9" title=" " alt="" coords="275,149,443,176"/>
 <area shape="rect" href="class_main_game_panel.html#a93b04a993814b432bd16233627a2fce9" title="Builds the game state." alt="" coords="256,201,463,242"/>
 <area shape="rect" href="class_player.html#ad10627e48f6ddd30053152bb75c9f478" title=" " alt="" coords="307,267,411,293"/>
@@ -863,12 +872,12 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="class_game_state.html#ac8284a948f0db3ba7f9eb3ce329760aa" title=" " alt="" coords="293,389,426,416"/>
 <area shape="rect" href="class_game_state.html#a102491d8e34e029987265830245d50c0" title=" " alt="" coords="511,5,736,32"/>
 <area shape="rect" href="class_player.html#a8750e6a68f0829cd242b57a0309712fe" title=" " alt="" coords="558,56,689,83"/>
-<area shape="rect" href="class_game_state.html#a671ff7398c47976ac4e8c32a99f9b975" title=" " alt="" coords="518,107,729,133"/>
-<area shape="rect" href="class_game_state.html#a68782b04bdf0170345f08e0bc727c3aa" title=" " alt="" coords="541,157,706,184"/>
+<area shape="rect" href="class_game_state.html#a9cc777cd1cc316adb3007fc3793d5016" title=" " alt="" coords="518,107,729,133"/>
+<area shape="rect" href="class_game_state.html#a88e258a1067f90546aa3e605ecc3698d" title=" " alt="" coords="541,157,706,184"/>
 <area shape="rect" href="class_game_state.html#a97f685bcb11573b49fe78dac13ffe072" title=" " alt="" coords="527,208,719,235"/>
-<area shape="rect" href="class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title=" " alt="" coords="544,259,703,285"/>
-<area shape="rect" href="class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title=" " alt="" coords="544,309,703,336"/>
-<area shape="rect" href="class_ship_panel.html#a08a5b0c84169da4b46a452b773950744" title=" " alt="" coords="554,360,693,387"/>
+<area shape="rect" href="class_view_grid.html#a430feba553ffa25ee9e9f5f7048d78e2" title="Displays the ships on the grid." alt="" coords="544,259,703,285"/>
+<area shape="rect" href="class_view_grid.html#a31781b19eeb822bf529c9adf60c0045b" title="Displays the shots on the grid." alt="" coords="544,309,703,336"/>
+<area shape="rect" href="class_ship_panel.html#a08a5b0c84169da4b46a452b773950744" title="Updates the panel to show the ships that have been sunk." alt="" coords="554,360,693,387"/>
 <area shape="rect" href="classuuid.html#a04bfb2adaeef98a1846e9ff7a93f8c40" title=" " alt="" coords="568,411,679,437"/>
 </map>
 </div>
@@ -877,7 +886,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_game_controller_abe316a64b2b8bd612b380cea4c806aa8_icgraph.png" border="0" usemap="#aclass_game_controller_abe316a64b2b8bd612b380cea4c806aa8_icgraph" alt=""/></div>
 <map name="aclass_game_controller_abe316a64b2b8bd612b380cea4c806aa8_icgraph" id="aclass_game_controller_abe316a64b2b8bd612b380cea4c806aa8_icgraph">
-<area shape="rect" title="Sends a start game request after setup phase." alt="" coords="236,13,439,39"/>
+<area shape="rect" title="Function that is called when server responds with StartGameSuccess. Will show main game panel." alt="" coords="236,13,439,39"/>
 <area shape="rect" href="class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="5,5,188,47"/>
 </map>
 </div>

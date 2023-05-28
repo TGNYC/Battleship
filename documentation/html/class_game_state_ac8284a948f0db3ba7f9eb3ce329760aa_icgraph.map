@@ -1,7 +1,7 @@
 <map id="GameState::start" name="GameState::start">
 <area shape="rect" id="node1" title=" " alt="" coords="535,35,668,61"/>
-<area shape="rect" id="node2" href="$class_game_instance.html#a07ac68d243aa2819e56de915acfd0da9" title=" " alt="" coords="289,8,482,35"/>
-<area shape="rect" id="node4" href="$class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Sends a start game request after setup phase." alt="" coords="284,60,487,87"/>
+<area shape="rect" id="node2" href="$class_game_instance.html#ab0ab94bbf73c5afe5075dd57a365a41c" title=" " alt="" coords="289,8,482,35"/>
+<area shape="rect" id="node4" href="$class_game_controller.html#abe316a64b2b8bd612b380cea4c806aa8" title="Function that is called when server responds with StartGameSuccess. Will show main game panel." alt="" coords="284,60,487,87"/>
 <area shape="rect" id="node3" href="$class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,5,236,32"/>
 <area shape="rect" id="node5" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="29,57,212,98"/>
 </map>

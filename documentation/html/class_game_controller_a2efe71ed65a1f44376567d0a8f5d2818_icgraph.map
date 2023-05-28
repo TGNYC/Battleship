@@ -1,6 +1,6 @@
 <map id="GameController::showError" name="GameController::showError">
-<area shape="rect" id="node1" title="Prints an error message box in case of an invalid move." alt="" coords="1012,107,1211,134"/>
-<area shape="rect" id="node2" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="527,16,725,57"/>
+<area shape="rect" id="node1" title="Prints an error message to the console. If popup is true, it will also display a popup with the error..." alt="" coords="1012,107,1211,134"/>
+<area shape="rect" id="node2" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="527,16,725,57"/>
 <area shape="rect" id="node5" href="$class_response_listener_thread.html#a09e9ca8089bfbdda450915c1873596e6" title=" " alt="" coords="781,195,964,236"/>
 <area shape="rect" id="node6" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="519,82,733,109"/>
 <area shape="rect" id="node9" href="$class_client_network_manager.html#a8903a6751bb4a9ef7398e25e1a8b5870" title=" " alt="" coords="787,129,959,171"/>
@@ -9,9 +9,9 @@
 <area shape="rect" id="node7" href="$class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="265,71,469,112"/>
 <area shape="rect" id="node8" href="$class_setup_panel.html#ac64823d178d62110548fb760ed1cc360" title="Constructor of SetupPanel. Creates the panel and all its components." alt="" coords="23,78,198,105"/>
 <area shape="rect" id="node10" href="$class_game_controller.html#a8e910b739b81989267a48436e887c14f" title="Sends a shot request to the server." alt="" coords="533,137,719,163"/>
-<area shape="rect" id="node12" href="$class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9" title=" " alt="" coords="527,187,725,214"/>
+<area shape="rect" id="node12" href="$class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9" title="Sends a QuitGame request to the server, is called upon closing the main window." alt="" coords="527,187,725,214"/>
 <area shape="rect" id="node15" href="$class_game_controller.html#aa39680d70f5f952dc43e291ffcba505d" title="Sends an emote to the server." alt="" coords="523,238,729,265"/>
-<area shape="rect" id="node11" href="$class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd" title=" " alt="" coords="293,137,441,163"/>
+<area shape="rect" id="node11" href="$class_view_grid.html#afab81f4c16c55819ac983060560844e2" title=" " alt="" coords="293,137,441,163"/>
 <area shape="rect" id="node13" href="$class_game_window.html#aafc4bcbd97bd945e3777f0452f69fee9" title=" " alt="" coords="281,187,453,214"/>
 <area shape="rect" id="node14" href="$class_game_window.html#a5ad45eb351feed827c62865601d0e299" title=" " alt="" coords="5,187,216,214"/>
 <area shape="rect" id="node16" href="$class_emote_panel.html#afb5482f1d97c66199e4bd42d5c7f574d" title=" " alt="" coords="275,238,459,265"/>

@@ -1,11 +1,11 @@
 <map id="ClientNetworkManager::sendRequest" name="ClientNetworkManager::sendRequest">
 <area shape="rect" id="node1" title=" " alt="" coords="781,122,953,163"/>
 <area shape="rect" id="node2" href="$class_game_controller.html#a8e910b739b81989267a48436e887c14f" title="Sends a shot request to the server." alt="" coords="533,8,719,35"/>
-<area shape="rect" id="node4" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server." alt="" coords="527,61,725,102"/>
+<area shape="rect" id="node4" href="$class_game_controller.html#a023da21da545374ee46fb873149976c4" title="Connects to server. Is called when connect button on ConnectionPanel is clicked." alt="" coords="527,61,725,102"/>
 <area shape="rect" id="node7" href="$class_game_controller.html#a86c48907cab2eae5871453c599ade0eb" title="function that is called when ready button in SetupPanel is clicked. Will send request to server to st..." alt="" coords="519,129,733,156"/>
-<area shape="rect" id="node10" href="$class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9" title=" " alt="" coords="527,184,725,211"/>
+<area shape="rect" id="node10" href="$class_game_controller.html#a3c4adb2ffddea2b368939ef560f9a8f9" title="Sends a QuitGame request to the server, is called upon closing the main window." alt="" coords="527,184,725,211"/>
 <area shape="rect" id="node13" href="$class_game_controller.html#aa39680d70f5f952dc43e291ffcba505d" title="Sends an emote to the server." alt="" coords="523,235,729,261"/>
-<area shape="rect" id="node3" href="$class_view_grid.html#afb7790f7e31df81b3a525fd5e37ac8fd" title=" " alt="" coords="293,5,441,32"/>
+<area shape="rect" id="node3" href="$class_view_grid.html#afab81f4c16c55819ac983060560844e2" title=" " alt="" coords="293,5,441,32"/>
 <area shape="rect" id="node5" href="$class_connection_panel.html#a8d9a9d15af3ddb3e5671e5b81c7efa7d" title="Button event handler. Will trigger GameController::connectToServer() to establish a connection to the..." alt="" coords="264,57,471,98"/>
 <area shape="rect" id="node6" href="$class_connection_panel.html#abc032283798f168176fc9af6fab9cbca" title="Constructor for ConnectionPanel." alt="" coords="5,57,216,98"/>
 <area shape="rect" id="node8" href="$class_setup_panel.html#a7f63d5f1d5c49d57f70ffa10cb341a02" title="event handler for when the &quot;Ready&quot; button is clicked. Checks if all ships have been placed,..." alt="" coords="265,122,469,163"/>

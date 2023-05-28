@@ -1,0 +1,94 @@
+\hypertarget{class_client_network_manager}{}\doxysection{Client\+Network\+Manager Class Reference}
+\label{class_client_network_manager}\index{ClientNetworkManager@{ClientNetworkManager}}
+
+
+{\ttfamily \#include $<$Client\+Network\+Manager.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_client_network_manager_a06cadb3e1070d0a3156b87f52771e969}{init}} (const std\+::string \&host, const uint16\+\_\+t port)
+\item 
+static void \mbox{\hyperlink{class_client_network_manager_a8903a6751bb4a9ef7398e25e1a8b5870}{send\+Request}} (const \mbox{\hyperlink{class_client_request}{Client\+Request}} \&request)
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_server_response}{Server\+Response}} $>$ \mbox{\hyperlink{class_client_network_manager_a2ea0181d99330eb6caf36c5d5641bff9}{parse\+Response}} (const std\+::string \&message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_client_network_manager_a06cadb3e1070d0a3156b87f52771e969}\label{class_client_network_manager_a06cadb3e1070d0a3156b87f52771e969}} 
+\index{ClientNetworkManager@{ClientNetworkManager}!init@{init}}
+\index{init@{init}!ClientNetworkManager@{ClientNetworkManager}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily static void Client\+Network\+Manager\+::init (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{host,  }\item[{const uint16\+\_\+t}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+establishes a connection to the server specified by host address and port number 
+\begin{DoxyParams}{Parameters}
+{\em host} & server ip \\
+\hline
+{\em port} & server port \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_client_network_manager_a06cadb3e1070d0a3156b87f52771e969_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_client_network_manager_a2ea0181d99330eb6caf36c5d5641bff9}\label{class_client_network_manager_a2ea0181d99330eb6caf36c5d5641bff9}} 
+\index{ClientNetworkManager@{ClientNetworkManager}!parseResponse@{parseResponse}}
+\index{parseResponse@{parseResponse}!ClientNetworkManager@{ClientNetworkManager}}
+\doxysubsubsection{\texorpdfstring{parseResponse()}{parseResponse()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_server_response}{Server\+Response}} $>$ Client\+Network\+Manager\+::parse\+Response (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+deserializes a server response 
+\begin{DoxyParams}{Parameters}
+{\em message} & server response in json format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+response object 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_client_network_manager_a2ea0181d99330eb6caf36c5d5641bff9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_client_network_manager_a8903a6751bb4a9ef7398e25e1a8b5870}\label{class_client_network_manager_a8903a6751bb4a9ef7398e25e1a8b5870}} 
+\index{ClientNetworkManager@{ClientNetworkManager}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!ClientNetworkManager@{ClientNetworkManager}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}}
+{\footnotesize\ttfamily void Client\+Network\+Manager\+::send\+Request (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_client_request}{Client\+Request}} \&}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+serializes and sends a client request to the server 
+\begin{DoxyParams}{Parameters}
+{\em request} & message to the server \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_client_network_manager_a8903a6751bb4a9ef7398e25e1a8b5870_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_client_network_manager_a8903a6751bb4a9ef7398e25e1a8b5870_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/nico/\+Desktop/battleship/src/client/\mbox{\hyperlink{_client_network_manager_8h}{Client\+Network\+Manager.\+h}}\item 
+/home/nico/\+Desktop/battleship/src/client/\mbox{\hyperlink{_client_network_manager_8cpp}{Client\+Network\+Manager.\+cpp}}\end{DoxyCompactItemize}

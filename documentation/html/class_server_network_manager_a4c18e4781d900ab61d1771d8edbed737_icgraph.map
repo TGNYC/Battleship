@@ -1,5 +1,5 @@
 <map id="ServerNetworkManager::broadcastMessage" name="ServerNetworkManager::broadcastMessage">
 <area shape="rect" id="node1" title=" " alt="" coords="536,23,712,65"/>
-<area shape="rect" id="node2" href="$class_game_instance.html#abb7bb4aeb4372058bf741473676a5015" title=" " alt="" coords="284,5,488,32"/>
+<area shape="rect" id="node2" href="$class_game_instance.html#a347ba3a215dc6e589031085055f89ab3" title=" " alt="" coords="284,5,488,32"/>
 <area shape="rect" id="node3" href="$class_request_handler.html#acdd825a58be029e03a777f0932d9e621" title=" " alt="" coords="5,31,236,57"/>
 </map>
