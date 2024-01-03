@@ -85,7 +85,5 @@ If one of the players disconnects mid-game, for example because they have closed
     cmake -DUSE_LOCAL_WXWIDGETS=ON ..
     make
     ```
-  
-* The game is not playable on macOS.
 
 * UI text is not visible on dark mode. Change your system settings to light mode to fix this.
